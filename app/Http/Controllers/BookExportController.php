@@ -33,7 +33,21 @@ class BookExportController extends Controller
 
         return $this->download()->directly($pdfContent, $bookSlug . '.pdf');
     }
+    public function ppeToPdf()
+    {
+        //$book = $this->bookRepo->getBySlug($bookSlug);
+        $pdfContent = $this->exportFormatter->ppeToPdf();
 
+        return $this->download()->directly($pdfContent,'ppe' . '.pdf');
+    }
+    public function nci_kPdf()
+    {
+        //return view('exports.nci_kPdf');
+        //$book = $this->bookRepo->getBySlug($bookSlug);Application form to NCI-K
+        $pdfContent = $this->exportFormatter->nci_kPdf();
+
+        return $this->download()->directly($pdfContent,'Application_form_to_NCI_K' . '.pdf');
+    }
     /**
      * Export a book as a contained HTML file.
      *

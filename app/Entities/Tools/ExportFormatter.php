@@ -103,7 +103,30 @@ class ExportFormatter
 
         return $this->htmlToPdf($html);
     }
+    // 
 
+public function ppeToPdf()
+    {
+        //$page->html = (new PageContent($page))->render();
+        $html = view('exports.nci_ppe', [
+            //'page'   => $page,
+            'format' => 'pdf',
+            'engine' => $this->pdfGenerator->getActiveEngine(),
+        ])->render();
+
+        return $this->htmlToPdf($html);
+    }
+    public function nci_kPdf()
+    {
+        //$page->html = (new PageContent($page))->render();
+        $html = view('exports.nci_kPdf', [
+            //'page'   => $page,
+            'format' => 'pdf',
+            'engine' => $this->pdfGenerator->getActiveEngine(),
+        ])->render();
+
+        return $this->htmlToPdf($html);
+    }
     /**
      * Convert a chapter to a PDF file.
      *
