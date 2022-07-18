@@ -5,6 +5,9 @@ namespace BookStack\Http\Controllers;
 use BookStack\Actions\ActivityQueries;
 use BookStack\Actions\ActivityType;
 use BookStack\Actions\View;
+use BookStack\Entities\Models\PageContent_model;
+use BookStack\Entities\Tools\NextPreviousContentLocator;
+use BookStack\Entities\Tools\PageContent;
 use BookStack\Entities\Models\Bookshelf;
 use BookStack\Entities\Models\Ratings_model;
 use BookStack\Entities\Models\Counties_model;
@@ -75,9 +78,40 @@ class BookController extends Controller
 
         return view('books.create', [
             'bookshelf' => $bookshelf,
+            'reqs' =>'',
+            'cancer' => '',
         ]);
     }
+    public function cancer(string $cancer)
+    {
+        $this->checkPermission('book-create-all');
+        $this->setPageTitle(trans('entities.books_create'));
 
+        return view('books.create', [
+            'cancer' => $cancer,
+            'reqs' =>''
+        ]);
+    }
+    public function create_requirements(string $requirements)
+    {
+       // dd($requirements);
+        //$this->checkPermission('book-create-all');
+        $view = setting()->getForCurrentUser('books_view_type');
+        $sort = setting()->getForCurrentUser('books_sort', 'name');
+        $order = setting()->getForCurrentUser('books_sort_order', 'asc');
+
+        $books = $this->bookRepo->getAllReq(18, $sort, $order);
+        
+      
+        $this->setPageTitle('Consideration Requirements');
+
+        return view('books.create', [
+            'reqs' =>$requirements,
+            'cancer' => '',
+            'books'=>$books,
+            'view'    => $view,
+        ]);
+    }
     /**
      * Store a newly created book in storage.
      *
@@ -87,13 +121,29 @@ class BookController extends Controller
     public function store(Request $request, string $shelfSlug = null)
     {
         $this->checkPermission('book-create-all');
-        $validated = $this->validate($request, [
-            'name'        => ['required', 'string', 'max:255'],
-            'description' => ['string', 'max:1000'],
-            'image'       => array_merge(['nullable'], $this->getImageValidationRules()),
-            'tags'        => ['array'],
-        ]);
-
+        $requirements=$request->requirement;
+        if ($requirements == '') {
+            # code...
+           // dd($requirements);
+            $validated = $this->validate($request, [
+                'name'        => ['required', 'string', 'max:255'],
+                'description' => ['string', 'max:1000'],
+                'image'       => array_merge(['nullable'], $this->getImageValidationRules()),
+                'tags'        => ['array'],
+            ]);
+        }else{
+            
+            $validated = $this->validate($request, [
+                'requirement'=>['integer'],
+                'name'        => ['required', 'string', 'max:255'],
+                'description' => ['string', 'max:1000'],
+                'image'       => array_merge(['nullable'], $this->getImageValidationRules()),
+                'tags'        => ['array'],
+            ]);
+            //dd($validated);
+        }
+       
+        
         $bookshelf = null;
         if ($shelfSlug !== null) {
             $bookshelf = Bookshelf::visible()->where('slug', '=', $shelfSlug)->firstOrFail();
@@ -325,7 +375,21 @@ class BookController extends Controller
         return view('types_of_cancer/cancer_center_patients_form');
     }
     public function nci_operation_consideration_req(){
-        return view('types_of_cancer/operational_consideration_req');
+        // $book = $this->bookRepo->getBySlug($slug);
+        // $bookChildren = (new BookContents($book))->getTree(true);
+        // $bookParentShelves = $book->shelves()->scopes('visible')->get();
+        // // foreach ($books as $book) {
+            
+        //     $books = (new BookContents($book))->getTree(true);
+        // // }
+        // View::incrementFor($book);
+        // if ($request->has('shelf')) {
+        //     $this->entityContextManager->setShelfContext(intval($request->get('shelf')));
+        // }
+
+        // $this->setPageTitle($book->getShortName());
+//dd($books);
+        return view('types_of_cancer/bcc/chemoteraphy');
     }
     public function nci_chemotherapy(){
         return view('types_of_cancer/bcc/chemoteraphy');
@@ -353,7 +417,7 @@ class BookController extends Controller
 
         if($request->has('q')){
             $search = $request->q;
-            $data =_model::select("id","name")
+            $data =PageContent_model::select("id","name")
             		->where('name','LIKE',"%$search%")
             		->get();
         }

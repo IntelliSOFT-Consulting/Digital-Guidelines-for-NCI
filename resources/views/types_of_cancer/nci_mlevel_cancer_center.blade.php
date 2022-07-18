@@ -2,124 +2,55 @@
 
 @section('body')
 @include('common/nci_custom_styles')
-
+<style>
+@media screen and (min-width: 480px) {
+  .definition {
+    margin-left: 0%;margin-right: 0%;
+  }
+  .label {
+    margin-left: 0%;margin-right: 0%;
+  }
+}
+</style>
 <div style="margin:5px">
           <!-- search for nci -->
           @include('common/nci_search')
           <!-- end of search -->
-          <div class="row mission" style="margin-top:40px;">
-          <h2 style="text-align:center">Middle Level Cancer Center</h2>
-            <h3 class="card-text" style="text-align:center">
-            A basic cancer treatment centre is able to provide at least one cancer treatment modality either as a stand-alone 
-facility (chemotherapy, radiotherapy or surgical oncology unit) or within the precincts of a hospital. In addition, it 
-should also be able to offer prevention, screening, early detection, diagnosis, registration, treatment, palliative 
-care and survivorship services. It is expected that this centre will be a facility at level 4 or above as per the Kenya 
-Essential Package of Health (KEPH).
-</h3>
-          </div>
-          <!-- start definition -->
-          <div class="row mission" style="margin-top:40px;">
-          <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Services offered in a middle level cancer center</h4></div>
-        <div class="col-xl-2 col-lg-2-0 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-            <a href="#"><img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
-    <h4 class="card-title management">Chemotherapy/Radiotherapy
-</h4></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-2 col-lg-2-0 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <a href="#"><img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
-    <h4 class="card-title management">Chemotherapy/surgical 
-oncology
-</h4></a>
+          <div class="row mission" style="margin-top:40px;height:400px">
+          @if(Session::has('message'))
+          <div class="alert alert-success"> 
+            {{Session::get('message')}}      
+           </div> 
+        @endif
+          <h2 style="text-align:center">Cancer Management Center Facility Forms Download</h2>
+            <div class="definition" style="margin:30px;margin-left: 20%;margin-right: 10%;">
+            <h5 class="" >
+            <ol type = "1">
+            <div class="row">
+            <div class="col-md-6">
+            <!-- @C Application form to NCI-3
+/C Generic layout design (chemotherapy unit.
+7C Generic layout design (Radiation unit.
+<C Generic layout design (Nuclear medicine unit.
+$C Checklist for a medical cyclotron facilit,
+"C PPE list -->
+                  
+            <li><a href = "{{url('/books/nci-k/pdf')}}"><u>Application form to NCI-K<u></a></li>
+            <li><a href = "{{url('/')}}"><u>Generic layout design (chemotherapy unit)<u></a></li>
+            <li><a href = "{{url('/')}}"><u> Generic layout design (Radiation unit)<u></a></li>
+            <li><a href = "{{url('/')}}"><u>Generic layout design (Nuclear medicine unit)<u></a></li>
+            <li><a href = "{{url('/')}}"><u>Checklist for a medical cyclotron facility</u></a></li>
+            <li><a href = "{{url('/books/ppe/pdf')}}"><u>PPE list</u></a></li>
+
+           
             
             </div>
-          </div>
-        </div>
-        <div class="col-xl-2 col-lg-2-0 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-            <a href="#"><img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
-    <h4 class="card-title management">Nuclear Radioogy/
-Rdiotherapy
-</h4></a>
             </div>
-          </div>
-        </div>
-        <div class="col-xl-2 col-lg-2-0 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-            <a href="#"><img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
-    <h4 class="card-title management">Radiotherapy/Sugical 
-Oncology
-</h4></a>
+             </ol>
+            </h5>
             </div>
-          </div>
-        </div>
-        <div class="col-xl-2 col-lg-2-0 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-            <a href="#"><img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
-    <h4 class="card-title management">Nuclear radiology/surgical 
-chemotherapy
-</h4></a>
-            </div>
-          </div>
-        </div>
-          </div>
-          <!-- end of Services offered in a basic cancer center-->
-          <!--  Requirements for Establishing a Basic Cancer Management Center-->
-          <div class="row mission" style="margin-top:40px;">
-          <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Requirements for Establishing a Middle Level Cancer Management Center</h4></div>
-        <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-            <a href="#"><img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
-    <h4 class="card-title management">Operational Consideraton 
-Requirements
-</h4></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <a href="#"><img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
-    <h4 class="card-title management">Equipment Requirements
-</h4></a>
             
-            </div>
           </div>
-        </div>
-        <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-            <a href="#"><img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
-    <h4 class="card-title management">Human Resource
-
-Requirements
-</h4></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-            <a href="#"><img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
-    <h4 class="card-title management">Physical
-
-Infrastructure Requirements
-</h4></a>
-            </div>
-          </div>
-        </div>
-
-          </div>
-          <!--  end Requirements for Establishing a Basic Cancer Management Center-->
           <!-- footer start -->
       @include('common/nci_footer')
       <!-- footer end -->

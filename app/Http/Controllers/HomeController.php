@@ -58,7 +58,7 @@ class HomeController extends Controller
         $this->entityContextManager->clearShelfContext();
 
         $this->setPageTitle(trans('entities.books'));
-
+//dd($books);
         // return view('books.index', [
         //     'books'   => $books,
         //     'recents' => $recents,
