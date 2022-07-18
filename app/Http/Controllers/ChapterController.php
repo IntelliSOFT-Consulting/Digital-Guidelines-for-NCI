@@ -41,7 +41,12 @@ class ChapterController extends Controller
 
         return view('chapters.create', ['book' => $book, 'current' => $book]);
     }
+    public function nci_create(string $bookSlug)
+    {
+        $this->setPageTitle(trans('entities.chapters_create'));
 
+        return view('types_of_cancer.bcc.nci_create_chapter');
+    }
     /**
      * Store a newly created chapter in storage.
      *

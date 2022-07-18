@@ -5,6 +5,9 @@ namespace BookStack\Http\Controllers;
 use BookStack\Actions\ActivityQueries;
 use BookStack\Actions\ActivityType;
 use BookStack\Actions\View;
+use BookStack\Entities\Models\PageContent_model;
+use BookStack\Entities\Tools\NextPreviousContentLocator;
+use BookStack\Entities\Tools\PageContent;
 use BookStack\Entities\Models\Bookshelf;
 use BookStack\Entities\Models\Ratings_model;
 use BookStack\Entities\Models\Counties_model;
@@ -325,7 +328,21 @@ class BookController extends Controller
         return view('types_of_cancer/cancer_center_patients_form');
     }
     public function nci_operation_consideration_req(){
-        return view('types_of_cancer/operational_consideration_req');
+        // $book = $this->bookRepo->getBySlug($slug);
+        // $bookChildren = (new BookContents($book))->getTree(true);
+        // $bookParentShelves = $book->shelves()->scopes('visible')->get();
+        // // foreach ($books as $book) {
+            
+        //     $books = (new BookContents($book))->getTree(true);
+        // // }
+        // View::incrementFor($book);
+        // if ($request->has('shelf')) {
+        //     $this->entityContextManager->setShelfContext(intval($request->get('shelf')));
+        // }
+
+        // $this->setPageTitle($book->getShortName());
+//dd($books);
+        return view('types_of_cancer/bcc/chemoteraphy');
     }
     public function nci_chemotherapy(){
         return view('types_of_cancer/bcc/chemoteraphy');
@@ -353,7 +370,7 @@ class BookController extends Controller
 
         if($request->has('q')){
             $search = $request->q;
-            $data =_model::select("id","name")
+            $data =PageContent_model::select("id","name")
             		->where('name','LIKE',"%$search%")
             		->get();
         }

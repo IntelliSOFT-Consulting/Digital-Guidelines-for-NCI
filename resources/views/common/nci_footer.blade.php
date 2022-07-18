@@ -1,5 +1,5 @@
-<footer class="row" style=" bottom: 0;width: 100%;">  
-<!-- /position: fixed; -->
+<footer class="row" style=" bottom: 0;">  
+<!-- /position: fixed; width: 100%;-->
 <div  style="margin:5px;background:#FBF4F4">
        <div class="col-md-6 social">
        <h4 class="card-title management" >

@@ -55,6 +55,16 @@ class ChapterRepo
 
         return $chapter;
     }
+    public function nci_create(array $input, Book $parentBook): Chapter
+    {
+        $chapter = new Chapter();
+        $chapter->book_id = $parentBook->id;
+        $chapter->priority = (new BookContents($parentBook))->getLastPriority() + 1;
+        $this->baseRepo->create($chapter, $input);
+        Activity::add(ActivityType::CHAPTER_CREATE, $chapter);
+
+        return $chapter;
+    }
 
     /**
      * Update the given chapter.

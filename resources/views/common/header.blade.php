@@ -2,14 +2,15 @@
 <header id="header" component="header-mobile-toggle" class="primary-background">
     <div class="grid mx-l">
 
-        <div>
+        <div class="column">
+        <div >
             <a href="{{ url('/') }}" class="logo">
                 @if(setting('app-logo', '') !== 'none')
-                    <img class="logo-image" src="{{ setting('app-logo', '') === '' ? url('/logo.png') : url(setting('app-logo', '')) }}" alt="Logo">
+                    <img class="logo-image" src="{{ setting('app-logo', '') === '' ? url('/nci_logo.png') : url(setting('app-logo', '')) }}" alt="Logo">
                 @endif
-                @if (setting('app-name-header'))
+                <!-- @if (setting('app-name-header'))
                     <span class="logo-text">{{ setting('app-name') }}</span>
-                @endif
+                @endif -->
             </a>
             <button type="button"
                     refs="header-mobile-toggle@toggle"
@@ -17,29 +18,31 @@
                     aria-expanded="false"
                     class="mobile-menu-toggle hide-over-l">@icon('more')</button>
         </div>
+        </div>
 
-        <div class="flex-container-column items-center justify-center hide-under-l">
-            @if (hasAppAccess())
+        <!-- <div class="flex-container-column items-center justify-center hide-under-l">
+            @if (hasAppAccess()) -->
             <!-- <form action="{{ url('/search') }}" method="GET" class="search-box" role="search">
                 <button id="header-search-box-button" type="submit" aria-label="{{ trans('common.search') }}" tabindex="-1">@icon('search') </button>
                 <input id="header-search-box-input" type="text" name="term"
                        aria-label="{{ trans('common.search') }}" placeholder="{{ trans('common.search') }}"
                        value="{{ isset($searchTerm) ? $searchTerm : '' }}">
             </form> -->
-            @endif
-        </div>
+            <!-- @endif
+        </div> -->
 
+        <div class="column">
         <nav refs="header-mobile-toggle@menu fixed-top" class="header-links">
             <div class="links text-center">
                 @if (hasAppAccess())
                     <!-- <a class="hide-over-l" href="{{ url('/search') }}">@icon('search'){{ trans('common.search') }}</a> -->
                     @if(userCanOnAny('view', \BookStack\Entities\Models\Bookshelf::class) || userCan('bookshelf-view-all') || userCan('bookshelf-view-own'))
                         <!-- <a href="{{ url('/shelves') }}">@icon('bookshelf'){{ trans('entities.shelves') }}</a> -->
-                        <a class="active" href="#">{{ trans('entities.national_cancer_institute_of_kenya') }}</a>
+                        <!-- <a class="active" href="#">{{ trans('entities.national_cancer_institute_of_kenya') }}</a> -->
                         <a href="#">{{ trans('entities.approved_cancer_ceneter') }}</a>
-                        <a href="#">{{ trans('entities.cancer_ceneter_requirements') }}</a>
-                        <a href="#">{{ trans('entities.customer_satisfaction_ratings') }}</a>
-                        <a href="#">{{ trans('entities.downloads') }}</a>
+                        <a href="{{ url("/create-book") }}">{{ trans('entities.cancer_ceneter_requirements') }}</a>
+                        <a href="/nci/customer/satisfaction/ratings">{{ trans('entities.customer_satisfaction_ratings') }}</a>
+                        <a href="/nci/mlevel/cancer/ceneter">{{ trans('entities.downloads') }}</a>
                         <a href="#">{{ trans('entities.apply_here') }}</a>
                         <!-- <a href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a> -->
                         <!-- <a href="{{ url('/shelves') }}">{{ trans('entities.national_cancer_institute_of_kenya') }}</a> -->
@@ -112,6 +115,7 @@
                 </div>
             @endif
         </nav>
+        </div>
 
     </div>
 </header>

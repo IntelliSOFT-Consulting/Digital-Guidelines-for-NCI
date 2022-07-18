@@ -80,11 +80,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/nci/comprehensive/cancer/ceneter/', [BookController::class, 'nci_comprehensive_c_ceneter']);
     Route::get('/nci/customer/satisfaction/ratings', [BookController::class, 'nci_customer_ratings']);
     Route::get('/nci/cancer/ceneter/forms', [BookController::class, 'nci_cancer_forms']);
-    Route::get('/nci/operational/consideration/requirements', [BookController::class, 'nci_operation_consideration_req']);
+    Route::get('/nci/{slug}', [BookController::class, 'nci_operation_consideration_req']);
     Route::get('/nci/books/chemoteraphy/operational/considerations', [BookController::class, 'nci_chemotherapy']);
     Route::get('/nci/books/chemoteraphy/considerations', [BookController::class, 'chemoteraphy_considerations']);
     Route::post('/add/user/ratings', [BookController::class, 'add_user_ratings']);
     Route::get('/select2-autocomplete-ajax', [BookController::class, 'dataAjax']);
+    Route::get('/nci/{bookSlug}/create-chapter', [ChapterController::class, 'nci_create']);
 
 
 
@@ -107,6 +108,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/books/{bookSlug}/sort', [BookSortController::class, 'update']);
     Route::get('/books/{bookSlug}/export/html', [BookExportController::class, 'html']);
     Route::get('/books/{bookSlug}/export/pdf', [BookExportController::class, 'pdf']);
+    Route::get('/books/ppe/pdf', [BookExportController::class, 'ppeToPdf']);
+    Route::get('/books/nci-k/pdf', [BookExportController::class, 'nci_kPdf']);
+
     Route::get('/books/{bookSlug}/export/markdown', [BookExportController::class, 'markdown']);
     Route::get('/books/{bookSlug}/export/zip', [BookExportController::class, 'zip']);
     Route::get('/books/{bookSlug}/export/plaintext', [BookExportController::class, 'plainText']);
