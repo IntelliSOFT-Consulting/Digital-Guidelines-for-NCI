@@ -149,6 +149,20 @@ h6{
     margin-right: auto;
     /* width: 50%; */
 }
+.carousel-control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 15%;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    /* text-shadow: 0 1px 2px rgb(0 0 0 / 60%); */
+    filter: alpha(opacity=50);
+    opacity: 0;
+}
+
 p{
   font-size: 12px;
 }

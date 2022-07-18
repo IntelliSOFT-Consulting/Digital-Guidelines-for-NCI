@@ -78,9 +78,40 @@ class BookController extends Controller
 
         return view('books.create', [
             'bookshelf' => $bookshelf,
+            'reqs' =>'',
+            'cancer' => '',
         ]);
     }
+    public function cancer(string $cancer)
+    {
+        $this->checkPermission('book-create-all');
+        $this->setPageTitle(trans('entities.books_create'));
 
+        return view('books.create', [
+            'cancer' => $cancer,
+            'reqs' =>''
+        ]);
+    }
+    public function create_requirements(string $requirements)
+    {
+       // dd($requirements);
+        //$this->checkPermission('book-create-all');
+        $view = setting()->getForCurrentUser('books_view_type');
+        $sort = setting()->getForCurrentUser('books_sort', 'name');
+        $order = setting()->getForCurrentUser('books_sort_order', 'asc');
+
+        $books = $this->bookRepo->getAllReq(18, $sort, $order);
+        
+      
+        $this->setPageTitle('Consideration Requirements');
+
+        return view('books.create', [
+            'reqs' =>$requirements,
+            'cancer' => '',
+            'books'=>$books,
+            'view'    => $view,
+        ]);
+    }
     /**
      * Store a newly created book in storage.
      *
@@ -90,13 +121,29 @@ class BookController extends Controller
     public function store(Request $request, string $shelfSlug = null)
     {
         $this->checkPermission('book-create-all');
-        $validated = $this->validate($request, [
-            'name'        => ['required', 'string', 'max:255'],
-            'description' => ['string', 'max:1000'],
-            'image'       => array_merge(['nullable'], $this->getImageValidationRules()),
-            'tags'        => ['array'],
-        ]);
-
+        $requirements=$request->requirement;
+        if ($requirements == '') {
+            # code...
+           // dd($requirements);
+            $validated = $this->validate($request, [
+                'name'        => ['required', 'string', 'max:255'],
+                'description' => ['string', 'max:1000'],
+                'image'       => array_merge(['nullable'], $this->getImageValidationRules()),
+                'tags'        => ['array'],
+            ]);
+        }else{
+            
+            $validated = $this->validate($request, [
+                'requirement'=>['integer'],
+                'name'        => ['required', 'string', 'max:255'],
+                'description' => ['string', 'max:1000'],
+                'image'       => array_merge(['nullable'], $this->getImageValidationRules()),
+                'tags'        => ['array'],
+            ]);
+            //dd($validated);
+        }
+       
+        
         $bookshelf = null;
         if ($shelfSlug !== null) {
             $bookshelf = Bookshelf::visible()->where('slug', '=', $shelfSlug)->firstOrFail();

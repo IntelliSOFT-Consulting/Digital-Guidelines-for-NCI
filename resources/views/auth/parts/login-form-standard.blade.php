@@ -88,9 +88,9 @@
                 </div>
                
                 <div class="form-group row">
-                    <div class="col-sm-12" style="margin-left:180px;margin-right:50px">
+                    <div class="col-sm-12" style="margin-left:65px;margin-right:50px">
                         <button class="button" style="background-color: #D820C5;border:none;border-radius:10px;width:100px">{{trans('auth.submit')}}</button>
-                        <p  style="margin-bottom:2px;">Don’t have an account? <a href="{{ url('/register') }}">{{trans('auth.register')}}</a></p>
+                        <p  style="margin-bottom:2px;color">Don’t have an account? <a href="{{ url('/register') }}"><span style="color:#D820C5;"><u>{{trans('auth.register')}}</u></span></a></p>
 
                     </div>
                 </div>
