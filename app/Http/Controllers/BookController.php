@@ -6,6 +6,8 @@ use BookStack\Actions\ActivityQueries;
 use BookStack\Actions\ActivityType;
 use BookStack\Actions\View;
 use BookStack\Entities\Models\Bookshelf;
+use BookStack\Entities\Models\Ratings_model;
+use BookStack\Entities\Models\Counties_model;
 use BookStack\Entities\Repos\BookRepo;
 use BookStack\Entities\Tools\BookContents;
 use BookStack\Entities\Tools\Cloner;
@@ -43,12 +45,9 @@ class BookController extends Controller
         $recents = $this->isSignedIn() ? $this->bookRepo->getRecentlyViewed(4) : false;
         $popular = $this->bookRepo->getPopular(4);
         $new = $this->bookRepo->getRecentlyCreated(4);
-
         $this->entityContextManager->clearShelfContext();
-
         $this->setPageTitle(trans('entities.books'));
-
-        return view('books.index', [
+        return view('books.index1',[
             'books'   => $books,
             'recents' => $recents,
             'popular' => $popular,
@@ -119,17 +118,21 @@ class BookController extends Controller
         $book = $this->bookRepo->getBySlug($slug);
         $bookChildren = (new BookContents($book))->getTree(true);
         $bookParentShelves = $book->shelves()->scopes('visible')->get();
-
+        // foreach ($books as $book) {
+            
+            $books = (new BookContents($book))->getTree(true);
+        // }
         View::incrementFor($book);
         if ($request->has('shelf')) {
             $this->entityContextManager->setShelfContext(intval($request->get('shelf')));
         }
 
         $this->setPageTitle($book->getShortName());
-
-        return view('books.show', [
+//dd($books);
+        return view('books.show1', [
+            'bookd'              => $books,
             'book'              => $book,
-            'current'           => $book,
+            'current'           => $books,
             'bookChildren'      => $bookChildren,
             'bookParentShelves' => $bookParentShelves,
             'activity'          => $activities->entityActivity($book, 20, 1),
@@ -287,6 +290,26 @@ class BookController extends Controller
     }
     // nci changes
     public function nci_basic_c_ceneter(){
+        $view = setting()->getForCurrentUser('books_view_type');
+        $sort = setting()->getForCurrentUser('books_sort', 'name');
+        $order = setting()->getForCurrentUser('books_sort_order', 'asc');
+
+        $books = $this->bookRepo->getAllPaginated(18, $sort, $order);
+        $recents = $this->isSignedIn() ? $this->bookRepo->getRecentlyViewed(4) : false;
+        $popular = $this->bookRepo->getPopular(4);
+        $new = $this->bookRepo->getRecentlyCreated(4);
+
+        $this->entityContextManager->clearShelfContext();
+
+        $this->setPageTitle(trans('entities.books' ,[
+            'books'   => $books,
+            'recents' => $recents,
+            'popular' => $popular,
+            'new'     => $new,
+            'view'    => $view,
+            'sort'    => $sort,
+            'order'   => $order,
+        ]));
         return view('types_of_cancer/nci_basic_cancer_center');
     }
     public function nci_mlevel_c_ceneter(){
@@ -303,5 +326,37 @@ class BookController extends Controller
     }
     public function nci_operation_consideration_req(){
         return view('types_of_cancer/operational_consideration_req');
+    }
+    public function nci_chemotherapy(){
+        return view('types_of_cancer/bcc/chemoteraphy');
+    }
+    public function chemoteraphy_considerations(){
+        return view('types_of_cancer/bcc/chemoteraphy_considerations');
+    }
+    public function add_user_ratings(Request $request){
+     $ratings= new Ratings_model();
+     $ratings->additional_comments = $request->comment;
+     $ratings->experience_rating = $request->difficult;
+     $ratings->empathetic_rating = $request->empathetic;
+     $ratings->doctor_attends_rating = $request->long;
+     $ratings->satisfied_doctor_rating = $request->satisfied;
+     $ratings->user_id =auth()->user()->id;
+     $rates=$ratings->save();
+     if ($rates) {
+        # code...
+        return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your coment!');
+     }
+    }
+    public function dataAjax(Request $request)
+    {
+    	$data = [];
+
+        if($request->has('q')){
+            $search = $request->q;
+            $data =_model::select("id","name")
+            		->where('name','LIKE',"%$search%")
+            		->get();
+        }
+        return response()->json($data);
     }
 }

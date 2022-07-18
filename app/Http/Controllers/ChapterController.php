@@ -75,8 +75,9 @@ class ChapterController extends Controller
         View::incrementFor($chapter);
 
         $this->setPageTitle($chapter->getShortName());
-
-        return view('chapters.show', [
+        //dd($pages);
+//show types_of_cancer/nci_basic_cancer_center
+        return view('chapters.show1', [
             'book'        => $chapter->book,
             'chapter'     => $chapter,
             'current'     => $chapter,
