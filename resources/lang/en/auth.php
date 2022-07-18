@@ -26,7 +26,7 @@ return [
 // requirements fro establishing bcmc
     // Login & Register
     'sign_up' => 'Submit',
-    'register' => 'Sign Up',
+    'register' => 'Register',
     'log_in' => 'Login',
     'submit' => 'SUBMIT',
     'log_in_with' => 'Login with :socialDriver',
@@ -39,6 +39,7 @@ return [
     'username' => 'Username',
     'email' => 'Email',
     'welcome' => 'Welcome Back!',
+    'welcomer' => 'Welcome!',
     'password' => 'Password',
     'password_confirm' => 'Confirm Password',
     'password_hint' => 'Must be at least 6 characters',

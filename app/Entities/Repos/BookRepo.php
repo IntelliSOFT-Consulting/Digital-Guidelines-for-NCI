@@ -38,7 +38,10 @@ class BookRepo
     {
         return Book::visible()->with('cover')->orderBy($sort, $order)->paginate($count);
     }
-
+    public function getAllReq(int $count = 20, string $sort = 'name', string $order = 'asc'): LengthAwarePaginator
+    {
+        return Book::visible()->with('cover')->orderBy($sort, $order)->where('requirement',1)->paginate($count);
+    }
     /**
      * Get the books that were most recently viewed by this user.
      */
