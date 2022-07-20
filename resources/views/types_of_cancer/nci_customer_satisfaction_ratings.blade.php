@@ -26,7 +26,7 @@
             <li>How did you find the experience of booking appointments?</li>
             <div class="form-control" name style="background-color: #FBF4F4;margin:5px;">
             <label class="inline">Very easy</label>
-            <input type="radio" name="difficult" value="1">
+            <input type="radio" name="difficult" value="1" required>
             <input type="radio" name="difficult" value="2">
             <input type="radio" name="difficult" value="3">
             <input type="radio" name="difficult" value="4">
@@ -36,7 +36,7 @@
             <li>Were our staff empathetic to your needs?</li>
             <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
             <label class="inline">Not Very empathetic</label>
-<input type="radio" name="empathetic" value="1">
+<input type="radio" name="empathetic" value="1" required>
 <input type="radio" name="empathetic" value="2">
 <input type="radio" name="empathetic" value="3">
 <input type="radio" name="empathetic" value="4">
@@ -46,7 +46,7 @@
             <li> How long did you have to wait until the doctor attends to you?</li>
             <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
             <label class="inline">Too long easy</label>
-<input type="radio" name="long" value="1">
+<input type="radio" name="long" value="1" required>
 <input type="radio" name="long" value="2">
 <input type="radio" name="long" value="3">
 <input type="radio" name="long" value="4">
@@ -56,11 +56,11 @@
             <li>Were you satisfied with the doctor you were allocated with?</li>
             <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
             <label class="inline">least satisfied</label>
-<input type="radio" name="satisfied" value="1">
-<input type="radio" name="satisfied" value="2">
-<input type="radio" name="satisfied" value="3">
-<input type="radio" name="satisfied" value="4">
-<input type="radio" name="satisfied" value="5">
+<input type="radio" name="satisfied" id="at" value="1" required>
+<input type="radio" name="satisfied" id="at" value="2">
+<input type="radio" name="satisfied" id="at" value="3">
+<input type="radio" name="satisfied" id="at" value="4">
+<input type="radio" name="satisfied" id="at" value="5">
 <label class="inline" style="    margin-left:20px;">Very satisfied</label>
             </div>
             <li>Any additional Comments?</li>
@@ -69,7 +69,7 @@
             
             <!-- </div> -->
             <div class="inline" style="float:right;margin-top:10px;">
-  <button type="cancel" style="background-color: #DED9D9;border-radius:10px">Cancel</button>
+  <button type="button"   onclick=" check()"style="background-color: #DED9D9;border-radius:10px">Cancel</button>
   <button type="submit" style="background-color: #D820C5;border-radius:10px" value="Submit">Submit</button>
             </div>
       </form>
@@ -86,3 +86,18 @@
       <!-- footer end -->
 </div>
 @stop
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+      $(document).ready(function() {
+            $('#can').on('click', function(){
+                  document.getElementById("dif").checked = false;
+document.getElementById("at").checked = false;
+            })
+           
+        
+      });
+      function check(){
+                  location.reload();
+            }
+</script>

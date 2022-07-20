@@ -41,10 +41,9 @@
       <!-- footer end -->
 </div>
 @stop
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" />
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
