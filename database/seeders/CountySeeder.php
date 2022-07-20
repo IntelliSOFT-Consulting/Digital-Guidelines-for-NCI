@@ -18,7 +18,6 @@ class CountySeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Counties_model::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-
         $json = File::get("counties.json");
         $countries = json_decode($json);
          foreach($countries as $country){

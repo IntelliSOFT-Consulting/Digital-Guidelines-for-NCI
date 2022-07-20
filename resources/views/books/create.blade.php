@@ -14,7 +14,7 @@
             @elseif($cancer !=='')
                 @include('entities.breadcrumbs', ['crumbs' => [
                     '/books' => [
-                        'text' => trans('entities.books'),
+                        'text' => 'Requirements',
                         'icon' => 'book'
                     ],
                     '/create-book' => [
@@ -25,7 +25,7 @@
                 @elseif($reqs !=='')
                 @include('entities.breadcrumbs', ['crumbs' => [
                     '/books' => [
-                        'text' => trans('entities.books'),
+                        'text' => 'Requirements',
                         'icon' => 'book'
                     ],
                     '/create-book' => [
@@ -54,7 +54,7 @@
       <!-- <div class="col-md-10"> -->
       <!-- <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Cancer Management</h4></div>
       -->
-    <div class="col-md-10">
+    <div class="col-md-9">
     @foreach ($books as $book)
            <div class="col-md-4">
            <div class="card" >
@@ -76,14 +76,14 @@
            </div>
            @endforeach
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
     <div class="actions mb-xl">
         <h5>{{ trans('common.actions') }}</h5>
         <div class="icon-list text-primary">
             @if(user()->can('book-create-all'))
                 <a href="{{ url('/nci/create-cancer/cancer') }}" class="icon-list-item">
                     <span>@icon('add')</span>
-                    <span>{{ trans('entities.books_create') }}</span>
+                    <span>Create Requirements</span>
                 </a>
             @endif
 

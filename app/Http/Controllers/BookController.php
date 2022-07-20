@@ -10,7 +10,7 @@ use BookStack\Entities\Tools\NextPreviousContentLocator;
 use BookStack\Entities\Tools\PageContent;
 use BookStack\Entities\Models\Bookshelf;
 use BookStack\Entities\Models\Ratings_model;
-use BookStack\Entities\Models\Counties_model;
+use BookStack\Entities\Models\ApprovedCancerCenter_models;
 use BookStack\Entities\Repos\BookRepo;
 use BookStack\Entities\Tools\BookContents;
 use BookStack\Entities\Tools\Cloner;
@@ -366,7 +366,10 @@ class BookController extends Controller
         return view('types_of_cancer/nci_mlevel_cancer_center');
     }
     public function nci_comprehensive_c_ceneter(){
-        return view('types_of_cancer/nci_comprehensive_cancer_center');
+        $centers=ApprovedCancerCenter_models::get();
+        //dd($centers[0]['Designation']);
+        $coun=count($centers);
+        return view('types_of_cancer/nci_comprehensive_cancer_center',['centers' =>$centers,'coun' =>$coun]);
     }
     public function nci_customer_ratings(){
         return view('types_of_cancer/nci_customer_satisfaction_ratings');
