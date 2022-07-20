@@ -26,6 +26,7 @@ return [
 // requirements fro establishing bcmc
     // Login & Register
     'sign_up' => 'Submit',
+    'sign_upp' => 'Sign up',
     'register' => 'Register',
     'log_in' => 'Login',
     'submit' => 'SUBMIT',

@@ -39,7 +39,7 @@
                     @if(userCanOnAny('view', \BookStack\Entities\Models\Bookshelf::class) || userCan('bookshelf-view-all') || userCan('bookshelf-view-own'))
                         <!-- <a href="{{ url('/shelves') }}">@icon('bookshelf'){{ trans('entities.shelves') }}</a> -->
                         <!-- <a class="active" href="#">{{ trans('entities.national_cancer_institute_of_kenya') }}</a> -->
-                        <a href="#">{{ trans('entities.approved_cancer_ceneter') }}</a>
+                        <a href="/nci/comprehensive/cancer/ceneter/">{{ trans('entities.approved_cancer_ceneter') }}</a>
                         <a href="{{ url("/nci/create-book/cancer_ceneter_requirements") }}">{{ trans('entities.cancer_ceneter_requirements') }}</a>
                         <a href="/nci/customer/satisfaction/ratings">{{ trans('entities.customer_satisfaction_ratings') }}</a>
                         <a href="/nci/mlevel/cancer/ceneter">{{ trans('entities.downloads') }}</a>
