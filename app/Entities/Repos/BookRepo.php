@@ -36,7 +36,7 @@ class BookRepo
      */
     public function getAllPaginated(int $count = 20, string $sort = 'name', string $order = 'asc'): LengthAwarePaginator
     {
-        return Book::visible()->with('cover')->orderBy($sort, $order)->paginate($count);
+        return Book::visible()->with('cover')->orderBy($sort, $order)->where('requirement',0)->paginate($count);
     }
     public function getAllReq(int $count = 20, string $sort = 'name', string $order = 'asc'): LengthAwarePaginator
     {
