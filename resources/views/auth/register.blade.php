@@ -138,3 +138,21 @@
   </div>
 </div>
 @stop
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#email').on('input',function(){
+            let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
+$('#email').val();
+let testEmails = $('#email').val();//["notanemail.com", "workingexample@stackabuse.com", "example@yale.edu.com"];
+console.log(regex.test(testEmails))
+
+// testEmails.forEach((address) => {
+//     console.log(regex.test(testEmails))
+// });
+        })   
+
+    });
+
+</script>
