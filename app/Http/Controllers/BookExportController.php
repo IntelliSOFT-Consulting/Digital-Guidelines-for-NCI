@@ -28,13 +28,13 @@ class BookExportController extends Controller
      */
     public function pdf(string $bookSlug)
     {
-        $book = $this->bookRepo->getBySlug($bookSlug);
-        $pdfContent = $this->exportFormatter->bookToPdf($book);
-
-        return $this->download()->directly($pdfContent, $bookSlug . '.pdf');
+      $book = $this->bookRepo->getBySlug($bookSlug);
+      $pdfContent = $this->exportFormatter->bookToPdf($book);
+      return $this->download()->directly($pdfContent, $bookSlug . '.pdf');
     }
     public function ppeToPdf()
     {
+       // return view('exports.nci_kPdf');
         //$book = $this->bookRepo->getBySlug($bookSlug);
         $pdfContent = $this->exportFormatter->ppeToPdf();
 
