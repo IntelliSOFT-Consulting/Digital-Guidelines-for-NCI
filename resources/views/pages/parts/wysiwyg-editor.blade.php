@@ -125,7 +125,7 @@
 <script type="text/javascript">
     $(function() {
 
-//section add limit
+//section add limitt
 var maxGroup = 40;
 
 // initialize all current editor(s)
