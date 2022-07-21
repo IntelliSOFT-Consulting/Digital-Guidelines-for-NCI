@@ -231,7 +231,7 @@ class PageController extends Controller
      */
     public function update(Request $request, string $bookSlug, string $pageSlug)
     {
-       // dd($request->all());
+       //dd($request->all());
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
         ]);
@@ -246,6 +246,8 @@ class PageController extends Controller
             $newcontent=$request->newcontent;
             $pagesid=$request->pagesid;
             $sectionContent=$request->sectionContent1;
+            $sectionTitle=$request->sectionTitle;
+            $sectionContents=$request->sectionContent;
             //dd($request->all());
             if ($edited =='edited') {
                 # code...
@@ -257,20 +259,43 @@ class PageController extends Controller
                     
                 }
             }
-            for ($i=0; $i <count($newcontenttitle) ; $i++) { 
-               // dd($newcontenttitle);
-            $newpages=new PageContent_model();
-            $newpages->page_id=$request->textfr;
-        if ($newcontent[$i]!==''){
-            # code...
-            $newpages->page_sub_title=$newcontenttitle[$i];
-            $newpages->page_description=$newcontent[$i];
-            //dd($subtitle,$sectionContent,$pages);
-            $newpages->save();
-        } 
-       
-    }
-           
+                
+                if (isset($newcontenttitle)) {
+                    # code...
+                    for ($i=0; $i <count($newcontenttitle) ; $i++) { 
+                        
+                     $newpages=new PageContent_model();
+                     $newpages->page_id=$request->textfr;
+                 if ($newcontent[$i]!==''){
+                     # code...
+                     $newpages->page_sub_title=$newcontenttitle[$i];
+                     $newpages->page_description=$newcontent[$i];
+                     //dd($subtitle,$sectionContent,$pages);
+                     $newpages->save();
+                 } 
+                
+             }
+                }
+                else{
+                    //dd($newcontenttitle);
+                    if (count($sectionTitle)>0) {
+                        # code...
+                        for ($i=0; $i <count($sectionTitle) ; $i++) { 
+                            // dd($sectionContents);
+                         $newpages=new PageContent_model();
+                         $newpages->page_id=$request->textfr;
+                     if ($sectionContents[$i]!==''){
+                         $newpages->page_sub_title=$sectionTitle[$i];
+                         $newpages->page_description=$sectionContents[$i];
+                         //dd($subtitle,$sectionContent,$pages);
+                         $newpages->save();
+                     } 
+                    
+                 }
+                    }
+                }
+            
+            
         }
         return redirect($page->getUrl());
     }

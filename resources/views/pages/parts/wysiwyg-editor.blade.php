@@ -75,8 +75,7 @@
     </div>
   </div>
 </div>
-    @endif
-    @if(count($pagedata)==0)
+    @else
     <div class="row fieldGroup">
       <div class="col-md-10  ">
         <div class="form-group">

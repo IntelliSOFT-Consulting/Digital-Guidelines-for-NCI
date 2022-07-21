@@ -213,9 +213,9 @@ in Kenya
       <div class="col-md-4">
       <div class="card" >
   <div class="card-body">
-  <!-- <a href="#">--><img class="images" src="{{ asset('/uploads/download.png') }}" alt="New york"> 
-  <h4 class="card-title management">NCI Checklist Forms</h4>
-<!-- </a> -->
+  <a href="{{url('/book/nci/Checklis/Forms')}}"><img class="images" src="{{ asset('/uploads/download.png') }}" alt="New york">
+  <h4 class="card-title management">NCI Checklist Forms
+</h4></a>
   </div>
 </div>
       </div>
