@@ -5,7 +5,8 @@ namespace BookStack\Http\Controllers;
 use BookStack\Entities\Repos\BookRepo;
 use BookStack\Entities\Tools\ExportFormatter;
 use Throwable;
-
+use Dompdf\Dompdf;
+use Barryvdh\DomPDF\Facade as PDF;
 class BookExportController extends Controller
 {
     protected $bookRepo;
@@ -42,11 +43,40 @@ class BookExportController extends Controller
     }
     public function nci_kPdf()
     {
+        $vie=new DomPDF();
+        $pdf = PDF::loadView('exports.nci_kPdf');
+        return $pdf->download('Application_form_to_NCI_K.pdf');
+        //return $pdf->stream("Halloa.pdf");
         //return view('exports.nci_kPdf');
         //$book = $this->bookRepo->getBySlug($bookSlug);Application form to NCI-K
-        $pdfContent = $this->exportFormatter->nci_kPdf();
+        //$pdfContent = $this->exportFormatter->nci_kPdf();
 
-        return $this->download()->directly($pdfContent,'Application_form_to_NCI_K' . '.pdf');
+       // return $this->download()->directly($pdfContent,'Application_form_to_NCI_K' . '.pdf');
+    }
+    public function nci_Checklis_Forms()
+    {
+        $vie=new DomPDF();
+        $pdf = PDF::loadView('exports.nci_cheklist');
+        return $pdf->download('Application_form_to_NCI_K.pdf');
+        //return $pdf->stream("Halloa.pdf");
+        //return view('exports.nci_kPdf');
+        //$book = $this->bookRepo->getBySlug($bookSlug);Application form to NCI-K
+        //$pdfContent = $this->exportFormatter->nci_kPdf();
+
+       // return $this->download()->directly($pdfContent,'Application_form_to_NCI_K' . '.pdf');
+    }
+    public function nci_cyclotronPdf()
+    {
+        //return view('exports.nci_cyclotron_form');
+        $vie=new DomPDF();
+        $pdf = PDF::loadView('exports.nci_cyclotron_form');
+       //return return $pdf->download('INSPECTION_OF_MEDICAL_CYCLOTRON_FACILITY.pdf');
+        return $pdf->stream("Halloa.pdf");
+        //return view('exports.nci_kPdf');
+        //$book = $this->bookRepo->getBySlug($bookSlug);Application form to NCI-K
+        //$pdfContent = $this->exportFormatter->nci_kPdf();
+
+       // return $this->download()->directly($pdfContent,'Application_form_to_NCI_K' . '.pdf');
     }
     /**
      * Export a book as a contained HTML file.

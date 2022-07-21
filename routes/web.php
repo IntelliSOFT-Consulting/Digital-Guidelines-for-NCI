@@ -113,6 +113,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/books/{bookSlug}/export/pdf', [BookExportController::class, 'pdf']);
     Route::get('/books/ppe/pdf', [BookExportController::class, 'ppeToPdf']);
     Route::get('/books/nci-k/pdf', [BookExportController::class, 'nci_kPdf']);
+    Route::get('/books/nci/cyclotron/pdf', [BookExportController::class, 'nci_cyclotronPdf']);
+    Route::get('/book/nci/Checklis/Forms', [BookExportController::class, 'nci_Checklis_Forms']);
+
+
 
     Route::get('/books/{bookSlug}/export/markdown', [BookExportController::class, 'markdown']);
     Route::get('/books/{bookSlug}/export/zip', [BookExportController::class, 'zip']);

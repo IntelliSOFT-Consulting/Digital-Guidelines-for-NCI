@@ -71,7 +71,7 @@ $C Checklist for a medical cyclotron facilit,
 "C PPE list -->
                   
             <li><a href = "{{url('/books/nci-k/pdf')}}"><u>NCI Inspection Checklist<u></a></li>
-            <li><a href = "{{url('/')}}"><u> Inspection checklist for a medical cyclotron facility<u></a></li>
+            <li><a href = "{{url('/books/nci/cyclotron/pdf')}}"><u> Inspection checklist for a medical cyclotron facility<u></a></li>
             <li><a href = "{{url('/books/ppe/pdf')}}"><u>PPE list</u></a></li>
 
            
