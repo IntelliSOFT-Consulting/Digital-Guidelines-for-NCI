@@ -1,5 +1,4 @@
 <!doctype html>
-<html lang="{{ config('app.lang') }}">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>@yield('title')</title>
@@ -25,15 +24,15 @@ td, th {
 }
 .flex-header {
   display: flex;
-    margin-bottom: -25px;
-    padding-left: 70px;
+    margin-bottom: -5px;
+    padding-left: 40px;
     padding-right: 40px;
     
 }
 .flex-headerr {
-  display: flex;
-    margin-bottom: -25px;
-    padding-left: 163px;
+    display: flex;
+    
+    padding-left: 40px;
     padding-right: 40px;
     
 }
@@ -42,12 +41,12 @@ td, th {
     flex-grow: 1;
     height: 1px;
     align-self: center;
-    margin: 0 20px;
+    margin: 0 100px;
     background-color: grey;
 }
 </style>
 </head>
-<body>
+<div class="page-break">
 <table>
 <table style="width:90%; margin-left:5%" >
     <tr>
@@ -153,6 +152,8 @@ td, th {
         <h3 style="text-align:center;">Please indicate compliance with each of the 13 items</h3>
 </th>
 </table>
+</div>
+<div class="page-break">
 <table>
     <tr style="background-color: #ffcc99; height:40px">
         <th style="width:5%"></th>
@@ -383,6 +384,19 @@ services</td>
       <td></td>
       </tr>
       <tr>
+
+        </table>
+</div>
+<div class="page-break">
+<table class="">
+<tr style="height:40px">
+        <th style="width:5%"></th>
+        <th style="width:50%"></th>
+        <th style="width:10%"></th>
+        <th style="width:15%"></th>
+        <th style="width:15%"></th>
+    </tr>
+    <tr>
       <td></td>
       <td style="padding-left:30px;">- Physical</td>
       <td></td>
@@ -495,6 +509,9 @@ centre</td>
       <td></td>
       </tr>
 </table>
+
+</table>
+<div class="page-break">
 <table>
 <div class="flex-header">
           <h4> Name of Applicant:</h4>
@@ -513,33 +530,22 @@ centre</td>
           <div class="line"></div>
           </div>
 </table>
-<table style="margin-bottom:10px">
-                
-              <tbody><tr>
-                </tr>
-          <tr>
-                </tr>
-          <tr>
-                </tr>
-          <tr>
-                </tr>
-                
-          
-              </tbody>
+<table style="margin-bottom:30px;margin-left: -30px;">
             </table>
-              <table style="margin-left: 70px;margin-right: 40px;">
+              <table style="width:75%;margin-left: 40px;margin-right: -80px;">
       <tr style="background-color: #ffcc99; height:40px">
-        <th style="width:25%">Send to</th>
-        <th >Send via E-mail to</th>
+        <th style="width:35%">Send to</th>
+        <th style="width:25%">Send via E-mail to</th>
     </tr>
     <tr>
-        <th>National Cancer Institute-Kenya
+        <th style="width:35%">National Cancer Institute-Kenya
 Ministry of Health, Cathedral Road,
 Upper Hill,
 P.O. Box 30016-00100, Nairobi </th>
         <th style="width:25%;margin-bottom:-30px"><p style="width:25%;margin-bottom:-20px">ncikenya@gmail.com</p></th>
     </tr>
 </table>
+
 <table>
 <h4 class="flex-header"style="margin-bottom:10px"> FOR OFFICIAL USE ONLY</h4>
 <div class="flex-header">
@@ -559,7 +565,4 @@ P.O. Box 30016-00100, Nairobi </th>
           <div class="line"></div>
           </div>
 </table>
-</table>
-
-</body>
-</html>
+</div>
