@@ -126,7 +126,7 @@
     $(function() {
 
 //section add limit
-var maxGroup = 10;
+var maxGroup = 40;
 
 // initialize all current editor(s)
 $('.editor').ckeditor();
