@@ -67,7 +67,7 @@ class BookExportController extends Controller
     }
     public function nci_Checklis_Forms()
     {
-        $path = storage_path('app/public/nci/NCI_K_INSPECTION_CHECKLIST.pdf');
+        $path = public_path('/nci/NCI_K_INSPECTION_CHECKLIST.pdf');
         return response()->download($path);
         // $vie=new DomPDF();
         // $pdf = PDF::loadView('exports.nci_cheklist');
@@ -81,9 +81,10 @@ class BookExportController extends Controller
     }
     public function nci_cyclotronPdf()
     {
-        $path = storage_path('app/public/nci/medical_cyclotron_facility.pdf');
+        //dd(public_path('nci'));
+        $path = public_path('/nci/medical_cyclotron_facility.pdf');
         return response()->download($path);
-        $vie=new DomPDF();
+        //$vie=new DomPDF();
     //     $pdf = PDF::loadView('exports.nci_cyclotron_form');
     //    return $pdf->download('INSPECTION_OF_MEDICAL_CYCLOTRON_FACILITY.pdf');
        // return $pdf->stream("Halloa.pdf");
@@ -98,7 +99,7 @@ class BookExportController extends Controller
     }
     public function cancer_screening_form()
     {
-        $path = storage_path('app/public/nci/cancer_screening_form.pdf');
+        $path = public_path('/nci/cancer_screening_form.pdf');
         return response()->download($path);
         //return view('exports.nci_cyclotron_form');
         //$vie=new DomPDF();
@@ -109,7 +110,7 @@ class BookExportController extends Controller
     }
     public function patient_tools_assesd()
     {
-        $path = storage_path('app/public/nci/pain_sassesment_tools.pdf');
+        $path = public_path('/nci/pain_sassesment_tools.pdf');
         return response()->download($path);
         //return view('exports.nci_cyclotron_form');
     //     $vie=new DomPDF();
@@ -119,7 +120,7 @@ class BookExportController extends Controller
     }
     public function new_patient_form()
     {
-        $path = storage_path('app/public/nci/NEW_PATIENT_ONCOLOGY_ASSESSMENT.pdf');
+        $path = public_path('/nci/NEW_PATIENT_ONCOLOGY_ASSESSMENT.pdf');
         return response()->download($path);
         //return view('exports.nci_cyclotron_form');
     //     $vie=new DomPDF();
@@ -129,7 +130,7 @@ class BookExportController extends Controller
     }
     public function nci_medical_label()
     {
-        $path = storage_path('app/public/nci/medication_label.pdf');
+        $path = public_path('/nci/medication_label.pdf');
         return response()->download($path);
         //return view('exports.nci_cyclotron_form');
     //     $vie=new DomPDF();
@@ -146,19 +147,19 @@ class BookExportController extends Controller
        // return $pdf->stream("Halloa.pdf");
     }
     public function radiotherapy_unit(){
-        $path = storage_path('app/public/nci/radiation_unit.pdf');
+        $path = public_path('/nci/radiation_unit.pdf');
         return response()->download($path);
      }
      public function chemotherapy_unit(){
-        $path = storage_path('app/public/nci/chemoterapy_unit.pdf');
+        $path = public_path('/nci/chemoterapy_unit.pdf');
         return response()->download($path);
      }
      public function nuclear_unit(){
-        $path = storage_path('app/public/nci/nuclear_unit.pdf');
+        $path = public_path('/nci/nuclear_unit.pdf');
         return response()->download($path);
      }
      public function cancer_abstract_form(){
-        $path = storage_path('app/public/nci/cancer_abstract_form.pdf');
+        $path = public_path('/nci/cancer_abstract_form.pdf');
         return response()->download($path);
      }
      
