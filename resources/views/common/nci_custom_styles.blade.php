@@ -75,6 +75,20 @@ text-align:center;
     
   }
 }
+@media screen and (min-width: 575px) {
+  .signup-classic {
+    margin: 5px;
+    margin-left: 20px;
+    width: 100%;
+    border: 13px solid #FBF4F4;
+}
+}
+@media screen and (max-width: 860px) {
+    .modal {
+    top: 50%;
+    left: 10%;
+}
+}
 @media screen and (max-width: 1098px) {
   .topnav .search-container {
     float: none;
@@ -207,5 +221,13 @@ input[type="radio"] {
   background:white;
   border: 3px solid #FBF4F4;
   height: 180px;
+}
+.carousel-control.left {
+    /* background-image: -webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); */
+    /* background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001))); */
+    background-image: linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+    /* background-repeat: repeat-x; */
 }
 </style>
