@@ -17,8 +17,8 @@
 
                 <h5 class="mt-xl">{{ trans('settings.system_version') }}</h5>
                 <div class="py-xs">
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/BookStackApp/BookStack/releases">
-                        BookStack @if(strpos($version, 'v') !== 0) version @endif {{ $version }}
+                    <a target="_blank" rel="noopener noreferrer" href="https://nciguidelines.intellisoftkenya.com/login">
+                        NCI @if(strpos($version, 'v') !== 0) version @endif {{ $version }}
                     </a>
                 </div>
             </div>

@@ -78,16 +78,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/nci/basic/cancer/ceneter/', [BookController::class, 'nci_basic_c_ceneter']);
     Route::get('/nci/mlevel/cancer/ceneter', [BookController::class, 'nci_mlevel_c_ceneter']);
     Route::get('/nci/comprehensive/cancer/ceneter/', [BookController::class, 'nci_comprehensive_c_ceneter']);
+
+    Route::get('/nci/approved/cancer/ceneter/', [BookController::class, 'nci_comprehensive_c_ceneter']);
     Route::get('/nci/customer/satisfaction/ratings', [BookController::class, 'nci_customer_ratings']);
     Route::get('/nci/cancer/ceneter/forms', [BookController::class, 'nci_cancer_forms']);
     Route::get('/nci/{slug}', [BookController::class, 'nci_operation_consideration_req']);
     Route::get('/nci/books/chemoteraphy/operational/considerations', [BookController::class, 'nci_chemotherapy']);
     Route::get('/nci/books/chemoteraphy/considerations', [BookController::class, 'chemoteraphy_considerations']);
     Route::post('/add/user/ratings', [BookController::class, 'add_user_ratings']);
+    Route::post('/add/county/cancer/ceneter', [BookController::class, 'addCountUpdates']);
+    Route::post('/apply/to/cancer/ceneter', [BookController::class, 'apply_here']);
     Route::get('/select2-autocomplete-ajax', [BookController::class, 'dataAjax']);
     Route::get('/nci/{bookSlug}/create-chapter', [ChapterController::class, 'nci_create']);
     Route::get('/nci/create-book/{requirements}', [BookController::class, 'create_requirements']);
     Route::get('/nci/create-cancer/{cancer}', [BookController::class, 'cancer']);
+    
 
 
 
@@ -115,6 +120,26 @@ Route::middleware('auth')->group(function () {
     Route::get('/books/nci-k/pdf', [BookExportController::class, 'nci_kPdf']);
     Route::get('/books/nci/cyclotron/pdf', [BookExportController::class, 'nci_cyclotronPdf']);
     Route::get('/book/nci/Checklis/Forms', [BookExportController::class, 'nci_Checklis_Forms']);
+    Route::get('/book/nci/chemotherapy/unit', [BookExportController::class, 'chemotherapy_unit']);
+    Route::get('/book/nci/radiotherapy/Forms', [BookExportController::class, 'radiotherapy_unit']);
+    Route::get('/book/nci/nuclear/unit', [BookExportController::class, 'nuclear_unit']);
+    Route::get('/book/nci/informed/consent/form', [BookExportController::class, 'informed_consent_form']);
+    Route::get('/book/nci/nci_medical/label', [BookExportController::class, 'nci_medical_label']);
+    Route::get('/book/nci/chemoterapy/admin/form', [BookExportController::class, 'nci_chemoterapy_admin_form']);
+    Route::get('/book/nci/cancer/screeningform', [BookExportController::class, 'cancer_screening_form']);
+    Route::get('/book/nci/cancer/abstract/form', [BookExportController::class, 'cancer_abstract_form']);
+    Route::get('/book/nci/new/patient/form', [BookExportController::class, 'new_patient_form']);
+    Route::get('/book/nci/patient/tools', [BookExportController::class, 'patient_tools_assesd']);
+        Route::get('/book/nci/apply-to-ncik', [BookExportController::class, 'apply_here']);
+
+
+
+
+
+
+
+
+
 
 
 

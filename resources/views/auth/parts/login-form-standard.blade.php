@@ -33,17 +33,24 @@
 </form> -->
 
 <style>
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 601px) {
   .signup {
     width: 100%;
+    margin-left: auto;
     margin-top: 0;
   }
+  .signup-connect{
+    display: none;
+    width: 100%;
+  }
+  
 }
 
-/* On screens that are 600px wide or less, the background color is olive */
+/* On screens that are 600px wide or@media screen and (max-width: 600px) less, the background color is olive */
 @media screen and (max-width: 600px) {
   .signup-classic {
     margin:5px;
+    margin-left: 20px;
     width: 100%;
     border: 13px solid #FBF4F4;
   }
