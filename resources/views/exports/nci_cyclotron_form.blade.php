@@ -425,63 +425,63 @@ During inspection list all operating personne
         
     </tr>
     <tr style="height:5px">
-      <th colspan="5">
+      <td colspan="5">
         <h6>7. TRAINING AND INSTRUCTION OF WORKERS
 Training a nd retraining requirements and documentation; interviews and observations of
 routine work; staff knowledge of all routine activities; and emergency response</h6>
-      </th>
+      </td>
       </tr>
   <tr >
-      <th colspan="3" style="width:50%;height:20px" >All person nel responsibl e for the operation/maintenance of the facility and
-production of F-18 have prescribed qualifications and/or training? </th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >All person nel responsibl e for tde operation/maintenance of tde facility and
+production of F-18 have prescribed qualifications and/or training? </td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
   <tr >
-      <th colspan="3" style="width:50%;height:20px" >All occupationally exposed personnel have undertaken a radiation safety course?</th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >All occupationally exposed personnel have undertaken a radiation safety course?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
   <tr >
-      <th colspan="3" style="width:50%;height:20px" >Refresher radiation safety training is provided periodically? </th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >Refresher radiation safety training is provided periodically? </td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
   <tr >
-      <th colspan="3" style="width:50%;height:20px" >Training records maintained for each worker? 
- </th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >Training records maintained for each worker? 
+ </td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
  <tr >
-      <th colspan="3" style="width:50%;height:20px" >Interviews with personnel demonstrate an adequate level of understanding regarding
-safe working procedures?</th>
-   <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >Interviews witd personnel demonstrate an adequate level of understanding regarding
+safe working procedures?</td>
+   <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
    </tr>
 <tr >
-    <th colspan="3" style="width:%;height:20px" >Discussion w ith the RSO demonstrates a n appropriate knowledge of t he A ct a nd
-subsidiary legislations, the licence requirements, the licence conditions, safe working</th>
-  <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+    <td colspan="3" style="height:20px" >Discussion w itd tde RSO demonstrates a n appropriate knowledge of t he A ct a nd
+subsidiary legislations, tde licence requirements, tde licence conditions, safe working</td>
+  <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
 </tr>
 <tr >
-    <th colspan="3"  style="width:15%;height:20px" >Does the RSO have appropriate resources (time, personnel) and authority (to take
-independent action to remedy urgent safety issues) to properly perform the role?</th>
-  <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+    <td colspan="3"  style="width:15%;height:20px" >Does tde RSO have appropriate resources (time, personnel) and autdority (to take
+independent action to remedy urgent safety issues) to properly perform tde role?</td>
+  <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" >Comments:</th>
+    <td colspan="5"  style="width:15%;height:20px" >Comments:</td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 
 </table>
@@ -494,98 +494,926 @@ independent action to remedy urgent safety issues) to properly perform the role?
         
     </tr>
     <tr style="height:5px">
-      <th colspan="5">
+      <td colspan="5">
         <h6>8. PERSONNEL RADIATION MONITORING
-Radiation protection program with ALARA provisions; dosimetry; exposure evaluations;
+Radiation protection program witd ALARA provisions; dosimetry; exposure evaluations;
 dose and survey records and reports; notifications to workers</h6>
-      </th>
+      </td>
       </tr>
   <tr >
-      <th colspan="3" style="width:50%;height:20px" >Operator provides personal dosimeters to all radiation workers?</th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >Operator provides personal dosimeters to all radiation workers?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
   <tr >
-      <th colspan="3" style="width:50%;height:20px" >Dosimetry Service Provider is an authorized provider?</th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >Dosimetry Service Provider is an autdorized provider?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
   <tr >
-      <th colspan="3" style="width:50%;height:20px" >Name of dosimetry service provider:</th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >Name of dosimetry service provider:</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
   <tr >
-      <th colspan="3" style="width:50%;height:20px" >Dosimeters provided are appropriate for the radiation type and energy? 
- </th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >Dosimeters provided are appropriate for tde radiation type and energy? 
+ </td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
  <tr >
-      <th colspan="3" style="width:50%;height:20px" >Dosimeters are exchanged at the prescribed period?</th>
-   <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+      <td colspan="3" style="width:50%;height:20px" >Dosimeters are exchanged at tde prescribed period?</td>
+   <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
    </tr>
 <tr >
-    <th colspan="3" style="width:15%;height:20px" >Dosimetry reports are promptly reviewed by the RSO?</th>
-  <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+    <td colspan="3" style="width:15%;height:20px" >Dosimetry reports are promptly reviewed by tde RSO?</td>
+  <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
 </tr>
 <tr >
-    <th colspan="3"  style="width:15%;height:20px" >Is it evident that personal dosimeters are being worn by workers?</th>
-  <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+    <td colspan="3"  style="width:15%;height:20px" >Is it evident tdat personal dosimeters are being worn by workers?</td>
+  <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
 <tr >
-    <th colspan="3"  style="width:15%;height:20px" >Individual workers are informed of their monitoring results when each monitoring
-report is received (regardless of the dose measured)?</th>
-  <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+    <td colspan="3"  style="width:15%;height:20px" >Individual workers are informed of tdeir monitoring results when each monitoring
+report is received (regardless of tde dose measured)?</td>
+  <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
 <tr >
-    <th colspan="3"  style="width:15%;height:20px" >Personnel monitoring records are maintained?</th>
-  <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+    <td colspan="3"  style="width:15%;height:20px" >Personnel monitoring records are maintained?</td>
+  <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
 <tr >
-    <th colspan="3"  style="width:15%;height:20px" >Are pocket dosimeters (active dosimeters) available? Are they used by radiation
-workers?</th>
-  <th  style="width:15%;height:20px" ><input type="checkbox" >YES</input></th>
-    <th  style="width:15%;height:20px" ><input type="checkbox" >NO</input></th>
+    <td colspan="3"  style="width:15%;height:20px" >Are pocket dosimeters (active dosimeters) available? Are tdey used by radiation
+workers?</td>
+  <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" >Inspector reviewed personnel monitoring records for the period from/ to</th>
+    <td colspan="5"  style="width:15%;height:20px" >Inspector reviewed personnel monitoring records for tde period from/ to</td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" >Comments (include the maximum doses to workers during this review period)</th>
+    <td colspan="5"  style="width:15%;height:20px" >Comments (include tde maximum doses to workers during tdis review period)</td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 <tr >
-    <th colspan="5"  style="width:15%;height:20px" ></th>
+    <td colspan="5"  style="width:15%;height:20px" ></td>
       </tr>
 
 </table>
   </div>
+  <div class="page-break">
+<table>
+    <tr  style="background-color: #ffcc99; height:40px">
+        
+    </tr>
+    <tr style="height:5px">
+      <td colspan="6">
+        <h6>9. DETAILS OF CYCLOTRON</h6>
+      </td>
+      </tr>
+      <tr >
+      <td colspan="3" style="height:20px" >Cyclotron Unit make:</td>
+    <td  colspan="3"style="width:15%;height:20px" ></td>
+      </tr>
+      <tr >
+      <td colspan="3" style="height:20px" > Cyclotron Unit Model:</td>
+    <td  colspan="3" style="width:15%;height:20px" ></td>
+      </tr>
+  <tr >
+      <td colspan="3" style="height:20px" >Cyclotron Unit Serial No</td>
+    <td colspan="3" style="width:15%;height:20px" ></td>
+      </tr>
+  <tr >
+      <td colspan="3" style="height:20px" >Type of shielding:
+ </td>
+    <td  style="width:20%;height:20px" ><input type="checkbox" >Unshielded</input></td>
+    <td colspan="2"  style="width:20%;height:20px" ><input type="checkbox" >Self-shielded</input></td>
+      </tr>
+ <tr >
+      <td colspan="3" style="height:20px" >Beam Type:</td>
+   <td  style="width:15%;height:20px" ><input type="checkbox" >Protons</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >Deuterons</input></td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >Deuterons</input></td>
+   </tr>
+   <tr >
+      <td colspan="3" style="height:20px" >Nominal Beam Energy:
+ </td>
+    <td  style="width:40%;height:20px" >Protons: ………………. MeV</td>
+    <td colspan="2" style="width:100%;height:20px" >Deuterons: ………………. MeV</td>
+      </tr>
+      <tr >
+      <td colspan="3" style="height:20px" >Nominal Beam Energy:
+ </td>
+    <td  style="width:40%;height:20px" >Protons: ………………. MeV</td>
+    <td colspan="2" style="width:100%;height:20px" >Deuterons: ………………. MeV</td>
+      </tr>
+<tr >
+
+
+
+    <td colspan="6"  style="width:15%;height:20px" >Number of target ports available for radioisotopes production: ……………………</td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" >Number of target ports used at tde time for radioisotopes production: ……………………</td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" >Radioisotopes produced: ……………………</td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" >Comments</td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" ></td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" ></td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" ></td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" ></td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" ></td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" ></td>
+      </tr>
+<tr >
+    <td colspan="6"  style="width:15%;height:20px" ></td>
+      </tr>
+
+</table>
+  </div>
+  <div class="page-break">
+
+<table>
+    <tr  style="background-color: #ffcc99; height:40px">
+        
+    </tr>
+    <tr style="height:3px">
+      <td style="width:5%;height:20px" colspan="5">
+        <h6>10 INTERLOCK ,ACCESS CONTROL AND OtdER  SAFETY FEATURES</h6>
+      </td>
+      </tr>
+      <tr >
+        <td style="width:5%;height:20px" >Tally</td>
+      <td colspan="4" style="width:50%;height:20px" >Control console access passowrd/key working and secured</td>
+      </tr>
+  <tr >
+     <td></td>
+      <td style="width:70%;" >Control console access passowrd/key working and secured</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td></td>
+      <td style="width:70%;" ></td>
+    <td  style="width:10%;" >Provided</td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >Working</input></td>
+      </tr>
+      <tr >
+     <td>(ii) </td>
+      <td>Cyclotron  vault door interlock</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:20%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>(iii)</td>
+      <td style="width:70%;" >Emergency switch "off: on control console</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input></td>
+    <td  colspan="2" style="width:5%;" ><<input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>(iv)</td>
+      <td style="width:70%;" >Cyclotron  vault door interlock</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>(v)</td>
+      <td style="width:70%;" >shelf shielding interlock</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>(vi)</td>
+      <td style="width:70%;" >Uninterupted power supply /standby power supply</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>(vii)</td>
+      <td style="width:70%;" >Provision for safe "STANDBY"  mode for cyclotron in case of power failure</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>(viii)</td>
+      <td style="width:70%;" >Provision of emrgency power for ventilation system,access control system and radiation monitoring system</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>(ix)</td>
+      <td style="width:70%;" >interlock for acces prevention into cyclotron vault,if residual radiation does inside tde vault is high</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>(x)</td>
+      <td style="width:70%;" >Beam on alarm/signal warning light at tde entrance of vault</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>xi</td>
+      <td style="width:70%;" >cooling system vacuum system/compressed air system interlock</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>xii</td>
+      <td style="width:70%;" >Area monitors inside vault witd audible warning set to a tdreshold radiation level</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>xiii</td>
+      <td style="width:70%;" >Area monitors in console room,hot ab,chemistry module,and otder rooms set to a tdreshold radiation dose level</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+     <td>xiv</td>
+      <td style="width:70%;" >Portal contaminationmonitors/area survey meters (neutron and ganmma)/pocket dosimeter are availlable</td>
+    <td  style="width:10%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+    <td  colspan="2" style="width:5%;" ><input type="checkbox" >YES</input><input type="checkbox" >NO</input></td>
+      </tr>
+<tr >
+    <td colspan="5"  style="width:15%;height:20px" >Comments (include tde maximum doses to workers during tdis review period)</td>
+      </tr>
+<tr >
+    <td colspan="5"  style="width:15%;height:20px" ></td>
+      </tr>
+<tr >
+    <td colspan="5"  style="width:15%;height:20px" ></td>
+      </tr>
+    <tr >
+    <td colspan="5"  style="width:15%;height:20px" ></td>
+      </tr>
+
+    
+      </tr>
+
+</table>
+  </div>
+  <div class="page-break">
+
+<table>
+    <tr  style="background-color: #ffcc99; height:40px">
+        
+    </tr>
+    <tr style="height:5px">
+      <td style="width:5%;height:20px" colspan="5">
+        <h6>11. INDICATION OF VARIOUS PARAMETER ON THE CONTROL CONSOLE DISPLAY</h6>
+      </td>
+      </tr>
+  <tr >
+    <td style="width:5%;height:20px">Tally</td>
+      <td colspan="3" style="width:50%;height:20px" ></td>
+      </tr>
+  <tr > 
+      <td>(i)</td>
+      <td  style="width:50%;height:20px" >Various interlock position</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(ii) </td>
+      <td  style="width:50%;height:20px" >Beam parameter</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(iii)</td>
+      <td  style="width:50%;height:20px" > Beam current</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(iv)</td>
+      <td  style="width:50%;height:20px" > Target selection</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(v)</td>
+      <td  style="width:50%;height:20px" > Utility parameter (temperature, water level, cooling agents, compressed air
+pressure, nitrogen, helium, vacuum etc)</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(vi)</td>
+      <td  style="width:50%;height:20px" > Beam ON/OFF indication</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(vii) </td>
+      <td  style="width:50%;height:20px" >Ventilation/exhaust control system</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(viii)</td>
+      <td  style="width:50%;height:20px" > Transfer of radionuclide status</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(ix)</td>
+      <td  style="width:50%;height:20px" > (xi) Beam ON time display</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(xii)</td>
+      <td  style="width:50%;height:20px" >  Beam ‘ON’ alarm/signal warning light at the entrance of vault</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(xii)</td>
+      <td  style="width:50%;height:20px" >  Beam ON time display</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td colspan="2" style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+</table>
+  </div>
+  <div class="page-break">
+
+<table>
+    <tr  style="background-color: #ffcc99; height:40px">
+        
+    </tr>
+    <tr style="height:5px">
+      <td style="width:5%;height:20px" colspan="5">
+        <h6>12. CONTROL OF AIRBONE ACTIVITY</h6>
+      </td>
+      </tr>
+  <tr >
+    <td>Tally</td>
+      <td colspan="4" style="width:50%;height:20px" ></td>
+      </tr>
+  <tr > 
+      <td rowspan="2">(i)</td>
+      <td  rowspan="2" style="width:50%;height:5px" >Various interlock position</td>
+      <td>Provided</td>
+      
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+        <td  style="width:50%;height:20px" ><input type="checkbox" >NO</input></td>
+   
+  </tr>
+      <tr > 
+      <td>Working </td>
+      <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+
+      <td  style="width:50%;height:20px" ><input type="checkbox" >NO</input></td>
+    </tr>
+      <tr > 
+      <td>(ii)</td>
+      <td colspan="2" style="width:50%;height:20px" > Provision for negative pressure inside cyclotron vault
+and other room?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(iii)</td>
+      <td colspan="2" style="width:50%;height:20px" >  Standby exhaust pump/fan at the end of ventilation duct?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(iv)</td>
+      <td colspan="2" style="width:50%;height:20px" > HEPA/charcoal filter/other high efficiency filter provided</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(v)</td>
+      <td colspan="2" style="width:50%;height:20px" >Provision of decontamination and containment of used air filter</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(vi)</td>
+      <td colspan="2" style="width:50%;height:20px" >Ventilation/exhaust control system</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+</table>
+  </div>
+
+  <div class="page-break">
+
+<table>
+    <tr style="height:5px">
+      <td colspan="5">
+        <h6>13. EMERGENCY PREPAREDNESS AND RESPONSE</h6>
+      </td>
+      </tr>
+      <tr > 
+      <td style="width:5%;height:20px">(i)</td>
+      <td colspan="2" style="width:50%;height:20px" >Has the facility prepared it radiological emergency preparedness (REPR) and
+response plan?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(ii)</td>
+      <td colspan="2" style="width:50%;height:20px" >Has the facility submitted a copy of its REPR to the Board?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(iii)</td>
+      <td colspan="2" style="width:50%;height:20px" >Has the REPR been ever exercised?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(iv)</td>
+      <td colspan="2" style="width:50%;height:20px" > Has the facility documented the emergency procedures?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(v)</td>
+      <td  colspan="4" >(v) Are the following response proceduresdisplayed in controlled and supervised area:
+</td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" >Target foils rupture </td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" >Radioactive source stuck in transfer line</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" >Power failure</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" > Containment rapture in chemistry hot cell</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" >Vial break in the QC lab</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" >Fire breakout</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" > Failure of ventilation system</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" > Spillage in controlled/ supervised areas</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>vi</td>
+      <td colspan="2" style="width:50%;height:20px" >Is fire alarm system availlable?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Comment:
+</td>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+</table>
+  </div>
+
+  <div class="page-break">
+
+<table>
+    <tr style="height:5px">
+      <td colspan="5">
+        <h6>
+          14. NOTIFICATIONS AND REPORTS
+Reporting and follow-up of t heft; loss; incidents; overexposures; safety-related e quipment
+failures; change in RSO, and radiation dose reports to workers. 
+</h6>
+      </td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Have any notifiable incidents or accidents occurred since the last inspection?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+<td colspan="3" style="width:50%;height:20px" >If yes, have they been reported to the Board? (If no, list the incidents or accidents in
+Comments)</td>    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Actions taken to prevent recurrence:
+</td>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Comment:
+</td>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;height:20px" ></th>
+      </tr>
+</table>
+  </div>
+  <div class="page-break">
+
+<table>
+    <tr style="height:5px">
+      <td colspan="5">
+        <h6>
+        15. TRANSPORT OF F-18 
+</h6>
+      </td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Name of transport company:
+</td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Is the transport company certified by the board?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Maximum Activity per shipment by company:
+</td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Shielding, packaging and transporting in accordance with Board’s regulations and
+guidance, and IAEA SSR-6 (2012) regulations?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Company’s declaration papers have correct details and used when shipping sources?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Any Radioactive material Shipments transported, by other than above Company?
+(If the answer is yes, give details of the company in the comments section) </td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Are vials checked for contamination prior to packing?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+    
+      <tr > 
+      <td  colspan="5" >Comment:
+</td>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr><tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr><tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+</table>
+  </div>
+  <div class="page-break">
+
+<table>
+    <tr style="height:5px">
+      <td style="width:5%;height:20px" colspan="5">
+        <h6>
+        16. DELIVERY OF F-18 AT CUSTOMERS’s PREMISES 
+</h6>
+      </td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Are there documented procedures for delivery/receipt?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Are there accurate records of shipments?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >What are the security measures during delivery?</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr><tr > 
+      <td  colspan="5" >What happens if no one is present to accept delivery? 
+
+</td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Comment:
+</td>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr><tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr><tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+</table>
+<table>
+    <tr style="height:5px">
+      <td style="width:5%;height:20px" colspan="5">
+        <h6>
+        17. WASTE MANAGEMENT 
+</h6>
+      </td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Overview (types of solid/liquid/contaminated wastes, any disposal through sink to sewer): 
+ 
+
+</td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >
+</td>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr> <tr > 
+      <td  colspan="5" >Location of waste: 
+</td>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Is the waste labelled:</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr><tr > 
+      <td colspan="3" style="width:50%;height:20px" >Records of storage/disposal:</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr><tr > 
+      <td colspan="3" style="width:50%;height:20px" >Monitoring:</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Comment:
+</td>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr><tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr><tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+</table>
+  </div><div class="page-break">
+  <table>
+    <tr style="height:5px">
+      <td colspan="5">
+        <h6>18. RECORDS</h6>
+      </td>
+      </tr> <tr > 
+      <td  colspan="5" >Is the following information recorded and maintained?
+</td>
+      </tr>
+      <tr > 
+      <td style="width:5%;height:20px">(i)</td>
+      <td colspan="2" style="width:50%;height:20px" >Authorizations from the Radiation Protection Board</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(ii)</td>
+      <td colspan="2" style="width:50%;height:20px" >Staff acces and visit to the facility and radiation room</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(iii)</td>
+      <td colspan="2" style="width:50%;height:20px" >Discharges and evaluation of doses to the public</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td>(iv)</td>
+      <td colspan="2" style="width:50%;height:20px" >Results of radiation monitoring of areas</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr><tr > 
+      <td>(iv)</td>
+      <td colspan="2" style="width:50%;height:20px" >Results of tests and checks of safety systems (annual, biannual, monthly, daily
+and special)</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr><tr > 
+      <td>(iv)</td>
+      <td colspan="2" style="width:50%;height:20px" >Calibration certificates for measuring instrument</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" >Schedules for and results of maintenance and repai </td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" > Reports on internal audits and inspections, etc</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" >Information on waste management</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td></td>
+      <td colspan="2" style="width:50%;height:20px" > Reports on investigations of incidents and accidents</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Comment:
+</td>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+</table>
+<table>
+    <tr style="height:5px">
+      <td colspan="5">
+        <h6>19. INDEPENDENT AND CONFIRMATORY MEASUREMENTS</h6>
+      </td>
+      </tr>
+      </tr>
+      <tr > 
+      <td colspan="3" style="width:50%;height:20px" >Inspector made area and other measurements for comparison to operator’s</td>
+    <td  style="width:15%;height:20px" ><input type="checkbox" >YES</input></td>
+    <td style="width:15%;height:20px" ><input type="checkbox" >NO</input></td>
+      </tr>
+      <tr > 
+      <td  colspan="5" >Comments: Describe the types and results of measurements taken. Identify the
+instruments used by the inspector (make, model, last calibration).
+</td>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+      <tr >
+    <th colspan="5"  style="width:15%;" ></th>
+      </tr>
+</table>
+</div>

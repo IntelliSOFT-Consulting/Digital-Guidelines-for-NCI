@@ -36,10 +36,10 @@ $C Checklist for a medical cyclotron facilit,
 "C PPE list -->
                   
             <li><a href = "{{url('/books/nci-k/pdf')}}"><u>Application form to NCI-K<u></a></li>
-            <li><a href = "{{url('/')}}"><u>Generic layout design (chemotherapy unit)<u></a></li>
-            <li><a href = "{{url('/')}}"><u> Generic layout design (Radiation unit)<u></a></li>
-            <li><a href = "{{url('/')}}"><u>Generic layout design (Nuclear medicine unit)<u></a></li>
-            <li><a href = "{{url('/')}}"><u>Checklist for a medical cyclotron facility</u></a></li>
+            <li><a href = "{{url('/book/nci/chemotherapy/unit')}}"><u>Generic layout design (chemotherapy unit)<u></a></li>
+            <li><a href = "{{url('/book/nci/radiotherapy/Forms')}}"><u> Generic layout design (Radiation unit)<u></a></li>
+            <li><a href = "{{url('/book/nci/nuclear/unit')}}"><u>Generic layout design (Nuclear medicine unit)<u></a></li>
+            <li><a href = "{{url('/books/nci/cyclotron/pdf')}}"><u>Checklist for a medical cyclotron facility</u></a></li>
             <li><a href = "{{url('/books/ppe/pdf')}}"><u>PPE list</u></a></li>
 
            
@@ -95,24 +95,14 @@ $C Checklist for a medical cyclotron facilit,
             <ol type = "1">
             <div class="row">
             <div class="col-md-6">
-            <!-- @C Application form to NCI-3
-/C Generic layout design (chemotherapy unit.
-7C Generic layout design (Radiation unit.
-<C Generic layout design (Nuclear medicine unit.
-$C Checklist for a medical cyclotron facilit,
-"C PPE list -->
                   
-            <li><a href = "{{url('/')}}"><u>Cancer Abstract Form<u></a></li>
-            <li><a href = "{{url('/')}}"><u> Cancer Screening and Early Diagnosis Form<u></a></li>
-            <li><a href = "{{url('/')}}"><u> Cancer Treatment Informed Consent Form<u></a></li>
-            <li><a href = "{{url('/')}}"><u>Chemotherapy Administration Form<u></a></li>
-            <li><a href = "{{url('/')}}"><u>Medication Label</u></a></li>
-            <li><a href = ""><u>New Patient Oncology Assessment Form</u></a></li>
-            <li><a href = ""><u>Pain Assessment Tools</u></a></li>
-
-
-           
-            
+            <li><a href = "{{url('/book/nci/cancer/abstract/form')}}"><u>Cancer Abstract Form<u></a></li>
+            <li><a href = "{{url('/book/nci/cancer/screeningform')}}"><u> Cancer Screening and Early Diagnosis Form<u></a></li>
+            <li><a href = "{{url('/book/nci/informed/consent/form')}}"><u> Cancer Treatment Informed Consent Form<u></a></li>
+            <li><a href = "{{url('/book/nci/chemoterapy/admin/form')}}"><u>Chemotherapy Administration Form<u></a></li>
+            <li><a href = "{{url('/book/nci/nci_medical/label')}}"><u>Medication Label</u></a></li>
+            <li><a href = "{{url('/book/nci/new/patient/form')}}"><u>New Patient Oncology Assessment Form</u></a></li>
+            <li><a href = "{{url('/book/nci/patient/tools')}}"><u>Pain Assessment Tools</u></a></li>
             </div>
             </div>
              </ol>

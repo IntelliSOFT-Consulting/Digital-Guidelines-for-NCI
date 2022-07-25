@@ -11,9 +11,9 @@ yarn-error.log
 /public/js
 /public/bower
 /public/build/
-/storage/images
+# /storage/images
 _ide_helper.php
-/storage/debugbar
+# /storage/debugbar
 .phpstorm.meta.php
 yarn.lock
 /bin
