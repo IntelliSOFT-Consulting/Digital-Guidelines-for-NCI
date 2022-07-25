@@ -203,10 +203,10 @@ in Kenya
       <div class="col-md-4">
       <div class="card" >
   <div class="card-body">
-  <!-- <a href="#">--><img class="images" src="{{ asset('/uploads/download.png') }}" alt="New york">
+  <a href="{{url('/books/nci/cyclotron/pdf')}}"><img class="images" src="{{ asset('/uploads/download.png') }}" alt="New york">
     <h4 class="card-title management">Facility Inspection Forms
 </h4>
-<!-- </a> -->
+</a>
   </div>
 </div>
       </div>
@@ -222,11 +222,11 @@ in Kenya
       <div class="col-md-4">
       <div class="card" >
   <div class="card-body">-
-  <!-- <a href="#"> -->
+   <a href="{{url('/book/nci/new/patient/form')}}"> 
     <img class="images" src="{{ asset('/uploads/download.png') }}" alt="New york"> 
   <h4 class="card-title management">Patient Details Forms
 </h4>
-<!-- </a> -->
+</a>
   </div>
 </div>
       </div>

@@ -8,9 +8,12 @@ use BookStack\Actions\View;
 use BookStack\Entities\Models\PageContent_model;
 use BookStack\Entities\Tools\NextPreviousContentLocator;
 use BookStack\Entities\Tools\PageContent;
+use BookStack\Entities\Models\CancerApplication_model;
 use BookStack\Entities\Models\Bookshelf;
+use BookStack\Entities\Models\CancerApplicationfiles_model;
 use BookStack\Entities\Models\Ratings_model;
 use BookStack\Entities\Models\ApprovedCancerCenter_models;
+use BookStack\Entities\Models\PercountyCenters_model;
 use BookStack\Entities\Repos\BookRepo;
 use BookStack\Entities\Tools\BookContents;
 use BookStack\Entities\Tools\Cloner;
@@ -23,6 +26,7 @@ use BookStack\Facades\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Throwable;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -366,10 +370,51 @@ class BookController extends Controller
         return view('types_of_cancer/nci_mlevel_cancer_center');
     }
     public function nci_comprehensive_c_ceneter(){
-        $centers=ApprovedCancerCenter_models::get();
-        //dd($centers[0]['Designation']);
+        $centers=ApprovedCancerCenter_models::groupBy('County')->get();
+        $per=array();
+        //foreach ($centers  as $cen){
+            
+       // }
         $coun=count($centers);
-        return view('types_of_cancer/nci_comprehensive_cancer_center',['centers' =>$centers,'coun' =>$coun]);
+        return view('types_of_cancer/nci_approved_cancer_center',['centers' =>$centers,'coun' =>$coun]);
+    }
+    public function addCountUpdates(Request $request,ApprovedCancerCenter_models $capproved){
+
+        $country=$request->country;
+         $facility=$request->facility;
+        $newcounty=$request->newcounty;
+        $exist=$capproved->where('County',$country)->get();
+        //dd($request->all());
+        //if (isset($exist)) {
+            # code...
+            if (!isset($newcounty) && isset($country)) {
+            foreach ($facility as $perc)
+            PercountyCenters_model::create([
+                'Facility'=> $perc,
+                'county_id'=> $country,
+                'Designation'=> $request->designation
+            ]);
+            $message='county center added successfully';
+        }else{
+                # code...
+                ApprovedCancerCenter_models::create([
+                    //'Facility'=> $country->Facility,
+                    'County'=> $newcounty,
+                    //'Designation'=> $country->Designation
+                ]);
+                foreach ($facility as $newperc){
+                    PercountyCenters_model::create([
+                        'Facility'=> $newperc,
+                        'county_id'=> $newcounty,
+                        'Designation'=> $request->designation
+                    ]);
+                }
+                $message='county and cancer center added successfully';
+            }
+            
+            
+        //}
+        return redirect()->back()->with('message', $message);
     }
     public function nci_customer_ratings(){
         return view('types_of_cancer/nci_customer_satisfaction_ratings');
@@ -401,6 +446,7 @@ class BookController extends Controller
         return view('types_of_cancer/bcc/chemoteraphy_considerations');
     }
     public function add_user_ratings(Request $request){
+        
      $ratings= new Ratings_model();
      $ratings->additional_comments = $request->comment;
      $ratings->experience_rating = $request->difficult;
@@ -425,5 +471,238 @@ class BookController extends Controller
             		->get();
         }
         return response()->json($data);
+    }
+    public  function apply_here(Request $request){
+        $validate=$this->validate($request, [
+            'head_email'    => ['required', 'email', 'max:255', 'unique:cancer_application_models'],
+            'depart_email'    => ['required', 'email', 'max:255', 'unique:cancer_application_models'],
+            'inst_email'    => ['required', 'email', 'max:255', 'unique:cancer_application_models'],
+        ]);
+
+if (!$validate) {
+    return redirect()->back();
+}
+$center=$request->center;
+$paddress=$request->paddress;
+$email=$request->email;
+$service_c=$request->service_c;
+$institute_name=$request->institute_name;
+$head_email=$request->head_email;
+$con_email=$request->con_email;
+$inst_email=$request->inst_email;
+$manager_name=$request->manager_name;
+$depart_email=$request->depart_email;
+$department_phone=$request->department_phone;
+$depart1_email=$request->depart1_email;
+$prevention=$request->prevention;
+$pre_cancerous=$request->pre_cancerous;
+$inpatient_wards=$request->inpatient_wards;
+$outpatient=$request->outpatient;
+$pathology=$request->pathology;
+$radiology=$request->radiology;
+$surgical=$request->surgical;
+$radiotherapy=$request->radiotherapy;
+$oncology=$request->oncology;
+$chemotherapy=$request->chemotherapy;
+$therapy=$request->therapy;
+$hormonal=$request->hormonal;
+$immunotherapy=$request->immunotherapy;
+$transplants=$request->transplants;
+$palliative=$request->palliative;
+$assessment=$request->assessment;
+$sychosocial=$request->sychosocial;
+$rehabilitation=$request->rehabilitation;
+$survivorship=$request->survivorship;
+$care=$request->care;
+$registration=$request->registration;
+$comprehensive_lab=$request->comprehensive_lab;
+$comprehensive_radiology=$request->comprehensive_radiology;
+$radiation_oncology=$request->radiation_oncology;
+$nuclear_medicine=$request->nuclear_medicine;
+$oncology_training=$request->oncology_training;
+$cancer_research=$request->cancer_research;
+$others=$request->others;
+$mechanism=$request->mechanism;
+$routine=$request->routine;
+$Physical=$request->Physical;
+$symptoms=$request->symptoms;
+$support=$request->support;
+$incorporate=$request->incorporate;
+$inadequately=$request->inadequately;
+$coordination=$request->coordination;
+$oncology_related=$request->oncology_related;
+$relevant=$request->relevant;
+$Clinical=$request->Clinical;
+$academic=$request->academic;
+$Professional=$request->Professional;
+$certificates=$request->certificates;
+$plans=$request->plans;
+$disposal=$request->disposal;
+$compliance=$request->compliance;
+$applicant_name=$request->applicant_name;
+$designation=$request->designation;
+$application_date=$request->application_date;
+$officer_name=$request->officer_name;
+$off_designation=$request->off_designation;
+$off_date=$request->off_date;
+$apply=new CancerApplication_model();
+$apply->user_id=auth()->user()->id;
+$apply->center=$center;
+$apply->paddress=$paddress;
+$apply->email=$email;
+$apply->service_c=$service_c;
+$apply->institute_name=$institute_name;
+$apply->head_email=$head_email;
+$apply->con_email=$con_email;
+$apply->inst_email=$inst_email;
+$apply->manager_name=$manager_name;
+$apply->depart_email=$depart_email;
+$apply->department_phone=$department_phone;
+$apply->depart1_email=$depart1_email;
+$apply->prevention=$prevention;
+$apply->pre_cancerous=$pre_cancerous;
+$apply->inpatient_wards=$inpatient_wards;
+$apply->outpatient=$outpatient;
+$apply->pathology=$pathology;
+$apply->radiology=$radiology;
+$apply->surgical=$surgical;
+$apply->radiotherapy=$radiotherapy;
+$apply->oncology=$oncology;
+$apply->chemotherapy=$chemotherapy;
+$apply->therapy=$therapy;
+$apply->hormonal=$hormonal;
+$apply->immunotherapy=$immunotherapy;
+$apply->transplants=$transplants;
+$apply->palliative=$palliative;
+$apply->assessment=$assessment;
+$apply->sychosocial=$sychosocial;
+$apply->rehabilitation=$rehabilitation;
+$apply->survivorship=$survivorship;
+$apply->care=$care;
+$apply->registration=$registration;
+$apply->comprehensive_lab=$comprehensive_lab;
+$apply->comprehensive_radiology=$comprehensive_radiology;
+$apply->radiation_oncology=$radiation_oncology;
+$apply->nuclear_medicine=$nuclear_medicine;
+$apply->oncology_training=$oncology_training;
+$apply->cancer_research=$cancer_research;
+$apply->others=$others;
+$apply->mechanism=$mechanism;
+$apply->routine=$routine;
+$apply->Physical=$Physical;
+$apply->symptoms=$symptoms;
+$apply->support=$support;
+$apply->incorporate=$incorporate;
+$apply->inadequately=$inadequately;
+$apply->coordination=$coordination;
+$apply->oncology_related=$oncology_related;
+$apply->relevant=$relevant;
+//$apply->Clinical=$Clinical;
+//$apply->academic=$academic;
+//$apply->Professional=$Professional;
+//$apply->certificates=$certificates;
+//$apply->plans=$plans;
+//$apply->disposal=$disposal;
+//$apply->compliance=$compliance;
+$apply->applicant_name=$applicant_name;
+$apply->designation=$designation;
+$apply->application_date=$application_date;
+$apply->officer_name=$officer_name;
+$apply->off_designation=$off_designation;
+$apply->off_date=$off_date;
+//dd($apply);
+if($apply->save()){
+    
+
+    if($request->hasfile('Clinical'))
+    {
+       foreach($request->file('Clinical') as $key => $file)
+       {
+        $imagefiles=new CancerApplicationfiles_model();
+           $path = $file->store('public/files');
+           $name = $file->getClientOriginalName();
+           $imagefiles->file_name = $name;
+           $imagefiles->store_path = $path;
+           $imagefiles->document_type = 'Clinical';
+           $imagefiles->application_id = $apply->id;
+            $imagefiles->save();
+       }
+       //dd($imagefiles);
+    }
+    if($request->hasfile('academic'))
+    {
+       foreach($request->file('academic') as $key => $file)
+       {
+        $imagefiles=new CancerApplicationfiles_model();
+           $path = $file->store('public/files');
+           $name = $file->getClientOriginalName();
+           $imagefiles->file_name = $name;
+           $imagefiles->store_path = $path;
+           $imagefiles->document_type = 'academic';
+           $imagefiles->application_id = $apply->id;
+           $imagefiles->save();
+       }
+    }
+    if($request->hasfile('Professional'))
+    {
+       foreach($request->file('Professional') as $key => $file)
+       {
+        $imagefiles=new CancerApplicationfiles_model();
+           $path = $file->store('public/files');
+           $name = $file->getClientOriginalName();
+           $imagefiles->file_name = $name;
+           $imagefiles->store_path = $path;
+           $imagefiles->document_type = 'Professional';
+           $imagefiles->application_id = $apply->id;
+           $imagefiles->save();
+       }
+    }
+    if($request->hasfile('certificates'))
+    {
+       foreach($request->file('certificates') as $key => $file)
+       {
+        $imagefiles=new CancerApplicationfiles_model();
+           $path = $file->store('public/files');
+           $name = $file->getClientOriginalName();
+           $imagefiles->file_name = $name;
+           $imagefiles->store_path = $path;
+           $imagefiles->document_type = 'certificates';
+           $imagefiles->application_id = $apply->id;
+           $imagefiles->save();
+       }
+    }
+    if($request->hasfile('plans'))
+    {
+       foreach($request->file('plans') as $key => $file)
+       {
+        $imagefiles=new CancerApplicationfiles_model();
+           $path = $file->store('public/files');
+           $name = $file->getClientOriginalName();
+           $imagefiles->file_name = $name;
+           $imagefiles->store_path = $path;
+           $imagefiles->document_type = 'plans';
+           $imagefiles->application_id = $apply->id;
+           $imagefiles->save();
+       }
+    }
+    if($request->hasfile('compliance'))
+    {
+       foreach($request->file('compliance') as $key => $file)
+       {
+        $imagefiles=new CancerApplicationfiles_model();
+           $path = $file->store('public/files');
+           $name = $file->getClientOriginalName();
+           $imagefiles->file_name = $name;
+           $imagefiles->store_path = $path;
+           $imagefiles->document_type = 'compliance';
+           $imagefiles->application_id = $apply->id;
+           $imagefiles->save();
+       }
+    }
+    
+    //dd($imagefiles);
+}
+//dd([$apply,$imagefiles]);
+return redirect()->back();
     }
 }
