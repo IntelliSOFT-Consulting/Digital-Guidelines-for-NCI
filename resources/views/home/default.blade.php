@@ -178,7 +178,7 @@ in Kenya
         <h5>{{ trans('common.actions') }}</h5>
         <div class="icon-list text-primary">
             @if(user()->can('book-create-all'))
-                <a href="{{ url("/create-book") }}" class="icon-list-item">
+                <a href="{{ url('/create-book') }}" class="icon-list-item">
                     <span>@icon('add')</span>
                     <span>{{ trans('entities.books_create') }}</span>
                 </a>
@@ -221,12 +221,10 @@ in Kenya
       </div>
       <div class="col-md-4">
       <div class="card" >
-  <div class="card-body">-
-   <a href="{{url('/book/nci/new/patient/form')}}"> 
-    <img class="images" src="{{ asset('/uploads/download.png') }}" alt="New york"> 
+  <div class="card-body">
+  <a href="{{url('/book/nci/new/patient/form')}}"><img class="images" src="{{ asset('/uploads/download.png') }}" alt="New york">
   <h4 class="card-title management">Patient Details Forms
-</h4>
-</a>
+</h4></a>
   </div>
 </div>
       </div>

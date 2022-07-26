@@ -54,7 +54,7 @@
         <form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" style="width: 100%;background-color: #FBF4F4;" class="form-control" id="recipient-name">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Message:</label>

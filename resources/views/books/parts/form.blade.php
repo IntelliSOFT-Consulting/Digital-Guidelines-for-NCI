@@ -15,7 +15,7 @@
         <label>{{ trans('common.cover_image') }}</label>
     </button>
     <div class="collapse-content" collapsible-content>
-        <p class="small">{{ trans('common.cover_image_description') }}</p>
+        <p class="small"></p>
 
         @include('form.image-picker', [
             'defaultImage' => url('/book_default_cover.png'),

@@ -124,7 +124,7 @@ class RegistrationService
             }
         }
 
-        return $newUser;
+        return  $newUser;
     }
 
     /**

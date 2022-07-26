@@ -10,7 +10,21 @@
     <label for="description">{{ trans('common.description') }}</label>
     @include('form.textarea', ['name' => 'description'])
 </div>
+<div class="form-group" collapsible id="logo-control">
+    <button type="button" class="collapse-title text-primary" collapsible-trigger aria-expanded="false">
+        <label>{{ trans('common.cover_image') }}</label>
+    </button>
+    <div class="collapse-content" collapsible-content>
+        <p class="small">{{ trans('common.cover_image_description') }}</p>
 
+        @include('form.image-picker', [
+            'defaultImage' => url('/book_default_cover.png'),
+            'currentImage' => (isset($model) && $model->cover) ? $model->getBookCover() : url('/book_default_cover.png') ,
+            'name' => 'image',
+            'imageClass' => 'cover'
+        ])
+    </div>
+</div>
 <div class="form-group" collapsible id="logo-control">
     <button type="button" class="collapse-title text-primary" collapsible-trigger aria-expanded="false">
         <label for="tags">{{ trans('entities.chapter_tags') }}</label>
