@@ -161,7 +161,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
         return $this->permissions()->contains($permissionName);
     }
-
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
     /**
      * Get all permissions belonging to a the current user.
      */

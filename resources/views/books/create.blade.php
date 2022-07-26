@@ -1,7 +1,7 @@
 @extends('layouts.simple')
 
 @section('body')
-    <div class="container small">
+    <div class="container small" style="max-width: 100%;">
         <div class="my-s">
             @if (isset($bookshelf))
                 @include('entities.breadcrumbs', ['crumbs' => [

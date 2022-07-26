@@ -56,13 +56,52 @@
     </div>
   </div>
 </div>
+<!-- edit cenetr -->
+<div class="modal fade" id="center" tabindex="-1" role="dialog" aria-labelledby="center" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="center">Update Center Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="hidden" name="facility_id" id="facility_id"/>
+          <div class="form-group">
+            <label for="county" class="col-form-label">County:</label>
+            <input style="width: 100%;background-color: #FBF4F4;"type="text" name="county" class="form-control" id="county">
+          </div>
+          <div class="form-group">
+            <label for="facility" class="col-form-label">Facility:</label>
+            <input style="width: 100%;background-color: #FBF4F4;"type="text" name="facility" class="form-control" id="facility">
+          </div>
+          <div class="form-group">
+            <label for="exurlink" class="col-form-label">Description Url:</label>
+            <input style="width: 100%;background-color: #FBF4F4;"type="text" name="exurlink" class="form-control" id="exurlink">
+          </div>
+          <!-- <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div> -->
+          <div class="modal-footer">
+        <button type="button" style="background:#D820C5" class="btn btn-primary">Update Center</button>
+      </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
           <!-- search for nci -->
           @if(session()->has('message'))
     <div class="alert alert-success">
         {{ session()->get('message') }}
     </div>
-@endif
-          <button style="float:right;margin-top:-40px;" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Cancer Center</button>
+@endif 
+@if(user()->can('book-create-all'))
+          <button style="float:right;margin-top:-40px;" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalLabel1" data-whatever="@mdo">Add Cancer Center</button>
+          @endif
           <?php $i=0 ?>
           @include('common/nci_search')
           
@@ -90,7 +129,7 @@
                     
                 $work=1;
                 foreach($data as $woekers){
-                    echo '<a href="#"><h6><strong>'.$work++.' .'. $woekers->Facility. '</strong></h6></a><hr>';
+                    echo '<h6><strong><a href="#">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
                 }
                 }else{
                     echo 'Not yet assigned to any worker';
@@ -103,7 +142,12 @@
                     
                     $work=1;
                     foreach($data as $woekers){
-                        echo '<h6>'.$woekers->Designation. '</h6><hr>';
+                      if(user()->can("book-create-all")){
+                        echo '<h6><strong><a href="#">'.$woekers->Designation. '</a><i class="fa fa-edit"data-facility="'.$woekers->Facility.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'</strong></h6><hr>';
+                      }else{
+                        echo '<h6><strong><a href="#">'.$woekers->Designation. '</a></strong></h6><hr>';
+
+                      }
                     }
                     }else{
                         echo 'Not yet assigned to any worker';
@@ -125,11 +169,11 @@
       <!-- footer end -->
 </div>
 @stop
-<link rel="stylesheet" href="http://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
+<script src = "https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
  
 <script type="text/javascript">
 $(document).ready(function() {
@@ -158,6 +202,16 @@ $('#facility').on('click',function(){
     var county='<div class="form-group" id="facility"><label for="facility" class="col-form-label">Facility:</label><input type="text" style="width: 100%;background-color: #FBF4F4;" class="form-control" id="facility" name="facility[]"><i style="float:right" id="DeleteRow" class="fa fa-trash"></i></div>';
      $('#fdaacil').append(county);
 });
+$('#center').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('county') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+ alert(recipient)
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body #facility').val(recipient)
+})
 } );
 
 </script>

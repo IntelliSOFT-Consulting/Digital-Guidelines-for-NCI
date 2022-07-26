@@ -7,6 +7,18 @@
     margin-right: 40px;
     margin-left: 15px;
 }
+@media screen and (max-width: 600px){
+.signup-connect {
+    display: none;
+    width: 100%;
+}
+.signup-classic {
+    margin: 5px;
+    margin-left: 20px;
+    width: 100%;
+    border: 13px solid #FBF4F4;
+}
+}
 </style>
     <!-- <div class="container very-small">
 

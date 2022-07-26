@@ -112,6 +112,7 @@ class RegisterController extends Controller
         try {
        
              $user = $this->registrationService->registerUser($userData);
+             //dd($user);
              $this->loginService->login($user, auth()->getDefaultDriver());
         } catch (UserRegistrationException $exception) {
             if ($exception->getMessage()) {

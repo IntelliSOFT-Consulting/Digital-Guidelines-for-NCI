@@ -113,9 +113,21 @@ class ChapterController extends Controller
      */
     public function update(Request $request, string $bookSlug, string $chapterSlug)
     {
+        
         $chapter = $this->chapterRepo->getBySlug($bookSlug, $chapterSlug);
         $this->checkOwnablePermission('chapter-update', $chapter);
-
+        // $validated = $this->validate($request, [
+        //     'name'        => ['required', 'string', 'max:255'],
+        //     'description' => ['string', 'max:1000'],
+        //     'image'       => array_merge(['nullable'], $this->getImageValidationRules()),
+        //     'tags'        => ['array'],
+        // ]);
+        // if ($request->has('image_reset')) {
+        //     $validated['image'] = null;
+        // } elseif (array_key_exists('image', $validated) && is_null($validated['image'])) {
+        //     unset($validated['image']);
+        // }
+        
         $this->chapterRepo->update($chapter, $request->all());
 
         return redirect($chapter->getUrl());
