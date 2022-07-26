@@ -100,12 +100,29 @@ class BookController extends Controller
     {
        // dd($requirements);
         //$this->checkPermission('book-create-all');
+        // creating requirement
+        // $view = setting()->getForCurrentUser('books_view_type');
+        // $sort = setting()->getForCurrentUser('books_sort', 'name');
+        // $order = setting()->getForCurrentUser('books_sort_order', 'asc');
+
+        // $books = $this->bookRepo->getAllReq(18, $sort, $order);
+        
+        // end of initial function
         $view = setting()->getForCurrentUser('books_view_type');
         $sort = setting()->getForCurrentUser('books_sort', 'name');
         $order = setting()->getForCurrentUser('books_sort_order', 'asc');
 
-        $books = $this->bookRepo->getAllReq(18, $sort, $order);
-        
+        $books = $this->bookRepo->getAllPaginated(18, $sort, $order);
+        $books = $this->bookRepo->getAllPaginated(18, $sort, $order);
+        foreach ($books as $book) {
+            
+            $books = (new BookContents($book))->getTree(true);
+        }
+        $recents = $this->isSignedIn() ? $this->bookRepo->getRecentlyViewed(4) : false;
+        $popular = $this->bookRepo->getPopular(4);
+        $new = $this->bookRepo->getRecentlyCreated(4);
+
+        $this->entityContextManager->clearShelfContext();
       
         $this->setPageTitle('Consideration Requirements');
 
