@@ -7,19 +7,20 @@
 <footer class="row" style=" bottom: 0;">  
 <!-- /position: fixed; width: 100%;-->
 <div  style="margin:5px;background:#FBF4F4">
-       <div class="col-md-6 social">
+       <!-- <div class="col-md-6 social">
        <h4 class="card-title management" >
       <h5>Customer Satisfaction Ratings</h5>
         <h5>Click <span><a href="{{ url('/nci/customer/satisfaction/ratings') }}">here</a></span> access our customer</h5>
         <h5>satisfaction rating form</h5>
         </h5>
-       </div>
-      <div class="col-md-6 social">
+       </div> -->
+      <div class="col-md-12 social">
   <h4 class="card-title management">
     <h5>Contact Information</h5>
     <h5>Tel: +254712345678, +254733112233</h5>
+    
      <div style="margin-top:20px">
-     <h5 class="fa">Social media:</h5>
+     <h5 class="fa" style="font-size:16px">Social media:</h5>
      <a  href="#" class="fa fa-facebook"></a>
     <a  href="#" class="fa fa-twitter"></a>
     <a  href="#" class="fa fa-instagram"></a>

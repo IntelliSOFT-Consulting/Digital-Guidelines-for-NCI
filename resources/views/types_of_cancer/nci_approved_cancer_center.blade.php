@@ -67,7 +67,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+      <form method = "POST" action = "{{url('/update/cancer/ceneter')}}">
+                        @csrf
           <input type="hidden" name="facility_id" id="facility_id"/>
           <div class="form-group">
             <label for="county" class="col-form-label">County:</label>
@@ -86,7 +87,7 @@
             <textarea class="form-control" id="message-text"></textarea>
           </div> -->
           <div class="modal-footer">
-        <button type="button" style="background:#D820C5" class="btn btn-primary">Update Center</button>
+        <button type="submit" style="background:#D820C5" class="btn btn-primary">Update Center</button>
       </div>
         </form>
       </div>
@@ -129,7 +130,13 @@
                     
                 $work=1;
                 foreach($data as $woekers){
-                    echo '<h6><strong><a href="#">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
+                  if (isset($woekers->ext_link)) {
+                    # code...
+                    $url=$woekers->ext_link;
+                  }else{
+                    $url='#';
+                  }
+                    echo '<h6><strong><a href="{{$url}}">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
                 }
                 }else{
                     echo 'Not yet assigned to any worker';
@@ -143,7 +150,7 @@
                     $work=1;
                     foreach($data as $woekers){
                       if(user()->can("book-create-all")){
-                        echo '<h6><strong><a href="#">'.$woekers->Designation. '</a><i class="fa fa-edit"data-facility="'.$woekers->Facility.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'</strong></h6><hr>';
+                        echo '<h6><strong><a href="#">'.$woekers->Designation. '</a><i style="font-size:20px" class=" fa fa-edit"data-facility="'.$woekers->Facility.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'</strong></h6><hr>';
                       }else{
                         echo '<h6><strong><a href="#">'.$woekers->Designation. '</a></strong></h6><hr>';
 
@@ -204,13 +211,19 @@ $('#facility').on('click',function(){
 });
 $('#center').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('county') // Extract info from data-* attributes
+  var recipient = button.data('county')
+  var facility = button.data('facility')
+  var county = button.data('county')
+  var id = button.data('id') // Extract info from data-* attributes
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
- alert(recipient)
+ //alert(id)
   var modal = $(this)
   modal.find('.modal-title').text('New message to ' + recipient)
-  modal.find('.modal-body #facility').val(recipient)
+  modal.find('.modal-body #facility').val(facility)
+  modal.find('.modal-body #county').val(recipient)
+  modal.find('.modal-body #facility_id').val(id)
+
 })
 } );
 
