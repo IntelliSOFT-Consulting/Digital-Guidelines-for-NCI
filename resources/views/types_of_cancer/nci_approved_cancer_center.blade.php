@@ -219,7 +219,7 @@ $('#center').on('show.bs.modal', function (event) {
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
  //alert(id)
   var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-title').text('New Ceneter to ' + recipient)
   modal.find('.modal-body #facility').val(facility)
   modal.find('.modal-body #county').val(recipient)
   modal.find('.modal-body #facility_id').val(id)
