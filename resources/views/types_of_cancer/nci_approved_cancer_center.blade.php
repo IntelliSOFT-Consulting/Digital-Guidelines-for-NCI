@@ -39,9 +39,9 @@
             
           </div>
           <div class="form-group">
-            <label for="designation" class="col-form-label">Designation:</label>
+            <label for="designation" class="col-form-label"> Level of Cancer center:</label>
                 <select required style="display: inline"id="email"  name="designation" class="form-control">
-                <option value="mensuelle"> Mensuelle</option>  
+                <option value="" selected disabled> </option>  
                     <option value="Middle level">Middle level</option> 
                     <option value="Basic/ Essential" > Basic/ Essential</option> 
                     <option value="Comprehensive Cancer Centre" > Comprehensive Cancer Centre</option> 
@@ -101,7 +101,7 @@
     </div>
 @endif 
 @if(user()->can('book-create-all'))
-          <button style="float:right;margin-top:-40px;" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalLabel1" data-whatever="@mdo">Add Cancer Center</button>
+          <button style="float:right;margin-top:-40px;background-color: #D820C5" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalLabel1" data-whatever="@mdo">Add Cancer Center</button>
           @endif
           <?php $i=0 ?>
           @include('common/nci_search')
@@ -132,11 +132,12 @@
                 foreach($data as $woekers){
                   if (isset($woekers->ext_link)) {
                     # code...
-                    $url=$woekers->ext_link;
+                    //$url=$woekers->ext_link;
+                    $url='#';
                   }else{
                     $url='#';
                   }
-                    echo '<h6><strong><a href="{{$url}}">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
+                    echo '<h6><strong><a href="#">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
                 }
                 }else{
                     echo 'Not yet assigned to any worker';
@@ -219,7 +220,7 @@ $('#center').on('show.bs.modal', function (event) {
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
  //alert(id)
   var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-title').text('New Ceneter to ' + recipient)
   modal.find('.modal-body #facility').val(facility)
   modal.find('.modal-body #county').val(recipient)
   modal.find('.modal-body #facility_id').val(id)
