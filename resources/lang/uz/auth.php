@@ -55,7 +55,7 @@ return [
 
     // Email Confirmation
     'email_confirm_subject' => 'Confirm your email on :appName',
-    'email_confirm_greeting' => 'Thanks for joining :appName!',
+    'email_confirm_greeting' => 'Thak you for Registering to The National Guidelines for Establishment of Cancer Management Centers in Kenya',
     'email_confirm_text' => 'Please confirm your email address by clicking the button below:',
     'email_confirm_action' => 'Confirm Email',
     'email_confirm_send_error' => 'Email confirmation required but the system could not send the email. Contact the admin to ensure email is set up correctly.',

@@ -18,19 +18,19 @@
     <div class="carousel-inner">
       <div class="item active">
         <img src="{{ asset('/uploads/img1.png') }}" alt="Los Angeles" style="width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;">
       </div>
 
       <div class="item">
         <img src="{{ asset('/uploads/img1.png') }}" alt="Chicago" style="width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;">
       </div>
       <div class="item">
-        <p style="width: 100%;
+        <div style="width: 100%;
     height: 300px;
-    object-fit: cover;">The National Cancer Control Strategy 2017-2022 has provided strategic direction by prioritizing
+    object-fit: cover;background-color: #FBF4F4;"><p style="margin:30px;margin-top:30px;height: 300px;overflow: auto;">The National Cancer Control Strategy 2017-2022 has provided strategic direction by prioritizing
 decentralization of cancer services as per the Kenya Essential Package for Health to improve access to
 cancer care and services. This guideline is the first comprehensive document to outline what is required to
 establish a cancer management centre in Kenya. It provides a detailed account of what critical components
@@ -52,7 +52,7 @@ need for a model reference guideline of minimum priority medical equipment, infr
 resources required for cancer management, with the goal of increasing access to these services in Kenya.
 The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the
 
-successful operationalization of cancer centres.</p>
+successful operationalization of cancer centres.</p></div>
       </div>
     
       <div class="item">
@@ -63,11 +63,11 @@ successful operationalization of cancer centres.</p>
     </div>
 
      <!-- Left and right controls  -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
+    <a class="lef carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left glyf"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <a class="righ carousel-control" href="#myCarousel" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -95,16 +95,16 @@ border:none;" placeholder="search here..." name="search">
       <div class="col-md-4">
       <div class="card mcard" >
   <div class="card-body">
-    <h4 class="card-title">Our Mission
+    <h4 class="card-title"style="text-align: center;">Our Mission
 </h4>
-    <h6>
+    <h6 style="text-align: center;display-block:inline">
     To oversee the delivery of
     responsive, high quality,
     sustainable and evidence based
     cancer prevention and control
     through multi sectoral
 
-    coordinatin, regulation, advocacy
+    coordination, regulation, advocacy
     and advancement of research
     </h6>
   </div>
@@ -113,11 +113,9 @@ border:none;" placeholder="search here..." name="search">
       <div class="col-md-4">
       <div class="card" >
   <div class="card-body">
-  <h4 class="card-title">Our Vision
+  <h4 class="card-title" style="text-align: center;">Our Vision
 </h4>
-    <h6>
-    
-
+    <h6 style="text-align: center;">
 To be the leading authority in
 cancer prevention and control
 
@@ -129,10 +127,11 @@ in Kenya
       <div class="col-md-4">
       <div class="card" >
   <div class="card-body">
-  <h4 class="card-title">Our Core Values
+  <h4 class="card-title" style="text-align: center;">Our Core Values
 </h4>
-    <h6>
-<ul>
+    <h6 >
+<ul style="display: table;
+  margin: 0 auto;">
         <li>Integrity</li>
         <li>Innovation </li>
         <li>Competence</li>
@@ -165,9 +164,10 @@ in Kenya
         @icon($book->getType())
         
     </div>
-         <h4 class="card-title management">{{ $book->name }}
-     </h4>
+        
      </a>
+     <h4 class="card-title management">{{ $book->name }}
+     </h4>
        </div>
      </div>
            </div>

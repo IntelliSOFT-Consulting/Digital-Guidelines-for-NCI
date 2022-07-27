@@ -8,11 +8,13 @@ use BookStack\Actions\View;
 use BookStack\Entities\Models\PageContent_model;
 use BookStack\Entities\Tools\NextPreviousContentLocator;
 use BookStack\Entities\Tools\PageContent;
+use BookStack\Entities\Models\Counties_model;
 use BookStack\Entities\Models\CancerApplication_model;
 use BookStack\Entities\Models\Bookshelf;
 use BookStack\Entities\Models\CancerApplicationfiles_model;
 use BookStack\Entities\Models\Ratings_model;
 use BookStack\Entities\Models\ApprovedCancerCenter_models;
+use BookStack\Entities\Models\Counties_model as ModelsCounties_model;
 use BookStack\Entities\Models\PercountyCenters_model;
 use BookStack\Entities\Repos\BookRepo;
 use BookStack\Entities\Tools\BookContents;
@@ -251,6 +253,7 @@ class BookController extends Controller
 
         return redirect($book->getUrl());
     }
+    
 
     /**
      * Shows the page to confirm deletion.
@@ -432,6 +435,34 @@ class BookController extends Controller
             
         //}
         return redirect()->back()->with('message', $message);
+    }
+    public function updateexternal_link(Request $request){
+        
+        $approved=new ApprovedCancerCenter_models();
+        $percounty=new PercountyCenters_model();
+        $facility_id=$request->facility_id;
+        $county=$request->county;
+        $facility=$request->facility;
+        $exurlink=$request->exurlink;
+        $countyy=$approved->where('County',$county)->get()->first();
+        
+        if ($countyy) {
+            # code...
+            $approvedd['County']=$county;
+            
+            //dd($approved->update($approvedd));
+        }
+        if(isset($facility_id)){
+            
+            $percountie=$percounty->where('id',$facility_id);
+            //dd($percountie);
+            if($percountie){
+                ApprovedCancerCenter_models::where('id',$facility_id)->update(['ext_link'=>$exurlink,'Facility'=>$facility]);
+                dd($percountie);
+            }
+            
+        }
+        return redirect()->back();
     }
     public function nci_customer_ratings(){
         return view('types_of_cancer/nci_customer_satisfaction_ratings');

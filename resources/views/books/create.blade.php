@@ -48,7 +48,7 @@
         </div>
 
         <main class="content-wrap card">
-            <h1 class="list-heading" style="margin-bottom: 5px;">Consideration Requirements</h1>
+            <h1 class="list-heading" style="margin-bottom: 5px;">Requirements for Establishing Cancer Management Center</h1>
             @if($reqs!=='')
             <div class="row mission">
       <!-- <div class="col-md-10"> -->
