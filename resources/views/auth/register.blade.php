@@ -95,9 +95,8 @@
                     <div class="col-sm-9">
                     <select style="display: inline"class="form-select"  name="designation" id="email">
                     <option selected disabled></option>
-                    <option value="1">Admin</option>
-                    <option value="2">Editor</option>
-                    <option value="3">Public</option>
+                    <option value="1">Health worker</option>
+                    <option value="2">Public</option>
                 </select>
                     </div>
                 </div>
