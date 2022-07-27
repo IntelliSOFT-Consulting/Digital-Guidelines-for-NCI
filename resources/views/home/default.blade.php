@@ -39,20 +39,7 @@ various units as well as physical infrastructural considerations and generic lay
 resource requirements across the entire cancer continuum. This guideline was developed in response to the
 need for a model reference guideline of minimum priority medical equipment, infrastructure and human
 resources required for cancer management, with the goal of increasing access to these services in Kenya.
-The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the
-
-successful operationalization of cancer centres.The National Cancer Control Strategy 2017-2022 has provided strategic direction by prioritizing
-decentralization of cancer services as per the Kenya Essential Package for Health to improve access to
-cancer care and services. This guideline is the first comprehensive document to outline what is required to
-establish a cancer management centre in Kenya. It provides a detailed account of what critical components
-would need to be considered to establish a cancer centre. These include operational considerations of the
-various units as well as physical infrastructural considerations and generic layouts, equipment and human
-resource requirements across the entire cancer continuum. This guideline was developed in response to the
-need for a model reference guideline of minimum priority medical equipment, infrastructure and human
-resources required for cancer management, with the goal of increasing access to these services in Kenya.
-The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the
-
-successful operationalization of cancer centres.</p></div>
+The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
       </div>
     
       <div class="item">
@@ -148,7 +135,7 @@ in Kenya
        <!-- start of types of cancer management centers  -->
       <div class="row mission">
       <!-- <div class="col-md-10"> -->
-      <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Cancer Management</h4></div>
+      <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Types of Cancer Center</h4></div>
      
     <div class="col-md-10">
     @foreach ($books as $book)
