@@ -132,7 +132,8 @@
                 foreach($data as $woekers){
                   if (isset($woekers->ext_link)) {
                     # code...
-                    $url=$woekers->ext_link;
+                    //$url=$woekers->ext_link;
+                    $url='#';
                   }else{
                     $url='#';
                   }
