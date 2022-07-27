@@ -81,7 +81,6 @@ $C Checklist for a medical cyclotron facilit,
              </ol>
             </h5>
             </div>
-            
           </div>
           <div class="row mission" style="margin-top:40px;height:auto">
           @if(Session::has('message'))
