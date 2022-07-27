@@ -39,9 +39,9 @@
             
           </div>
           <div class="form-group">
-            <label for="designation" class="col-form-label">Designation:</label>
+            <label for="designation" class="col-form-label"> Level of Cancer center:</label>
                 <select required style="display: inline"id="email"  name="designation" class="form-control">
-                <option value="mensuelle"> Mensuelle</option>  
+                <option value="" selected disabled> </option>  
                     <option value="Middle level">Middle level</option> 
                     <option value="Basic/ Essential" > Basic/ Essential</option> 
                     <option value="Comprehensive Cancer Centre" > Comprehensive Cancer Centre</option> 
@@ -137,7 +137,7 @@
                   }else{
                     $url='#';
                   }
-                    echo '<h6><strong><a href="{{$url}}">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
+                    echo '<h6><strong><a href="#">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
                 }
                 }else{
                     echo 'Not yet assigned to any worker';
