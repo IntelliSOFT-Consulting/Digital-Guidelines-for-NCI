@@ -101,7 +101,7 @@
     </div>
 @endif 
 @if(user()->can('book-create-all'))
-          <button style="float:right;margin-top:-40px;" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalLabel1" data-whatever="@mdo">Add Cancer Center</button>
+          <button style="float:right;margin-top:-40px;background-color: #D820C5" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalLabel1" data-whatever="@mdo">Add Cancer Center</button>
           @endif
           <?php $i=0 ?>
           @include('common/nci_search')
