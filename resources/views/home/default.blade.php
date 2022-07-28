@@ -97,11 +97,11 @@ border:none;" placeholder="search here..." name="search">
   <div class="card-body">
     <h4 class="card-title"style="text-align: center;">Our Mission
 </h4>
-    <h6 style="text-align: center;display-block:inline">
+    <h6 style="margin:10px;display-block:inline">
     To oversee the delivery of
     responsive, high quality,
     sustainable and evidence based
-    cancer prevention and control
+    cancer prevention and control <wbr>
     through multi sectoral
 
     coordination, regulation, advocacy
@@ -115,12 +115,12 @@ border:none;" placeholder="search here..." name="search">
   <div class="card-body">
   <h4 class="card-title" style="text-align: center;">Our Vision
 </h4>
-    <h6 style="text-align: center;">
+    <p style="margin:10px">
 To be the leading authority in
 cancer prevention and control
 
 in Kenya
-    </h6>
+</p>
   </div>
 </div>
       </div>
@@ -149,7 +149,7 @@ in Kenya
       <div class="row mission">
       <!-- <div class="col-md-10"> -->
       <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Cancer Management</h4></div>
-     
+      @if(user()->can('book-create-all'))
     <div class="col-md-10">
     @foreach ($books as $book)
            <div class="col-md-4">
@@ -164,10 +164,10 @@ in Kenya
         @icon($book->getType())
         
     </div>
-        
+    <h4 class="card-title management">{{ $book->name }}
+     </h4>   
      </a>
-     <h4 class="card-title management">{{ $book->name }}
-     </h4>
+    
        </div>
      </div>
            </div>
@@ -177,22 +177,47 @@ in Kenya
     <div class="actions mb-xl">
         <h5>{{ trans('common.actions') }}</h5>
         <div class="icon-list text-primary">
-            @if(user()->can('book-create-all'))
+            
                 <a href="{{ url('/create-book') }}" class="icon-list-item">
                     <span>@icon('add')</span>
                     <span>{{ trans('entities.books_create') }}</span>
                 </a>
-            @endif
-
-            @include('entities.view-toggle', ['view' => $view, 'type' => 'books'])
+                @include('entities.view-toggle', ['view' => $view, 'type' => 'books'])
 
             <a href="{{ url('/tags') }}" class="icon-list-item">
                 <span>@icon('tag')</span>
                 <span>{{ trans('entities.tags_view_tags') }}</span>
             </a>
+            
+            
         </div>
     </div>
     </div>
+    @else
+    <div class="col-md-12">
+    @foreach ($books as $book)
+           <div class="col-md-4">
+           <div class="card" >
+       <div class="card-body">
+     <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
+     <a href="{{ $book->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$book->id}}">
+       <!-- <img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york"> -->
+       <div class="bg-{{ $book->getType() }} featured-image-container-wrap">
+        <div class="featured-image-container" @if($book->cover) style="background-image: url('{{ $book->getBookCover() }}')"@endif>
+        </div>
+        @icon($book->getType())
+        
+    </div>
+    <h4 class="card-title management">{{ $book->name }}
+     </h4>   
+     </a>
+    
+       </div>
+     </div>
+           </div>
+           @endforeach
+    </div>
+    @endif
       <!-- </div> -->
    
       <!-- </div> -->

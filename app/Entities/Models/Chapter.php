@@ -18,7 +18,7 @@ class Chapter extends BookChild
 
     public $searchFactor = 1.2;
 
-    protected $fillable = ['name', 'description', 'priority'];
+    protected $fillable = ['name', 'description', 'priority','c_image'];
     protected $hidden = ['restricted', 'pivot', 'deleted_at'];
 
     /**

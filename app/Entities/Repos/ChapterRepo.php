@@ -47,6 +47,7 @@ class ChapterRepo
      */
     public function create(array $input, Book $parentBook): Chapter
     {
+        
         $chapter = new Chapter();
         $chapter->book_id = $parentBook->id;
         $chapter->priority = (new BookContents($parentBook))->getLastPriority() + 1;

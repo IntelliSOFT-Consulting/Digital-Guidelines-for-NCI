@@ -152,5 +152,7 @@
             
         </main>
     </div>
-
+    <div style="background:white;height:fit-content">
+    @include('common/nci_footer')
+    </div>
 @stop

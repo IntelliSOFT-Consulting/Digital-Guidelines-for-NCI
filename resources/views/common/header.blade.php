@@ -1,4 +1,10 @@
 
+<style>
+    .upcase {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+</style>
 <header id="header" component="header-mobile-toggle" class="primary-background">
     <div class="grid mx-l">
 
@@ -39,17 +45,17 @@
                     @if(userCanOnAny('view', \BookStack\Entities\Models\Bookshelf::class) || userCan('bookshelf-view-all') || userCan('bookshelf-view-own'))
                         <!-- <a href="{{ url('/shelves') }}">@icon('bookshelf'){{ trans('entities.shelves') }}</a> -->
                         <!-- <a class="active" href="#">{{ trans('entities.national_cancer_institute_of_kenya') }}</a> -->
-                        <a href="/nci/approved/cancer/ceneter/">{{ trans('entities.approved_cancer_ceneter') }}</a>
-                        <a href="{{ url('/nci/create-book/cancer_ceneter_requirements') }}">{{ trans('entities.cancer_ceneter_requirements') }}</a>
-                        <a href="/nci/customer/satisfaction/ratings">{{ trans('entities.customer_satisfaction_ratings') }}</a>
-                        <a href="/nci/mlevel/cancer/ceneter">{{ trans('entities.downloads') }}</a>
-                        <a href="/book/nci/apply-to-ncik">{{ trans('entities.apply_here') }}</a>
+                        <a class="upcase" href="/nci/approved/cancer/ceneter/">{{ trans('entities.approved_cancer_ceneter') }}</a>
+                        <a class="upcase" href="{{ url('/nci/create-book/cancer_ceneter_requirements') }}">{{ trans('entities.cancer_ceneter_requirements') }}</a>
+                        <a class="upcase" href="/nci/customer/satisfaction/ratings">{{ trans('entities.customer_satisfaction_ratings') }}</a>
+                        <a class="upcase" href="/nci/mlevel/cancer/ceneter">{{ trans('entities.downloads') }}</a>
+                        <a class="upcase" href="/book/nci/apply-to-ncik">{{ trans('entities.apply_here') }}</a>
                         <!-- <a href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a> -->
                         <!-- <a href="{{ url('/shelves') }}">{{ trans('entities.national_cancer_institute_of_kenya') }}</a> -->
                     @endif
-                    <!-- <a href="{{ url('/books') }}">@icon('books'){{ trans('entities.books') }}</a> -->
+                    <a class="upcase" href="{{ url('/') }}"> About Us</a>
                     @if(signedInUser() && userCan('settings-manage'))
-                        <a href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a>
+                        <a class="upcase" href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a>
                     @endif
                      <!--
                     @if(signedInUser() && userCan('users-manage') && !userCan('settings-manage'))
@@ -59,9 +65,9 @@
 
                 @if(!signedInUser())
                     @if(setting('registration-enabled') && config('auth.method') === 'standard')
-                        <a href="{{ url('/register') }}">@icon('new-user'){{ trans('auth.sign_up') }}</a>
+                        <a class="upcase" href="{{ url('/register') }}">@icon('new-user'){{ trans('auth.sign_up') }}</a>
                     @endif
-                    <a href="{{ url('/login')  }}">@icon('login'){{ trans('auth.log_in') }}</a>
+                    <a class="upcase" href="{{ url('/login')  }}">@icon('login'){{ trans('auth.log_in') }}</a>
                 @endif
             </div>
             @if(signedInUser())
@@ -69,7 +75,7 @@
                 <div class="dropdown-container" component="dropdown" option:dropdown:bubble-escapes="true">
                         <span class="user-name py-s hide-under-l" refs="dropdown@toggle"
                               aria-haspopup="true" aria-expanded="false" aria-label="{{ trans('common.profile_menu') }}" tabindex="0">
-                              <span class="name">{{ trans('entities.account') }}</span>
+                              <span class="upcase">{{ trans('entities.account') }}</span>
                               <!--  @icon('caret-down') -->
                               <img alt="{{ trans('entities.account') }}" class="avatar" src="{{$currentUser->getAvatar(30)}}" alt="{{ $currentUser->name }}">
                            
