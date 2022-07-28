@@ -16,11 +16,11 @@
     </button>
     <div class="collapse-content" collapsible-content>
         <p class="small">{{ trans('common.cover_image_description') }}</p>
-
+<!-- (isset($model) && $model->c_image) ?url('/public/chapter/Image/'.$model->c_image') : url('/book_default_cover.png') -->
         @include('form.image-picker', [
-            'defaultImage' => url('/book_default_cover.png'),
+            'defaultImage' => (isset($model) && $model->c_image) ? url('public/chapter/Image/'.$model->c_image) : url('/book_default_cover.png') ,
             'currentImage' => (isset($model) && $model->cover) ? $model->getBookCover() : url('/book_default_cover.png') ,
-            'name' => 'image',
+            'name' => 'c_image',
             'imageClass' => 'cover'
         ])
     </div>

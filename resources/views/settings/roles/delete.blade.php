@@ -1,6 +1,7 @@
 @extends('layouts.simple')
 
 @section('body')
+
     <div class="container small">
 
         @include('settings.parts.navbar', ['selected' => 'roles'])

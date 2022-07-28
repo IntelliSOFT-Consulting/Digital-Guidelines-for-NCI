@@ -165,7 +165,7 @@ class BookController extends Controller
             ]);
             //dd($validated);
         }
-       
+        //dd($request->image);
         
         $bookshelf = null;
         if ($shelfSlug !== null) {
@@ -443,26 +443,26 @@ class BookController extends Controller
         $facility_id=$request->facility_id;
         $county=$request->county;
         $facility=$request->facility;
+        $cid=$request->ci;
         $exurlink=$request->exurlink;
-        $countyy=$approved->where('County',$county)->get()->first();
-        
+        $countyy=$approved->where('id',$cid)->get()->first();
+        //update(['County'=>$county])->where('County',$county);
+
         if ($countyy) {
-            # code...
-            $approvedd['County']=$county;
-            
-            //dd($approved->update($approvedd));
+            ApprovedCancerCenter_models::where('County',$countyy)->where('id',$cid)->update(['County'=>$county]);
         }
+        
+
         if(isset($facility_id)){
-            
             $percountie=$percounty->where('id',$facility_id);
             //dd($percountie);
             if($percountie){
-                ApprovedCancerCenter_models::where('id',$facility_id)->update(['ext_link'=>$exurlink,'Facility'=>$facility]);
-                dd($percountie);
+                PercountyCenters_model::where('id',$facility_id)->update(['ext_link'=>$exurlink,'Facility'=>$facility]);
+                //dd($percountie);
             }
             
         }
-        return redirect()->back();
+        return redirect()->back()->with('message','Cancer center updated succesful');
     }
     public function nci_customer_ratings(){
         return view('types_of_cancer/nci_customer_satisfaction_ratings');

@@ -25,9 +25,7 @@
             @foreach ($centers as $center)
                 <option value="{{$center->County}}"> {{$center->County}}</option> 
             @endforeach 
-                    <!-- <option value="Middle level">Middle level</option> 
-                    <option value="sBasic/ Essential" > Basic/ Essential</option> 
-                    <option value="Comprehensive Cancer Centre" > Comprehensive Cancer Centre</option>  -->
+                    
                     </select>
             </div>
             <div id="2" class="form-group" style="display:none;">
@@ -70,6 +68,7 @@
       <form method = "POST" action = "{{url('/update/cancer/ceneter')}}">
                         @csrf
           <input type="hidden" name="facility_id" id="facility_id"/>
+          <input type="hidden" name="ci" id="ci"/>
           <div class="form-group">
             <label for="county" class="col-form-label">County:</label>
             <input style="width: 100%;background-color: #FBF4F4;"type="text" name="county" class="form-control" id="county">
@@ -80,12 +79,9 @@
           </div>
           <div class="form-group">
             <label for="exurlink" class="col-form-label">Description Url:</label>
-            <input style="width: 100%;background-color: #FBF4F4;"type="text" name="exurlink" class="form-control" id="exurlink">
+            <input style="width: 100%;background-color: #FBF4F4;"type="text" name="exurlink" class="form-control" id="ext_link">
           </div>
-          <!-- <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div> -->
+         
           <div class="modal-footer">
         <button type="submit" style="background:#D820C5" class="btn btn-primary">Update Center</button>
       </div>
@@ -94,7 +90,6 @@
     </div>
   </div>
 </div>
-          <!-- search for nci -->
           @if(session()->has('message'))
     <div class="alert alert-success">
         {{ session()->get('message') }}
@@ -104,9 +99,6 @@
           <button style="float:right;margin-top:-40px;background-color: #D820C5" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalLabel1" data-whatever="@mdo">Add Cancer Center</button>
           @endif
           <?php $i=0 ?>
-          @include('common/nci_search')
-          
-          <!-- end of search -->
           <div class="row mission" style="margin-top:40px;">
           <table id="example" class="display table-responsive" style="width:100%">
         <thead>
@@ -132,12 +124,12 @@
                 foreach($data as $woekers){
                   if (isset($woekers->ext_link)) {
                     # code...
-                    //$url=$woekers->ext_link;
-                    $url='#';
+                    $url=$woekers->ext_link;
+                    //$url='#';
                   }else{
                     $url='#';
                   }
-                    echo '<h6><strong><a href="#">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
+                    echo '<h6><strong><a href="'.$url.'">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
                 }
                 }else{
                     echo 'Not yet assigned to any worker';
@@ -150,8 +142,13 @@
                     
                     $work=1;
                     foreach($data as $woekers){
+                     if(isset($woekers->ext_link)){
+                      $extlink=$woekers->ext_link;
+                     }else {
+                      $extlink='';
+                     }
                       if(user()->can("book-create-all")){
-                        echo '<h6><strong><a href="#">'.$woekers->Designation. '</a><i style="font-size:20px" class=" fa fa-edit"data-facility="'.$woekers->Facility.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'</strong></h6><hr>';
+                        echo '<h6><strong><a href="#">'.$woekers->Designation. '</a><i style="font-size:20px" class=" fa fa-edit"data-ext_link="'.$extlink.'"data-facility="'.$woekers->Facility.'"data-ci="'.$center->id.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'</strong></h6><hr>';
                       }else{
                         echo '<h6><strong><a href="#">'.$woekers->Designation. '</a></strong></h6><hr>';
 
@@ -169,10 +166,6 @@
 </table>
             
           </div>
-          <!-- start definition -->
-          
-          <!--  end Requirements for Establishing a Basic Cancer Management Center-->
-          <!-- footer start -->
       @include('common/nci_footer')
       <!-- footer end -->
 </div>
@@ -215,7 +208,9 @@ $('#center').on('show.bs.modal', function (event) {
   var recipient = button.data('county')
   var facility = button.data('facility')
   var county = button.data('county')
-  var id = button.data('id') // Extract info from data-* attributes
+  var id = button.data('id')
+  var ci = button.data('ci')
+  var ext_link = button.data('ext_link')  // Extract info from data-* attributes
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
  //alert(id)
@@ -224,6 +219,10 @@ $('#center').on('show.bs.modal', function (event) {
   modal.find('.modal-body #facility').val(facility)
   modal.find('.modal-body #county').val(recipient)
   modal.find('.modal-body #facility_id').val(id)
+  modal.find('.modal-body #ci').val(ci)
+  modal.find('.modal-body #ext_link').val(ext_link)
+
+
 
 })
 } );

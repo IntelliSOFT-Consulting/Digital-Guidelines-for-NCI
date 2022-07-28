@@ -10,5 +10,5 @@ class PercountyCenters_model extends Model
     use HasFactory;
     protected $fillable = ['county_id'
     ,'Facility'
-    ,'Designation'];
+    ,'Designation','ext_link'];
 }

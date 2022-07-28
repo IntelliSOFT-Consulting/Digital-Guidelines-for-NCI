@@ -62,10 +62,10 @@ form{
           <form method = "POST" action = "{{url('/apply/to/cancer/ceneter')}}" accept-charset="utf-8" enctype="multipart/form-data">
                         @csrf
 <table>
-<table style="width:90%; margin-left:5%" >
+<table style="width:90%; margin-left:5%;margin-bottom:-9px" >
     <tr>
     <th>
-        <h3 style="text-align:center;">THE NATIONAL CANCER INSTITUTE OF KENYA CANCER MANAGEMENT CENTER CERTIFICATION APPLICATION FORM</h3>
+        <h5 style="text-align:center;font-size: 16px">THE NATIONAL CANCER INSTITUTE OF KENYA CANCER MANAGEMENT CENTER CERTIFICATION APPLICATION FORM</h5>
     </th>
     </tr>
 </table>
@@ -161,9 +161,9 @@ form{
         <th style="width:20%"><p>E-mail</p><input style="width:100%;background: #FBF4F4;" class="form-control" type="email" name="depart1_email"/></th>
     </tr>
 </table >
-<table >
+<table style="margin-bottom:-9px" >
 <th>
-        <h3 style="text-align:center;">Please indicate compliance with each of the 13 items</h3>
+<h5 style="text-align:center;font-size: 16px">Please indicate compliance with each of the 13 items</h5>
 </th>
 </table>
 
@@ -564,7 +564,10 @@ P.O. Box 30016-00100, Nairobi </th>
   </tr>
 </table>
 </table>
-<button type="submit" style="background-color: #D820C5;border-radius:10px" value="Submit">Apply</button>       
+<button type="submit" style="background-color: #D820C5;border-radius:10px;width: 90px;
+    height: 40;
+    float: right;
+    margin-bottom: 10px;" value="Submit">Apply</button>       
   </form>
 </div>
 @include('common/nci_footer')

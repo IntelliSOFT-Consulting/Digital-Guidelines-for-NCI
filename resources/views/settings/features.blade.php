@@ -1,6 +1,20 @@
 @extends('settings.layout')
 
 @section('card')
+<style type="text/css">
+    .label {
+    display: inline;
+    padding: 0.2em 0.6em 0.3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #666;;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+}
+</style>
     <h1 id="features" class="list-heading">{{ trans('settings.app_features_security') }}</h1>
     <form action="{{ url("/settings/features") }}" method="POST">
         {!! csrf_field() !!}

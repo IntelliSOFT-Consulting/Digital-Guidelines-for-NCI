@@ -54,14 +54,25 @@ class ChapterController extends Controller
      */
     public function store(Request $request, string $bookSlug)
     {
-        $this->validate($request, [
+        $validated =$this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
+            'c_image'       => array_merge(['nullable'], $this->getImageValidationRules()),
         ]);
-
+        //dd($validated );
+        if($request->file('c_image')){
+            $file= $request->file('c_image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/chapter/Image'), $filename);
+            $data['c_image']= $filename;
+        }
+        $data['name']=$request->name;
+        $data['description']=$request->description;
+        $data['tags']=$request->tags;
         $book = Book::visible()->where('slug', '=', $bookSlug)->firstOrFail();
         $this->checkOwnablePermission('chapter-create', $book);
 
-        $chapter = $this->chapterRepo->create($request->all(), $book);
+        $chapter = $this->chapterRepo->create($data, $book);
+
 
         return redirect($chapter->getUrl());
     }
