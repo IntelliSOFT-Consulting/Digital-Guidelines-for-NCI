@@ -116,10 +116,10 @@ class BookController extends Controller
 
         $books = $this->bookRepo->getAllPaginated(18, $sort, $order);
         $books = $this->bookRepo->getAllPaginated(18, $sort, $order);
-        foreach ($books as $book) {
+        // foreach ($books as $book) {
             
-            $books = (new BookContents($book))->getTree(true);
-        }
+        //     $books = (new BookContents($book))->getTree(true);
+        // }
         $recents = $this->isSignedIn() ? $this->bookRepo->getRecentlyViewed(4) : false;
         $popular = $this->bookRepo->getPopular(4);
         $new = $this->bookRepo->getRecentlyCreated(4);

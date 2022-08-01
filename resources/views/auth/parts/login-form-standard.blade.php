@@ -33,11 +33,14 @@
 </form> -->
 
 <style>
-    @media screen and (max-width: 601px) {
+    @media screen and (max-width: 900px) {
   .signup {
     width: 100%;
     margin-left: auto;
     margin-top: 0;
+  }
+  a,label{
+    font-size: 20px;
   }
   .signup-connect{
     display: none;
@@ -45,7 +48,9 @@
   }
   
 }
-
+.logins {
+  margin-left:90px;
+}
 /* On screens that are 600px wide or@media screen and (max-width: 600px) less, the background color is olive */
 @media screen and (max-width: 600px) {
   .signup-classic {
@@ -62,13 +67,15 @@
 @media (min-width: 576px) {
     .signup-classic {
     margin:5px;
+    width: 100%;
     
   }
+  
  }
 </style>
 <div class="signup row">
 <div class="signup-classic col-md-6" style="  border: 13px solid #FBF4F4;">
-<h1 class="list-heading">{{ Str::title(trans('auth.log_in')) }}</h1>
+<h1 style="text-align: center" class="list-heading">{{ Str::title(trans('auth.log_in')) }}</h1>
 <form action="{{ url('/login') }}" method="POST" style="margin-top:70px" class="mt-70 stretch-inputs">
                 {!! csrf_field() !!}
 
@@ -95,7 +102,7 @@
                 </div>
                
                 <div class="form-group row">
-                    <div class="col-sm-12" style="margin-left:65px;margin-right:50px">
+                    <div class="logins col-sm-12">
                         <button class="button" style="background-color: #D820C5;border:none;border-radius:10px;width:100px">{{trans('auth.submit')}}</button>
                         <p  style="margin-bottom:2px;color">Don’t have an account? <a href="{{ url('/register') }}"><span style="color:#D820C5"><u>{{trans('auth.sign_upp')}}</u></span></a></p>
 

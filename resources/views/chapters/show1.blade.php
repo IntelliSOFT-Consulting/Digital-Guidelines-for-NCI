@@ -15,11 +15,12 @@
         ]])
     </div>
           <div class="row mission" style="margin-top:40px;">
-          <div style="background-color:white;text-align:center;margin-top:-30px;">
+          
+          <div class="col-md-10">
+            <div style="background-color:white;text-align:center;margin-top:-30px;">
           <h4>{{ $chapter->name }} Page Contents</h4>
           <h5>{{ $chapter->description }}</h5>
         </div>
-          <div class="col-md-10">
           @foreach($pages as $page)
         <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
           <div class="card">

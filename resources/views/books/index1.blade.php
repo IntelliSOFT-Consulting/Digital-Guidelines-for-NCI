@@ -6,7 +6,7 @@
         <div style="margin:5px">
        <!-- start of types of cancer management centers  -->
       <div class="row mission">
-      <div class="col-md-10">
+      <div class="col-md-10" style="height: 370px;">
      @foreach ($books as $book)
            <div class="col-md-4">
            <div class="card" style="background-color:none" >
