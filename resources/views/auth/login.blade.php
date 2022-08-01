@@ -1,7 +1,7 @@
 @extends('layouts.simple')
 @section('content')
     <div class="container very-small">
-        <div class="my-l">&nbsp;</div>
+        <!-- <div class="my-l">&nbsp;</div> -->
 <!-- 
         <div class="card content-wrap auto-height"> -->
            

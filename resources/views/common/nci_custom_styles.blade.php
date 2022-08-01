@@ -89,6 +89,26 @@ text-align:center;
     left: 10%;
 }
 }
+.logins {
+  margin-left:90px;
+}
+@media screen and (max-width: 456px) {
+    .logins {
+      margin-left: -5px;
+    margin-right: -10px;
+}
+}
+.reg{
+  margin-left:100px;
+  
+}
+.buton{
+  background-color: #D820C5;
+  border:none;
+  border-radius:10px;
+  width:100px;
+  margin-right: 115px;
+}
 @media screen and (max-width: 1098px) {
   .topnav .search-container {
     float: none;

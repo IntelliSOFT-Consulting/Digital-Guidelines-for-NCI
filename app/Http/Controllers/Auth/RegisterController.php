@@ -6,6 +6,7 @@ use BookStack\Auth\Access\LoginService;
 use BookStack\Auth\Access\RegistrationService;
 use BookStack\Auth\Access\SocialAuthService;
 use BookStack\Auth\User;
+use BookStack\Entities\IsValidPassword;
 use BookStack\Entities\Models\Counties_model;
 use BookStack\Exceptions\StoppedAuthenticationException;
 use BookStack\Exceptions\UserRegistrationException;
@@ -74,7 +75,7 @@ class RegisterController extends Controller
             'country' => ['required'],
             'name'     => ['required', 'min:2', 'max:255'],
             'email'    => ['required', 'email', 'max:255','regex:/(.*)@(.*)\.com/','unique:users'],
-            'password' => ['min:6,confirmed,required_with:password_confirmed'],
+            'password' => ['min:6,confirmed,required_with:password_confirmed',new isValidPassword()],
         ]);
     }
 

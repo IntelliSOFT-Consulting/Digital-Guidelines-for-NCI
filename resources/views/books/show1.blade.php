@@ -2,17 +2,21 @@
 
 @section('body')
 @include('common/nci_custom_styles')
-      <!-- <div class="container px-xl py-s">  -->
-      <div class="mb-s" style="margin-right:20;margin-left:20%;">
+<style>
+    .col-lg-3 {
+        width: 35%;
+}
+</style>
+<div style="margin:5px">
+<div class="mb-s" style="margin-right:20;margin-left:20%;">
         @include('entities.breadcrumbs', ['crumbs' => [
             $book,
         ]])
     </div>
-        <div style="margin:5px">
-       <!-- start of types of cancer management centers  -->
-      <div class="row mission">
-      <div class="col-md-10">
-      <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Cancer Management Centers level</h4></div>
+          <div class="row mission" style="margin-top:40px;">
+          
+          <div class="col-md-10">
+          <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Cancer Management Centers level</h4></div>
      
      @foreach ($bookd as $books)
            <div class="col-md-4">
@@ -32,20 +36,9 @@
      </div>
            </div>
            @endforeach
-      </div>
-      <!-- <div class="col-md-4">
-      <div class="card" >
-  <div class="card-body"> -->
-<!-- <a href="{{ url('/nci/comprehensive/cancer/ceneter/') }}"> -->
-  <!-- <img class="images" src="{{ asset('/uploads/mlcc.png') }}" alt="New york">
-    <h4 class="card-title management">Comprehensive Cancer Center
-</h4> -->
-<!-- </a> -->
-  <!-- </div>
-</div>
-      </div> -->
-      <div class="col-md-2" style="background-color: #FBF4F4;">
-    <div class="mb-xl">
+          </div>
+          <div class="col-md-2">
+          <div class="mb-xl">
         <h5>{{ trans('common.details') }}</h5>
         <div class="blended-links">
             @include('entities.meta', ['entity' => $book])
@@ -121,18 +114,11 @@
             @endif
         </div>
     </div>
-      </div>
-      </div>
-      
-      
+          </div>
 
+          </div>
+          <!-- footer start -->
+      @include('common/nci_footer')
+      <!-- footer end -->
 </div>
-<!-- footer start -->
-       @include('common/nci_footer')
-      
-       <!-- footer end  -->
-     <!-- </div>  -->
-
-    
-
 @stop

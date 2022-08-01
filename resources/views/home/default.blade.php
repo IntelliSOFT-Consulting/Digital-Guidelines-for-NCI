@@ -97,7 +97,7 @@ border:none;" placeholder="search here..." name="search">
   <div class="card-body">
     <h4 class="card-title"style="text-align: center;">Our Mission
 </h4>
-    <h6 style="margin:10px;display-block:inline">
+    <h6 style="margin:10px;display:inline">
     To oversee the delivery of
     responsive, high quality,
     sustainable and evidence based

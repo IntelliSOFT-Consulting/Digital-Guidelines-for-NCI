@@ -143,7 +143,7 @@ class BookExportController extends Controller
         //return view('exports.nci_cyclotron_form');
         $vie=new DomPDF();
         $pdf = PDF::loadView('exports.informed_consent_form');
-       return $pdf->download('Cancer_Treatment_Informed_Consent_Form.pdf');
+        return $pdf->download('Cancer_Treatment_Informed_Consent_Form.pdf');
        // return $pdf->stream("Halloa.pdf");
     }
     public function radiotherapy_unit(){
