@@ -10,6 +10,7 @@ else
     composer install
     wait-for-it db:3306 -t 45
     php artisan migrate --database=mysql --force;
+    php artisan db:seed --force
     php artisan key:generate --force;
     chown -R www-data:www-data storage
     exec apache2-foreground

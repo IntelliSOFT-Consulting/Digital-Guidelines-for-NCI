@@ -16,8 +16,8 @@ class CreateApprovedCancerCenterModelsTable extends Migration
         Schema::create('approved_cancer_center_models', function (Blueprint $table) {
             $table->id();
             $table->string('Facility')->nullable();
-$table->string('County')->nullable();
-$table->string('Designation')->nullable();
+            $table->string('County')->nullable();
+            $table->string('Designation')->nullable();
             $table->timestamps();
         });
     }
