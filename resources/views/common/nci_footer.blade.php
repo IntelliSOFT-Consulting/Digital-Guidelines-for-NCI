@@ -54,7 +54,7 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Sender:</label>
+            <label for="recipient-name" class="col-form-label">Sender Email:</label>
             <input type="text" style="width: 100%;background-color: #FBF4F4;" class="form-control" id="recipient-name">
           </div>
           <div class="form-group">
