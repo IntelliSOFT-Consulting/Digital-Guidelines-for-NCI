@@ -539,7 +539,7 @@ centre</td>
 Ministry of Health, Cathedral Road,
 Upper Hill,
 P.O. Box 30016-00100, Nairobi </th>
-        <th style="width:25%;margin-bottom:-30px"><p style="width:25%;margin-bottom:-20px">ncikenya@gmail.com</p></th>
+        <th style="width:25%;margin-bottom:-30px"><p style="width:100%;margin-bottom:-20px">ncikenya@gmail.com</p></th>
     </tr>
 </table>
 

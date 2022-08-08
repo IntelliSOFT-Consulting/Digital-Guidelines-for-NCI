@@ -44,7 +44,7 @@ The purpose of this guideline is to provide guidance to stakeholders on the sett
     
       <div class="item">
         <img src="{{ asset('/uploads/img1.png') }}" alt="New york" style="width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;">
       </div>
     </div>
