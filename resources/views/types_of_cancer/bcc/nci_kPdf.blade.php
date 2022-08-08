@@ -65,7 +65,7 @@ form{
 <table style="width:90%; margin-left:5%;margin-bottom:-9px" >
     <tr>
     <th>
-        <h5 style="text-align:center;font-size: 16px">THE NATIONAL CANCER INSTITUTE OF KENYA CANCER MANAGEMENT CENTER CERTIFICATION APPLICATION FORM</h5>
+        <h5 style="text-align:center;font-size: 12px">THE NATIONAL CANCER INSTITUTE OF KENYA CANCER MANAGEMENT CENTER CERTIFICATION APPLICATION FORM</h5>
     </th>
     </tr>
 </table>
@@ -567,7 +567,7 @@ P.O. Box 30016-00100, Nairobi </th>
 <button type="submit" style="background-color: #D820C5;border-radius:10px;width: 90px;
     height: 40;
     float: right;
-    margin-bottom: 10px;" value="Submit">Apply</button>       
+    margin-bottom: 10px;color:white" value="Submit">Apply</button>       
   </form>
 </div>
 @include('common/nci_footer')

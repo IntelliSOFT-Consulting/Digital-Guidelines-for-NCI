@@ -14,9 +14,7 @@
            </div> 
         @endif
           <h2 style="text-align:center">Customer Ratings Satisfaction Form</h2>
-            <div class="definition" style="margin:30px;position: relative;
-  left: 25%;
-  right: 25%;">
+            <div class="definition" >
             <h5 class="" >
             <ol type = "1">
             <div class="row">
@@ -69,8 +67,8 @@
             
             <!-- </div> -->
             <div class="inline" style="float:right;margin-top:10px;">
-  <button type="button"   onclick=" check()"style="background-color: #DED9D9;border-radius:10px">Cancel</button>
-  <button type="submit" style="background-color: #D820C5;border-radius:10px" value="Submit">Submit</button>
+  <button type="button"   onclick=" check()"style="background-color: #DED9D9;border-radius:10px;color:white">Cancel</button>
+  <button type="submit" style="background-color: #D820C5;border-radius:10px;color:white" value="Submit">Submit</button>
             </div>
       </form>
             </div>

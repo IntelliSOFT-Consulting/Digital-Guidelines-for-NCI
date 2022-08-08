@@ -83,10 +83,23 @@ text-align:center;
     border: 13px solid #FBF4F4;
 }
 }
+.definition{
+    margin: 30px;
+    position: relative;
+    left: 25%;
+    right: 25%;
+}
 @media screen and (max-width: 860px) {
     .modal {
     top: 50%;
     left: 10%;
+}
+}
+@media screen and (max-width: 1007px) {
+    .definition {
+      margin:30px;position: relative;
+  left: 1%;
+  right: 25%;
 }
 }
 .logins {
@@ -233,7 +246,7 @@ h5 {
     font-size: 16px;
 }
 h2 {
-    font-size: 18px;
+    font-size: 12px;
 }
 h6 {
     font-size: 16px;

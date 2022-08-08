@@ -36,7 +36,7 @@
     width: 100px;
     background-color: #D820C5;
     border-radius: 20px;
-    margin-top: 0px;"  data-toggle="modal" data-target="#exampleModal">
+    margin-top: 0px;color:white"  data-toggle="modal" data-target="#exampleModal">
  Need Help?</a>    </button>
 </h4>
        </div>

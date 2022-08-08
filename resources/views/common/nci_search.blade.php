@@ -10,7 +10,7 @@ border:none;" id="header-search-box-input" type="text" name="term"
     height: 40px;
     border-radius: 5px;
     margin-left: -5px;
-    width: 75px;color:black" type="submit" aria-label="{{ trans('common.search') }}">Submit</button>
+    width: 75px;color:white" type="submit" aria-label="{{ trans('common.search') }}">Submit</button>
     </form>
     <!-- <form action="{{ url('/search') }}" method="GET" class="search-box" role="search">
                 <button id="header-search-box-button" type="submit" aria-label="{{ trans('common.search') }}" tabindex="-1">@icon('search') </button>

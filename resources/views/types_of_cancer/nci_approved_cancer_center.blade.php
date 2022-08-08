@@ -129,7 +129,7 @@
                   }else{
                     $url='#';
                   }
-                    echo '<h6><strong><a href="'.$url.'">'.$work++.' .'. $woekers->Facility. '</a></strong></h6><hr>';
+                    echo '<a style="color:black"  href="'.$url.'">'.$work++.' .'. $woekers->Facility. '</a><hr>';
                 }
                 }else{
                     echo 'Not yet assigned to any worker';
@@ -148,9 +148,9 @@
                       $extlink='';
                      }
                       if(user()->can("book-create-all")){
-                        echo '<h6><strong><a href="#">'.$woekers->Designation. '</a><i style="font-size:20px" class=" fa fa-edit"data-ext_link="'.$extlink.'"data-facility="'.$woekers->Facility.'"data-ci="'.$center->id.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'</strong></h6><hr>';
+                        echo '<a target="_blank"style="color:black" href="#">'.$woekers->Designation. '</a><i style="font-size:12px" class=" fa fa-edit"data-ext_link="'.$extlink.'"data-facility="'.$woekers->Facility.'"data-ci="'.$center->id.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'<hr>';
                       }else{
-                        echo '<h6><strong><a href="#">'.$woekers->Designation. '</a></strong></h6><hr>';
+                        echo '<a href="#">'.$woekers->Designation. '</a><hr>';
 
                       }
                     }
