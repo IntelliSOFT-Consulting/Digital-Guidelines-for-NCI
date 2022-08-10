@@ -34,7 +34,7 @@
     height: 30px;
     width: 100px;
     background-color: #D820C5;
-    border-radius: 20px;
+    border-radius: 20px; 
     color:white;
     margin-top: 0px;" data-toggle="modal" data-target="#exampleModal">
           Need Help?</a> </button>
@@ -65,7 +65,7 @@
               <button type="button" style="background:#D820C5" class="btn btn-primary">Send message</button>
             </div>
           </form>
-        </div>
+        </div> 
       </div>
     </div>
   </div>

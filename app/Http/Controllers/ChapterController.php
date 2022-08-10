@@ -16,7 +16,7 @@ use BookStack\Exceptions\PermissionsException;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Throwable;
-
+use File;
 class ChapterController extends Controller
 {
     protected $chapterRepo;
@@ -58,8 +58,10 @@ class ChapterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'c_image'       => array_merge(['nullable'], $this->getImageValidationRules()),
         ]);
+       
         //dd($validated );
         if($request->file('c_image')){
+            dd($validated);
             $file= $request->file('c_image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('public/chapter/Image'), $filename);
@@ -109,6 +111,7 @@ class ChapterController extends Controller
      */
     public function edit(string $bookSlug, string $chapterSlug)
     {
+        
         $chapter = $this->chapterRepo->getBySlug($bookSlug, $chapterSlug);
         $this->checkOwnablePermission('chapter-update', $chapter);
 
@@ -124,24 +127,35 @@ class ChapterController extends Controller
      */
     public function update(Request $request, string $bookSlug, string $chapterSlug)
     {
-        
-        $chapter = $this->chapterRepo->getBySlug($bookSlug, $chapterSlug);
-        $this->checkOwnablePermission('chapter-update', $chapter);
-        // $validated = $this->validate($request, [
-        //     'name'        => ['required', 'string', 'max:255'],
-        //     'description' => ['string', 'max:1000'],
-        //     'image'       => array_merge(['nullable'], $this->getImageValidationRules()),
-        //     'tags'        => ['array'],
+        // $validated =$this->validate($request, [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'c_image'       => array_merge(['nullable'], $this->getImageValidationRules()),
         // ]);
-        // if ($request->has('image_reset')) {
-        //     $validated['image'] = null;
-        // } elseif (array_key_exists('image', $validated) && is_null($validated['image'])) {
-        //     unset($validated['image']);
-        // }
+       
+        //dd($validated );
+        // if($request->hasFile('c_image')){
+        //     dd($validated);}
+        $chapter = $this->chapterRepo->getBySlug($bookSlug, $chapterSlug);
         
-        $this->chapterRepo->update($chapter, $request->all());
+        $this->checkOwnablePermission('chapter-update', $chapter);
+        if($request->hasFile('c_image')){
+            $image_path = public_path("/chapter/Image/".$chapter['c_image']);
+                if (File::exists($image_path)) {
+                    File::delete($image_path);
+                }
+            $file= $request->file('c_image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/chapter/Image'), $filename);
+            $data['c_image']= $filename;
+        }else{
+            $data['c_image']= $chapter['c_image']; 
+        }
+        $data['name']=$request->name;
+        $data['description']=$request->description;
+        $data['tags']=$request->tags;
+        ($this->chapterRepo->update($chapter, $data));
 
-        return redirect($chapter->getUrl());
+       return redirect($chapter->getUrl());
     }
 
     /**

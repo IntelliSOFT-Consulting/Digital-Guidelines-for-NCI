@@ -535,14 +535,14 @@ centre</td>
               <table style="width:75%;margin-left: 40px;margin-right: -80px;">
       <tr style="background-color: #ffcc99; height:40px">
         <th style="width:35%">Send to</th>
-        <th style="width:25%">Send via E-mail to</th>
+        <th style="width:100%">Send via E-mail to</th>
     </tr>
     <tr>
         <th style="width:35%">National Cancer Institute-Kenya
 Ministry of Health, Cathedral Road,
 Upper Hill,
 P.O. Box 30016-00100, Nairobi </th>
-        <th style="width:25%;margin-bottom:-30px"><p style="width:25%;margin-bottom:-20px">ncikenya@gmail.com</p></th>
+        <th style="width:25%;margin-bottom:-30px"><p style="width:100%;margin-bottom:-20px">ncikenya@gmail.com</p></th>
     </tr>
 </table>
 
