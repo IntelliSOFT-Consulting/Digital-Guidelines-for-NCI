@@ -18,7 +18,7 @@ class CreatePercountyCentersModelsTable extends Migration
             $table->integer('county_id');
             $table->String('Facility')->nullable();
             $table->String('Designation')->nullable();
-            
+
             $table->timestamps();
         });
     }
