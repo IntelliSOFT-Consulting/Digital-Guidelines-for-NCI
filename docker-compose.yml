@@ -32,8 +32,11 @@ services:
       DB_PASSWORD: bookstack-test
       TEST_DATABASE_URL: mysql://bookstack-test:bookstack-test@db/bookstack-test
       MAIL_DRIVER: smtp
-      MAIL_HOST: mailhog
-      MAIL_PORT: 1025
+      MAIL_HOST: smtp.gmail.com
+      MAIL_PORT: 587
+      MAIL_USERNAME: smp.web254@gmail.com
+      MAIL_PASSWORD: awvbgahkpypuplqo
+      MAIL_ENCRYPTION: tls
     ports:
       - ${DEV_PORT:-8080}:80
     volumes:
@@ -41,7 +44,7 @@ services:
       - ./dev/docker/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     entrypoint: /app/dev/docker/entrypoint.app.sh
     extra_hosts:
-    - "host.docker.internal:host-gateway"
+      - "host.docker.internal:host-gateway"
   node:
     image: node:alpine
     working_dir: /app

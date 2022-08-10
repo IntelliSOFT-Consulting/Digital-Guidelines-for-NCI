@@ -42,13 +42,13 @@ class HomeController extends Controller
     public function index(ActivityQueries $activities)
     {
         $view = setting()->getForCurrentUser('books_view_type');
-        $sort = setting()->getForCurrentUser('books_sort', 'name');
+        $sort = setting()->getForCurrentUser('books_sort', 'id');
         $order = setting()->getForCurrentUser('books_sort_order', 'asc');
 
         $books = $this->bookRepo->getAllPaginated(18, $sort, $order);
         $books = $this->bookRepo->getAllPaginated(18, $sort, $order);
         // foreach ($books as $book) {
-            
+
         //     $books = (new BookContents($book))->getTree(true);
         // }
         $recents = $this->isSignedIn() ? $this->bookRepo->getRecentlyViewed(4) : false;
@@ -58,7 +58,7 @@ class HomeController extends Controller
         $this->entityContextManager->clearShelfContext();
 
         $this->setPageTitle(trans('entities.books'));
-//dd($books);
+        //dd($books);
         // return view('books.index', [
         //     'books'   => $books,
         //     'recents' => $recents,
@@ -68,7 +68,7 @@ class HomeController extends Controller
         //     'sort'    => $sort,
         //     'order'   => $order,
         // ]);
-        return view('home.default',[
+        return view('home.default', [
             'books'   => $books,
             'recents' => $recents,
             'popular' => $popular,
