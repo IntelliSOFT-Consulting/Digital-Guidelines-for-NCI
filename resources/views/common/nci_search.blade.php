@@ -7,7 +7,6 @@ border:none;" id="header-search-box-input" type="text" name="term" aria-label="{
     height: 40px;
     border-radius: 5px;
     margin-left: -5px;
- 
     width: 75px;color:white" type="submit" aria-label="{{ trans('common.search') }}">Search</button>
  
     </form>
