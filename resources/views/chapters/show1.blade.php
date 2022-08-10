@@ -18,7 +18,7 @@
           
           <div class="col-md-10">
             <div style="background-color:white;text-align:center;margin-top:-30px;">
-          <h4>{{ $chapter->name }} Page Contents</h4>
+          <h4>{{ $chapter->name }}</h4><br>
           <h5>{{ $chapter->description }}</h5>
         </div>
           @foreach($pages as $page)

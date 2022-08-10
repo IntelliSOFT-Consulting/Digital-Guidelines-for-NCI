@@ -200,7 +200,7 @@ $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#facility").remove();
         });
 $('#facility').on('click',function(){
-    var county='<div class="form-group" id="facility"><label for="facility" class="col-form-label">Facility:</label><input type="text" style="width: 100%;background-color: #FBF4F4;" class="form-control" id="facility" name="facility[]"><i style="float:right" id="DeleteRow" class="fa fa-trash"></i></div>';
+    var county='<div class="form-group" id="facility"><label for="facility" class="col-form-label">Facility:</label><input type="text" style="width: 100%;background-color: #FBF4F4;" class="form-control" id="facility" name="facility[]"><i style="float:right;font-size: 25px;margin-right: 10px" id="DeleteRow" class="fa fa-trash"></i></div>';
      $('#fdaacil').append(county);
 });
 $('#center').on('show.bs.modal', function (event) {
