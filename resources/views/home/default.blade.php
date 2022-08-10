@@ -5,7 +5,7 @@
       <!-- <div class="container px-xl py-s">  -->
         <div style="margin:5px">
       <div style="border: 3rem solid white;background-color:white;margin:px;">
-      <div style="background-color:white;text-align:center;margin-top:-40px;margin-bottom: 10px;"><h4>NATIONAL GUIDELINES FOR ESTABLISHMENT OF CANCER MANAGEMENT CENTERS IN KENYA</h2></div>
+      <div style="background-color:white;text-align:center;margin-top:-40px;margin-bottom: 10px;"><h4 style="font-size: 12px;">NATIONAL GUIDELINES FOR ESTABLISHMENT OF CANCER MANAGEMENT CENTERS IN KENYA</h2></div>
       <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:white;">
      <!-- Indicators  -->
     <ol class="carousel-indicators">
@@ -44,7 +44,7 @@ The purpose of this guideline is to provide guidance to stakeholders on the sett
     
       <div class="item">
         <img src="{{ asset('/uploads/img1.png') }}" alt="New york" style="width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;">
       </div>
     </div>
