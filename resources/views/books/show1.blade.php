@@ -16,7 +16,7 @@
           <div class="row mission" style="margin-top:40px;">
           
           <div class="col-md-10">
-          <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Cancer Management Centers level</h4></div>
+          <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>{{ $book->name }}</h4></div>
      
      @foreach ($bookd as $books)
            <div class="col-md-4">
