@@ -12,18 +12,19 @@
   }
 }
 </style>
-<div style="margin:5px">
-          <!-- search for nci -->
-          @include('common/nci_search')
-          <!-- end of search -->
-          <div class="row mission" style="margin-top:40px;height:auto">
+
+<div class="container small pt-xl" >
+@include('common/nci_search')
+
+        <main class="card content-wrap"style="min-height: 350px;margin-top:40px;">
+        <div class="row mission" style="margin-top:5px;height:auto">
           @if(Session::has('message'))
           <div class="alert alert-success"> 
             {{Session::get('message')}}      
            </div> 
         @endif
           <h2 style="text-align:center">Cancer Management Center Facility Forms Download</h2>
-            <div class="definition" style="margin:30px;margin-left: 20%;margin-right: 10%;">
+            <div class="definition" style="margin:30px;margin-right: 10%;">
             <h5 class="" >
             <ol type = "1">
             <div class="row">
@@ -51,14 +52,18 @@ $C Checklist for a medical cyclotron facilit,
             </div>
             
           </div>
-          <div class="row mission" style="margin-top:40px;height:auto">
+        </main>
+    </div>
+    <div class="container small pt-xl">
+        <main class="card content-wrap" style="min-height: 200px">
+        <div class="row mission" style="margin-top:5px;height:auto">
           @if(Session::has('message'))
           <div class="alert alert-success"> 
             {{Session::get('message')}}      
            </div> 
         @endif
           <h2 style="text-align:center;text-decoration:none;">NCI-K Inspection Forms</h2>
-            <div class="definition" style="margin:30px;margin-left: 20%;margin-right: 10%;">
+            <div class="definition" style="margin:30px;margin-right: 10%;">
             <h5 class="" >
             <ol type = "1">
             <div class="row">
@@ -82,14 +87,18 @@ $C Checklist for a medical cyclotron facilit,
             </h5>
             </div>
           </div>
-          <div class="row mission" style="margin-top:40px;height:auto">
+        </main>
+    </div>
+    <div class="container small pt-xl">
+        <main class="card content-wrap" style="min-height: 380px">
+        <div class="row mission" style="margin-top:5px;height:auto">
           @if(Session::has('message'))
           <div class="alert alert-success"> 
             {{Session::get('message')}}      
            </div> 
         @endif
           <h2 style="text-align:center">Cancer Center Patient Forms</h2>
-            <div class="definition" style="margin:30px;margin-left: 20%;margin-right: 10%;">
+            <div class="definition" style="margin:30px;margin-right: 10%;">
             <h5 class="" >
             <ol type = "1">
             <div class="row">
@@ -109,9 +118,7 @@ $C Checklist for a medical cyclotron facilit,
             </div>
             
           </div>
-
-          <!-- footer start -->
-      @include('common/nci_footer')
-      <!-- footer end -->
-</div>
+          @include('common/nci_footer')
+        </main>
+    </div>
 @stop
