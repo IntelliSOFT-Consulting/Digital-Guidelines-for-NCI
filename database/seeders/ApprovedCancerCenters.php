@@ -22,10 +22,13 @@ class ApprovedCancerCenters extends Seeder
         $json = File::get("cancerc.json");
         $countries = json_decode($json);
          foreach($countries as $country){
+            //dd($country->Physical_Address);
             ApprovedCancerCenter_models::create([
                 'Facility'=> $country->Facility,
                 'County'=> $country->County,
-                'Designation'=> $country->Designation
+                'Designation'=> $country->Designation,
+                'Physical_Address'=>$country->Physical_Address,
+                'Cancer_Treatment_Modalities'=>$country->Cancer_Treatment_Modalities
             ]);
          };
          $exist=ApprovedCancerCenter_models::groupBy('County')->get('County');
@@ -37,7 +40,9 @@ class ApprovedCancerCenters extends Seeder
                         PercountyCenters_model::create([
                             'Facility'=> $perc->Facility,
                             'county_id'=> $perc->County,
-                            'Designation'=> $perc->Designation
+                            'Designation'=> $perc->Designation,
+                            'Physical_Address'=>$perc->Physical_Address,
+                            'Cancer_Treatment_Modalities'=>$perc->Cancer_Treatment_Modalities
                         ]);
                     }
          }
