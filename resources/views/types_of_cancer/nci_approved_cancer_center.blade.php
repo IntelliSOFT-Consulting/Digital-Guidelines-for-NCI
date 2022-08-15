@@ -106,7 +106,9 @@
                 <th>#No</th>
                 <th>County</th>
                 <th>Facility</th>
-                <th>Designation</th>
+                <th>Designation</th> 
+                <th>Physical Address</th>
+                <th>Treatment Modalities</th>
             </tr>
         </thead>
         <tbody>
@@ -159,6 +161,53 @@
                     }
                     ?>
                 </td>
+
+                <!-- Added Columns --> 
+                <td>
+                    <?php
+                $data=DB::table('percounty_centers_models')->where('county_id',$center->County)->get();
+                if(count($data)>0){
+                    
+                $work=1;
+                foreach($data as $woekers){
+                  if (isset($woekers->ext_link)) {
+                    # code...
+                    $url=$woekers->ext_link;
+                    //$url='#';
+                  }else{
+                    $url='#';
+                  }
+                    echo '<a style="color:black"  href="'.$url.'">'.$work++.' .'. $woekers->Physical_Address. '</a><hr>';
+                }
+                }else{
+                    echo 'Not yet assigned to any worker';
+                }
+                ?>
+                </td>
+                <td>
+                    <?php
+                $data=DB::table('percounty_centers_models')->where('county_id',$center->County)->get();
+                if(count($data)>0){
+                    
+                $work=1;
+                foreach($data as $woekers){
+                  if (isset($woekers->ext_link)) {
+                    # code...
+                    $url=$woekers->ext_link;
+                    //$url='#';
+                  }else{
+                    $url='#';
+                  }
+                    echo '<a style="color:black"  href="'.$url.'">'.$work++.' .'. $woekers->Cancer_Treatment_Modalities. '</a><hr>';
+                }
+                }else{
+                    echo 'Not yet assigned to any worker';
+                }
+                ?>
+                </td>
+
+               
+                <!-- End of Added Columns -->
             </tr>
 
             @endforeach
