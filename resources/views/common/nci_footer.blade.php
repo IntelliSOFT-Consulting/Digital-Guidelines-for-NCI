@@ -3,6 +3,15 @@
     top: 50%;
     left: 50%;
   }
+  @media screen and (max-width: 1440px) {
+  .social{
+    margin-left: 0px;
+    margin-top: 80px;
+}
+}
+.social{
+    margin-top: 50px;
+}
 </style>
 <footer class="row" style=" bottom: 0;">
   <!-- /position: fixed; width: 100%;-->

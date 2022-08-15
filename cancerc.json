@@ -1,272 +1,458 @@
 [
   {
-    "Facility": "Cancer Care Kenya Limited UAP Towers Upper Hill",
-    "County": "Nairobi",
-    "Designation": "Basic/ Essential"
+      "Facility": "Tenwek Hospital",
+      "Physical_Address": "Plot No 11751, Silibwet Road",
+      "County": "Bomet",
+      "Designation": "Middle level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Tenri Children's Hospital",
-    "County": "Embu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Cancer Care Kenya Limited UAP Towers Upper Hill",
+      "Physical_Address": "Upper Hill road 4",
+      "County": "Nairobi",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "St Gallen Oncology Network",
-    "County": "Kakamega",
-    "Designation": "Basic/ Essential"
+      "Facility": "Tenri Children's Hospital",
+      "Physical_Address": "Cancer Centre Building, Plot No. 45, Embu Kiritiri Road",
+      "County": "Embu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Advanced Cancer Centre",
-    "County": "Kisii",
-    "Designation": "Basic/ Essential"
+      "Facility": "St Gallen Oncology Network",
+      "Physical_Address": "Mega mall, 5th Floor, Kakmega Webuye Road",
+      "County": "Kakamega",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Sori Lakeside Hospital",
-    "County": "Migori",
-    "Designation": "Basic/ Essential"
+      "Facility": "Advanced Cancer Centre ",
+      "Physical_Address": "Ouru complex, Second Floor, Moi Avenue Street",
+      "County": "Kisii",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Kerugoya Fortis Medical and Cancer Centre",
-    "County": "Kirinyaga",
-    "Designation": "Basic/ Essential"
+      "Facility": "Sori Lakeside Hospital",
+      "Physical_Address": "Karungu kachieng B1/B, Sori Gwasi Road",
+      "County": "Migori",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Nephromed Limited",
-    "County": "Nairobi",
-    "Designation": "Basic/ Essential"
+      "Facility": "Nairobi West Hospital",
+      "Physical_Address": "Gandhi Street",
+      "County": "Nairobi",
+      "Designation": "Middle level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Radiotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Shalom Hospital",
-    "County": "Machakos",
-    "Designation": "Basic/ Essential"
+      "Facility": "Meru Doctors Plaza ",
+      "Physical_Address": "Moi Avenue, Street Meru Town",
+      "County": "Meru",
+      "Designation": "Middle level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Blue Ridge Medical Thika",
-    "County": "Kiambu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Cancer Care Kenya Limited ",
+      "Physical_Address": "Shivachi road Parklands",
+      "County": "Nairobi",
+      "Designation": "Middle Level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Radiotherapy"
+      
   },
   {
-    "Facility": "Bloom Health care Machakos",
-    "County": "Machakos",
-    "Designation": "Basic/ Essential"
+      "Facility": "Karen Hospital",
+      "Physical_Address": "Karen Langata Road",
+      "County": "Nairobi",
+      "Designation": "Middle Level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Bloom Dhahabu Nairobi",
-    "County": "Nairobi",
-    "Designation": "Basic/ Essential"
+      "Facility": "Nairobi Radiotherapy & Cancer Centre",
+      "Physical_Address": "LR No. 209/4526/4, Kindaruma Road",
+      "County": "Nairobi",
+      "Designation": "Middle level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Radiotherapy"
+      
   },
   {
-    "Facility": "Premier Hospital",
-    "County": "Mombasa",
-    "Designation": "Basic/ Essential"
+      "Facility": "Outspan Hospital",
+      "Physical_Address": "Baden Powell Road",
+      "County": "Nyeri",
+      "Designation": "Middle level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Bloom Surgical Centre Ltd",
-    "County": "Kisumu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Medina Diagnostics",
+      "Physical_Address": "Medina Plaza, Miraa Road",
+      "County": "Garrissa",
+      "Designation": "Middle level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Blue Ridge Medical Ltd",
-    "County": "Kisumu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Kerugoya Fortis Medical and Cancer Centre",
+      "Physical_Address": "Plot No: Kerugoya/ kaguyu/1426, Kerugoya Catholic Road",
+      "County": "Kirinyaga",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Nyangena Hospital",
-    "County": "Kisii",
-    "Designation": "Basic/ Essential"
+      "Facility": "Nephromed Limited",
+      "Physical_Address": "Williamsons House 2nd Floor, 4th Ngong Avenue",
+      "County": "Nairobi",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "St Jairus Hospital",
-    "County": "Kisumu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Shalom Hospital",
+      "Physical_Address": "L/R No Block 11/377 off Wote Road",
+      "County": "Machakos",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Kerugoya Medical Centre",
-    "County": "Kirinyaga",
-    "Designation": "Basic/ Essential"
+      "Facility": "Blue Ridge Medical Thika",
+      "Physical_Address": "Maisha Heights 2nd floor Kenyatta Highway Thika",
+      "County": "Kiambu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Universal Family Health Services",
-    "County": "Machakos",
-    "Designation": "Basic/ Essential"
+      "Facility": "Bloom Health care Machakos",
+      "Physical_Address": "Kiamba Mall 3rd Floor",
+      "County": "Machakos",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Oasis Specialist Hospital",
-    "County": "Kisii",
-    "Designation": "Basic/ Essential"
+      "Facility": "Bloom Dhahabu Nairobi",
+      "Physical_Address": "5th Avenue Office Suites, Floor - Fifth Ngong Avenue",
+      "County": "Nairobi",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Kakamega County Referral Hospital",
-    "County": "Kakamega",
-    "Designation": "Basic/ Essential"
+      "Facility": "Premier Hospital",
+      "Physical_Address": "Links Road, Nyali",
+      "County": "Mombasa",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "AIC Kijabe Hospital",
-    "County": "Kiambu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Bloom Surgical Centre Ltd",
+      "Physical_Address": "Mega City Mall Premises, Nairobi Road",
+      "County": "Kisumu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Liberty Cancer Centre",
-    "County": "Nakuru",
-    "Designation": "Basic/ Essential"
+      "Facility": "Blue Ridge Medical Ltd",
+      "Physical_Address": "Plot No. 11/199 Kisumu municipality, Al-alrian court, Achieng Oneko Road",
+      "County": "Kisumu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Aroha Cancer Centre",
-    "County": "Meru",
-    "Designation": "Basic/ Essential"
+      "Facility": "Nyangena Hospital",
+      "Physical_Address": "Plot No 1625, Daraja mbili Road",
+      "County": "Kisii",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Nakuru County Referral Hospital",
-    "County": "Nakuru",
-    "Designation": "Basic/ Essential"
+      "Facility": "St Jairus Hospital",
+      "Physical_Address": "Plot number: ksm/kigony/7786, Kisumu Busia Road",
+      "County": "Kisumu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Nyeri County Referral Hospital",
-    "County": "Nyeri",
-    "Designation": "Basic/ Essential"
+      "Facility": "Kerugoya Medical Centre",
+      "Physical_Address": "Plot No.INOI/Kerugoya//16/15, Kerugoya Karatina Road",
+      "County": "Kirinyaga",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Eldoret Oncology Associates",
-    "County": "Uasin Gishu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Universal Family Health Services",
+      "Physical_Address": "Imani Plaza II, 1st Floor, Wote Road",
+      "County": "Machakos",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "International Cancer Institute",
-    "County": "Uasin Gishu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Oasis Specialist Hospital",
+      "Physical_Address": "Kisii Municipality/Block 111/327, Hospital Road",
+      "County": "Kisii",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Elgonview Hospital",
-    "County": "Uasin Gishu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Kakamega County Referral Hospital",
+      "Physical_Address": "Off Hospital Road",
+      "County": "Kakamega",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Coptic Hospital",
-    "County": "Nairobi",
-    "Designation": "Basic/ Essential"
+      "Facility": "AIC Kijabe Hospital",
+      "Physical_Address": "Kijabe Road",
+      "County": "Kiambu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Shabaha Cancer Centre",
-    "County": "Nairobi",
-    "Designation": "Basic/ Essential"
+      "Facility": "Liberty Cancer Centre",
+      "Physical_Address": "Assumption Centre CDN, 3rd Floor Wing B, Maasai Road",
+      "County": "Nakuru",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Living Room International Hospital",
-    "County": "Uasin Gishu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Aroha Cancer Centre",
+      "Physical_Address": "Gitoro, Meru-Nanyuki Highway",
+      "County": "Meru",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Eldoret Urosurgery Hospital Ltd",
-    "County": "Uasin Gishu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Nakuru County Referral Hospital",
+      "Physical_Address": "Nakuru-sigor Road",
+      "County": "Nakuru",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Salama Cancer Centre",
-    "County": "Kisumu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Nyeri County Referral Hospital",
+      "Physical_Address": "Kimathi Way",
+      "County": "Nyeri",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Aga Khan Kisumu",
-    "County": "Kisumu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Eldoret Oncology Associates",
+      "Physical_Address": "Block 7/223, Doctor's Drive Off Nandi road",
+      "County": "Uasin Gishu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Vihiga County Referral Hospital",
-    "County": "Vihiga",
-    "Designation": "Basic/ Essential"
+      "Facility": "International Cancer Institute",
+      "Physical_Address": "Block 8/102 Nandi Road Eldoret Municipality",
+      "County": "Uasin Gishu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Consolata Mathari Mission Hospital",
-    "County": "Nyeri",
-    "Designation": "Basic/ Essential"
+      "Facility": "Moi Teaching and Referral Hospital",
+      "Physical_Address": "Nandi Road, Kapsoya, Ainabkoi",
+      "County": "Uasin Gishu",
+      "Designation": "Comprehensive Cancer Centre",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Radiotherapy+Surgical Oncology+Oncology"
+      
   },
   {
-    "Facility": "Mombasa Cancer Centre",
-    "County": "Mombasa",
-    "Designation": "Basic/ Essential"
+      "Facility": "Elgonview Hospital",
+      "Physical_Address": "LR No 14/1079, Off Eldoret Kapsabet Road",
+      "County": "Uasin Gishu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Surgical Oncology"
+      
   },
   {
-    "Facility": "Eldoret Hospital Limited",
-    "County": "Uasin Gishu",
-    "Designation": "Basic/ Essential"
+      "Facility": "Coptic Hospital",
+      "Physical_Address": "LR No 209/392/14, Ngong Road",
+      "County": "Nairobi",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Moi Teaching and Referral Hospital",
-    "County": "Uasin Gishu",
-    "Designation": "Comprehensive Cancer Centre"
+      "Facility": "Shabaha Cancer Centre",
+      "Physical_Address": "LR No 209/870/10, Vallet View Office, City Park Drive, Parklands ",
+      "County": "Nairobi",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Tenwek Hospital",
-    "County": "Bomet",
-    "Designation": "Middle level"
+      "Facility": "St Theresa Mission Hospital Kiirua",
+      "Physical_Address": "Off Meru - Nanyuki Highway",
+      "County": "Meru",
+      "Designation": "Middle Level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Nairobi West Hospital",
-    "County": "Nairobi",
-    "Designation": "Middle level"
+      "Facility": "Machakos County Referral Hospital",
+      "Physical_Address": "Machakos Wote Road",
+      "County": "Machakos ",
+      "Designation": "Middle Level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Meru Doctors Plaza",
-    "County": "Meru",
-    "Designation": "Middle level"
+      "Facility": "Living Room International Hospital",
+      "Physical_Address": "Kaptagat/Kaptagat Block 3 (Misoi)/ 16, Kaptagat Road",
+      "County": "Uasin Gishu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Cancer Care Kenya Limited",
-    "County": "Nairobi",
-    "Designation": "Middle Level"
+      "Facility": "Eldoret Urosurgery Hospital Ltd",
+      "Physical_Address": "Plot No. EMC block 8/506",
+      "County": "Uasin Gishu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Surgical Oncology"
+      
   },
   {
-    "Facility": "Karen Hospital",
-    "County": "Nairobi",
-    "Designation": "Middle Level"
+      "Facility": "Embu Teaching and Referral Hospital",
+      "Physical_Address": "Embu Meru Road",
+      "County": "Embu",
+      "Designation": "Middle Level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Nairobi Radiotherapy & Cancer Centre",
-    "County": "Nairobi",
-    "Designation": "Middle level"
+      "Facility": "Texas Cancer Centre",
+      "Physical_Address": "Mbagathi Way, Madaraka Opposite APs Camp, Nairobi",
+      "County": "Nairobi",
+      "Designation": "Middle Level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Radiotherapy"
+      
   },
   {
-    "Facility": "Outspan Hospital",
-    "County": "Nyeri",
-    "Designation": "Middle level"
+      "Facility": "Jaramongi Odinga Oginga Teaching and Referral Hospital",
+      "Physical_Address": "Jomo Kenyatta Highway, Kaloleni ",
+      "County": "Kisumu",
+      "Designation": "Middle Level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Medina Diagnostics",
-    "County": "Garrissa",
-    "Designation": "Middle level"
+      "Facility": "Aga Khan Mombasa",
+      "Physical_Address": "Vanga Road",
+      "County": "Mombasa",
+      "Designation": "Middle Level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "St Theresa Mission Hospital Kiirua",
-    "County": "Meru",
-    "Designation": "Middle Level"
+      "Facility": "Coast General Teaching and Referral Hospital",
+      "Physical_Address": "Kisauni Road/ Mzima",
+      "County": "Mombasa",
+      "Designation": "Middle Level",
+      "Cancer_Treatment_Modalities": "Chemotherapy+Surgical Oncology"
+      
   },
   {
-    "Facility": "Machakos County Referral Hospital",
-    "County": "Machakos",
-    "Designation": "Middle Level"
+      "Facility": "Salama Cancer Centre",
+      "Physical_Address": "Tom mboya estate, Morara Road, Plot No municipality/Block 4/80",
+      "County": "Kisumu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Embu Teaching and Referral Hospital",
-    "County": "Embu",
-    "Designation": "Middle Level"
+      "Facility": "Aga Khan Kisumu",
+      "Physical_Address": "Plot No: 220, Otieno Oyoo Street",
+      "County": "Kisumu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Texas Cancer Centre",
-    "County": "Nairobi",
-    "Designation": "Middle Level"
+      "Facility": "Vihiga County Referral Hospital",
+      "Physical_Address": "Mbale Road",
+      "County": "Vihiga",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Jaramongi Odinga Oginga Teaching and Referral Hospital",
-    "County": "Kisumu",
-    "Designation": "Middle Level"
+      "Facility": "Consolata Mathari Mission Hospital",
+      "Physical_Address": "Plot no:9463, Nyeri - Ihururu Road",
+      "County": "Nyeri",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Aga Khan Mombasa",
-    "County": "Mombasa",
-    "Designation": "Middle Level"
+      "Facility": "Mombasa Cancer Centre",
+      "Physical_Address": "Shimanzi/Ganjoni, Nyerere Avenue",
+      "County": "Mombasa",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   },
   {
-    "Facility": "Coast General Teaching and Referral Hospital",
-    "County": "Mombasa",
-    "Designation": "Middle Level"
+      "Facility": "Eldoret Hospital Limited",
+      "Physical_Address": "Plot No:7/13, Makasembo Road",
+      "County": "Uasin Gishu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
+  },
+  {
+      "Facility": "Fairmont Hospital",
+      "Physical_Address": "LR NO: KISUMU/MUNICIPALITY/BLOCK 4/118, Nyerere Road",
+      "County": "Kisumu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
+  },
+  {
+      "Facility": "Alexandria Cancer Centre and Palliative Care Hospital",
+      "Physical_Address": "Eldoret municipality/block 7/236, Lumumba Avenue Opp. Moi University school of Dentistry",
+      "County": "Uasin Gishu",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
+  },
+  {
+      "Facility": "Alexandria Cancer Centre and Palliative Care Hospital",
+      "Physical_Address": "Plot no: 12/296, Milimani opposite KMTC Nakuru, Crest road",
+      "County": "Nakuru",
+      "Designation": "Basic/ Essential",
+      "Cancer_Treatment_Modalities": "Chemotherapy"
+      
   }
 ]

@@ -448,6 +448,8 @@ class BookController extends Controller
         $facility_id = $request->facility_id;
         $county = $request->county;
         $facility = $request->facility;
+        $addres = $request->addres;
+        $modality = $request->modality;
         $cid = $request->ci;
         $exurlink = $request->exurlink;
         $countyy = $approved->where('id', $cid)->get()->first();
@@ -462,7 +464,7 @@ class BookController extends Controller
             $percountie = $percounty->where('id', $facility_id);
             //dd($percountie);
             if ($percountie) {
-                PercountyCenters_model::where('id', $facility_id)->update(['ext_link' => $exurlink, 'Facility' => $facility]);
+                PercountyCenters_model::where('id', $facility_id)->update(['ext_link' => $exurlink,'Physical_Address' => $addres,'Cancer_Treatment_Modalities' => $modality, 'Facility' => $facility]);
                 //dd($percountie);
             }
         }
