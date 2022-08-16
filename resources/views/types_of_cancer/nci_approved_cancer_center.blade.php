@@ -74,8 +74,16 @@
             <input style="width: 100%;background-color: #FBF4F4;"type="text" name="county" class="form-control" id="county">
           </div>
           <div class="form-group">
-            <label for="facility" class="col-form-label">Facility:</label>
+            <label for="facility" class="col-form-label">Facility</label>
             <input style="width: 100%;background-color: #FBF4F4;"type="text" name="facility" class="form-control" id="facility">
+          </div>
+          <div class="form-group">
+            <label for="county" class="col-form-label">Cancer Treatment Modalities::</label>
+            <input style="width: 100%;background-color: #FBF4F4;"type="text" name="addres" class="form-control" id="physical">
+          </div>
+          <div class="form-group">
+            <label for="facility" class="col-form-label">Physical Address:</label>
+            <input style="width: 100%;background-color: #FBF4F4;"type="text" name="modality" class="form-control" id="modalities">
           </div>
           <div class="form-group">
             <label for="exurlink" class="col-form-label">Description Url:</label>
@@ -106,9 +114,10 @@
                 <th>#No</th>
                 <th>County</th>
                 <th>Facility</th>
-                <th>Designation</th> 
+                 
                 <th>Physical Address</th>
                 <th>Treatment Modalities</th>
+                <th>Designation</th>
             </tr>
         </thead>
         <tbody>
@@ -138,30 +147,7 @@
                 }
                 ?>
                 </td>
-                <td>
-                    <?php
-                if(count($data)>0){
-                    
-                    $work=1;
-                    foreach($data as $woekers){
-                     if(isset($woekers->ext_link)){
-                      $extlink=$woekers->ext_link;
-                     }else {
-                      $extlink='';
-                     }
-                      if(user()->can("book-create-all")){
-                        echo '<a target="_blank"style="color:black" href="#">'.$woekers->Designation. '</a><i style="font-size:12px" class=" fa fa-edit"data-ext_link="'.$extlink.'"data-facility="'.$woekers->Facility.'"data-ci="'.$center->id.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'<hr>';
-                      }else{
-                        echo '<a href="#">'.$woekers->Designation. '</a><hr>';
-
-                      }
-                    }
-                    }else{
-                        echo 'Not yet assigned to any worker';
-                    }
-                    ?>
-                </td>
-
+                
                 <!-- Added Columns --> 
                 <td>
                     <?php
@@ -206,7 +192,30 @@
                 ?>
                 </td>
 
-               
+                <td>
+                    <?php
+                if(count($data)>0){
+                    
+                    $work=1;
+                    foreach($data as $woekers){
+                     if(isset($woekers->ext_link)){
+                      $extlink=$woekers->ext_link;
+                     }else {
+                      $extlink='';
+                     }
+                      if(user()->can("book-create-all")){
+                        echo '<a target="_blank"style="color:black" href="#">'.$woekers->Designation. '</a><i style="font-size:12px" class=" fa fa-edit"data-ext_link="'.$extlink.'" data-modalities="'.$woekers->Cancer_Treatment_Modalities.'"data-physical="'.$woekers->Physical_Address.'"data-facility="'.$woekers->Facility.'"data-ci="'.$center->id.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'<hr>';
+                      }else{
+                        echo '<a href="#">'.$woekers->Designation. '</a><hr>';
+
+                      }
+                    }
+                    }else{
+                        echo 'Not yet assigned to any worker';
+                    }
+                    ?>
+                </td>
+
                 <!-- End of Added Columns -->
             </tr>
 
@@ -259,6 +268,8 @@ $('#center').on('show.bs.modal', function (event) {
   var county = button.data('county')
   var id = button.data('id')
   var ci = button.data('ci')
+  var modalities = button.data('modalities')
+  var physical = button.data('physical')
   var ext_link = button.data('ext_link')  // Extract info from data-* attributes
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -268,6 +279,8 @@ $('#center').on('show.bs.modal', function (event) {
   modal.find('.modal-body #facility').val(facility)
   modal.find('.modal-body #county').val(recipient)
   modal.find('.modal-body #facility_id').val(id)
+  modal.find('.modal-body #modalities').val(modalities)
+  modal.find('.modal-body #physical').val(physical)
   modal.find('.modal-body #ci').val(ci)
   modal.find('.modal-body #ext_link').val(ext_link)
 
