@@ -1,4 +1,4 @@
-<div class="mission" style="  border: 10px solid white;text-align:center;margin-bottom:-30px;">
+<div class="mission" style="text-align:center;">
   <div class="search-container">
     <form action="{{ url('/search') }}" method="GET" role="search">
       <input style="background-color: #FBF4F4;width: 50%;border-radius: 5px;border-width:0px;

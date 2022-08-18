@@ -1,39 +1,53 @@
 @extends('layouts.simple')
 
 @section('body')
-@include('common/nci_custom_styles')
-<style>
-    .col-lg-3 {
-        width: 35%;
+<style type="text/css">
+    .featured-image-container img {
+    display: block;
+    width: 70%;
+    max-width: 70%;
+    height: 180px;
 }
 </style>
-<div style="margin:5px">
 <div class="mb-m print-hidden" style="margin-right:20;margin-left:20%;">
         @include('entities.breadcrumbs', ['crumbs' => [
             $chapter->book,
             $chapter,
         ]])
     </div>
-          <div class="row mission" style="margin-top:40px;">
-          
-          <div class="col-md-10">
-            <div style="background-color:white;text-align:center;margin-top:-30px;">
+    <div class="container small" style="max-width: 100%;">
+       <main class="content-wrap card" style="min-height: auto;">
+       <div style="background-color:white;text-align:center;margin-top:-30px;">
           <h4>{{ $chapter->name }}</h4><br>
           <h5>{{ $chapter->description }}</h5>
         </div>
+          <div class="row">
+          
+          <div class="col-md-10" style="height: auto;margin-top:15px">
           @foreach($pages as $page)
-        <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-            <?php $type = $page->getType(); ?>
-<a href="{{ $page->getUrl() }}"  data-page-type="{{$type}}" data-page-id="{{$page->id}}">
+           <div class="col-md-4">
+           <div class="" style="background-color:none;" >
+       <div class="card-body">
+     <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
+     <?php $type = $page->getType(); ?>
+     <div class="b-{{ $page->getType() }} featured-image-container-wrap">
+     <a href="{{ $page->getUrl() }}"  data-page-type="{{$type}}" data-page-id="{{$page->id}}">
+        <div class="featured-image-container" >
+        
               <img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
     <h4 class="card-title management">{{$page->name}}
-</h4></a>
-            </div>
-          </div>
-        </div> @endforeach
-          </div>
+</h4>
+        </div>
+      
+     </a> 
+    </div>
+    
+     
+       </div>
+     </div>
+           </div>
+           @endforeach
+      </div>
           <div class="col-md-2">
           <div class="mb-xl">
         <h5>{{ trans('common.details') }}</h5>
@@ -130,8 +144,9 @@
           </div>
 
           </div>
-          <!-- footer start -->
-      @include('common/nci_footer')
-      <!-- footer end -->
-</div>
+        </main>
+    </div>
+    <div style="background:white;height:fit-content">
+    @include('common/nci_footer')
+    </div>
 @stop

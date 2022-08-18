@@ -12,24 +12,20 @@
 .social{
     margin-top: 50px;
 }
+.footer {
+    flex-shrink: 0;
+    padding: 1rem 1rem 2rem 1rem;
+    /* text-align: center; */
+}
 </style>
-<footer class="row" style=" bottom: 0;">
-  <!-- /position: fixed; width: 100%;-->
-  <div style="margin:5px;background:#FBF4F4">
-    <!-- <div class="col-md-6 social">
-       <h4 class="card-title management" >
-      <h5>Customer Satisfaction Ratings</h5>
-        <h5>Click <span><a href="{{ url('/nci/customer/satisfaction/ratings') }}">here</a></span> access our customer</h5>
-        <h5>satisfaction rating form</h5>
-        </h5>
-       </div> -->
-    <div class="col-md-12 social">
-      <h4 class="card-title management">
-        <h5>Contact Information</h5>
-        <h5>Tel: +254712345678, +254733112233</h5>
 
-        <div style="margin-top:20px">
-          <h5 class="fa" style="font-size:16px">Social media:</h5>
+    <div class="col-md-12 social footer" style=" bottom: 0;background:white;">
+      <h4 class="card-title management">
+        <h5 style="margin-left:30%">Contact Information</h5>
+        <h5 style="margin-left:30%">Tel: +254712345678, +254733112233</h5>
+
+        <div style="margin-left:30%" >
+          <h5 class="fa" style="font-size: 1.4em;">Social media:</h5>
           <a href="#" class="fa fa-facebook"></a>
           <a href="#" class="fa fa-twitter"></a>
           <a href="#" class="fa fa-instagram"></a>
@@ -44,13 +40,10 @@
     width: 100px;
     background-color: #D820C5;
     border-radius: 20px; 
-    color:white;
-    margin-top: 0px;" data-toggle="modal" data-target="#exampleModal">
+    color:white;" data-toggle="modal" data-target="#exampleModal">
           Need Help?</a> </button>
       </h4>
     </div>
-
-  </div>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -78,4 +71,3 @@
       </div>
     </div>
   </div>
-</footer>
