@@ -8,6 +8,18 @@
     max-width: 70%;
     height: 180px;
 }
+.images{
+    margin-left: auto;
+    margin-right: auto;
+}
+.management{
+    
+    text-align: center;
+
+}
+h5{
+    word-break: break-all;
+}
 </style>
 <div class="mb-m print-hidden" style="margin-right:20;margin-left:20%;">
         @include('entities.breadcrumbs', ['crumbs' => [
@@ -18,7 +30,7 @@
     <div class="container small" style="max-width: 100%;">
        <main class="content-wrap card" style="min-height: auto;">
        <div style="background-color:white;text-align:center;margin-top:-30px;">
-          <h4>{{ $chapter->name }}</h4><br>
+          <h5>{{ $chapter->name }}</h5><br>
           <h5>{{ $chapter->description }}</h5>
         </div>
           <div class="row">
@@ -27,6 +39,7 @@
           @foreach($pages as $page)
            <div class="col-md-4">
            <div class="" style="background-color:none;" >
+           <div class="card">
        <div class="card-body">
      <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
      <?php $type = $page->getType(); ?>
@@ -43,6 +56,7 @@
     </div>
     
      
+       </div>
        </div>
      </div>
            </div>

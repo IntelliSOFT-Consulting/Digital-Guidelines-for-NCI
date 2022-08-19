@@ -8,6 +8,15 @@
     max-width: 70%;
     height: 180px;
 }
+.images{
+    margin-left: auto;
+    margin-right: auto;
+}
+.management{
+    
+    text-align: center;
+
+}
 </style>
 <div class="mb-s" style="margin-right:20;margin-left:20%;">
         @include('entities.breadcrumbs', ['crumbs' => [
@@ -24,6 +33,9 @@
           @foreach ($bookd as $books)
            <div class="col-md-4">
            <div class="" style="background-color:none;" >
+           <div class="card">
+
+           
        <div class="card-body">
      <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
      <div class="b-{{ $books->getType() }} featured-image-container-wrap">
@@ -41,6 +53,7 @@
     </div>
     
      
+       </div>
        </div>
      </div>
            </div>
