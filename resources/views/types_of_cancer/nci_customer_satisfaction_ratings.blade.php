@@ -1,19 +1,17 @@
 @extends('layouts.simple')
 
 @section('body')
-@include('common/nci_custom_styles')
-
-<div style="margin:5px">
-          <!-- search for nci -->
-          @include('common/nci_search')
-          <!-- end of search -->
-          <div class="row mission" style="margin-top:40px;">
-          @if(Session::has('message'))
+    <div class="container small" style="max-width: 100%;">
+    <main class="content-wrap card" style="min-height: auto;">
+    @include('common/nci_search')
+        </main>
+       <main class="content-wrap card" style="min-height: auto;">
+       @if(Session::has('message'))
           <div class="alert alert-success"> 
             {{Session::get('message')}}      
            </div> 
         @endif
-          <h2 style="text-align:center">Customer Ratings Satisfaction Form</h2>
+          <h2 style="text-align:center;font-size: 16px;">Customer Ratings Satisfaction Form</h2>
             <div class="definition" >
             <h5 class="" >
             <ol type = "1">
@@ -77,25 +75,9 @@
             </h5>
             </div>
             
-          </div>
-          <!--  end Requirements for Establishing a Basic Cancer Management Center-->
-          <!-- footer start -->
-      @include('common/nci_footer')
-      <!-- footer end -->
-</div>
+        </main>
+    </div>
+    <div style="background:white;height:fit-content">
+    @include('common/nci_footer')
+    </div>
 @stop
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<script>
-      $(document).ready(function() {
-            $('#can').on('click', function(){
-                  document.getElementById("dif").checked = false;
-document.getElementById("at").checked = false;
-            })
-           
-        
-      });
-      function check(){
-                  location.reload();
-            }
-</script>

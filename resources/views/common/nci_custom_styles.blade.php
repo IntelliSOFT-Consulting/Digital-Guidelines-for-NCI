@@ -42,6 +42,7 @@ background-color:white;
 }
 h2{
 text-align:center;
+font-size:16px;
 }
 .topnav .search-container {
   float: right;
@@ -146,7 +147,7 @@ text-align:center;
     background-color: #FBF4F4; 
     margin:10px;
     width: 100%;
-    height: 250px;
+    /* height: 250px; */
     float: left;
 }
 .mcard{
@@ -162,7 +163,7 @@ p,h4,h5,h6,h2,h1{
     /* background-color: #FBF4F4;  */
     margin:10px;
     width: auto;
-    height: 250px;
+    /* height: 250px; */
     /* border-radius: 10px; */
 }
 .col-lg-2-0 {
@@ -311,8 +312,18 @@ input[type="radio"] {
 .social{
   margin-top: 0%;
   background:white;
-  border: 3px solid #FBF4F4;
-  height: 180px;
+  /* border: 3px solid #FBF4F4;
+  height: 180px; */
+}
+.featured-image-container img {
+    display: block;
+    width: 70%;
+    max-width: 70%;
+    height: 180px;
+}
+.list-heading {
+    font-size: 16px;
+    text-align: center;
 }
 .carousel-control.left {
     /* background-image: -webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);

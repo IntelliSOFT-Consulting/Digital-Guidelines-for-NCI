@@ -1,10 +1,18 @@
 @extends('layouts.simple')
 
 @section('body')
-@include('common/nci_custom_styles')
-
 <style>
-table {
+  .definition{
+    position: relative;
+    left: 25%;
+    right: 25%;
+  }
+  h2{
+    font-size: 12px;
+    text-decoration: none;
+
+  }
+  table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -40,26 +48,39 @@ td, th {
     margin: 0 100px;
     background-color: grey;
 }
+.row {
+    margin-right: -49px;
+    margin-left: -49;
+}
 .apply {
     /* border: 3rem solid white; */
     background-color: white;
-    margin: 50px;
-    margin-top: 30px;
+    /* margin: 50px;
+    margin-top: 30px; */
+}
+.content-wrap.card {
+    /* padding: 16px 24px; */
+    min-height: auto;
+}
+.card {
+    background-color: #FFF;
+    /* box-shadow: 0 1px 6px -1px rgb(0 0 0 / 10%); */
+    
 }
 form{
     margin-right: 20px;
     margin-left: 20px;
 }
 </style>
-</head>
-<div style="margin:5px">
-          <!-- search for nci -->
-          <?php $i=0 ?>
-          @include('common/nci_search')
-          
-          <!-- end of search -->
-          <div class="row apply" style="margin-top:40px;">
-          <form method = "POST" action = "{{url('/apply/to/cancer/ceneter')}}" accept-charset="utf-8" enctype="multipart/form-data">
+    <div class="container small" style="max-width: 100%;">
+    <main class="content-wrap card" style="min-height: auto;">
+    @include('common/nci_search')
+
+           
+        </main>
+
+        <main class="content-wrap card" style="min-height: auto;">
+        <form method = "POST" action = "{{url('/apply/to/cancer/ceneter')}}" accept-charset="utf-8" enctype="multipart/form-data">
                         @csrf
 <table>
 <table style="width:90%; margin-left:5%;margin-bottom:-9px" >
@@ -569,10 +590,13 @@ P.O. Box 30016-00100, Nairobi </th>
     float: right;
     margin-bottom: 10px;color:white" value="Submit">Apply</button>       
   </form>
-</div>
-@include('common/nci_footer')
-      <!-- footer end -->
-</div>
+            
+        </main>
+       
+       
+    </div>
+    
+    @include('common/nci_footer')
 @stop
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">

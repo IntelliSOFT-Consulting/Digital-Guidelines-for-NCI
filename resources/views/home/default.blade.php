@@ -136,12 +136,12 @@ in Kenya
       <div class="row mission">
       <!-- <div class="col-md-10"> -->
 
-      <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Types of Cancer Center</h4></div>
+      <div style="background-color:white;text-align:center;margin-top:-30px;"><h4 style="margin-bottom: 5px;">Types of Cancer Center</h4></div>
       @if(user()->can('book-create-all')) 
     <div class="col-md-10">
     @foreach ($books as $book)
            <div class="col-md-4">
-           <div class="card" >
+           <div class="card" style="width:100%">
        <div class="card-body">
      <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
      <a href="{{ $book->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$book->id}}">

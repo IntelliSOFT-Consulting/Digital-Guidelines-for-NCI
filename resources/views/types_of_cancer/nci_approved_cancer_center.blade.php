@@ -2,9 +2,12 @@
 
 @section('body')
 @include('common/nci_custom_styles')
-
-<div style="margin:5px">
-<div class="modal fade" id="exampleModalLabel1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+@if(user()->can('book-create-all'))
+          <button style="float:right;margin-bottom:2px;background-color: #D820C5" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalLabel1" data-whatever="@mdo">Add Cancer Center</button>
+          @endif
+<div class="container small" style="max-width: 100%;">
+    <main class="content-wrap card" style="min-height: auto;">
+    <div class="modal fade" id="exampleModalLabel1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -103,11 +106,9 @@
         {{ session()->get('message') }}
     </div>
 @endif 
-@if(user()->can('book-create-all'))
-          <button style="float:right;margin-top:-40px;background-color: #D820C5" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalLabel1" data-whatever="@mdo">Add Cancer Center</button>
-          @endif
+
           <?php $i=0 ?>
-          <div class="row mission" style="margin-top:40px;">
+          <!-- <div class="row mission" style="margin-top:40px;"> -->
           <table id="example" class="display table-responsive" style="width:100%">
         <thead>
             <tr>
@@ -223,10 +224,15 @@
               </tbody>
 </table>
             
-          </div>
-      @include('common/nci_footer')
+          <!-- </div> -->
+      
       <!-- footer end -->
-</div>
+
+        </main>
+        
+        </div>
+        @include('common/nci_footer')
+
 @stop
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
