@@ -59,7 +59,7 @@ form{
           
           <!-- end of search -->
           <div class="row apply" style="margin-top:40px;">
-          <form method = "POST" action = "{{url('/apply/to/cancer/ceneter')}}" accept-charset="utf-8" enctype="multipart/form-data">
+          <form method = "POST" action = "{{url('/apply/to/cancer/center')}}" accept-charset="utf-8" enctype="multipart/form-data">
                         @csrf
 <table>
 <table style="width:90%; margin-left:5%;margin-bottom:-9px" >

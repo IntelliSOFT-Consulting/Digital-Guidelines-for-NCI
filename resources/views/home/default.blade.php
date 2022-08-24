@@ -6,26 +6,44 @@
         <div style="margin:5px">
       <div style="border: 3rem solid white;background-color:white;margin:px;">
       <div style="background-color:white;text-align:center;margin-top:-40px;margin-bottom: 10px;"><h4 style="font-size: 12px;">NATIONAL GUIDELINES FOR ESTABLISHMENT OF CANCER MANAGEMENT CENTERS IN KENYA</h2></div>
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:white;">
+      <div id="myCarousel" class="carousel" data-ride="carousel" style="background-color:white;">
      <!-- Indicators  -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li> -->
     </ol>
 
      <!-- Wrapper for slides  -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="{{ asset('/uploads/img1.png') }}" alt="Los Angeles" style="width: 100%;
-    height: 400px;
-    object-fit: cover;">
+      <div style="width: 100%;
+    height: 300px;
+    object-fit: cover;background-color: #FBF4F4;"> <p style="margin:30px;margin-top:30px;height: 300px;overflow: auto;">The National Cancer Control Strategy 2017-2022 has provided strategic direction by prioritizing
+decentralization of cancer services as per the Kenya Essential Package for Health to improve access to
+cancer care and services. This guideline is the first comprehensive document to outline what is required to
+establish a cancer management centre in Kenya. It provides a detailed account of what critical components
+would need to be considered to establish a cancer centre. These include operational considerations of the
+various units as well as physical infrastructural considerations and generic layouts, equipment and human
+resource requirements across the entire cancer continuum. This guideline was developed in response to the
+need for a model reference guideline of minimum priority medical equipment, infrastructure and human
+resources required for cancer management, with the goal of increasing access to these services in Kenya.
+The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
       </div>
 
       <div class="item">
-        <img src="{{ asset('/uploads/img1.png') }}" alt="Chicago" style="width: 100%;
-    height: 400px;
-    object-fit: cover;">
+      <div style="width: 100%;
+    height: 300px;
+    object-fit: cover;background-color: #FBF4F4;"> <p style="margin:30px;margin-top:30px;height: 300px;overflow: auto;">The National Cancer Control Strategy 2017-2022 has provided strategic direction by prioritizing
+decentralization of cancer services as per the Kenya Essential Package for Health to improve access to
+cancer care and services. This guideline is the first comprehensive document to outline what is required to
+establish a cancer management centre in Kenya. It provides a detailed account of what critical components
+would need to be considered to establish a cancer centre. These include operational considerations of the
+various units as well as physical infrastructural considerations and generic layouts, equipment and human
+resource requirements across the entire cancer continuum. This guideline was developed in response to the
+need for a model reference guideline of minimum priority medical equipment, infrastructure and human
+resources required for cancer management, with the goal of increasing access to these services in Kenya.
+The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
       </div>
       <div class="item">
         <div style="width: 100%;
@@ -43,21 +61,30 @@ The purpose of this guideline is to provide guidance to stakeholders on the sett
       </div>
     
       <div class="item">
-        <img src="{{ asset('/uploads/img1.png') }}" alt="New york" style="width: 100%;
-    height: 400px;
-    object-fit: cover;">
+      <div style="width: 100%;
+    height: 300px;
+    object-fit: cover;background-color: #FBF4F4;"> <p style="margin:30px;margin-top:30px;height: 300px;overflow: auto;">The National Cancer Control Strategy 2017-2022 has provided strategic direction by prioritizing
+decentralization of cancer services as per the Kenya Essential Package for Health to improve access to
+cancer care and services. This guideline is the first comprehensive document to outline what is required to
+establish a cancer management centre in Kenya. It provides a detailed account of what critical components
+would need to be considered to establish a cancer centre. These include operational considerations of the
+various units as well as physical infrastructural considerations and generic layouts, equipment and human
+resource requirements across the entire cancer continuum. This guideline was developed in response to the
+need for a model reference guideline of minimum priority medical equipment, infrastructure and human
+resources required for cancer management, with the goal of increasing access to these services in Kenya.
+The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
       </div>
     </div>
 
      <!-- Left and right controls  -->
-    <a class="lef carousel-control" href="#myCarousel" data-slide="prev">
+    <!-- <a class="lef carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left glyf"></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="righ carousel-control" href="#myCarousel" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
-    </a>
+    </a> -->
   </div>
            <!-- search for nci  -->
            @include('common/nci_search')
@@ -136,14 +163,14 @@ in Kenya
       <div class="row mission">
       <!-- <div class="col-md-10"> -->
 
-      <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Types of Cancer Center</h4></div>
+      <div style="background-color:white;text-align:center;margin-top:-30px;"><h4 style="margin-bottom: 5px;">Types of Cancer Center</h4></div>
       @if(user()->can('book-create-all')) 
     <div class="col-md-10">
     @foreach ($books as $book)
            <div class="col-md-4">
-           <div class="card" >
+           <div class="card" style="width:100%">
        <div class="card-body">
-     <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
+     <!-- <a href="{{ url('/nci/mlevel/cancer/center') }}"> -->
      <a href="{{ $book->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$book->id}}">
        <!-- <img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york"> -->
        <div class="bg-{{ $book->getType() }} featured-image-container-wrap">
@@ -187,7 +214,7 @@ in Kenya
            <div class="col-md-4">
            <div class="card" >
        <div class="card-body">
-     <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
+     <!-- <a href="{{ url('/nci/mlevel/cancer/center') }}"> -->
      <a href="{{ $book->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$book->id}}">
        <!-- <img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york"> -->
        <div class="bg-{{ $book->getType() }} featured-image-container-wrap">

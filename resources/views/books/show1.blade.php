@@ -22,7 +22,7 @@
            <div class="col-md-4">
            <div class="card" >
        <div class="card-body">
-     <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
+     <!-- <a href="{{ url('/nci/mlevel/cancer/center') }}"> -->
      <a href="{{ $books->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$books->id}}">
         <?php if (isset($books->c_image)){?>
        <img class="images" src="{{ url('public/chapter/Image/'.$books->c_image) }}" alt="{{ $books->name }}">

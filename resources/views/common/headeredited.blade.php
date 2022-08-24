@@ -36,8 +36,8 @@
                     @if(userCanOnAny('view', \BookStack\Entities\Models\Bookshelf::class) || userCan('bookshelf-view-all') || userCan('bookshelf-view-own'))
                         <!-- <a href="{{ url('/shelves') }}">@icon('bookshelf'){{ trans('entities.shelves') }}</a> -->
                         <a class="active" href="{{ url('/NATIONAL/CANCER/INSTITUTE/OF/KENYA') }}">{{ trans('entities.national_cancer_institute_of_kenya') }}</a>
-                        <a href="{{ url('/shelves') }}">{{ trans('entities.approved_cancer_ceneter') }}</a>
-                        <a href="{{ url('/shelves') }}">{{ trans('entities.cancer_ceneter_requirements') }}</a>
+                        <a href="{{ url('/shelves') }}">{{ trans('entities.approved_cancer_Center') }}</a>
+                        <a href="{{ url('/shelves') }}">{{ trans('entities.cancer_center_requirements') }}</a>
                         <a href="{{ url('/shelves') }}">{{ trans('entities.customer_satisfaction_ratings') }}</a>
                         <a href="{{ url('/shelves') }}">{{ trans('entities.downloads') }}</a>
                         <a href="{{ url('/shelves') }}">{{ trans('entities.apply_here') }}</a>

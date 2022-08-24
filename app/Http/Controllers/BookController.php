@@ -363,7 +363,7 @@ class BookController extends Controller
         return redirect($shelf->getUrl());
     }
     // nci changes
-    public function nci_basic_c_ceneter()
+    public function nci_basic_c_Center()
     {
         $view = setting()->getForCurrentUser('books_view_type');
         $sort = setting()->getForCurrentUser('books_sort', 'name');
@@ -387,11 +387,11 @@ class BookController extends Controller
         ]));
         return view('types_of_cancer/nci_basic_cancer_center');
     }
-    public function nci_mlevel_c_ceneter()
+    public function nci_mlevel_c_Center()
     {
         return view('types_of_cancer/nci_mlevel_cancer_center');
     }
-    public function nci_comprehensive_c_ceneter()
+    public function nci_comprehensive_c_Center()
     {
         $centers = ApprovedCancerCenter_models::groupBy('County')->get();
         $per = array();

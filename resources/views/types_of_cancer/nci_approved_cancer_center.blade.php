@@ -8,7 +8,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel1">Add Cancer Cenetr</h5>
+        <h5 class="modal-title" id="exampleModalLabel1">Add Cancer center</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -17,7 +17,7 @@
       <button style="float:right;margin-right:3%;display:none" type="button" id="facility" class="btn btn-primary ">Existing County</button> 
      
       <div class="modal-body">
-      <form method = "POST" action = "{{url('/add/county/cancer/ceneter')}}">
+      <form method = "POST" action = "{{url('/add/county/cancer/center')}}">
                         @csrf
           <div class="form-group" id="add_to_me">
             <label for="county" class="col-form-label">County:</label>
@@ -54,7 +54,7 @@
     </div>
   </div>
 </div>
-<!-- edit cenetr -->
+<!-- edit center -->
 <div class="modal fade" id="center" tabindex="-1" role="dialog" aria-labelledby="center" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -65,7 +65,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <form method = "POST" action = "{{url('/update/cancer/ceneter')}}">
+      <form method = "POST" action = "{{url('/update/cancer/center')}}">
                         @csrf
           <input type="hidden" name="facility_id" id="facility_id"/>
           <input type="hidden" name="ci" id="ci"/>
@@ -103,8 +103,8 @@
           <table id="example" class="display table-responsive" style="width:100%">
         <thead>
             <tr>
-                <th>#No</th>
-                <th>County</th>
+                <th style="width:40px">#No</th>
+                <th style="width:100px">County</th>
                 <th>Facility</th>
                 <th>Designation</th> 
                 <th>Physical Address</th>
@@ -264,7 +264,7 @@ $('#center').on('show.bs.modal', function (event) {
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
  //alert(id)
   var modal = $(this)
-  modal.find('.modal-title').text('New Ceneter to ' + recipient)
+  modal.find('.modal-title').text('New Center to ' + recipient)
   modal.find('.modal-body #facility').val(facility)
   modal.find('.modal-body #county').val(recipient)
   modal.find('.modal-body #facility_id').val(id)

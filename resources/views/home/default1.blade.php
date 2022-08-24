@@ -14,7 +14,7 @@
            <div class="col-md-4">
            <div class="card" style="background-color:none" >
        <div class="card-body">
-     <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
+     <!-- <a href="{{ url('/nci/mlevel/cancer/center') }}"> -->
      <a href="{{ $book->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$book->id}}">
      <div class="bg-{{ $book->getType() }} featured-image-container-wrap">
         <div class="featured-image-container" @if($book->cover) style="background-image: url('{{ $book->getBookCover() }}')"@endif>

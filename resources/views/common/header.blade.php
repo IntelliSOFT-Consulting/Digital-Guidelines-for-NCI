@@ -45,10 +45,10 @@
                     @if(userCanOnAny('view', \BookStack\Entities\Models\Bookshelf::class) || userCan('bookshelf-view-all') || userCan('bookshelf-view-own'))
                         <!-- <a href="{{ url('/shelves') }}">@icon('bookshelf'){{ trans('entities.shelves') }}</a> -->
                         <!-- <a class="active" href="#">{{ trans('entities.national_cancer_institute_of_kenya') }}</a> -->
-                        <a class="upcase" href="/nci/approved/cancer/ceneter/">{{ trans('entities.approved_cancer_ceneter') }}</a>
-                        <a class="upcase" href="{{ url('/nci/create-book/cancer_ceneter_requirements') }}">{{ trans('entities.cancer_ceneter_requirements') }}</a>
+                        <a class="upcase" href="/nci/approved/cancer/center/">{{ trans('entities.approved_cancer_Center') }}</a>
+                        <a class="upcase" href="{{ url('/nci/create-book/cancer_center_requirements') }}">{{ trans('entities.cancer_center_requirements') }}</a>
                         <a class="upcase" href="/nci/customer/satisfaction/ratings">{{ trans('entities.customer_satisfaction_ratings') }}</a>
-                        <a class="upcase" href="/nci/mlevel/cancer/ceneter">{{ trans('entities.downloads') }}</a>
+                        <a class="upcase" href="/nci/mlevel/cancer/center">{{ trans('entities.downloads') }}</a>
                         <a class="upcase" href="/book/nci/apply-to-ncik">{{ trans('entities.apply_here') }}</a>
                         <!-- <a href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a> -->
                         <!-- <a href="{{ url('/shelves') }}">{{ trans('entities.national_cancer_institute_of_kenya') }}</a> -->
