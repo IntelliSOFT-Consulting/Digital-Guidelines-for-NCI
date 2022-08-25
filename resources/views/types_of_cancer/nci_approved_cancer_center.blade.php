@@ -5,7 +5,7 @@
 @if(user()->can('book-create-all'))
           <button style="float:right;margin-bottom:2px;background-color: #D820C5" type="button" class="btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalLabel1" data-whatever="@mdo">Add Cancer Center</button>
           @endif
-<div class="container small" style="max-width: 100%;">
+<div class="container" style="max-width: 100%;">
     <main class="content-wrap card" style="min-height: auto;">
     <div class="modal fade" id="exampleModalLabel1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -141,7 +141,7 @@
                   }else{
                     $url='#';
                   }
-                    echo '<a style="color:black"  href="'.$url.'">'.$work++.' .'. $woekers->Facility. '</a><hr>';
+                    echo '<a  href="'.$url.'"  target="_blank">'.$work++.' .'. $woekers->Facility. '</a><hr>';
                 }
                 }else{
                     echo 'Not yet assigned to any worker';
@@ -164,7 +164,7 @@
                   }else{
                     $url='#';
                   }
-                    echo '<a style="color:black"  href="'.$url.'">'.$work++.' .'. $woekers->Physical_Address. '</a><hr>';
+                    echo ''.$work++.' .'. $woekers->Physical_Address. '<hr>';
                 }
                 }else{
                     echo 'Not yet assigned to any worker';
@@ -185,7 +185,7 @@
                   }else{
                     $url='#';
                   }
-                    echo '<a style="color:black"  href="'.$url.'">'.$work++.' .'. $woekers->Cancer_Treatment_Modalities. '</a><hr>';
+                    echo ''.$work++.' .'. $woekers->Cancer_Treatment_Modalities. '<hr>';
                 }
                 }else{
                     echo 'Not yet assigned to any worker';
@@ -205,9 +205,9 @@
                       $extlink='';
                      }
                       if(user()->can("book-create-all")){
-                        echo '<a target="_blank"style="color:black" href="#">'.$woekers->Designation. '</a><i style="font-size:12px" class=" fa fa-edit"data-ext_link="'.$extlink.'" data-modalities="'.$woekers->Cancer_Treatment_Modalities.'"data-physical="'.$woekers->Physical_Address.'"data-facility="'.$woekers->Facility.'"data-ci="'.$center->id.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'<hr>';
+                        echo ''.$woekers->Designation. '<i style="font-size:12px" class=" fa fa-edit"data-ext_link="'.$extlink.'" data-modalities="'.$woekers->Cancer_Treatment_Modalities.'"data-physical="'.$woekers->Physical_Address.'"data-facility="'.$woekers->Facility.'"data-ci="'.$center->id.'"data-county="'.$center->County.'" data-id="'.$woekers->id.'"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>'.'<hr>';
                       }else{
-                        echo '<a href="#">'.$woekers->Designation. '</a><hr>';
+                        echo ''.$woekers->Designation. '<hr>';
 
                       }
                     }

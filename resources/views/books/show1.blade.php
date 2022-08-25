@@ -29,27 +29,16 @@
 
           <div class="row">
           
-<<<<<<< HEAD
-          <div class="col-md-10">
-          <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>{{ $book->name }}</h4></div>
-     
-     @foreach ($bookd as $books)
-=======
           <div class="col-md-10" style="height: auto;margin-top:15px">
           @foreach ($bookd as $books)
->>>>>>> 281cf7cf99ed70a6eb3bcece2b582c4315e9b86c
            <div class="col-md-4">
            <div class="" style="background-color:none;" >
            <div class="card">
 
            
        <div class="card-body">
-<<<<<<< HEAD
-     <!-- <a href="{{ url('/nci/mlevel/cancer/center') }}"> -->
-=======
      <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
      <div class="b-{{ $books->getType() }} featured-image-container-wrap">
->>>>>>> 281cf7cf99ed70a6eb3bcece2b582c4315e9b86c
      <a href="{{ $books->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$books->id}}">
         <div class="featured-image-container" >
         <?php if (isset($books->c_image)){?>
