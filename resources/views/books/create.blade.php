@@ -1,6 +1,12 @@
 @extends('layouts.simple')
 
 @section('body')
+<style type="text/css">
+    .list-heading {
+    font-size: 16px;
+    text-align: center;
+}
+</style>
     <div class="container small" style="max-width: 100%;">
         <div class="my-s">
             @if (isset($bookshelf))
@@ -47,7 +53,7 @@
             @endif
         </div>
 
-        <main class="content-wrap card">
+        <main class="content-wrap card" style="min-height: auto;">
             <h1 class="list-heading" style="margin-bottom: 5px;">Requirements for Establishing Cancer Management Center</h1>
             @if($reqs!=='')
             <div class="row mission">

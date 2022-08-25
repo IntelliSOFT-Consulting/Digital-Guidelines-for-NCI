@@ -1,42 +1,75 @@
 @extends('layouts.simple')
 
 @section('body')
-@include('common/nci_custom_styles')
-<style>
-    .col-lg-3 {
-        width: 35%;
+<style type="text/css">
+    .featured-image-container img {
+    display: block;
+    width: 70%;
+    max-width: 70%;
+    height: 180px;
+}
+.images{
+    margin-left: auto;
+    margin-right: auto;
+}
+.management{
+    
+    text-align: center;
+
 }
 </style>
-<div style="margin:5px">
 <div class="mb-s" style="margin-right:20;margin-left:20%;">
         @include('entities.breadcrumbs', ['crumbs' => [
             $book,
         ]])
     </div>
-          <div class="row mission" style="margin-top:40px;">
+    <div class="container small" style="max-width: 100%;">
+       <main class="content-wrap card" style="min-height: auto;">
+       <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>Cancer Management Centers level</h4></div>
+
+          <div class="row">
           
+<<<<<<< HEAD
           <div class="col-md-10">
           <div style="background-color:white;text-align:center;margin-top:-30px;"><h4>{{ $book->name }}</h4></div>
      
      @foreach ($bookd as $books)
+=======
+          <div class="col-md-10" style="height: auto;margin-top:15px">
+          @foreach ($bookd as $books)
+>>>>>>> 281cf7cf99ed70a6eb3bcece2b582c4315e9b86c
            <div class="col-md-4">
-           <div class="card" >
+           <div class="" style="background-color:none;" >
+           <div class="card">
+
+           
        <div class="card-body">
+<<<<<<< HEAD
      <!-- <a href="{{ url('/nci/mlevel/cancer/center') }}"> -->
+=======
+     <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
+     <div class="b-{{ $books->getType() }} featured-image-container-wrap">
+>>>>>>> 281cf7cf99ed70a6eb3bcece2b582c4315e9b86c
      <a href="{{ $books->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$books->id}}">
+        <div class="featured-image-container" >
         <?php if (isset($books->c_image)){?>
        <img class="images" src="{{ url('public/chapter/Image/'.$books->c_image) }}" alt="{{ $books->name }}">
 <?php } else{?>
 <img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
 <?php }?>
-         <h4 class="card-title management">{{ $books->name }}
+        </div>
+        <h4 class="card-title management">{{ $book->name }}
      </h4>
-     </a>
+     </a> 
+    </div>
+    
+     
+       </div>
        </div>
      </div>
            </div>
            @endforeach
-          </div>
+      </div>
           <div class="col-md-2">
           <div class="mb-xl">
         <h5>{{ trans('common.details') }}</h5>
@@ -117,8 +150,9 @@
           </div>
 
           </div>
-          <!-- footer start -->
-      @include('common/nci_footer')
-      <!-- footer end -->
-</div>
+        </main>
+    </div>
+    <div style="background:white;height:fit-content">
+    @include('common/nci_footer')
+    </div>
 @stop

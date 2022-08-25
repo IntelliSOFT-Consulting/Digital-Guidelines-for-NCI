@@ -1,29 +1,32 @@
 @extends('layouts.simple')
 
 @section('body')
-@include('common/nci_custom_styles')
 <style>
-@media screen and (min-width: 480px) {
-  .definition {
-    margin-left: 0%;margin-right: 0%;
+  .definition{
+    position: relative;
+    left: 25%;
+    right: 25%;
   }
-  .label {
-    margin-left: 0%;margin-right: 0%;
+  h2{
+    font-size: 12px;
+    text-decoration: none;
+
   }
-}
 </style>
+    <div class="container small" style="max-width: 100%;">
+    <main class="content-wrap card" style="min-height: auto;">
+    @include('common/nci_search')
 
-<div class="container small pt-xl" >
-@include('common/nci_search')
+           
+        </main>
 
-        <main class="card content-wrap"style="min-height: 350px;margin-top:40px;">
-        <div class="row mission" style="margin-top:5px;height:auto">
-          @if(Session::has('message'))
+        <main class="content-wrap card" style="min-height: auto;">
+        <h2 style="text-align:center">Cancer Management Center Facility Forms Download</h2>
+            @if(Session::has('message'))
           <div class="alert alert-success"> 
             {{Session::get('message')}}      
            </div> 
         @endif
-          <h2 style="text-align:center">Cancer Management Center Facility Forms Download</h2>
             <div class="definition" style="margin:30px;margin-right: 10%;">
             <h5 class="" >
             <ol type = "1">
@@ -51,13 +54,9 @@ $C Checklist for a medical cyclotron facilit,
             </h5>
             </div>
             
-          </div>
         </main>
-    </div>
-    <div class="container small pt-xl">
-        <main class="card content-wrap" style="min-height: 200px">
-        <div class="row mission" style="margin-top:5px;height:auto">
-          @if(Session::has('message'))
+        <main class="content-wrap card" style="min-height: auto;">
+        @if(Session::has('message'))
           <div class="alert alert-success"> 
             {{Session::get('message')}}      
            </div> 
@@ -86,19 +85,11 @@ $C Checklist for a medical cyclotron facilit,
              </ol>
             </h5>
             </div>
-          </div>
         </main>
-    </div>
-    <div class="container small pt-xl">
-        <main class="card content-wrap" style="min-height: 380px">
-        <div class="row mission" style="margin-top:5px;height:auto">
-          @if(Session::has('message'))
-          <div class="alert alert-success"> 
-            {{Session::get('message')}}      
-           </div> 
-        @endif
+        <main class="content-wrap card" style="min-height: auto;">
+       
           <h2 style="text-align:center">Cancer Center Patient Forms</h2>
-            <div class="definition" style="margin:30px;margin-right: 10%;">
+            
             <h5 class="" >
             <ol type = "1">
             <div class="row">
@@ -115,10 +106,9 @@ $C Checklist for a medical cyclotron facilit,
             </div>
              </ol>
             </h5>
-            </div>
-            
-          </div>
-          @include('common/nci_footer')
+         
         </main>
     </div>
+    
+    @include('common/nci_footer')
 @stop

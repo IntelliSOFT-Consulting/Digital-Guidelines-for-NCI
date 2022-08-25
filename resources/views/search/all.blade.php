@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div>
-                <div class="card content-wrap">
+                <div class="card content-wrap" style="min-height: 500px;">
                     <h1 class="list-heading">{{ trans('entities.search_results') }}</h1>
 
                     <form action="{{ url('/search') }}" method="GET"  class="search-box flexible hide-over-l">

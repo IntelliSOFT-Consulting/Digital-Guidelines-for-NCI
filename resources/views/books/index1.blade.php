@@ -1,15 +1,18 @@
 @extends('layouts.simple')
 
 @section('body')
-@include('common/nci_custom_styles')
-      <!-- <div class="container px-xl py-s">  -->
-        <div style="margin:5px">
-       <!-- start of types of cancer management centers  -->
-      <div class="row mission">
-      <div class="col-md-10" style="height: 370px;">
+    <div class="container small" style="max-width: 100%;">
+       <!-- <main class="content-wrap card" style="min-height: auto;">
+            <h1 class="list-heading" style="margin-bottom: 5px;">Requirements for Establishing Cancer Management Center</h1>
+           
+        </main> -->
+
+        <main class="content-wrap card" style="min-height: auto;">
+        <div class="row">
+      <div class="col-md-10" style="height: auto;margin-top:15px">
      @foreach ($books as $book)
            <div class="col-md-4">
-           <div class="card" style="background-color:none" >
+           <div class="" style="background-color:none;" >
        <div class="card-body">
      <!-- <a href="{{ url('/nci/mlevel/cancer/center') }}"> -->
      <a href="{{ $book->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$book->id}}">
@@ -48,15 +51,21 @@
     </div>
       </div>
       </div>
-       
-
-</div>
-<!-- footer start -->
-@include('common/nci_footer')
-      
-      <!-- footer end  -->
-     <!-- </div>  -->
-
-    
-
+        </main>
+        <!-- <main class="content-wrap card" style="min-height: auto;">
+            <h1 class="list-heading" style="margin-bottom: 5px;">Requirements for Establishing Cancer Management Center</h1>
+           
+        </main>
+        <main class="content-wrap card" style="min-height: auto;">
+            <h1 class="list-heading" style="margin-bottom: 5px;">Requirements for Establishing Cancer Management Center</h1>
+           
+        </main>
+        <main class="content-wrap card" style="min-height: auto;">
+            <h1 class="list-heading" style="margin-bottom: 5px;">Requirements for Establishing Cancer Management Center</h1>
+           
+        </main> -->
+    </div>
+    <div style="background:white;height:fit-content">
+    @include('common/nci_footer')
+    </div>
 @stop
