@@ -40,6 +40,14 @@
             
           </div>
           <div class="form-group">
+            <label for="county" class="col-form-label">Cancer Treatment Modalities::</label>
+            <input style="width: 100%;background-color: #FBF4F4;"type="text" name="modalities" class="form-control" id="modalities">
+          </div>
+          <div class="form-group">
+            <label for="facility" class="col-form-label">Physical Address:</label>
+            <input style="width: 100%;background-color: #FBF4F4;"type="text" name="physical" class="form-control" id="physical">
+          </div>
+          <div class="form-group">
             <label for="designation" class="col-form-label"> Level of Cancer center:</label>
                 <select required style="display: inline"id="email"  name="designation" class="form-control">
                 <option value="" selected disabled> </option>  
@@ -107,7 +115,11 @@
     </div>
 @endif 
 
-          <?php $i=0 ?>
+          <?php
+
+use Illuminate\Support\Facades\DB;
+
+ $i=0 ?>
           <!-- <div class="row mission" style="margin-top:40px;"> -->
           <table id="example" class="display table-responsive" style="width:100%">
         <thead>

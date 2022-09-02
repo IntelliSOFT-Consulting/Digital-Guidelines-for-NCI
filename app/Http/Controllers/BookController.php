@@ -407,6 +407,9 @@ class BookController extends Controller
         $country = $request->country;
         $facility = $request->facility;
         $newcounty = $request->newcounty;
+        $modalities = $request->modalities;
+        $physical = $request->physical;
+
         $exist = $capproved->where('County', $country)->get();
         //dd($request->all());
         //if (isset($exist)) {
@@ -416,6 +419,8 @@ class BookController extends Controller
                 PercountyCenters_model::create([
                     'Facility' => $perc,
                     'county_id' => $country,
+                    'Cancer_Treatment_Modalities' => $modalities,
+                    'Physical_Address' => $physical,
                     'Designation' => $request->designation
                 ]);
             $message = 'county center added successfully';
@@ -430,6 +435,8 @@ class BookController extends Controller
                 PercountyCenters_model::create([
                     'Facility' => $newperc,
                     'county_id' => $newcounty,
+                    'Cancer_Treatment_Modalities' => $modalities,
+                    'Physical_Address' => $physical,
                     'Designation' => $request->designation
                 ]);
             }
