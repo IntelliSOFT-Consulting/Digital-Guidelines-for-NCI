@@ -72,7 +72,6 @@ form{
     margin-left: 20px;
 }
 </style>
-<<<<<<< HEAD
 </head>
 <div style="margin:5px">
           <div class="container small" style="max-width: 100%;">

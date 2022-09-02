@@ -47,7 +47,7 @@
 <img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
 <?php }?>
         </div>
-        <h4 class="card-title management">{{ $book->name }}
+        <h4 class="card-title management">{{ $books->name }}
      </h4>
      </a> 
     </div>
