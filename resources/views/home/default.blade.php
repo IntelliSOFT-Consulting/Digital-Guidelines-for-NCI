@@ -19,16 +19,14 @@
       <div class="item active">
       <div style="width: 100%;
     height: 300px;
-    object-fit: cover;background-color: #FBF4F4;"> <p style="margin:30px;margin-top:30px;height: 300px;overflow: auto;">The National Cancer Control Strategy 2017-2022 has provided strategic direction by prioritizing
-decentralization of cancer services as per the Kenya Essential Package for Health to improve access to
+    object-fit: cover;background-color: #FBF4F4;"> <p style="margin:30px;margin-top:30px;height: 300px;overflow: auto;">The National Cancer Control Strategy 2017-2022 has provided strategic direction by prioritizing decentralization of cancer services as per the Kenya Essential Package for Health to improve access to
 cancer care and services. This guideline is the first comprehensive document to outline what is required to
 establish a cancer management centre in Kenya. It provides a detailed account of what critical components
 would need to be considered to establish a cancer centre. These include operational considerations of the
 various units as well as physical infrastructural considerations and generic layouts, equipment and human
-resource requirements across the entire cancer continuum. This guideline was developed in response to the
-need for a model reference guideline of minimum priority medical equipment, infrastructure and human
+resource requirements across the entire cancer continuum. <br>This guideline was developed in response to the need for a model reference guideline of minimum priority medical equipment, infrastructure and human
 resources required for cancer management, with the goal of increasing access to these services in Kenya.
-The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
+<br>The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
       </div>
 
       <div class="item">
@@ -40,10 +38,10 @@ cancer care and services. This guideline is the first comprehensive document to 
 establish a cancer management centre in Kenya. It provides a detailed account of what critical components
 would need to be considered to establish a cancer centre. These include operational considerations of the
 various units as well as physical infrastructural considerations and generic layouts, equipment and human
-resource requirements across the entire cancer continuum. This guideline was developed in response to the
+resource requirements across the entire cancer continuum. <br>This guideline was developed in response to the
 need for a model reference guideline of minimum priority medical equipment, infrastructure and human
 resources required for cancer management, with the goal of increasing access to these services in Kenya.
-The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
+<br>The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
       </div>
       <div class="item">
         <div style="width: 100%;
@@ -54,10 +52,10 @@ cancer care and services. This guideline is the first comprehensive document to 
 establish a cancer management centre in Kenya. It provides a detailed account of what critical components
 would need to be considered to establish a cancer centre. These include operational considerations of the
 various units as well as physical infrastructural considerations and generic layouts, equipment and human
-resource requirements across the entire cancer continuum. This guideline was developed in response to the
+resource requirements across the entire cancer continuum. <br>This guideline was developed in response to the
 need for a model reference guideline of minimum priority medical equipment, infrastructure and human
 resources required for cancer management, with the goal of increasing access to these services in Kenya.
-The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
+<br>The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
       </div>
     
       <div class="item">
@@ -69,10 +67,10 @@ cancer care and services. This guideline is the first comprehensive document to 
 establish a cancer management centre in Kenya. It provides a detailed account of what critical components
 would need to be considered to establish a cancer centre. These include operational considerations of the
 various units as well as physical infrastructural considerations and generic layouts, equipment and human
-resource requirements across the entire cancer continuum. This guideline was developed in response to the
+resource requirements across the entire cancer continuum. <br>This guideline was developed in response to the
 need for a model reference guideline of minimum priority medical equipment, infrastructure and human
 resources required for cancer management, with the goal of increasing access to these services in Kenya.
-The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
+<br>The purpose of this guideline is to provide guidance to stakeholders on the setting up as well as the successful operationalization of cancer centres.</p></div>
       </div>
     </div>
 
