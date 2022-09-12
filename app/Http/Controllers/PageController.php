@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Throwable;
+use File;
+
 
 class PageController extends Controller
 {
@@ -106,33 +108,42 @@ class PageController extends Controller
         //dd($request->all());
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
+            'icon' => array_merge(['nullable'], $this->getImageValidationRules()),
         ]);
+       
         $draftPage = $this->pageRepo->getById($pageId);
         $this->checkOwnablePermission('page-create', $draftPage->getParent());
+        if ($request->file('icon')) {
 
-        $page = $this->pageRepo->publishDraft($draftPage, $request->all());
-       
+            $file = $request->file('icon');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('public/pages/images'), $filename);
+            $page['icon'] = $filename;
+        }else{
+            $page['icon'] = 'ccc.png';
+        }
+
+        $page = $this->pageRepo->publishDraft($draftPage,$page, $request->all());
+
         if ($page) {
             # code...
-            
-            $subtitle=$request->sectionTitle;
-            $sectionContent=$request->sectionContent;
-            for ($i=0; $i <count($subtitle) ; $i++) { 
+
+            $subtitle = $request->sectionTitle;
+            $sectionContent = $request->sectionContent;
+            for ($i = 0; $i < count($subtitle); $i++) {
                 # code...
-                $pages=new PageContent_model();
-                $pages->page_id=$page['id'];
-                if ($subtitle[$i]!==''){
+                $pages = new PageContent_model();
+                $pages->page_id = $page['id'];
+                if ($subtitle[$i] !== '') {
                     # code...
-                    $pages->page_sub_title=$subtitle[$i];
-                    $pages->page_description=$sectionContent[$i];
+                    $pages->page_sub_title = $subtitle[$i];
+                    $pages->page_description = $sectionContent[$i];
                     //dd($subtitle,$sectionContent,$pages);
                     $pages->save();
                 }
-               
             }
-           
         }
-        
+
         return redirect($page->getUrl());
     }
 
@@ -173,11 +184,11 @@ class PageController extends Controller
 
         View::incrementFor($page);
         $this->setPageTitle($page->getShortName());
-        $pagecontents=PageContent_model::where('page_id',$page['id'])->get();
+        $pagecontents = PageContent_model::where('page_id', $page['id'])->get();
         //var_dump($pagecontents->toArray());
-// types_of_cancer/bcc/chemoteraphy_considerations
+        // types_of_cancer/bcc/chemoteraphy_considerations
         return view('types_of_cancer/bcc/chemoteraphy_considerations', [
-            'pageContent' =>$pagecontents,
+            'pageContent' => $pagecontents,
             'page'            => $page,
             'book'            => $page->book,
             'current'         => $page,
@@ -219,7 +230,7 @@ class PageController extends Controller
         }
 
         $this->setPageTitle(trans('entities.pages_editing_named', ['pageName' => $page->getShortName()]));
-       // dd($editorData->getViewData());
+        // dd($editorData->getViewData());
         return view('pages.edit', $editorData->getViewData());
     }
 
@@ -231,87 +242,79 @@ class PageController extends Controller
      */
     public function update(Request $request, string $bookSlug, string $pageSlug)
     {
-       //dd($request->all());
+        //dd($request->all());
         $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'], 
         ]);
+        
         $page = $this->pageRepo->getBySlug($bookSlug, $pageSlug);
         $this->checkOwnablePermission('page-update', $page);
+        if($request->hasFile('icon')){
+            $image_path = public_path("public/pages/images/".$page['icon']);
+                if (File::exists($image_path)) {
+                    File::delete($image_path);
+                }
+            $file= $request->file('icon');
+            $filename= $file->getClientOriginalName();
+            $file-> move(public_path('public/pages/images'), $filename);
+            $pages['icon']= $filename; 
+        }else{
+            $pages['icon']= $page['icon']; 
+        }
+ 
+        $pagedata = $this->pageRepo->update($page,$pages, $request->all());
 
-      
-
-        // if($request->hasFile('icon')){
-        //     $image_path = public_path("/pages/images/".$page['icon']);
-        //         if (File::exists($image_path)) {
-        //             File::delete($image_path);
-        //         }
-        //     $file= $request->file('icon');
-        //     $filename= date('YmdHi').$file->getClientOriginalName();
-        //     $file-> move(public_path('public/pages/images'), $filename);
-        //     $page->icon= $filename;
-        // }else{
-        //     $page->icon= $page['icon'];
-        // }
-        // return $page;
-        $pagedata=$this->pageRepo->update($page, $request->all());
-       
         if ($pagedata) {
-            $subtitle=$request->sectionTitle1;
-            $edited=$request->edited;
-            $newcontenttitle=$request->newcontenttitle;
-            $newcontent=$request->newcontent;
-            $pagesid=$request->pagesid;
-            $sectionContent=$request->sectionContent1;
-            $sectionTitle=$request->sectionTitle;
-            $sectionContents=$request->sectionContent;
+            $subtitle = $request->sectionTitle1;
+            $edited = $request->edited;
+            $newcontenttitle = $request->newcontenttitle;
+            $newcontent = $request->newcontent;
+            $pagesid = $request->pagesid;
+            $sectionContent = $request->sectionContent1;
+            $sectionTitle = $request->sectionTitle;
+            $sectionContents = $request->sectionContent;
             //dd($request->all());
-            if ($edited =='edited') {
+            if ($edited == 'edited') {
                 # code...
                 //dd($pagedata);
-                for ($i=0; $i <count($subtitle) ; $i++) { 
-                    if ($subtitle[$i]!=='' && $pagesid[$i]!==''){
-                        PageContent_model::where('id',$pagesid[$i])->update(array('page_sub_title' =>$subtitle[$i],'page_description' => $sectionContent[$i]));
+                for ($i = 0; $i < count($subtitle); $i++) {
+                    if ($subtitle[$i] !== '' && $pagesid[$i] !== '') {
+                        PageContent_model::where('id', $pagesid[$i])->update(array('page_sub_title' => $subtitle[$i], 'page_description' => $sectionContent[$i]));
                     }
-                    
                 }
             }
-                
-                if (isset($newcontenttitle)) {
-                    # code...
-                    for ($i=0; $i <count($newcontenttitle) ; $i++) { 
-                        
-                     $newpages=new PageContent_model();
-                     $newpages->page_id=$request->textfr;
-                 if ($newcontent[$i]!==''){
-                     # code...
-                     $newpages->page_sub_title=$newcontenttitle[$i];
-                     $newpages->page_description=$newcontent[$i];
-                     //dd($subtitle,$sectionContent,$pages);
-                     $newpages->save();
-                 } 
-                
-             }
-                }
-                else{
-                    //dd($newcontenttitle);
-                    if (count($sectionTitle)>0) {
+
+            if (isset($newcontenttitle)) {
+                # code...
+                for ($i = 0; $i < count($newcontenttitle); $i++) {
+
+                    $newpages = new PageContent_model();
+                    $newpages->page_id = $request->textfr;
+                    if ($newcontent[$i] !== '') {
                         # code...
-                        for ($i=0; $i <count($sectionTitle) ; $i++) { 
-                            // dd($sectionContents);
-                         $newpages=new PageContent_model();
-                         $newpages->page_id=$request->textfr;
-                     if ($sectionContents[$i]!==''){
-                         $newpages->page_sub_title=$sectionTitle[$i];
-                         $newpages->page_description=$sectionContents[$i];
-                         //dd($subtitle,$sectionContent,$pages);
-                         $newpages->save();
-                     } 
-                    
-                 }
+                        $newpages->page_sub_title = $newcontenttitle[$i];
+                        $newpages->page_description = $newcontent[$i];
+                        //dd($subtitle,$sectionContent,$pages);
+                        $newpages->save();
                     }
                 }
-            
-            
+            } else {
+                //dd($newcontenttitle);
+                if (count($sectionTitle) > 0) {
+                    # code...
+                    for ($i = 0; $i < count($sectionTitle); $i++) {
+                        // dd($sectionContents);
+                        $newpages = new PageContent_model();
+                        $newpages->page_id = $request->textfr;
+                        if ($sectionContents[$i] !== '') {
+                            $newpages->page_sub_title = $sectionTitle[$i];
+                            $newpages->page_description = $sectionContents[$i];
+                            //dd($subtitle,$sectionContent,$pages);
+                            $newpages->save();
+                        }
+                    }
+                }
+            }
         }
         return redirect($page->getUrl());
     }
@@ -401,7 +404,7 @@ class PageController extends Controller
         $this->checkOwnablePermission('page-delete', $page);
         $parent = $page->getParent();
         $this->pageRepo->destroy($page);
-        PageContent_model::where('page_id',$page['id'])->delete();
+        PageContent_model::where('page_id', $page['id'])->delete();
         return redirect($parent->getUrl());
     }
 

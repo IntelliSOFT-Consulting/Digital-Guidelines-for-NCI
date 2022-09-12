@@ -38,6 +38,20 @@
       <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add Content
     </a>
   </div>
+  <div class="form-group" collapsible id="logo-control">
+    <button type="button" class="collapse-title text-primary" collapsible-trigger aria-expanded="false">
+      <label>{{ trans('common.cover_image') }}</label>
+    </button>
+    <div class="collapse-content" collapsible-content>
+      <p class="small">{{ trans('common.cover_image_description') }}</p>
+      @include('form.image-picker', [
+      'defaultImage' => (isset($model) && $model->icon) ? url('public/pages/images/'.$model->icon) : url('public/pages/images/'.$model->icon) ,
+      'currentImage' => (isset($model) && $model->icon) ? url('public/pages/images/'.$model->icon)  : url('public/pages/images/'.$model->icon) ,
+      'name' => 'icon',
+      'imageClass' => 'cover'
+      ])
+    </div>
+  </div>
   @foreach($pagedata as $page)
   <input type="hidden" name="pagesid[]" id="sectionTitle" class="form-control" value="{{$page->id}}">
   <input type="hidden" name="edited" id="sectionTitle" class="form-control" value="edited">
@@ -49,21 +63,8 @@
         <input type="text" name="sectionTitle1[]" id="sectionTitle" class="form-control" value="{{$page->page_sub_title}}">
 
       </div>
-      
-      <div class="form-group" collapsible id="logo-control">
-        <button type="button" class="collapse-title text-primary" collapsible-trigger aria-expanded="false">
-          <label>{{ trans('common.cover_image') }}</label>
-        </button>
-        <div class="collapse-content" collapsible-content>
-          <p class="small">{{ trans('common.cover_image_description') }}</p>
-          @include('form.image-picker', [
-            'defaultImage' => (isset($model) && $model->icon) ? url('public/pages/images/'.$model->icon) : url('public/pages/images/'.$model->icon) ,
-            'currentImage' => (isset($model) && $model->icom) ? $model->icon() : url('public/pages/images/'.$model->icon) ,
-            'name' => 'icon',
-            'imageClass' => 'cover'
-        ])
-        </div>
-      </div>
+
+
     </div>
 
     <div class="col-md-12  ">
@@ -103,6 +104,19 @@
       <a href="javascript:void(0)" class="btn addMore" style="background-color: #D820C5">
         <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add Content
       </a>
+    </div>
+    <div class="form-group" collapsible id="logo-control">
+      <button type="button" class="collapse-title text-primary" collapsible-trigger aria-expanded="false">
+        <label>{{ trans('common.cover_image') }}</label>
+      </button>
+      <div class="collapse-content" collapsible-content>
+        <p class="small">{{ trans('common.cover_image_description') }}</p>
+        @include('form.image-picker', [
+        'defaultImage' => (isset($model) && $model->icon) ? url('public/pages/images/'.$model->icon) : url('public/pages/images/'.$model->icon),
+        'currentImage' => (isset($model) && $model->icon) ? url('public/pages/images/'.$model->icon): url('public/pages/images/'.$model->icon),        'name' => 'icon',
+        'imageClass' => 'cover'
+        ])
+      </div>
     </div>
     <div class="col-md-12  ">
       <div class="form-group">
