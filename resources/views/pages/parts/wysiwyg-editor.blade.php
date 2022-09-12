@@ -1,5 +1,5 @@
 @push('head')
-    <script src="{{ url('/libs/tinymce/tinymce.min.js?ver=5.10.2') }}" nonce="{{ $cspNonce }}"></script>
+<script src="{{ url('/libs/tinymce/tinymce.min.js?ver=5.10.2') }}" nonce="{{ $cspNonce }}"></script>
 @endpush
 
 <!-- <div component="wysiwyg-editor"
@@ -17,156 +17,172 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.11.3/ckeditor.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.11.3/adapters/jquery.js"></script>
 <style type="text/css">
-    .flex {
+  .flex {
     min-height: 0;
     flex: 1;
     margin: 10px;
     max-width: 100%;
     overflow: auto;
-}
+  }
 </style>
-<input type="hidden" name="textfr" value="{{ $model->id ?? 0 }}"/>
-<input type="hidden" name="language" value="{{ config('app.lang') }}"/>
-<input type="hidden" name="text_direction" value="{{ config('app.rtl') ? 'rtl' : 'ltr' }}"/>
-<input type="hidden" name="server_upload" value="{{ trans('errors.server_upload_limit') }}"/>
-<input type="hidden" name="mage_upload_error_text" value="{{ trans('errors.image_upload_error') }}"/>
+<input type="hidden" name="textfr" value="{{ $model->id ?? 0 }}" />
+<input type="hidden" name="language" value="{{ config('app.lang') }}" />
+<input type="hidden" name="text_direction" value="{{ config('app.rtl') ? 'rtl' : 'ltr' }}" />
+<input type="hidden" name="server_upload" value="{{ trans('errors.server_upload_limit') }}" />
+<input type="hidden" name="mage_upload_error_text" value="{{ trans('errors.image_upload_error') }}" />
 <div class="container">
-    
-    @if(count($pagedata) > 0)
-    <div class="col-md-2" style="float: right;margin-bottom:-30px">
-        <a href="javascript:void(0)" class="btn  addMore" style="background-color: #D820C5">
-          <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add Content
-        </a>
-      </div>
-    @foreach($pagedata as $page)
-    <input type="hidden" name="pagesid[]" id="sectionTitle" class="form-control" value="{{$page->id}}">
-    <input type="hidden" name="edited" id="sectionTitle" class="form-control" value="edited">
 
-    <div class="row fieldGroup">
-      <div class="col-md-10  ">
-        <div class="form-group">
-          <label for="sectionTitle">Section Title</label>
-          <input type="text" name="sectionTitle1[]" id="sectionTitle" class="form-control" value="{{$page->page_sub_title}}">
-        </div>
+  @if(count($pagedata) > 0)
+  <div class="col-md-2" style="float: right;margin-bottom:-30px">
+    <a href="javascript:void(0)" class="btn  addMore" style="background-color: #D820C5">
+      <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add Content
+    </a>
+  </div>
+  @foreach($pagedata as $page)
+  <input type="hidden" name="pagesid[]" id="sectionTitle" class="form-control" value="{{$page->id}}">
+  <input type="hidden" name="edited" id="sectionTitle" class="form-control" value="edited">
+
+  <div class="row fieldGroup">
+    <div class="col-md-10  ">
+      <div class="form-group">
+        <label for="sectionTitle">Section Title </label>
+        <input type="text" name="sectionTitle1[]" id="sectionTitle" class="form-control" value="{{$page->page_sub_title}}">
+
       </div>
       
-      <div class="col-md-12  ">
-        <div class="form-group">
-          <h4>Section Content</h4>
-          <textarea name="sectionContent1[]" class="editor" rows="5" placeholder="descriptions">{{$page->page_description}}</textarea>
+      <div class="form-group" collapsible id="logo-control">
+        <button type="button" class="collapse-title text-primary" collapsible-trigger aria-expanded="false">
+          <label>{{ trans('common.cover_image') }}</label>
+        </button>
+        <div class="collapse-content" collapsible-content>
+          <p class="small">{{ trans('common.cover_image_description') }}</p>
+          @include('form.image-picker', [
+            'defaultImage' => (isset($model) && $model->icon) ? url('public/pages/images/'.$model->icon) : url('public/pages/images/'.$model->icon) ,
+            'currentImage' => (isset($model) && $model->icom) ? $model->icon() : url('public/pages/images/'.$model->icon) ,
+            'name' => 'icon',
+            'imageClass' => 'cover'
+        ])
         </div>
       </div>
     </div>
-    @endforeach
-    <div class="row" id="fieldGroupTemplate"style="display: none">
-  <div class="col-md-10  ">
-    <div class="form-group floating-label">
-      <label for="sectionTitle">Section Title</label>
-      <input type="text" name="newcontenttitle[]" id="sectionTitle" class="form-control">
-    </div>
-  </div>
-  <div class="col-md-2  ">
-    <a href="javascript:void(0)" class="btn btn-danger remove"><span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
-  </div>
-  <div class="col-sm-12 ">
-    <div class="form-group">
-      <h4>Section Content</h4>
-      <textarea name="newcontent[]"></textarea>
-    </div>
-  </div>
-</div>
-    @else
-    <div class="row fieldGroup">
-      <div class="col-md-10  ">
-        <div class="form-group">
-          <label for="sectionTitle">Section Title</label>
-          <input type="text" name="sectionTitle[]" id="sectionTitle" class="form-control">
-        </div>
-      </div>
-      <div class="col-md-2  ">
-        <a href="javascript:void(0)" class="btn addMore" style="background-color: #D820C5">
-          <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add Content
-        </a>
-      </div>
-      <div class="col-md-12  ">
-        <div class="form-group">
-          <h4>Section Content</h4>
-          <textarea name="sectionContent[]" class="editor" rows="5" placeholder="descriptions"></textarea>
-        </div>
+
+    <div class="col-md-12  ">
+      <div class="form-group">
+        <h4>Section Content</h4>
+        <textarea name="sectionContent1[]" class="editor" rows="5" placeholder="descriptions">{{$page->page_description}}</textarea>
       </div>
     </div>
-  <div class="row" id="fieldGroupTemplate"style="display: none">
-  <div class="col-md-10  ">
-    <div class="form-group floating-label">
-      <label for="sectionTitle">Section Title</label>
-      <input type="text" name="sectionTitle[]" id="sectionTitle" class="form-control">
+  </div>
+  @endforeach
+  <div class="row" id="fieldGroupTemplate" style="display: none">
+    <div class="col-md-10  ">
+      <div class="form-group floating-label">
+        <label for="sectionTitle">Section Title</label>
+        <input type="text" name="newcontenttitle[]" id="sectionTitle" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-2  ">
+      <a href="javascript:void(0)" class="btn btn-danger remove"><span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
+    </div>
+    <div class="col-sm-12 ">
+      <div class="form-group">
+        <h4>Section Content</h4>
+        <textarea name="newcontent[]"></textarea>
+      </div>
     </div>
   </div>
-  <div class="col-md-2  ">
-    <a href="javascript:void(0)" class="btn btn-danger remove"><span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
-  </div>
-  <div class="col-sm-12 ">
-    <div class="form-group">
-      <h4>Section Content</h4>
-      <textarea name="sectionContent[]"></textarea>
+  @else
+  <div class="row fieldGroup">
+    <div class="col-md-10  ">
+      <div class="form-group">
+        <label for="sectionTitle">Section Title</label>
+        <input type="text" name="sectionTitle[]" id="sectionTitle" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-2  ">
+      <a href="javascript:void(0)" class="btn addMore" style="background-color: #D820C5">
+        <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add Content
+      </a>
+    </div>
+    <div class="col-md-12  ">
+      <div class="form-group">
+        <h4>Section Content</h4>
+        <textarea name="sectionContent[]" class="editor" rows="5" placeholder="descriptions"></textarea>
+      </div>
     </div>
   </div>
-</div>
-@endif
+  <div class="row" id="fieldGroupTemplate" style="display: none">
+    <div class="col-md-10  ">
+      <div class="form-group floating-label">
+        <label for="sectionTitle">Section Title</label>
+        <input type="text" name="sectionTitle[]" id="sectionTitle" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-2  ">
+      <a href="javascript:void(0)" class="btn btn-danger remove"><span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
+    </div>
+    <div class="col-sm-12 ">
+      <div class="form-group">
+        <h4>Section Content</h4>
+        <textarea name="sectionContent[]"></textarea>
+      </div>
+    </div>
+  </div>
+  @endif
 </div>
 
 
 
 @if($errors->has('html'))
-    <div class="text-neg text-small">{{ $errors->first('html') }}</div>
+<div class="text-neg text-small">{{ $errors->first('html') }}</div>
 @endif
 
 @include('pages.parts.editor-translations')
 <script type="text/javascript">
-    $(function() {
+  $(function() {
 
-//section add limitt
-var maxGroup = 40;
+    //section add limitt
+    var maxGroup = 40;
 
-// initialize all current editor(s)
-$('.editor').ckeditor();
+    // initialize all current editor(s)
+    $('.editor').ckeditor();
 
-//add more section
-$(".addMore").click(function() {
+    //add more section
+    $(".addMore").click(function() {
 
-  // define the number of existing sections
-  var numGroups = $('.fieldGroup').length;
+      // define the number of existing sections
+      var numGroups = $('.fieldGroup').length;
 
-  // check whether the count is less than the maximum
-  if (numGroups < maxGroup) {
+      // check whether the count is less than the maximum
+      if (numGroups < maxGroup) {
 
-    // create new section from template
-    var $fieldHTML = $('<div>', {
-      'class': 'row fieldGroup',
-      'html': $("#fieldGroupTemplate").html()
+        // create new section from template
+        var $fieldHTML = $('<div>', {
+          'class': 'row fieldGroup',
+          'html': $("#fieldGroupTemplate").html()
+        });
+
+        // insert new group after last one
+        $('.fieldGroup:last').after($fieldHTML);
+
+        // initialize ckeditor on new textarea
+        $fieldHTML.find('textarea').ckeditor();
+
+      } else {
+        alert('Maximum ' + maxGroup + ' sections are allowed.');
+      }
+
     });
 
-    // insert new group after last one
-    $('.fieldGroup:last').after($fieldHTML);
+    //remove fields 
+    $("body").on("click", ".remove", function() {
+      $(this).parents(".fieldGroup").remove();
+    });
 
-    // initialize ckeditor on new textarea
-    $fieldHTML.find('textarea').ckeditor();
-
-  } else {
-    alert('Maximum ' + maxGroup + ' sections are allowed.');
-  }
-
-});
-
-//remove fields 
-$("body").on("click", ".remove", function() {
-  $(this).parents(".fieldGroup").remove();
-});
-
-});
+  });
 </script>
 @if($errors->has('html'))
-    <div class="text-neg text-small">{{ $errors->first('html') }}</div>
+<div class="text-neg text-small">{{ $errors->first('html') }}</div>
 @endif
 
 @include('pages.parts.editor-translations')

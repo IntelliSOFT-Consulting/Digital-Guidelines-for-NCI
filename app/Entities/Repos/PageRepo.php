@@ -139,6 +139,7 @@ class PageRepo
             'owned_by'   => user()->id,
             'updated_by' => user()->id,
             'draft'      => true,
+           'icon'       => 'fa-file', //added column
         ]);
 
         if ($parent instanceof Chapter) {
@@ -167,6 +168,7 @@ class PageRepo
         $draft->revision_count = 1;
         $draft->priority = $this->getNewPriority($draft);
         $draft->refreshSlug();
+        $draft->icon='test.png'; //added column
         $draft->save();
 
         $this->savePageRevision($draft, trans('entities.pages_initial_revision'));
@@ -189,11 +191,11 @@ class PageRepo
         $oldMarkdown = $page->markdown;
 
         $this->updateTemplateStatusAndContentFromInput($page, $input);
-        $this->baseRepo->update($page, $input);
-
-        // Update with new details
-        $page->revision_count++;
+        $this->baseRepo->update($page, $input); 
+        $page->revision_count++; 
         $page->save();
+
+        //update the image
 
         // Remove all update drafts for this user & page.
         $this->getUserDraftQuery($page)->delete();

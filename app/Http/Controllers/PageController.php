@@ -237,6 +237,22 @@ class PageController extends Controller
         ]);
         $page = $this->pageRepo->getBySlug($bookSlug, $pageSlug);
         $this->checkOwnablePermission('page-update', $page);
+
+      
+
+        // if($request->hasFile('icon')){
+        //     $image_path = public_path("/pages/images/".$page['icon']);
+        //         if (File::exists($image_path)) {
+        //             File::delete($image_path);
+        //         }
+        //     $file= $request->file('icon');
+        //     $filename= date('YmdHi').$file->getClientOriginalName();
+        //     $file-> move(public_path('public/pages/images'), $filename);
+        //     $page->icon= $filename;
+        // }else{
+        //     $page->icon= $page['icon'];
+        // }
+        // return $page;
         $pagedata=$this->pageRepo->update($page, $request->all());
        
         if ($pagedata) {
