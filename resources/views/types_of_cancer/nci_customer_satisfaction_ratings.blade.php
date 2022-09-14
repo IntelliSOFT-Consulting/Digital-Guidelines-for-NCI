@@ -10,7 +10,7 @@
     border: 1px solid #fff;
     width: 100%;
     background-color: #fff;
-    text-align: center; 
+    text-align: center;
   }
 
   /* Style the buttons inside the tab */
@@ -23,7 +23,8 @@
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 16px;
-    text-align: center; 
+    text-align: center;
+    border-bottom: 2px solid #A28DC2;
   }
 
   /* Change background color of buttons on hover */
@@ -55,7 +56,9 @@
   </main>
   <main class="content-wrap card" style="min-height: auto;">
     @if(Session::has('message'))
-    <div class="alert alert-success">
+    
+    <div class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       {{Session::get('message')}}
     </div>
     @endif
@@ -64,7 +67,8 @@
         <ol type="1">
           <div class="row">
             <div class="col-md-6">
-              <div class="tab" style="max-width: 100%;">
+              <div class="tab">
+                <!-- style="max-width: 100%;"> -->
 
                 <button class="tablinks" onclick="openTab(event, 'website')">Website Questions</button>
                 <button class="tablinks" onclick="openTab(event, 'center')">Cancer Center Customer Satisfaction</button>
