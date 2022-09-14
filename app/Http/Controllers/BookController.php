@@ -5,6 +5,7 @@ namespace BookStack\Http\Controllers;
 use BookStack\Actions\ActivityQueries;
 use BookStack\Actions\ActivityType;
 use BookStack\Actions\View;
+use BookStack\CenterRating;
 use BookStack\Entities\Models\PageContent_model;
 use BookStack\Entities\Tools\NextPreviousContentLocator;
 use BookStack\Entities\Tools\PageContent;
@@ -25,6 +26,7 @@ use BookStack\Entities\Tools\ShelfContext;
 use BookStack\Exceptions\ImageUploadException;
 use BookStack\Exceptions\NotFoundException;
 use BookStack\Facades\Activity;
+use BookStack\WebsiteRating;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Throwable;
@@ -514,18 +516,29 @@ class BookController extends Controller
     public function add_user_ratings(Request $request)
     {
 
-        $ratings = new Ratings_model();
-        $ratings->additional_comments = $request->comment;
-        $ratings->experience_rating = $request->difficult;
-        $ratings->empathetic_rating = $request->empathetic;
-        $ratings->doctor_attends_rating = $request->long;
-        $ratings->satisfied_doctor_rating = $request->satisfied;
-        $ratings->user_id = auth()->user()->id;
-        $rates = $ratings->save();
-        if ($rates) {
+        $ratings = CenterRating::createRating($request);
             # code...
-            return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your coment!');
-        }
+            return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your comment!');
+         
+    }
+    public function add_user_web_ratings(Request $request)
+    {
+        //website ratings
+        $ratings=WebsiteRating::createRating($request);
+        return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your comment!');
+
+        // $ratings = new Ratings_model();
+        // $ratings->additional_comments = $request->comment;
+        // $ratings->experience_rating = $request->difficult;
+        // $ratings->empathetic_rating = $request->empathetic;
+        // $ratings->doctor_attends_rating = $request->long;
+        // $ratings->satisfied_doctor_rating = $request->satisfied;
+        // $ratings->user_id = auth()->user()->id;
+        // $rates = $ratings->save();
+        // if ($rates) {
+        //     # code...
+        //     return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your comment!');
+        // }
     }
     public function dataAjax(Request $request)
     {

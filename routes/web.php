@@ -86,6 +86,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/nci/books/chemoteraphy/operational/considerations', [BookController::class, 'nci_chemotherapy']);
     Route::get('/nci/books/chemoteraphy/considerations', [BookController::class, 'chemoteraphy_considerations']);
     Route::post('/add/user/ratings', [BookController::class, 'add_user_ratings']);
+    Route::post('/add/user/website/ratings', [BookController::class, 'add_user_web_ratings']);
     Route::post('/add/county/cancer/center', [BookController::class, 'addCountUpdates']);
     Route::post('/apply/to/cancer/center', [BookController::class, 'apply_here']);
     Route::get('/select2-autocomplete-ajax', [BookController::class, 'dataAjax']);
