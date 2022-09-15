@@ -8,7 +8,7 @@
   .tab {
     overflow: hidden;
     border: 1px solid #fff;
-    width: 100%;
+    width: 1000px;
     background-color: #fff;
     text-align: center;
   }
@@ -56,7 +56,7 @@
   </main>
   <main class="content-wrap card" style="min-height: auto;">
     @if(Session::has('message'))
-    
+
     <div class="alert alert-success alert-dismissible">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       {{Session::get('message')}}
@@ -66,9 +66,8 @@
       <h5 class="">
         <ol type="1">
           <div class="row">
-            <div class="col-md-6">
-              <div class="tab">
-                <!-- style="max-width: 100%;"> -->
+            <div class="col-md-12">
+              <div class="tab" >
 
                 <button class="tablinks" onclick="openTab(event, 'website')">Website Questions</button>
                 <button class="tablinks" onclick="openTab(event, 'center')">Cancer Center Customer Satisfaction</button>
