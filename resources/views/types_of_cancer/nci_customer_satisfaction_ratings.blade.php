@@ -169,7 +169,7 @@
                 <table class="display table-responsive" style="width:100%">
                   <tr>
                     <th>#</th>
-                    <th>Treatement</th>
+                    <th>Treatment</th>
                     <th>Attention</th>
                     <th>Response time</th>
                     <th>Easy understanding</th>
