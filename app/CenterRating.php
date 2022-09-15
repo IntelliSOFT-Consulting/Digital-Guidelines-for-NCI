@@ -35,7 +35,7 @@ class CenterRating extends Model
         $rating->save();
     }
     // get all ratings
-    public function getAllRatings()
+    public static function getAllRatings()
     {
         return CenterRating::all();
     }

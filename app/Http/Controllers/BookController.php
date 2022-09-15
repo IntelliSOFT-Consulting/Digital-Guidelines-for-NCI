@@ -481,7 +481,14 @@ class BookController extends Controller
     }
     public function nci_customer_ratings()
     {
-        return view('types_of_cancer/nci_customer_satisfaction_ratings');
+        //load all cancer ratings
+        $centers = CenterRating::getAllRatings();
+
+
+        //load all website rating
+        $website = WebsiteRating::getAllRatings();
+
+        return view('types_of_cancer/nci_customer_satisfaction_ratings')->with('centers', $centers)->with('websites', $website);
     }
     public function nci_cancer_forms()
     {

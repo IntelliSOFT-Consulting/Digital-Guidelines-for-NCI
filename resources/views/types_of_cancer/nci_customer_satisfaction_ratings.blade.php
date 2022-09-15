@@ -67,7 +67,7 @@
         <ol type="1">
           <div class="row">
             <div class="col-md-12">
-              <div class="tab" >
+              <div class="tab">
 
                 <button class="tablinks" onclick="openTab(event, 'website')">Website Questions</button>
                 <button class="tablinks" onclick="openTab(event, 'center')">Cancer Center Customer Satisfaction</button>
@@ -75,6 +75,35 @@
               </div>
               <div id="website" class="tabcontent" style="display:block;">
                 <h3> </h3>
+                @if(userCan('users-manage'))
+                <table class="display table-responsive" style="width:100%">
+                  <tr>
+                    <th>#</th>
+                    <th>Experience</th>
+                    <th>Purpose</th>
+                    <th>Helpful?</th>
+                    <th>How helpful</th>
+                    <th>Purpose achieved</th>
+                    <th>Challenge</th>
+                    <th>Improvement</th>
+                  </tr>
+                  <?php $i = 0; ?>
+                  @foreach($websites as $website)
+                  <?php $i++; ?>
+                  <tr>
+                    <td><?php echo $i ?></td>
+                    <td>{{$website->experience}}</td>
+                    <td>{{$website->purpose}}</td>
+                    <td>{{$website->helpful}}</td>
+                    <td>{{$website->how_helpful}}</td>
+                    <td>{{$website->purpose_achieved}}</td>
+                    <td>{{$website->biggest_challenge}}</td>
+                    <td>{{$website->improve_experience}}</td>
+                  </tr>
+                  @endforeach
+                </table>
+
+                @else
                 <form method="POST" action="{{url('/add/user/website/ratings')}}">
                   @csrf
                   <li>Rate your experience using the website/Do you feel that the website is user friendly?</li>
@@ -131,10 +160,40 @@
                     <button type="submit" style="background-color: #D820C5;border-radius:10px;color:white" value="Submit">Submit</button>
                   </div>
                 </form>
+                @endif
               </div>
 
               <div id="center" class="tabcontent">
                 <h3></h3>
+                @if(userCan('users-manage'))
+                <table class="display table-responsive" style="width:100%">
+                  <tr>
+                    <th>#</th>
+                    <th>Treatement</th>
+                    <th>Attention</th>
+                    <th>Response time</th>
+                    <th>Easy understanding</th>
+                    <th>Accommodation</th>
+                    <th>Satisfied</th>
+                    <th>Improvement</th>
+                  </tr>
+                  <?php $i = 0; ?>
+                  @foreach($centers as $center)
+                  <?php $i++; ?>
+                  <tr>
+                    <td><?php echo $i; ?></td>
+                    <td>{{$center->treatement}}</td>
+                    <td>{{$center->attention}}</td>
+                    <td>{{$center->response_time}}</td>
+                    <td>{{$center->easy_understand}}</td>
+                    <td>{{$center->need_accommodation}}</td>
+                    <td>{{$center->satisfied}}</td>
+                    <td>{{$center->improvement}}</td>
+                  </tr>
+                  @endforeach
+                </table>
+
+                @else
                 <form method="POST" action="{{url('/add/user/ratings')}}">
                   @csrf
                   <li>During your visit, did you feel that you were treated with courtesy and respect?</li>
@@ -192,6 +251,7 @@
                     <button type="submit" style="background-color: #D820C5;border-radius:10px;color:white" value="Submit">Submit</button>
                   </div>
                 </form>
+                @endif
               </div>
 
             </div>
