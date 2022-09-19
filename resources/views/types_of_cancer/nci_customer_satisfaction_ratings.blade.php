@@ -8,8 +8,9 @@
   var barChartData = {
     labels: onetofive,
     datasets: [{
-      labels: 'Experience', 
-      backgroundColor: ["#ff0000", "#ff4000", "#ff8000", "#ffbf00", "#ffff00"], 
+      labels: 'Experience',
+      //list of colors in this order pink blue green yellow purple 
+      backgroundColor: ['#FFC0CB', '#87CEFA', '#90EE90', '#FFFF00', '#800080'],
       data: experience
     }]
   };
@@ -22,8 +23,8 @@
     labels: purpose,
     datasets: [{
       label: 'Response',
-      //4 list of colors from red to green
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#00FF00"], 
+      //list of colors in this order pink blue green purple 
+      backgroundColor: ['#FFC0CB', '#87CEFA', '#90EE90', '#800080'],
       data: purposedata
     }]
   };
@@ -36,7 +37,7 @@
     labels: helpful,
     datasets: [{
       label: 'Response',
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      backgroundColor: ['#FFC0CB', '#87CEFA'],
       data: helpfuldata
     }]
   };
@@ -49,7 +50,7 @@
     labels: how_helpful,
     datasets: [{
       label: 'Response',
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      backgroundColor: ['#FFC0CB', '#87CEFA', '#90EE90', '#FFFF00', '#800080', '#FF69B4', '#1E90FF', '#32CD32', '#FFD700', '#4B0082'],
       data: how_helpfuldata
     }]
   };
@@ -61,7 +62,7 @@
     labels: purpose_achieved,
     datasets: [{
       label: 'Response',
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      backgroundColor: ['#FFC0CB', '#87CEFA'],
       data: purpose_achieveddata
     }]
   };
@@ -75,7 +76,8 @@
     labels: treatement,
     datasets: [{
       label: 'Response',
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      
+      backgroundColor: ['#FFC0CB', '#87CEFA'],
       data: treatementdata
     }]
   };
@@ -86,8 +88,8 @@
   var attentionChartData = {
     labels: attention,
     datasets: [{
-      label: 'Response',
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      label: 'Response',      
+      backgroundColor: ['#FFC0CB', '#87CEFA'],
       data: attentiondata
     }]
   };
@@ -98,7 +100,7 @@
     labels: response_time,
     datasets: [{
       label: 'Response',
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      backgroundColor: ['#FFC0CB', '#87CEFA', '#90EE90', '#FFFF00', '#800080'],
       data: response_timedata
     }]
   };
@@ -109,7 +111,7 @@
     labels: easy_understand,
     datasets: [{
       label: 'Response',
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      backgroundColor: ['#FFC0CB', '#87CEFA'],
       data: easy_understanddata
     }]
   };
@@ -120,7 +122,7 @@
     labels: need_accommodation,
     datasets: [{
       label: 'Response',
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      backgroundColor: ['#FFC0CB', '#87CEFA', '#90EE90', '#FFFF00', '#800080'],
       data: need_accommodationdata
     }]
   };
@@ -131,7 +133,7 @@
     labels: satisfied,
     datasets: [{
       label: 'Response',
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      backgroundColor: ['#FFC0CB', '#87CEFA', '#90EE90', '#FFFF00', '#800080'],
       data: satisfieddata
     }]
   };
@@ -233,6 +235,13 @@
             borderColor: '#c1c1c1',
             borderSkipped: 'bottom'
           }
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
         },
         legend: {
           display: false,
@@ -350,6 +359,13 @@
             fontColor: '#333'
           }
         },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
         responsive: true,
         title: {
           display: false,
@@ -404,6 +420,13 @@
             fontColor: '#333'
           }
         },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
         responsive: true,
         title: {
           display: false,
@@ -430,6 +453,13 @@
           labels: {
             fontColor: '#333'
           }
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
         },
         responsive: true,
         title: {
@@ -545,10 +575,10 @@
                 <li>What was your biggest challenge in navigating the website?</li>
                 <div name style="background-color: #FBF4F4;margin:5px;">
                   <?php $i = 0; ?>
-                  @foreach($centers as $web)
+                  @foreach($website as $web)
                   <?php $i++; ?>
                   <ul>
-                    <li>{{$web->improvement}}</li>
+                    <li>{{$web->biggest_challenge}}</li>
                   </ul>
 
                   @endforeach
@@ -556,10 +586,10 @@
                 <li>How can we improve your experience on the website?</li>
                 <div name style="background-color: #FBF4F4;margin:5px;">
                   <?php $i = 0; ?>
-                  @foreach($centers as $web)
+                  @foreach($website as $web)
                   <?php $i++; ?>
                   <ul>
-                    <li>{{$web->improvement}}</li>
+                    <li>{{$web->improve_experience}}</li>
                   </ul>
 
                   @endforeach
@@ -660,14 +690,14 @@
                 </div>
                 <li>How can the cancer centre improve service delivery?</li>
                 <div name style="background-color: #FBF4F4;margin:5px;">
-                <?php $i = 0; ?>
-                @foreach($centers as $web)
-                <?php $i++; ?>
-                <ul>
-                  <li>{{$web->improvement}}</li>
-                </ul>
+                  <?php $i = 0; ?>
+                  @foreach($centers as $web)
+                  <?php $i++; ?>
+                  <ul>
+                    <li>{{$web->improvement}}</li>
+                  </ul>
 
-                @endforeach
+                  @endforeach
                 </div>
 
                 <!-- End of Centers -->

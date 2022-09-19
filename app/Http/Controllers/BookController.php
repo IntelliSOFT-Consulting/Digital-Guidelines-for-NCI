@@ -503,23 +503,23 @@ class BookController extends Controller
         $need_accommodation = [];
         $satisfied = [];
         foreach ($onetofive as $key => $value) {
-            $experience[] = WebsiteRating::where('experience',$value)->count();
-            $response_time[] = CenterRating::where('response_time',$value)->count();
-            $need_accommodation[] = CenterRating::where('need_accommodation',$value)->count();
-            $satisfied[] = CenterRating::where('satisfied',$value)->count();
+            $experience[] = WebsiteRating::where('experience','=',$value)->count();
+            $response_time[] = CenterRating::where('response_time','=',$value)->count();
+            $need_accommodation[] = CenterRating::where('need_accommodation','=',$value)->count();
+            $satisfied[] = CenterRating::where('satisfied','=',$value)->count();
         }
         foreach ($purpose as $key => $value) {
-            $purposedata[] = WebsiteRating::where('purpose',$value)->count();
+            $purposedata[] = WebsiteRating::where('purpose','=',$value)->count();
         }
         foreach ($yesno as $key => $value) {
-            $helpfuldata[] = WebsiteRating::where('helpful',$value)->count();
-            $purpose_achieveddata[] = WebsiteRating::where('purpose_achieved',$value)->count();
-            $treatement[] = CenterRating::where('treatement',$value)->count();
-            $attention[] = CenterRating::where('attention',$value)->count();
-            $easy_understand[] = CenterRating::where('easy_understand',$value)->count();
+            $helpfuldata[] = WebsiteRating::where('helpful','=',$value)->count();
+            $purpose_achieveddata[] = WebsiteRating::where('purpose_achieved','=',$value)->count();
+            $treatement[] = CenterRating::where('treatement','=',$value)->count();
+            $attention[] = CenterRating::where('attention','=',$value)->count();
+            $easy_understand[] = CenterRating::where('easy_understand','=',$value)->count();
         }
-        foreach ($onetoten as $key => $value) {
-            $how_helpfuldata[] = WebsiteRating::where('how_helpful',$value)->count();
+        foreach ($onetoten as $value) {
+            $how_helpfuldata[] = WebsiteRating::where('how_helpful','=',$value)->count();
         }
 
          
