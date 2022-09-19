@@ -1,4 +1,448 @@
 @extends('layouts.simple')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script>
+  var onetofive = <?php echo $onetofive; ?>;
+  var experience = <?php echo $experience; ?>;
+
+  var barChartData = {
+    labels: onetofive,
+    datasets: [{
+      labels: 'Experience', 
+      backgroundColor: ["#ff0000", "#ff4000", "#ff8000", "#ffbf00", "#ffff00"], 
+      data: experience
+    }]
+  };
+
+  // purpose
+  var purpose = <?php echo $purpose; ?>;
+  var purposedata = <?php echo $purposedata; ?>;
+
+  var purposeChartData = {
+    labels: purpose,
+    datasets: [{
+      label: 'Response',
+      //4 list of colors from red to green
+      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#00FF00"], 
+      data: purposedata
+    }]
+  };
+
+  // helpful
+  var helpful = <?php echo $yesno; ?>;
+  var helpfuldata = <?php echo $helpfuldata; ?>;
+
+  var helpfulChartData = {
+    labels: helpful,
+    datasets: [{
+      label: 'Response',
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: helpfuldata
+    }]
+  };
+
+  // how_helpful
+  var how_helpful = <?php echo $onetoten; ?>;
+  var how_helpfuldata = <?php echo $how_helpfuldata; ?>;
+
+  var how_helpfulChartData = {
+    labels: how_helpful,
+    datasets: [{
+      label: 'Response',
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: how_helpfuldata
+    }]
+  };
+  // purpose_achieved
+  var purpose_achieved = <?php echo $yesno; ?>;
+  var purpose_achieveddata = <?php echo $purpose_achieveddata; ?>;
+
+  var purpose_achievedChartData = {
+    labels: purpose_achieved,
+    datasets: [{
+      label: 'Response',
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: purpose_achieveddata
+    }]
+  };
+
+  // Centers  
+  //treatement
+  var treatement = <?php echo $yesno; ?>;
+  var treatementdata = <?php echo $treatement; ?>;
+
+  var treatementChartData = {
+    labels: treatement,
+    datasets: [{
+      label: 'Response',
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: treatementdata
+    }]
+  };
+  //attention
+  var attention = <?php echo $yesno; ?>;
+  var attentiondata = <?php echo $attention; ?>;
+
+  var attentionChartData = {
+    labels: attention,
+    datasets: [{
+      label: 'Response',
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: attentiondata
+    }]
+  };
+  //response_time
+  var response_time = <?php echo $onetofive; ?>;
+  var response_timedata = <?php echo $response_time; ?>;
+  var response_timeChartData = {
+    labels: response_time,
+    datasets: [{
+      label: 'Response',
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: response_timedata
+    }]
+  };
+  //easy_understand
+  var easy_understand = <?php echo $yesno; ?>;
+  var easy_understanddata = <?php echo $easy_understand; ?>;
+  var easy_understandChartData = {
+    labels: easy_understand,
+    datasets: [{
+      label: 'Response',
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: easy_understanddata
+    }]
+  };
+  //need_accommodation
+  var need_accommodation = <?php echo $onetofive; ?>;
+  var need_accommodationdata = <?php echo $need_accommodation; ?>;
+  var need_accommodationChartData = {
+    labels: need_accommodation,
+    datasets: [{
+      label: 'Response',
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: need_accommodationdata
+    }]
+  };
+  //need_accommodation
+  var satisfied = <?php echo $onetofive; ?>;
+  var satisfieddata = <?php echo $satisfied; ?>;
+  var satisfiedChartData = {
+    labels: satisfied,
+    datasets: [{
+      label: 'Response',
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: satisfieddata
+    }]
+  };
+
+
+  window.onload = function() {
+
+    // experience
+    var ctx = document.getElementById("experience").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'pie',
+      data: barChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+    // purpose
+    var ctx = document.getElementById("purpose").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'pie',
+      data: purposeChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+    // helpful
+    var ctx = document.getElementById("helpful").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'pie',
+      data: helpfulChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+
+    // how_helpful
+    var ctx = document.getElementById("how_helpful").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'bar',
+      data: how_helpfulChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: false,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+    // purpose_achieved
+    var ctx = document.getElementById("purpose_achieved").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'pie',
+      data: purpose_achievedChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+
+    // treatement
+    var ctx = document.getElementById("treatement").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'pie',
+      data: treatementChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+    // attention
+    var ctx = document.getElementById("attention").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'pie',
+      data: attentionChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+    // response_time
+    var ctx = document.getElementById("response_time").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'bar',
+      data: response_timeChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: false,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+    // easy_understand
+    var ctx = document.getElementById("easy_understand").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'pie',
+      data: easy_understandChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+    // need_accommodation
+    var ctx = document.getElementById("need_accommodation").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'bar',
+      data: need_accommodationChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: false,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+    // satisfied
+    var ctx = document.getElementById("satisfied").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: 'bar',
+      data: satisfiedChartData,
+      options: {
+        elements: {
+          rectangle: {
+            borderWidth: 2,
+            borderColor: '#c1c1c1',
+            borderSkipped: 'bottom'
+          }
+        },
+        legend: {
+          display: false,
+          position: 'right',
+          labels: {
+            fontColor: '#333'
+          }
+        },
+        responsive: true,
+        title: {
+          display: false,
+          text: 'Yearly User Joined'
+        }
+      }
+    });
+
+
+
+  };
+</script>
 <style>
   body {
     font-family: Arial;
@@ -76,32 +520,54 @@
               <div id="website" class="tabcontent" style="display:block;">
                 <h3> </h3>
                 @if(userCan('users-manage'))
-                <table class="display table-responsive" style="width:100%">
-                  <tr>
-                    <th>#</th>
-                    <th>Experience</th>
-                    <th>Purpose</th>
-                    <th>Helpful?</th>
-                    <th>How helpful</th>
-                    <th>Purpose achieved</th>
-                    <th>Challenge</th>
-                    <th>Improvement</th>
-                  </tr>
+
+                <!-- Start of response display -->
+                <li>Rate your experience using the website/Do you feel that the website is user friendly?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="experience" height="150" width="600"></canvas>
+                </div>
+                <li>What was your purpose of visiting the website?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="purpose" height="150" width="600"></canvas>
+                </div>
+                <li>Was the information/ content helpful to your search?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="helpful" height="150" width="600"></canvas>
+                </div>
+                <li>On a scale of 1-10 how helpful was the content on the website in answering your questions?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="how_helpful" height="150" width="600"></canvas>
+                </div>
+                <li>Were you sufficiently able to achieve your purpose for visiting the website?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="purpose_achieved" height="150" width="600"></canvas>
+                </div>
+                <li>What was your biggest challenge in navigating the website?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
                   <?php $i = 0; ?>
-                  @foreach($websites as $website)
+                  @foreach($centers as $web)
                   <?php $i++; ?>
-                  <tr>
-                    <td><?php echo $i ?></td>
-                    <td>{{$website->experience}}</td>
-                    <td>{{$website->purpose}}</td>
-                    <td>{{$website->helpful}}</td>
-                    <td>{{$website->how_helpful}}</td>
-                    <td>{{$website->purpose_achieved}}</td>
-                    <td>{{$website->biggest_challenge}}</td>
-                    <td>{{$website->improve_experience}}</td>
-                  </tr>
+                  <ul>
+                    <li>{{$web->improvement}}</li>
+                  </ul>
+
                   @endforeach
-                </table>
+                </div>
+                <li>How can we improve your experience on the website?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <?php $i = 0; ?>
+                  @foreach($centers as $web)
+                  <?php $i++; ?>
+                  <ul>
+                    <li>{{$web->improvement}}</li>
+                  </ul>
+
+                  @endforeach
+                </div>
+
+
+                <!-- End of Display form -->
+
 
                 @else
                 <form method="POST" action="{{url('/add/user/website/ratings')}}">
@@ -166,32 +632,45 @@
               <div id="center" class="tabcontent">
                 <h3></h3>
                 @if(userCan('users-manage'))
-                <table class="display table-responsive" style="width:100%">
-                  <tr>
-                    <th>#</th>
-                    <th>Treatment</th>
-                    <th>Attention</th>
-                    <th>Response time</th>
-                    <th>Easy understanding</th>
-                    <th>Accommodation</th>
-                    <th>Satisfied</th>
-                    <th>Improvement</th>
-                  </tr>
-                  <?php $i = 0; ?>
-                  @foreach($centers as $center)
-                  <?php $i++; ?>
-                  <tr>
-                    <td><?php echo $i; ?></td>
-                    <td>{{$center->treatement}}</td>
-                    <td>{{$center->attention}}</td>
-                    <td>{{$center->response_time}}</td>
-                    <td>{{$center->easy_understand}}</td>
-                    <td>{{$center->need_accommodation}}</td>
-                    <td>{{$center->satisfied}}</td>
-                    <td>{{$center->improvement}}</td>
-                  </tr>
-                  @endforeach
-                </table>
+                <!-- Start of Centers -->
+                <li>During your visit, did you feel that you were treated with courtesy and respect?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="treatement" height="150" width="600"></canvas>
+                </div>
+                <li>Do you feel that the staff listened carefully and paid attention to your needs?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="attention" height="150" width="600"></canvas>
+                </div>
+
+                <li> How long did you wait to receive the service?/ Do you feel that the response time was adequate?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="response_time" height="150" width="600"></canvas>
+                </div>
+                <li>Were the staff able to explain things to you in a way that was easy for you to understand?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="easy_understand" height="150" width="600"></canvas>
+                </div>
+                <li> To what extent do the facilities/infrastructure of the cancer centre accommodate your needs?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="need_accommodation" height="150" width="600"></canvas>
+                </div>
+                <li> Are you satisfied with the service you received?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                  <canvas id="satisfied" height="150" width="600"></canvas>
+                </div>
+                <li>How can the cancer centre improve service delivery?</li>
+                <div name style="background-color: #FBF4F4;margin:5px;">
+                <?php $i = 0; ?>
+                @foreach($centers as $web)
+                <?php $i++; ?>
+                <ul>
+                  <li>{{$web->improvement}}</li>
+                </ul>
+
+                @endforeach
+                </div>
+
+                <!-- End of Centers -->
 
                 @else
                 <form method="POST" action="{{url('/add/user/ratings')}}">

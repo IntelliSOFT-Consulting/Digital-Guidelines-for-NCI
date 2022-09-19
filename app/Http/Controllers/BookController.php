@@ -5,6 +5,7 @@ namespace BookStack\Http\Controllers;
 use BookStack\Actions\ActivityQueries;
 use BookStack\Actions\ActivityType;
 use BookStack\Actions\View;
+use BookStack\Auth\User;
 use BookStack\CenterRating;
 use BookStack\Entities\Models\PageContent_model;
 use BookStack\Entities\Tools\NextPreviousContentLocator;
@@ -482,13 +483,70 @@ class BookController extends Controller
     public function nci_customer_ratings()
     {
         //load all cancer ratings
-        $centers = CenterRating::getAllRatings();
+        $data['centers'] = CenterRating::getAllRatings();
+
+        $onetofive = ['1','2','3','4','5'];
+        $onetoten = ['1','2','3','4','5','6','7','8','9','10'];
+        $purpose=['Educational','Medical','Setting up a cancer centre','General knowledge'];
+        $yesno=['Yes','No'];
+
+
+        $experience = [];
+        $purposedata = [];
+        $helpfuldata = [];
+        $how_helpfuldata = [];
+        $treatement = [];
+        $purpose_achieveddata = [];
+        $attention = [];
+        $response_time = [];
+        $easy_understand = [];
+        $need_accommodation = [];
+        $satisfied = [];
+        foreach ($onetofive as $key => $value) {
+            $experience[] = WebsiteRating::where('experience',$value)->count();
+            $response_time[] = CenterRating::where('response_time',$value)->count();
+            $need_accommodation[] = CenterRating::where('need_accommodation',$value)->count();
+            $satisfied[] = CenterRating::where('satisfied',$value)->count();
+        }
+        foreach ($purpose as $key => $value) {
+            $purposedata[] = WebsiteRating::where('purpose',$value)->count();
+        }
+        foreach ($yesno as $key => $value) {
+            $helpfuldata[] = WebsiteRating::where('helpful',$value)->count();
+            $purpose_achieveddata[] = WebsiteRating::where('purpose_achieved',$value)->count();
+            $treatement[] = CenterRating::where('treatement',$value)->count();
+            $attention[] = CenterRating::where('attention',$value)->count();
+            $easy_understand[] = CenterRating::where('easy_understand',$value)->count();
+        }
+        foreach ($onetoten as $key => $value) {
+            $how_helpfuldata[] = WebsiteRating::where('how_helpful',$value)->count();
+        }
+
+         
 
 
         //load all website rating
-        $website = WebsiteRating::getAllRatings();
+        $data['website'] = WebsiteRating::getAllRatings();
+        $data['onetofive'] = json_encode($onetofive,JSON_NUMERIC_CHECK);
+        $data['onetoten'] = json_encode($onetoten,JSON_NUMERIC_CHECK);
+        $data['experience'] = json_encode($experience,JSON_NUMERIC_CHECK);
+        $data['purpose'] = json_encode($purpose,JSON_NUMERIC_CHECK);
+        $data['purposedata'] = json_encode($purposedata,JSON_NUMERIC_CHECK);
+        $data['yesno'] = json_encode($yesno,JSON_NUMERIC_CHECK);
+        $data['helpfuldata'] = json_encode($helpfuldata,JSON_NUMERIC_CHECK); 
+        $data['how_helpfuldata'] = json_encode($how_helpfuldata,JSON_NUMERIC_CHECK);
+        $data['purpose_achieveddata'] = json_encode($purpose_achieveddata,JSON_NUMERIC_CHECK);
+        // centers
+        $data['treatement'] = json_encode($treatement,JSON_NUMERIC_CHECK);
+        $data['attention'] = json_encode($attention,JSON_NUMERIC_CHECK);
+        $data['response_time'] = json_encode($response_time,JSON_NUMERIC_CHECK);
+        $data['easy_understand'] = json_encode($easy_understand,JSON_NUMERIC_CHECK);
+        $data['need_accommodation'] = json_encode($need_accommodation,JSON_NUMERIC_CHECK);
+        $data['satisfied'] = json_encode($satisfied,JSON_NUMERIC_CHECK);
+ 
 
-        return view('types_of_cancer/nci_customer_satisfaction_ratings')->with('centers', $centers)->with('websites', $website);
+        return view('types_of_cancer/nci_customer_satisfaction_ratings', $data);
+        //->with('year',json_encode($year,JSON_NUMERIC_CHECK))->with('user',json_encode($user,JSON_NUMERIC_CHECK));
     }
     public function nci_cancer_forms()
     {

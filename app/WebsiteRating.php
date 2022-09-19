@@ -37,7 +37,8 @@ class WebsiteRating extends Model
     // get all ratings
     public static function getAllRatings()
     {
-        return WebsiteRating::all();
+        //get all ratings order desc by created_at
+        return WebsiteRating::orderBy('created_at', 'desc')->get();
     }
     // get a rating
     public function getRating($id)
