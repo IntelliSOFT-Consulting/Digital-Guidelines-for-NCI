@@ -2,6 +2,9 @@
 
 namespace BookStack\Http\Controllers;
 
+
+use Barryvdh\DomPDF\Facade as PDF;
+use Dompdf\Dompdf;
 use BookStack\Actions\ActivityQueries;
 use BookStack\Actions\ActivityType;
 use BookStack\Actions\View;
@@ -474,7 +477,7 @@ class BookController extends Controller
             $percountie = $percounty->where('id', $facility_id);
             //dd($percountie);
             if ($percountie) {
-                PercountyCenters_model::where('id', $facility_id)->update(['ext_link' => $exurlink,'Physical_Address' => $addres,'Cancer_Treatment_Modalities' => $modality, 'Facility' => $facility]);
+                PercountyCenters_model::where('id', $facility_id)->update(['ext_link' => $exurlink, 'Physical_Address' => $addres, 'Cancer_Treatment_Modalities' => $modality, 'Facility' => $facility]);
                 //dd($percountie);
             }
         }
@@ -485,10 +488,12 @@ class BookController extends Controller
         //load all cancer ratings
         $data['centers'] = CenterRating::getAllRatings();
 
-        $onetofive = ['1','2','3','4','5'];
-        $onetoten = ['1','2','3','4','5','6','7','8','9','10'];
-        $purpose=['Educational','Medical','Setting up a cancer centre','General knowledge'];
-        $yesno=['Yes','No'];
+        $onetofive = ['1', '2', '3', '4', '5'];
+        $onetoten = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+        $purpose = ['Educational', 'Medical', 'Setting up a cancer centre', 'General knowledge'];
+        $yesno = ['Yes', 'No'];
+        //display from very easy to difficult
+        $user_friendly = ['Very Easy', 'Easy', 'Moderate', 'Difficult', 'Very Difficult'];
 
 
         $experience = [];
@@ -503,50 +508,65 @@ class BookController extends Controller
         $need_accommodation = [];
         $satisfied = [];
         foreach ($onetofive as $key => $value) {
-            $experience[] = WebsiteRating::where('experience','=',$value)->count();
-            $response_time[] = CenterRating::where('response_time','=',$value)->count();
-            $need_accommodation[] = CenterRating::where('need_accommodation','=',$value)->count();
-            $satisfied[] = CenterRating::where('satisfied','=',$value)->count();
+            $experience[] = WebsiteRating::where('experience', '=', $value)->count();
+            $response_time[] = CenterRating::where('response_time', '=', $value)->count();
+            $need_accommodation[] = CenterRating::where('need_accommodation', '=', $value)->count();
+            $satisfied[] = CenterRating::where('satisfied', '=', $value)->count();
         }
         foreach ($purpose as $key => $value) {
-            $purposedata[] = WebsiteRating::where('purpose','=',$value)->count();
+            $purposedata[] = WebsiteRating::where('purpose', '=', $value)->count();
         }
         foreach ($yesno as $key => $value) {
-            $helpfuldata[] = WebsiteRating::where('helpful','=',$value)->count();
-            $purpose_achieveddata[] = WebsiteRating::where('purpose_achieved','=',$value)->count();
-            $treatement[] = CenterRating::where('treatement','=',$value)->count();
-            $attention[] = CenterRating::where('attention','=',$value)->count();
-            $easy_understand[] = CenterRating::where('easy_understand','=',$value)->count();
+            $helpfuldata[] = WebsiteRating::where('helpful', '=', $value)->count();
+            $purpose_achieveddata[] = WebsiteRating::where('purpose_achieved', '=', $value)->count();
+            $treatement[] = CenterRating::where('treatement', '=', $value)->count();
+            $attention[] = CenterRating::where('attention', '=', $value)->count();
+            $easy_understand[] = CenterRating::where('easy_understand', '=', $value)->count();
         }
         foreach ($onetoten as $value) {
-            $how_helpfuldata[] = WebsiteRating::where('how_helpful','=',$value)->count();
+            $how_helpfuldata[] = WebsiteRating::where('how_helpful', '=', $value)->count();
         }
 
-         
+
 
 
         //load all website rating
         $data['website'] = WebsiteRating::getAllRatings();
-        $data['onetofive'] = json_encode($onetofive,JSON_NUMERIC_CHECK);
-        $data['onetoten'] = json_encode($onetoten,JSON_NUMERIC_CHECK);
-        $data['experience'] = json_encode($experience,JSON_NUMERIC_CHECK);
-        $data['purpose'] = json_encode($purpose,JSON_NUMERIC_CHECK);
-        $data['purposedata'] = json_encode($purposedata,JSON_NUMERIC_CHECK);
-        $data['yesno'] = json_encode($yesno,JSON_NUMERIC_CHECK);
-        $data['helpfuldata'] = json_encode($helpfuldata,JSON_NUMERIC_CHECK); 
-        $data['how_helpfuldata'] = json_encode($how_helpfuldata,JSON_NUMERIC_CHECK);
-        $data['purpose_achieveddata'] = json_encode($purpose_achieveddata,JSON_NUMERIC_CHECK);
+        $data['onetofive'] = json_encode($onetofive, JSON_NUMERIC_CHECK);
+        $data['onetoten'] = json_encode($onetoten, JSON_NUMERIC_CHECK);
+        $data['experience'] = json_encode($experience, JSON_NUMERIC_CHECK);
+        $data['purpose'] = json_encode($purpose, JSON_NUMERIC_CHECK);
+        $data['purposedata'] = json_encode($purposedata, JSON_NUMERIC_CHECK);
+        $data['yesno'] = json_encode($yesno, JSON_NUMERIC_CHECK);
+        $data['helpfuldata'] = json_encode($helpfuldata, JSON_NUMERIC_CHECK);
+        $data['how_helpfuldata'] = json_encode($how_helpfuldata, JSON_NUMERIC_CHECK);
+        $data['purpose_achieveddata'] = json_encode($purpose_achieveddata, JSON_NUMERIC_CHECK);
         // centers
-        $data['treatement'] = json_encode($treatement,JSON_NUMERIC_CHECK);
-        $data['attention'] = json_encode($attention,JSON_NUMERIC_CHECK);
-        $data['response_time'] = json_encode($response_time,JSON_NUMERIC_CHECK);
-        $data['easy_understand'] = json_encode($easy_understand,JSON_NUMERIC_CHECK);
-        $data['need_accommodation'] = json_encode($need_accommodation,JSON_NUMERIC_CHECK);
-        $data['satisfied'] = json_encode($satisfied,JSON_NUMERIC_CHECK);
- 
+        $data['treatement'] = json_encode($treatement, JSON_NUMERIC_CHECK);
+        $data['attention'] = json_encode($attention, JSON_NUMERIC_CHECK);
+        $data['response_time'] = json_encode($response_time, JSON_NUMERIC_CHECK);
+        $data['easy_understand'] = json_encode($easy_understand, JSON_NUMERIC_CHECK);
+        $data['need_accommodation'] = json_encode($need_accommodation, JSON_NUMERIC_CHECK);
+        $data['satisfied'] = json_encode($satisfied, JSON_NUMERIC_CHECK);
+        $data['user_friendly'] = json_encode($user_friendly, JSON_NUMERIC_CHECK);
+
+
+        // $filename = 'nci_customer_ratings'.date('Y-m-d H:m');
+        // $vie=new DomPDF();
+        // $pdf = PDF::loadView('exports/website_ratings',$data);
+
+        // $dompdf = new DomPDF();
+        // $dompdf->load_html($pdf); 
+        // return $dompdf->render();
+
+
+    //    return $this->dompdf->stream($pdf, array("Attachment" => 0));
+
+       // $pdf = PDF::loadView('exports/website_ratings',$data);
+       // return $pdf->download($filename.'.pdf');
+
 
         return view('types_of_cancer/nci_customer_satisfaction_ratings', $data);
-        //->with('year',json_encode($year,JSON_NUMERIC_CHECK))->with('user',json_encode($user,JSON_NUMERIC_CHECK));
     }
     public function nci_cancer_forms()
     {
@@ -582,14 +602,13 @@ class BookController extends Controller
     {
 
         $ratings = CenterRating::createRating($request);
-            # code...
-            return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your comment!');
-         
+        # code...
+        return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your comment!');
     }
     public function add_user_web_ratings(Request $request)
     {
         //website ratings
-        $ratings=WebsiteRating::createRating($request);
+        $ratings = WebsiteRating::createRating($request);
         return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your comment!');
 
         // $ratings = new Ratings_model();

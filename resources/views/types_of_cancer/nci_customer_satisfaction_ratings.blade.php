@@ -3,10 +3,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>
   var onetofive = <?php echo $onetofive; ?>;
+  var user_friendly = <?php echo $user_friendly; ?>;
   var experience = <?php echo $experience; ?>;
 
   var barChartData = {
-    labels: onetofive,
+    labels: user_friendly,
     datasets: [{
       labels: 'Experience',
       //list of colors in this order pink blue green yellow purple 
@@ -20,6 +21,8 @@
   var purposedata = <?php echo $purposedata; ?>;
 
   var purposeChartData = {
+    // get values from purpose array
+    labels: purpose[0],
     labels: purpose,
     datasets: [{
       label: 'Response',
@@ -34,6 +37,7 @@
   var helpfuldata = <?php echo $helpfuldata; ?>;
 
   var helpfulChartData = {
+    // get 
     labels: helpful,
     datasets: [{
       label: 'Response',
@@ -541,9 +545,9 @@
         <ol type="1">
           <div class="row">
             <div class="col-md-12">
-              <div class="tab">
+              <div class="tab"> 
 
-                <button class="tablinks" onclick="openTab(event, 'website')">Website Questions</button>
+                <button class="tablinks" style="display: active;" onclick="openTab(event, 'website')" id="defaultOpen">Website Questions</button>
                 <button class="tablinks" onclick="openTab(event, 'center')">Cancer Center Customer Satisfaction</button>
 
               </div>
@@ -578,7 +582,10 @@
                   @foreach($website as $web)
                   <?php $i++; ?>
                   <ul>
+                    <!-- only show if not null -->
+                    @if($web->biggest_challenge != null)
                     <li>{{$web->biggest_challenge}}</li>
+                    @endif
                   </ul>
 
                   @endforeach
@@ -587,9 +594,15 @@
                 <div name style="background-color: #FBF4F4;margin:5px;">
                   <?php $i = 0; ?>
                   @foreach($website as $web)
-                  <?php $i++; ?>
+                  <?php $i++;                  
+                  ?>
+
                   <ul>
+                    <!-- only show if it is not null -->
+                    @if($web->improve_experience != null)
+
                     <li>{{$web->improve_experience}}</li>
+                    @endif
                   </ul>
 
                   @endforeach
@@ -694,7 +707,10 @@
                   @foreach($centers as $web)
                   <?php $i++; ?>
                   <ul>
+                    <!-- only show if not null -->
+                    @if($web->improvement != null)
                     <li>{{$web->improvement}}</li>
+                    @endif
                   </ul>
 
                   @endforeach
@@ -775,6 +791,11 @@
   @include('common/nci_footer')
 </div>
 <script>
+
+  //default active 
+  $(document).ready(function() {
+    $("#defaultOpen").addClass("active");
+  });
   function openTab(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");

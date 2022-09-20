@@ -71,7 +71,7 @@ class BookExportController extends Controller
         return response()->download($path);
         // $vie=new DomPDF();
         // $pdf = PDF::loadView('exports.nci_cheklist');
-        // return $pdf->download('Application_form_to_NCI_K.pdf');
+        // return $pdf->download('Application_form_to_NCI_K.pdf',);
         //return $pdf->stream("Halloa.pdf");
         //return view('exports.nci_kPdf');
         //$book = $this->bookRepo->getBySlug($bookSlug);Application form to NCI-K
