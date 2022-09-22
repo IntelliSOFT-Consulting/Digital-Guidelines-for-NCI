@@ -609,7 +609,8 @@ class BookController extends Controller
     {
         //website ratings
         $ratings = WebsiteRating::createRating($request);
-        return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your comment!');
+        return redirect('/nci/customer/satisfaction/ratings')
+        ->with('message', 'Thanks for your feedback and your comment!')->with('submitted', 'done');
 
         // $ratings = new Ratings_model();
         // $ratings->additional_comments = $request->comment;

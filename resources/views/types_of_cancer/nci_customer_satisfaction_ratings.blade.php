@@ -80,7 +80,7 @@
     labels: treatement,
     datasets: [{
       label: 'Response',
-      
+
       backgroundColor: ['#FFC0CB', '#87CEFA'],
       data: treatementdata
     }]
@@ -92,7 +92,7 @@
   var attentionChartData = {
     labels: attention,
     datasets: [{
-      label: 'Response',      
+      label: 'Response',
       backgroundColor: ['#FFC0CB', '#87CEFA'],
       data: attentiondata
     }]
@@ -545,242 +545,256 @@
         <ol type="1">
           <div class="row">
             <div class="col-md-12">
-              <div class="tab"> 
+              <div class="tab">
+                @if(Session::has('submitted'))
+
+                <button class="tablinks" style="display: active;" onclick="openTab(event, 'website')">Website Questions</button>
+                <button class="tablinks" onclick="openTab(event, 'center')" id="defaultOpen">Cancer Center Customer Satisfaction</button>
+                @else
 
                 <button class="tablinks" style="display: active;" onclick="openTab(event, 'website')" id="defaultOpen">Website Questions</button>
                 <button class="tablinks" onclick="openTab(event, 'center')">Cancer Center Customer Satisfaction</button>
+                @endif
 
               </div>
-              <div id="website" class="tabcontent" style="display:block;">
-                <h3> </h3>
-                @if(userCan('users-manage'))
-
-                <!-- Start of response display -->
-                <li>Rate your experience using the website/Do you feel that the website is user friendly?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="experience" height="150" width="600"></canvas>
-                </div>
-                <li>What was your purpose of visiting the website?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="purpose" height="150" width="600"></canvas>
-                </div>
-                <li>Was the information/ content helpful to your search?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="helpful" height="150" width="600"></canvas>
-                </div>
-                <li>On a scale of 1-10 how helpful was the content on the website in answering your questions?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="how_helpful" height="150" width="600"></canvas>
-                </div>
-                <li>Were you sufficiently able to achieve your purpose for visiting the website?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="purpose_achieved" height="150" width="600"></canvas>
-                </div>
-                <li>What was your biggest challenge in navigating the website?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <?php $i = 0; ?>
-                  @foreach($website as $web)
-                  <?php $i++; ?>
-                  <ul>
-                    <!-- only show if not null -->
-                    @if($web->biggest_challenge != null)
-                    <li>{{$web->biggest_challenge}}</li>
-                    @endif
-                  </ul>
-
-                  @endforeach
-                </div>
-                <li>How can we improve your experience on the website?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <?php $i = 0; ?>
-                  @foreach($website as $web)
-                  <?php $i++;                  
-                  ?>
-
-                  <ul>
-                    <!-- only show if it is not null -->
-                    @if($web->improve_experience != null)
-
-                    <li>{{$web->improve_experience}}</li>
-                    @endif
-                  </ul>
-
-                  @endforeach
-                </div>
-
-
-                <!-- End of Display form -->
-
-
+              @if(Session::has('submitted'))
+              <div id="website" class="tabcontent">
                 @else
-                <form method="POST" action="{{url('/add/user/website/ratings')}}">
-                  @csrf
+                <div id="website" class="tabcontent" style="display:block;">
+                  @endif
+
+                  <h3> </h3>
+                  @if(userCan('users-manage'))
+
+                  <!-- Start of response display -->
                   <li>Rate your experience using the website/Do you feel that the website is user friendly?</li>
-                  <div class="form-control" name style="background-color: #FBF4F4;margin:5px;">
-                    <label class="inline">Very easy</label>
-                    <input type="radio" name="experience" value="1" required>
-                    <input type="radio" name="experience" value="2">
-                    <input type="radio" name="experience" value="3">
-                    <input type="radio" name="experience" value="4">
-                    <input type="radio" name="experience" value="5">
-                    <label class="inline" style="    margin-left:20px;">Very difficult</label>
+                  <div name style="background-color: #FBF4F4;margin:5px;">
+                    <canvas id="experience" height="150" width="600"></canvas>
                   </div>
                   <li>What was your purpose of visiting the website?</li>
-                  <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
-                    <input type="radio" name="purpose" value="Educational" required>Educational
-                    <input type="radio" name="purpose" value="Medical">Medical
-                    <input type="radio" name="purpose" value="Setting up a cancer centre">Setting up a cancer centre
-                    <input type="radio" name="purpose" value="General knowledge">General knowledge
+                  <div name style="background-color: #FBF4F4;margin:5px;">
+                    <canvas id="purpose" height="150" width="600"></canvas>
                   </div>
                   <li>Was the information/ content helpful to your search?</li>
-                  <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
-                    <input type="radio" name="helpful" value="Yes" required>Yes
-                    <input type="radio" name="helpful" value="No">No
+                  <div name style="background-color: #FBF4F4;margin:5px;">
+                    <canvas id="helpful" height="150" width="600"></canvas>
                   </div>
                   <li>On a scale of 1-10 how helpful was the content on the website in answering your questions?</li>
-                  <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
-                    <label class="inline">1</label>
-                    <input type="radio" name="how_helpful" id="at" value="1" required>
-                    <input type="radio" name="how_helpful" id="at" value="2">
-                    <input type="radio" name="how_helpful" id="at" value="3">
-                    <input type="radio" name="how_helpful" id="at" value="4">
-                    <input type="radio" name="how_helpful" id="at" value="5">
-                    <input type="radio" name="how_helpful" id="at" value="6">
-                    <input type="radio" name="how_helpful" id="at" value="7">
-                    <input type="radio" name="how_helpful" id="at" value="8">
-                    <input type="radio" name="how_helpful" id="at" value="9">
-                    <input type="radio" name="how_helpful" id="at" value="10">
-                    <label class="inline" style="    margin-left:10px;">10</label>
+                  <div name style="background-color: #FBF4F4;margin:5px;">
+                    <canvas id="how_helpful" height="150" width="600"></canvas>
                   </div>
-                  <li> Were you sufficiently able to achieve your purpose for visiting the website?</li>
-                  <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
-                    <input type="radio" name="purpose_achieved" id="at" value="Yes" required>Yes
-                    <input type="radio" name="purpose_achieved" id="at" value="No"> No
+                  <li>Were you sufficiently able to achieve your purpose for visiting the website?</li>
+                  <div name style="background-color: #FBF4F4;margin:5px;">
+                    <canvas id="purpose_achieved" height="150" width="600"></canvas>
                   </div>
-
                   <li>What was your biggest challenge in navigating the website?</li>
-                  <input type="text" name="biggest_challenge" style="background-color: #FBF4F4;width: 100%;" class="form-control" id="challenge" placeholder="Type your response here...">
+                  <div name style="background-color: #FBF4F4;margin:5px;">
+                    <?php $i = 0; ?>
+                    @foreach($website as $web)
+                    <?php $i++; ?>
+                    <ul>
+                      <!-- only show if not null -->
+                      @if($web->biggest_challenge != null)
+                      <li>{{$web->biggest_challenge}}</li>
+                      @endif
+                    </ul>
+
+                    @endforeach
+                  </div>
                   <li>How can we improve your experience on the website?</li>
-                  <input type="text" name="improve_experience" style="background-color: #FBF4F4;width: 100%;" class="form-control" id="improve" placeholder="Type your response here...">
+                  <div name style="background-color: #FBF4F4;margin:5px;">
+                    <?php $i = 0; ?>
+                    @foreach($website as $web)
+                    <?php $i++;
+                    ?>
 
-                  <!-- </div> -->
-                  <div class="inline" style="float:right;margin-top:10px;">
-                    <button type="button" onclick=" check()" style="background-color: #DED9D9;border-radius:10px;color:white">Cancel</button>
-                    <button type="submit" style="background-color: #D820C5;border-radius:10px;color:white" value="Submit">Submit</button>
+                    <ul>
+                      <!-- only show if it is not null -->
+                      @if($web->improve_experience != null)
+
+                      <li>{{$web->improve_experience}}</li>
+                      @endif
+                    </ul>
+
+                    @endforeach
                   </div>
-                </form>
-                @endif
-              </div>
 
-              <div id="center" class="tabcontent">
-                <h3></h3>
-                @if(userCan('users-manage'))
-                <!-- Start of Centers -->
-                <li>During your visit, did you feel that you were treated with courtesy and respect?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="treatement" height="150" width="600"></canvas>
-                </div>
-                <li>Do you feel that the staff listened carefully and paid attention to your needs?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="attention" height="150" width="600"></canvas>
-                </div>
 
-                <li> How long did you wait to receive the service?/ Do you feel that the response time was adequate?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="response_time" height="150" width="600"></canvas>
+                  <!-- End of Display form -->
+
+
+                  @else
+                  <form method="POST" action="{{url('/add/user/website/ratings')}}">
+                    @csrf
+                    <li>Rate your experience using the website/Do you feel that the website is user friendly?</li>
+                    <div class="form-control" name style="background-color: #FBF4F4;margin:5px;">
+                      <label class="inline">Very easy</label>
+                      <input type="radio" name="experience" value="1" required>
+                      <input type="radio" name="experience" value="2">
+                      <input type="radio" name="experience" value="3">
+                      <input type="radio" name="experience" value="4">
+                      <input type="radio" name="experience" value="5">
+                      <label class="inline" style="    margin-left:20px;">Very difficult</label>
+                    </div>
+                    <li>What was your purpose of visiting the website?</li>
+                    <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
+                      <input type="radio" name="purpose" value="Educational" required>Educational
+                      <input type="radio" name="purpose" value="Medical">Medical
+                      <input type="radio" name="purpose" value="Setting up a cancer centre">Setting up a cancer centre
+                      <input type="radio" name="purpose" value="General knowledge">General knowledge
+                    </div>
+                    <li>Was the information/ content helpful to your search?</li>
+                    <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
+                      <input type="radio" name="helpful" value="Yes" required>Yes
+                      <input type="radio" name="helpful" value="No">No
+                    </div>
+                    <li>On a scale of 1-10 how helpful was the content on the website in answering your questions?</li>
+                    <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
+                      <label class="inline">1</label>
+                      <input type="radio" name="how_helpful" id="at" value="1" required>
+                      <input type="radio" name="how_helpful" id="at" value="2">
+                      <input type="radio" name="how_helpful" id="at" value="3">
+                      <input type="radio" name="how_helpful" id="at" value="4">
+                      <input type="radio" name="how_helpful" id="at" value="5">
+                      <input type="radio" name="how_helpful" id="at" value="6">
+                      <input type="radio" name="how_helpful" id="at" value="7">
+                      <input type="radio" name="how_helpful" id="at" value="8">
+                      <input type="radio" name="how_helpful" id="at" value="9">
+                      <input type="radio" name="how_helpful" id="at" value="10">
+                      <label class="inline" style="    margin-left:10px;">10</label>
+                    </div>
+                    <li> Were you sufficiently able to achieve your purpose for visiting the website?</li>
+                    <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
+                      <input type="radio" name="purpose_achieved" id="at" value="Yes" required>Yes
+                      <input type="radio" name="purpose_achieved" id="at" value="No"> No
+                    </div>
+
+                    <li>What was your biggest challenge in navigating the website?</li>
+                    <input type="text" name="biggest_challenge" style="background-color: #FBF4F4;width: 100%;" class="form-control" id="challenge" placeholder="Type your response here...">
+                    <li>How can we improve your experience on the website?</li>
+                    <input type="text" name="improve_experience" style="background-color: #FBF4F4;width: 100%;" class="form-control" id="improve" placeholder="Type your response here...">
+
+                    <!-- </div> -->
+                    <div class="inline" style="float:right;margin-top:10px;">
+                      <button type="button" onclick=" check()" style="background-color: #DED9D9;border-radius:10px;color:white">Cancel</button>
+                      <button type="submit" style="background-color: #D820C5;border-radius:10px;color:white" value="Submit">Submit</button>
+                    </div>
+                  </form>
+                  @endif
                 </div>
-                <li>Were the staff able to explain things to you in a way that was easy for you to understand?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="easy_understand" height="150" width="600"></canvas>
-                </div>
-                <li> To what extent do the facilities/infrastructure of the cancer centre accommodate your needs?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="need_accommodation" height="150" width="600"></canvas>
-                </div>
-                <li> Are you satisfied with the service you received?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <canvas id="satisfied" height="150" width="600"></canvas>
-                </div>
-                <li>How can the cancer centre improve service delivery?</li>
-                <div name style="background-color: #FBF4F4;margin:5px;">
-                  <?php $i = 0; ?>
-                  @foreach($centers as $web)
-                  <?php $i++; ?>
-                  <ul>
-                    <!-- only show if not null -->
-                    @if($web->improvement != null)
-                    <li>{{$web->improvement}}</li>
+                @if(Session::has('submitted'))
+                <div id="center" class="tabcontent" style="display:block;">
+                  @else
+                  <div id="center" class="tabcontent">
                     @endif
-                  </ul>
+                    <h3></h3>
+                    @if(userCan('users-manage'))
+                    <!-- Start of Centers -->
+                    <li>During your visit, did you feel that you were treated with courtesy and respect?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="treatement" height="150" width="600"></canvas>
+                    </div>
+                    <li>Do you feel that the staff listened carefully and paid attention to your needs?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="attention" height="150" width="600"></canvas>
+                    </div>
 
-                  @endforeach
+                    <li> How long did you wait to receive the service?/ Do you feel that the response time was adequate?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="response_time" height="150" width="600"></canvas>
+                    </div>
+                    <li>Were the staff able to explain things to you in a way that was easy for you to understand?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="easy_understand" height="150" width="600"></canvas>
+                    </div>
+                    <li> To what extent do the facilities/infrastructure of the cancer centre accommodate your needs?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="need_accommodation" height="150" width="600"></canvas>
+                    </div>
+                    <li> Are you satisfied with the service you received?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="satisfied" height="150" width="600"></canvas>
+                    </div>
+                    <li>How can the cancer centre improve service delivery?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <?php $i = 0; ?>
+                      @foreach($centers as $web)
+                      <?php $i++; ?>
+                      <ul>
+                        <!-- only show if not null -->
+                        @if($web->improvement != null)
+                        <li>{{$web->improvement}}</li>
+                        @endif
+                      </ul>
+
+                      @endforeach
+                    </div>
+
+                    <!-- End of Centers -->
+
+                    @else
+                    <form method="POST" action="{{url('/add/user/ratings')}}">
+                      @csrf
+                      <li>During your visit, did you feel that you were treated with courtesy and respect?</li>
+                      <div class="form-control" name style="background-color: #FBF4F4;margin:5px;">
+                        <input type="radio" name="treatement" value="Yes" required>Yes
+                        <input type="radio" name="treatement" value="No">No
+                      </div>
+                      <li>Do you feel that the staff listened carefully and paid attention to your needs?</li>
+                      <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
+                        <input type="radio" name="attention" value="Yes" required>Yes
+                        <input type="radio" name="attention" value="No">No
+                      </div>
+                      <li> How long did you wait to receive the service?/ Do you feel that the response time was adequate?</li>
+                      <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
+                        <label class="inline">Least adequate</label>
+                        <input type="radio" name="response_time" value="1" required>
+                        <input type="radio" name="response_time" value="2">
+                        <input type="radio" name="response_time" value="3">
+                        <input type="radio" name="response_time" value="4">
+                        <input type="radio" name="response_time" value="5">
+                        <label class="inline" style="    margin-left:20px;">very adequate</label>
+                      </div>
+                      <li>Were the staff able to explain things to you in a way that was easy for you to understand?</li>
+                      <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
+                        <input type="radio" name="easy_understand" id="at" value="Yes" required>Yes
+                        <input type="radio" name="easy_understand" id="at" value="No">No
+                      </div>
+                      <li> To what extent do the facilities/infrastructure of the cancer centre accommodate your needs?</li>
+                      <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
+                        <label class="inline">Least adequate</label>
+                        <input type="radio" name="need_accommodation" value="1" required>
+                        <input type="radio" name="need_accommodation" value="2">
+                        <input type="radio" name="need_accommodation" value="3">
+                        <input type="radio" name="need_accommodation" value="4">
+                        <input type="radio" name="need_accommodation" value="5">
+                        <label class="inline" style="    margin-left:20px;">very adequate</label>
+                      </div>
+                      <li> Are you satisfied with the service you received?</li>
+                      <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
+                        <label class="inline">Least adequate</label>
+                        <input type="radio" name="satisfied" value="1" required>
+                        <input type="radio" name="satisfied" value="2">
+                        <input type="radio" name="satisfied" value="3">
+                        <input type="radio" name="satisfied" value="4">
+                        <input type="radio" name="satisfied" value="5">
+                        <label class="inline" style="    margin-left:20px;">very adequate</label>
+                      </div>
+                      <li>How can the cancer centre improve service delivery?</li>
+                      <!-- <div class="form-control"> -->
+                      <input type="text" name="improvement" style="background-color: #FBF4F4;width: 100%;" class="form-control" id="improvement" placeholder="Type your response">
+
+                      <!-- </div> -->
+                      <div class="inline" style="float:right;margin-top:10px;">
+                        <button type="button" onclick=" check()" style="background-color: #DED9D9;border-radius:10px;color:white">Cancel</button>
+                        <button type="submit" style="background-color: #D820C5;border-radius:10px;color:white" value="Submit">Submit</button>
+                      </div>
+                    </form>
+                    @endif
+                  </div>
+
                 </div>
-
-                <!-- End of Centers -->
-
-                @else
-                <form method="POST" action="{{url('/add/user/ratings')}}">
-                  @csrf
-                  <li>During your visit, did you feel that you were treated with courtesy and respect?</li>
-                  <div class="form-control" name style="background-color: #FBF4F4;margin:5px;">
-                    <input type="radio" name="treatement" value="Yes" required>Yes
-                    <input type="radio" name="treatement" value="No">No
-                  </div>
-                  <li>Do you feel that the staff listened carefully and paid attention to your needs?</li>
-                  <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
-                    <input type="radio" name="attention" value="Yes" required>Yes
-                    <input type="radio" name="attention" value="No">No
-                  </div>
-                  <li> How long did you wait to receive the service?/ Do you feel that the response time was adequate?</li>
-                  <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
-                    <label class="inline">Least adequate</label>
-                    <input type="radio" name="response_time" value="1" required>
-                    <input type="radio" name="response_time" value="2">
-                    <input type="radio" name="response_time" value="3">
-                    <input type="radio" name="response_time" value="4">
-                    <input type="radio" name="response_time" value="5">
-                    <label class="inline" style="    margin-left:20px;">very adequate</label>
-                  </div>
-                  <li>Were the staff able to explain things to you in a way that was easy for you to understand?</li>
-                  <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
-                    <input type="radio" name="easy_understand" id="at" value="Yes" required>Yes
-                    <input type="radio" name="easy_understand" id="at" value="No">No
-                  </div>
-                  <li> To what extent do the facilities/infrastructure of the cancer centre accommodate your needs?</li>
-                  <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
-                    <label class="inline">Least adequate</label>
-                    <input type="radio" name="need_accommodation" value="1" required>
-                    <input type="radio" name="need_accommodation" value="2">
-                    <input type="radio" name="need_accommodation" value="3">
-                    <input type="radio" name="need_accommodation" value="4">
-                    <input type="radio" name="need_accommodation" value="5">
-                    <label class="inline" style="    margin-left:20px;">very adequate</label>
-                  </div>
-                  <li> Are you satisfied with the service you received?</li>
-                  <div class="form-control" style="background-color: #FBF4F4;margin:5px;">
-                    <label class="inline">Least adequate</label>
-                    <input type="radio" name="satisfied" value="1" required>
-                    <input type="radio" name="satisfied" value="2">
-                    <input type="radio" name="satisfied" value="3">
-                    <input type="radio" name="satisfied" value="4">
-                    <input type="radio" name="satisfied" value="5">
-                    <label class="inline" style="    margin-left:20px;">very adequate</label>
-                  </div>
-                  <li>How can the cancer centre improve service delivery?</li>
-                  <!-- <div class="form-control"> -->
-                  <input type="text" name="improvement" style="background-color: #FBF4F4;width: 100%;" class="form-control" id="improvement" placeholder="Type your response">
-
-                  <!-- </div> -->
-                  <div class="inline" style="float:right;margin-top:10px;">
-                    <button type="button" onclick=" check()" style="background-color: #DED9D9;border-radius:10px;color:white">Cancel</button>
-                    <button type="submit" style="background-color: #D820C5;border-radius:10px;color:white" value="Submit">Submit</button>
-                  </div>
-                </form>
-                @endif
               </div>
-
-            </div>
-          </div>
         </ol>
       </h5>
     </div>
@@ -791,11 +805,11 @@
   @include('common/nci_footer')
 </div>
 <script>
-
   //default active 
   $(document).ready(function() {
     $("#defaultOpen").addClass("active");
   });
+
   function openTab(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
