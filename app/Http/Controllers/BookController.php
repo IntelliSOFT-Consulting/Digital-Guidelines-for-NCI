@@ -3,8 +3,8 @@
 namespace BookStack\Http\Controllers;
 
 
-use Barryvdh\DomPDF\Facade as PDF;
-use Dompdf\Dompdf;
+// use Barryvdh\DomPDF\Facade as PDF;
+// use Dompdf\Dompdf;
 use BookStack\Actions\ActivityQueries;
 use BookStack\Actions\ActivityType;
 use BookStack\Actions\View;
@@ -35,6 +35,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Throwable;
 use Illuminate\Support\Facades\DB;
+use mikehaertl\wkhtmlto\Pdf;
 
 class BookController extends Controller
 {
@@ -564,6 +565,14 @@ class BookController extends Controller
 
        // $pdf = PDF::loadView('exports/website_ratings',$data);
        // return $pdf->download($filename.'.pdf');
+       $render = view('types_of_cancer/nci_customer_satisfaction_ratings', $data)->render();
+  
+       $pdf = new Pdf;
+       $pdf->addPage($render);
+       $pdf->setOptions(['javascript-delay' => 5000]);
+       $pdf->saveAs(public_path('report.pdf'));
+  
+       return response()->download(public_path('report.pdf'));
 
 
         return view('types_of_cancer/nci_customer_satisfaction_ratings', $data);
