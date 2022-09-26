@@ -734,27 +734,27 @@
                                     <form method="POST" action="{{url('/testing_phase')}}" enctype="multipart/form-data">
                                         @csrf
                                         <li>Rate your experience using the website/Do you feel that the website is user friendly?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
+                                        
                                             <div style="width: 600px;" id="draw-charts"></div>
-                                        </div>
+                                        
                                         <li>What was your purpose of visiting the website?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
+                                        
                                             <div style="width: 600px;" id="draw-purpose"></div>
-                                        </div>
+                                       
                                         <li>Was the information/ content helpful to your search?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
+                                        
                                             <div style="width: 600px;" id="draw-helpful"></div>
-                                        </div>
+                                        
                                         <li>On a scale of 1-10 how helpful was the content on the website in answering your questions?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
+                                        
                                         <div style="width: 600px;" id="draw-how-helpful"></div>
-                                        </div>
+                                       
                                         <li>Were you sufficiently able to achieve your purpose for visiting the website?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;"> 
+                                         
                                             <div style="width: 600px;" id="draw-purpose-achieved"></div>
-                                        </div>
+                                       
                                         <li>What was your biggest challenge in navigating the website?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
+                                        
                                             <?php $i = 0; ?>
                                             @foreach($website as $web)
                                             <?php $i++; ?>
@@ -766,9 +766,9 @@
                                             </ul>
 
                                             @endforeach
-                                        </div>
+                                       
                                         <li>How can we improve your experience on the website?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
+                                        
                                             <?php $i = 0; ?>
                                             @foreach($website as $web)
                                             <?php $i++;
@@ -783,7 +783,7 @@
                                             </ul>
 
                                             @endforeach
-                                        </div>
+                                        
                                         <div class="inline" style="float:right;margin-top:10px;">
                                             <input type="hidden" name="chartData" id="chartInputData">
                                             <input type="hidden" name="purposeInputData" id="purposeInputData">
