@@ -473,6 +473,9 @@
       }
     });
 
+    // CONVERT CHART TO IMAGE SRC
+    
+
 
 
   };
@@ -539,11 +542,11 @@
         @if(userCan('users-manage'))
         <div class="actions mb-xl">
           <h5>{{ trans('common.actions') }}</h5>
-          <div class="icon-list text-primary"> 
+          <div class="icon-list text-primary">
             <a href="/nci/customer/satisfaction/ratings/pdf" class="icon-list-item">
               <span>@icon('download')</span>
               <span>Download</span>
-            </a> 
+            </a>
           </div>
         </div>
         @endif
@@ -586,58 +589,64 @@
                   @if(userCan('users-manage'))
 
                   <!-- Start of response display -->
-                  <li>Rate your experience using the website/Do you feel that the website is user friendly?</li>
-                  <div name style="background-color: #FBF4F4;margin:5px;">
-                    <canvas id="experience" height="150" width="600"></canvas>
-                  </div>
-                  <li>What was your purpose of visiting the website?</li>
-                  <div name style="background-color: #FBF4F4;margin:5px;">
-                    <canvas id="purpose" height="150" width="600"></canvas>
-                  </div>
-                  <li>Was the information/ content helpful to your search?</li>
-                  <div name style="background-color: #FBF4F4;margin:5px;">
-                    <canvas id="helpful" height="150" width="600"></canvas>
-                  </div>
-                  <li>On a scale of 1-10 how helpful was the content on the website in answering your questions?</li>
-                  <div name style="background-color: #FBF4F4;margin:5px;">
-                    <canvas id="how_helpful" height="150" width="600"></canvas>
-                  </div>
-                  <li>Were you sufficiently able to achieve your purpose for visiting the website?</li>
-                  <div name style="background-color: #FBF4F4;margin:5px;">
-                    <canvas id="purpose_achieved" height="150" width="600"></canvas>
-                  </div>
-                  <li>What was your biggest challenge in navigating the website?</li>
-                  <div name style="background-color: #FBF4F4;margin:5px;">
-                    <?php $i = 0; ?>
-                    @foreach($website as $web)
-                    <?php $i++; ?>
-                    <ul>
-                      <!-- only show if not null -->
-                      @if($web->biggest_challenge != null)
-                      <li>{{$web->biggest_challenge}}</li>
-                      @endif
-                    </ul>
+                  <form method="POST" action="{{url('/testing_phase')}}" enctype="multipart/form-data">
+                    @csrf
+                    <li>Rate your experience using the website/Do you feel that the website is user friendly?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="experience" height="150" width="600"></canvas>
+                      <input height="150" width="600" name="experience" id="experience">
+                    </div>
+                    <li>What was your purpose of visiting the website?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="purpose" height="150" width="600"></canvas>
+                    </div>
+                    <li>Was the information/ content helpful to your search?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="helpful" height="150" width="600"></canvas>
+                    </div>
+                    <li>On a scale of 1-10 how helpful was the content on the website in answering your questions?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="how_helpful" height="150" width="600"></canvas>
+                    </div>
+                    <li>Were you sufficiently able to achieve your purpose for visiting the website?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <canvas id="purpose_achieved" height="150" width="600"></canvas>
+                    </div>
+                    <li>What was your biggest challenge in navigating the website?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <?php $i = 0; ?>
+                      @foreach($website as $web)
+                      <?php $i++; ?>
+                      <ul>
+                        <!-- only show if not null -->
+                        @if($web->biggest_challenge != null)
+                        <li>{{$web->biggest_challenge}}</li>
+                        @endif
+                      </ul>
 
-                    @endforeach
-                  </div>
-                  <li>How can we improve your experience on the website?</li>
-                  <div name style="background-color: #FBF4F4;margin:5px;">
-                    <?php $i = 0; ?>
-                    @foreach($website as $web)
-                    <?php $i++;
-                    ?>
+                      @endforeach
+                    </div>
+                    <li>How can we improve your experience on the website?</li>
+                    <div name style="background-color: #FBF4F4;margin:5px;">
+                      <?php $i = 0; ?>
+                      @foreach($website as $web)
+                      <?php $i++;
+                      ?>
 
-                    <ul>
-                      <!-- only show if it is not null -->
-                      @if($web->improve_experience != null)
+                      <ul>
+                        <!-- only show if it is not null -->
+                        @if($web->improve_experience != null)
 
-                      <li>{{$web->improve_experience}}</li>
-                      @endif
-                    </ul>
+                        <li>{{$web->improve_experience}}</li>
+                        @endif
+                      </ul>
 
-                    @endforeach
-                  </div>
-
+                      @endforeach
+                    </div>
+                    <div class="inline" style="float:right;margin-top:10px;">
+                      <button type="submit" style="background-color: #D820C5;border-radius:10px;color:white" value="Submit">Download</button>
+                    </div>
+                  </form>
 
                   <!-- End of Display form -->
 

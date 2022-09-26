@@ -94,6 +94,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/nci/create-book/{requirements}', [BookController::class, 'create_requirements']);
     Route::get('/nci/create-cancer/{cancer}', [BookController::class, 'cancer']);
     Route::post('/update/cancer/center', [BookController::class, 'updateexternal_link']);
+    Route::post('/testing_phase', [BookController::class, 'print_chart_demo']);
+
 
     
 

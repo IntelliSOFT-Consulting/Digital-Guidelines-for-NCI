@@ -549,25 +549,51 @@ class BookController extends Controller
         $data['easy_understand'] = json_encode($easy_understand, JSON_NUMERIC_CHECK);
         $data['need_accommodation'] = json_encode($need_accommodation, JSON_NUMERIC_CHECK);
         $data['satisfied'] = json_encode($satisfied, JSON_NUMERIC_CHECK);
-        $data['user_friendly'] = json_encode($user_friendly, JSON_NUMERIC_CHECK); 
+        $data['user_friendly'] = json_encode($user_friendly, JSON_NUMERIC_CHECK);
 
- 
 
-        $filename = 'nci_customer_ratings' . date('Y-m-d H:m'); 
 
-        $pdf = PDF::loadView('exports/website_ratings', $data);
-        $pdf->setOptions(['enable-javascript' => true]);
-        $pdf->setOptions(['javascript-delay' => 13500]);
-        $pdf->setOptions(['enable-smart-shrinking' => true]);
-        $pdf->setOptions(['no-stop-slow-scripts' => true]);
+        $filename = 'nci_customer_ratings' . date('Y-m-d H:m');
 
-        if($id == 'pdf'){
-            return $pdf->download($filename . '.pdf');
-        }else{
- 
-        return view('types_of_cancer/nci_customer_satisfaction_ratings', $data);
+        $pdf = PDF::loadView('exports/website_ratings', $data);  
+        $pdf->setOptions([
+            'dpi' => 150,
+            'orientation' => 'landscape',
+            'defaultFont' => 'sans-serif',
+            'javascript-delay' => 13500,
+            'enable-javascript' => true,
+            'no-stop-slow-scripts'=> true,
+            'enable-smart-shrinking'=> true
+        ]);
+
+        if ($id == 'pdf') {
+            // return $pdf->download($filename . '.pdf'); 
+             
+            return view('exports/website_ratings', compact('chart'));
+        } else {
+
+            // return view('types_of_cancer/nci_customer_satisfaction_ratings', $data);
+            return view('types_of_cancer/ratings', $data);
         }
     }
+
+
+// Test download pdf
+    public function print_chart_demo(Request $request)
+    {
+        $data['website'] = WebsiteRating::getAllRatings();
+        $data['friendly'] = $request->chartData;
+        $data['purpose'] = $request->purposeInputData;
+        $data['helpful'] = $request->helpfulInputData;
+        $data['purpose_achieved'] = $request->purposeAchievedInputData;
+        $data['how_helpful'] = $request->howHelpfulInputData;
+        //passing data to temp view blade file 
+    	$pdf = PDF::loadView('exports/test',$data);
+        //generating pdf
+    	return $pdf->download('charts.pdf');
+    }
+
+
     public function nci_cancer_forms()
     {
         return view('types_of_cancer/cancer_center_patients_form');
@@ -611,8 +637,6 @@ class BookController extends Controller
         $ratings = WebsiteRating::createRating($request);
         return redirect('/nci/customer/satisfaction/ratings/page')
             ->with('message', 'Thanks for your feedback and your comment!')->with('submitted', 'done');
-
-        
     }
     public function dataAjax(Request $request)
     {
