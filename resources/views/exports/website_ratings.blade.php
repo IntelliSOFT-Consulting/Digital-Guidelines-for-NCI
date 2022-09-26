@@ -88,7 +88,10 @@
                   @foreach($website as $web)
                   <?php $i++; ?>
                   <ul>
+                    <!-- check if not null -->
+                    @if($web->biggest_challenge != null)
                     <li>{{$web->biggest_challenge}}</li>
+                    @endif
                   </ul>
 
                   @endforeach
@@ -99,7 +102,11 @@
                   @foreach($website as $web)
                   <?php $i++; ?>
                   <ul>
+                    <!-- check if  not null -->
+                    @if($web->improve_experience != null)
+
                     <li>{{$web->improve_experience}}</li>
+                    @endif
                   </ul>
 
                   @endforeach
@@ -204,7 +211,10 @@
                   @foreach($centers as $web)
                   <?php $i++; ?>
                   <ul>
+                    <!-- check if not null -->
+                    @if($web->improvement != null)
                     <li>{{$web->improvement}}</li>
+                    @endif
                   </ul>
 
                   @endforeach

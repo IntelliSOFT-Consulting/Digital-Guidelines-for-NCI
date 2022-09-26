@@ -529,8 +529,27 @@
 @section('body')
 <div class="container small" style="max-width: 100%;">
   <main class="content-wrap card" style="min-height: auto;">
+    <div class="row">
+      <div class="col-md-10">
+        <h2 style="text-align:center;font-size: 16px;">Customer Ratings Satisfaction Form</h2>
+        <!-- check if can manage users -->
 
-    <h2 style="text-align:center;font-size: 16px;">Customer Ratings Satisfaction Form</h2>
+      </div>
+      <div class="col-md-2">
+        @if(userCan('users-manage'))
+        <div class="actions mb-xl">
+          <h5>{{ trans('common.actions') }}</h5>
+          <div class="icon-list text-primary"> 
+            <a href="/nci/customer/satisfaction/ratings/pdf" class="icon-list-item">
+              <span>@icon('download')</span>
+              <span>Download</span>
+            </a> 
+          </div>
+        </div>
+        @endif
+      </div>
+    </div>
+
   </main>
   <main class="content-wrap card" style="min-height: auto;">
     @if(Session::has('message'))

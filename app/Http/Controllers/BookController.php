@@ -3,8 +3,8 @@
 namespace BookStack\Http\Controllers;
 
 
-// use Barryvdh\DomPDF\Facade as PDF;
-// use Dompdf\Dompdf;
+use Barryvdh\DomPDF\Facade as PDF;
+use Dompdf\Dompdf;
 use BookStack\Actions\ActivityQueries;
 use BookStack\Actions\ActivityType;
 use BookStack\Actions\View;
@@ -35,7 +35,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Throwable;
 use Illuminate\Support\Facades\DB;
-use mikehaertl\wkhtmlto\Pdf;
+// use mikehaertl\wkhtmlto\Pdf;
 
 class BookController extends Controller
 {
@@ -484,7 +484,7 @@ class BookController extends Controller
         }
         return redirect()->back()->with('message', 'Cancer center updated succesful');
     }
-    public function nci_customer_ratings()
+    public function nci_customer_ratings($id)
     {
         //load all cancer ratings
         $data['centers'] = CenterRating::getAllRatings();
@@ -549,33 +549,24 @@ class BookController extends Controller
         $data['easy_understand'] = json_encode($easy_understand, JSON_NUMERIC_CHECK);
         $data['need_accommodation'] = json_encode($need_accommodation, JSON_NUMERIC_CHECK);
         $data['satisfied'] = json_encode($satisfied, JSON_NUMERIC_CHECK);
-        $data['user_friendly'] = json_encode($user_friendly, JSON_NUMERIC_CHECK);
+        $data['user_friendly'] = json_encode($user_friendly, JSON_NUMERIC_CHECK); 
 
+ 
 
-        // $filename = 'nci_customer_ratings'.date('Y-m-d H:m');
-        // $vie=new DomPDF();
-        // $pdf = PDF::loadView('exports/website_ratings',$data);
+        $filename = 'nci_customer_ratings' . date('Y-m-d H:m'); 
 
-        // $dompdf = new DomPDF();
-        // $dompdf->load_html($pdf); 
-        // return $dompdf->render();
+        $pdf = PDF::loadView('exports/website_ratings', $data);
+        $pdf->setOptions(['enable-javascript' => true]);
+        $pdf->setOptions(['javascript-delay' => 13500]);
+        $pdf->setOptions(['enable-smart-shrinking' => true]);
+        $pdf->setOptions(['no-stop-slow-scripts' => true]);
 
-
-    //    return $this->dompdf->stream($pdf, array("Attachment" => 0));
-
-       // $pdf = PDF::loadView('exports/website_ratings',$data);
-       // return $pdf->download($filename.'.pdf');
-       $render = view('types_of_cancer/nci_customer_satisfaction_ratings', $data)->render();
-  
-       $pdf = new Pdf;
-       $pdf->addPage($render);
-       $pdf->setOptions(['javascript-delay' => 5000]);
-       $pdf->saveAs(public_path('report.pdf'));
-  
-       return response()->download(public_path('report.pdf'));
-
-
+        if($id == 'pdf'){
+            return $pdf->download($filename . '.pdf');
+        }else{
+ 
         return view('types_of_cancer/nci_customer_satisfaction_ratings', $data);
+        }
     }
     public function nci_cancer_forms()
     {
@@ -612,14 +603,14 @@ class BookController extends Controller
 
         $ratings = CenterRating::createRating($request);
         # code...
-        return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your comment!');
+        return redirect('/nci/customer/satisfaction/ratings/','page')->with('message', 'Thanks for your feedback and your comment!');
     }
     public function add_user_web_ratings(Request $request)
     {
         //website ratings
         $ratings = WebsiteRating::createRating($request);
-        return redirect('/nci/customer/satisfaction/ratings')
-        ->with('message', 'Thanks for your feedback and your comment!')->with('submitted', 'done');
+        return redirect('/nci/customer/satisfaction/ratings','page')
+            ->with('message', 'Thanks for your feedback and your comment!')->with('submitted', 'done');
 
         // $ratings = new Ratings_model();
         // $ratings->additional_comments = $request->comment;

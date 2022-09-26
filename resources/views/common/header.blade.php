@@ -47,7 +47,7 @@
                         <!-- <a class="active" href="#">{{ trans('entities.national_cancer_institute_of_kenya') }}</a> -->
                         <a class="upcase" href="/nci/approved/cancer/center/">{{ trans('entities.approved_cancer_Center') }}</a>
                         <a class="upcase" href="{{ url('/nci/create-book/cancer_center_requirements') }}">{{ trans('entities.cancer_center_requirements') }}</a>
-                        <a class="upcase" href="/nci/customer/satisfaction/ratings">{{ trans('entities.customer_satisfaction_ratings') }}</a>
+                        <a class="upcase" href="/nci/customer/satisfaction/ratings/page">{{ trans('entities.customer_satisfaction_ratings') }}</a>
                         <a class="upcase" href="/nci/mlevel/cancer/center">{{ trans('entities.downloads') }}</a>
                         <a class="upcase" href="/book/nci/apply-to-ncik">{{ trans('entities.apply_here') }}</a>
                         <!-- <a href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a> -->

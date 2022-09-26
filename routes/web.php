@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/nci/comprehensive/cancer/center/', [BookController::class, 'nci_comprehensive_c_Center']);
 
     Route::get('/nci/approved/cancer/center/', [BookController::class, 'nci_comprehensive_c_Center']);
-    Route::get('/nci/customer/satisfaction/ratings', [BookController::class, 'nci_customer_ratings']);
+    Route::get('/nci/customer/satisfaction/ratings/{id}', [BookController::class, 'nci_customer_ratings']);
     Route::get('/nci/cancer/center/forms', [BookController::class, 'nci_cancer_forms']);
     Route::get('/nci/{slug}', [BookController::class, 'nci_operation_consideration_req']);
     Route::get('/nci/books/chemoteraphy/operational/considerations', [BookController::class, 'nci_chemotherapy']);
