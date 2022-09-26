@@ -603,27 +603,16 @@ class BookController extends Controller
 
         $ratings = CenterRating::createRating($request);
         # code...
-        return redirect('/nci/customer/satisfaction/ratings/','page')->with('message', 'Thanks for your feedback and your comment!');
+        return redirect('/nci/customer/satisfaction/ratings/page')->with('message', 'Thanks for your feedback and your comment!');
     }
     public function add_user_web_ratings(Request $request)
     {
         //website ratings
         $ratings = WebsiteRating::createRating($request);
-        return redirect('/nci/customer/satisfaction/ratings','page')
+        return redirect('/nci/customer/satisfaction/ratings/page')
             ->with('message', 'Thanks for your feedback and your comment!')->with('submitted', 'done');
 
-        // $ratings = new Ratings_model();
-        // $ratings->additional_comments = $request->comment;
-        // $ratings->experience_rating = $request->difficult;
-        // $ratings->empathetic_rating = $request->empathetic;
-        // $ratings->doctor_attends_rating = $request->long;
-        // $ratings->satisfied_doctor_rating = $request->satisfied;
-        // $ratings->user_id = auth()->user()->id;
-        // $rates = $ratings->save();
-        // if ($rates) {
-        //     # code...
-        //     return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your comment!');
-        // }
+        
     }
     public function dataAjax(Request $request)
     {

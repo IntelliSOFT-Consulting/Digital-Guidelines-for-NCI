@@ -33,6 +33,7 @@ class WebsiteRating extends Model
         $rating->biggest_challenge = $request->biggest_challenge;
         $rating->improve_experience = $request->improve_experience;
         $rating->save();
+        return $rating;
     }
     // get all ratings
     public static function getAllRatings()
