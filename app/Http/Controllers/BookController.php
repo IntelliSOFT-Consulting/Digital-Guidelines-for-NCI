@@ -599,7 +599,7 @@ class BookController extends Controller
         //passing data to temp view blade file 
     	$pdf = PDF::loadView('exports/test',$data);
         //generating pdf
-    	return $pdf->download('ratings.pdf');
+    	return $pdf->download('customer-ratings.pdf');
     }
 
 
