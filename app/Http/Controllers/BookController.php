@@ -582,11 +582,20 @@ class BookController extends Controller
     public function print_chart_demo(Request $request)
     {
         $data['website'] = WebsiteRating::getAllRatings();
+        $data['centers'] = CenterRating::getAllRatings();
         $data['friendly'] = $request->chartData;
         $data['purpose'] = $request->purposeInputData;
         $data['helpful'] = $request->helpfulInputData;
         $data['purpose_achieved'] = $request->purposeAchievedInputData;
         $data['how_helpful'] = $request->howHelpfulInputData;
+        // CENTERS
+        $data['treatment'] = $request->treatmentInputData;
+        $data['attention'] = $request->attentionInputData;
+        $data['response'] = $request->responseInputData;
+        $data['easy'] = $request->easyInputData;
+        $data['need'] = $request->needInputData;
+        $data['satisfied'] = $request->satisfiedInputData;
+ 
         //passing data to temp view blade file 
     	$pdf = PDF::loadView('exports/test',$data);
         //generating pdf

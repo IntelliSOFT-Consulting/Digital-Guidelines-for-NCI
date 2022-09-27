@@ -418,15 +418,12 @@
     var purpose_achieveddata = <?php echo $purpose_achieveddata; ?>;
     var treatement = <?php echo $yesno; ?>;
     var treatementdata = <?php echo $treatement; ?>;
-    var attention = <?php echo $yesno; ?>;
+
+    // CENTERS 
     var attentiondata = <?php echo $attention; ?>;
-    var response_time = <?php echo $onetofive; ?>;
     var response_timedata = <?php echo $response_time; ?>;
-    var easy_understand = <?php echo $yesno; ?>;
     var easy_understanddata = <?php echo $easy_understand; ?>;
-    var need_accommodation = <?php echo $onetofive; ?>;
     var need_accommodationdata = <?php echo $need_accommodation; ?>;
-    var satisfied = <?php echo $onetofive; ?>;
     var satisfieddata = <?php echo $satisfied; ?>;
 
     setTimeout(function() {
@@ -444,6 +441,32 @@
 
         let purposeAchievedData = $("#draw-purpose-achieved").html();
         $("#purposeAchievedInputData").val(purposeAchievedData);
+
+        //CENTERS
+
+        let treatmentInputData = $("#draw-treatement").html();
+        $("#treatmentInputData").val(treatmentInputData);
+
+
+
+        let attentionInputData = $("#draw-attention").html();
+        $("#attentionInputData").val(attentionInputData);
+
+        // response
+        let responseInputData = $("#draw-response").html();
+        $("#responseInputData").val(responseInputData);
+
+        // easy-understand 
+        let easyInputData = $("#draw-easy-understand").html();
+        $("#easyInputData").val(easyInputData);
+
+        // need-accommodation  easyInputData needInputData satisfiedInputData
+        let needInputData = $("#draw-need-accommodation").html();
+        $("#needInputData").val(needInputData);
+        // satisfied
+        let satisfiedInputData = $("#draw-satisfied").html();
+        $("#satisfiedInputData").val(satisfiedInputData);
+
 
 
     }, 1000);
@@ -576,8 +599,8 @@
             },
             packages: ['corechart']
         })
-          // HOW HELPFUL 
-          //$onetoten = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        // HOW HELPFUL 
+        //$onetoten = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
         let howhelpfulData = [
             ['1 ', how_helpfuldata[0]],
             ['2 ', how_helpfuldata[1]],
@@ -600,19 +623,19 @@
                 //ADDING DATA TO GOOGLE CHART
                 data.addRows(howhelpfulData);
                 //SETTING TITLE WIDTH AND HEIGHT OF CHARTS
-                
+
                 let chart_div = document.getElementById("draw-how-helpful");
                 let chart = new google.visualization.ColumnChart(chart_div);
                 //add 10 colors from blue to purple to the chart 
 
                 var colors = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c', '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5'];
-                 
+
                 var colorIndex = 0;
                 var options = {
                     width: 600,
                     height: 200,
-                    orientation:'horizontal',                   
-                    
+                    orientation: 'horizontal',
+
                 };
                 google.visualization.events.addListener(chart, 'ready', function() {
                     //DISPLAYING CHARTS AS IMAGES
@@ -624,15 +647,15 @@
             packages: ['corechart']
         })
 
-        purpose_achieved
 
-          // PURPOSE ACHIEVED 
+
+        // PURPOSE ACHIEVED 
         // $yesno = ['Yes', 'No'],
         let purposeachievedData = [
             ['Yes ' + purpose_achieveddata[0], purpose_achieveddata[0]],
             ['No ' + purpose_achieveddata[1], purpose_achieveddata[1]]
         ];
-         
+
 
         $("#draw-purpose-achieved").append("<div id='draw-purpose-achieved'></div>");
         google.charts.load('current', {
@@ -667,6 +690,266 @@
             packages: ['corechart']
         })
 
+        // CENTER SECTION
+        // $yesno = ['Yes', 'No'],
+        let treatementData = [
+            ['Yes ' + treatementdata[0], treatementdata[0]],
+            ['No ' + treatementdata[1], treatementdata[1]]
+        ];
+
+
+        $("#draw-treatement").append("<div id='draw-treatement'></div>");
+        google.charts.load('current', {
+            callback: function() {
+                var data = new google.visualization.DataTable();
+                //ADDING COLUMN WITH DEFINING TYPE OF CONTENT
+                data.addColumn('string', 'Experience');
+                data.addColumn('number', 'Count');
+                //ADDING DATA TO GOOGLE CHART
+                data.addRows(treatementData);
+                //SETTING TITLE WIDTH AND HEIGHT OF CHARTS
+                var options = {
+                    width: 600,
+                    height: 200,
+
+                    chartArea: {
+                        left: 50,
+                        top: 50,
+                        width: '100%',
+                        height: '100%'
+                    },
+                };
+                let chart_div = document.getElementById("draw-treatement");
+                let chart = new google.visualization.PieChart(chart_div);
+                google.visualization.events.addListener(chart, 'ready', function() {
+                    //DISPLAYING CHARTS AS IMAGES
+                    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+                });
+
+                chart.draw(data, options);
+            },
+            packages: ['corechart']
+        })
+
+
+        // ATTENTION
+        let attentionData = [
+            ['Yes ' + attentiondata[0], attentiondata[0]],
+            ['No ' + attentiondata[1], attentiondata[1]]
+        ];
+
+        $("#draw-attention").append("<div id='draw-attention'></div>");
+        google.charts.load('current', {
+            callback: function() {
+                var data = new google.visualization.DataTable();
+                //ADDING COLUMN WITH DEFINING TYPE OF CONTENT
+                data.addColumn('string', 'Experience');
+                data.addColumn('number', 'Count');
+                //ADDING DATA TO GOOGLE CHART
+                data.addRows(attentionData);
+                //SETTING TITLE WIDTH AND HEIGHT OF CHARTS
+                var options = {
+                    width: 600,
+                    height: 200,
+
+                    chartArea: {
+                        left: 50,
+                        top: 50,
+                        width: '100%',
+                        height: '100%'
+                    },
+                };
+                let chart_div = document.getElementById("draw-attention");
+                let chart = new google.visualization.PieChart(chart_div);
+                google.visualization.events.addListener(chart, 'ready', function() {
+                    //DISPLAYING CHARTS AS IMAGES
+                    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+                });
+
+                chart.draw(data, options);
+            },
+            packages: ['corechart']
+        })
+
+        //RESPONSE TIME
+
+
+        let easyData = [
+            ['Yes ' + easy_understanddata[0], easy_understanddata[0]],
+            ['No ' + easy_understanddata[1], easy_understanddata[1]]
+        ];
+
+
+        $("#draw-easy-understand").append("<div id='draw-easy-understand'></div>");
+        google.charts.load('current', {
+            callback: function() {
+                var data = new google.visualization.DataTable();
+                //ADDING COLUMN WITH DEFINING TYPE OF CONTENT
+                data.addColumn('string', 'Experience');
+                data.addColumn('number', 'Count');
+                //ADDING DATA TO GOOGLE CHART
+                data.addRows(easyData);
+                //SETTING TITLE WIDTH AND HEIGHT OF CHARTS
+                var options = {
+                    width: 600,
+                    height: 200,
+
+                    chartArea: {
+                        left: 50,
+                        top: 50,
+                        width: '100%',
+                        height: '100%'
+                    },
+                };
+                let chart_div = document.getElementById("draw-easy-understand");
+                let chart = new google.visualization.PieChart(chart_div);
+                google.visualization.events.addListener(chart, 'ready', function() {
+                    //DISPLAYING CHARTS AS IMAGES
+                    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+                });
+
+                chart.draw(data, options);
+            },
+            packages: ['corechart']
+        })
+
+
+        //WHAT EXTEND
+
+        //list from Least adequate to Most adequate
+        let extendData = [
+            ['Very inadequate ' + need_accommodationdata[0], need_accommodationdata[0]],
+            ['Inadequate ' + need_accommodationdata[1], need_accommodationdata[1]],
+            ['Neither adequate nor inadequate ' + need_accommodationdata[2], need_accommodationdata[2]],
+            ['Adequate ' + need_accommodationdata[3], need_accommodationdata[3]],
+            ['Very adequate ' + need_accommodationdata[4], need_accommodationdata[4]]
+        ];
+
+
+
+        $("#draw-need-accommodation").append("<div id='draw-need-accommodation'></div>");
+        google.charts.load('current', {
+            callback: function() {
+                var data = new google.visualization.DataTable();
+                //ADDING COLUMN WITH DEFINING TYPE OF CONTENT
+                data.addColumn('string', 'Experience');
+                data.addColumn('number', 'Count');
+                //ADDING DATA TO GOOGLE CHART
+                data.addRows(extendData);
+                //SETTING TITLE WIDTH AND HEIGHT OF CHARTS
+                var options = {
+                    width: 600,
+                    height: 200,
+
+                    chartArea: {
+                        left: 50,
+                        top: 50,
+                        width: '100%',
+                        height: '100%'
+                    },
+                };
+                let chart_div = document.getElementById("draw-need-accommodation");
+                let chart = new google.visualization.PieChart(chart_div);
+                google.visualization.events.addListener(chart, 'ready', function() {
+                    //DISPLAYING CHARTS AS IMAGES
+                    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+                });
+
+                chart.draw(data, options);
+            },
+            packages: ['corechart']
+        })
+
+        //list from Least adequate to very  adequate
+        let satisfactionData = [
+            ['Least adequate ' + satisfieddata[0], satisfieddata[0]],
+            ['Inadequate ' + satisfieddata[1], satisfieddata[1]],
+            ['Neither ' + satisfieddata[2], satisfieddata[2]],
+            ['Adequate ' + satisfieddata[3], satisfieddata[3]],
+            ['Very adequate ' + satisfieddata[4], satisfieddata[4]]
+        ];
+
+
+
+        $("#draw-satisfied").append("<div id='draw-satisfied'></div>");
+        google.charts.load('current', {
+            callback: function() {
+                var data = new google.visualization.DataTable();
+                //ADDING COLUMN WITH DEFINING TYPE OF CONTENT
+                data.addColumn('string', 'Experience');
+                data.addColumn('number', 'Count');
+                //ADDING DATA TO GOOGLE CHART
+                data.addRows(satisfactionData);
+                //SETTING TITLE WIDTH AND HEIGHT OF CHARTS
+                var options = {
+                    width: 600,
+                    height: 200,
+
+                    chartArea: {
+                        left: 50,
+                        top: 50,
+                        width: '100%',
+                        height: '100%'
+                    },
+                };
+                let chart_div = document.getElementById("draw-satisfied");
+                let chart = new google.visualization.PieChart(chart_div);
+                google.visualization.events.addListener(chart, 'ready', function() {
+                    //DISPLAYING CHARTS AS IMAGES
+                    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+                });
+
+                chart.draw(data, options);
+            },
+            packages: ['corechart']
+        })
+
+        let dataresponseData = [
+            ['Least adequate ' + response_timedata[0], response_timedata[0]],
+            ['Inadequate ' + response_timedata[1], response_timedata[1]],
+            ['Neither ' + response_timedata[2], response_timedata[2]],
+            ['Adequate ' + response_timedata[3], response_timedata[3]],
+            ['Very adequate ' + response_timedata[4], response_timedata[4]]
+        ];
+
+
+
+        $("#draw-response").append("<div id='draw-response'></div>");
+        google.charts.load('current', {
+            callback: function() {
+                var data = new google.visualization.DataTable();
+                //ADDING COLUMN WITH DEFINING TYPE OF CONTENT
+                data.addColumn('string', 'Experience');
+                data.addColumn('number', 'Count');
+                //ADDING DATA TO GOOGLE CHART
+                data.addRows(dataresponseData);
+                //SETTING TITLE WIDTH AND HEIGHT OF CHARTS
+                var options = {
+                    width: 600,
+                    height: 200,
+
+                    chartArea: {
+                        left: 50,
+                        top: 50,
+                        width: '100%',
+                        height: '100%'
+                    },
+                };
+                let chart_div = document.getElementById("draw-response");
+                let chart = new google.visualization.PieChart(chart_div);
+                google.visualization.events.addListener(chart, 'ready', function() {
+                    //DISPLAYING CHARTS AS IMAGES
+                    chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+                });
+
+                chart.draw(data, options);
+            },
+            packages: ['corechart']
+        })
+
+
+
+
 
     });
 </script>
@@ -685,10 +968,29 @@
                 <div class="actions mb-xl">
                     <h5>{{ trans('common.actions') }}</h5>
                     <div class="icon-list text-primary">
-                        <a href="/nci/customer/satisfaction/ratings/pdf" class="icon-list-item">
+                        <!-- <a href="/nci/customer/satisfaction/ratings/pdf" class="icon-list-item">
                             <span>@icon('download')</span>
                             <span>Download</span>
-                        </a>
+                        </a> -->
+                        <form method="POST" action="{{url('/testing_phase')}}" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="chartData" id="chartInputData">
+                            <input type="hidden" name="purposeInputData" id="purposeInputData">
+                            <input type="hidden" name="helpfulInputData" id="helpfulInputData">
+                            <input type="hidden" name="howHelpfulInputData" id="howHelpfulInputData">
+                            <input type="hidden" name="purposeAchievedInputData" id="purposeAchievedInputData">
+                            <!-- CENTERS -->
+                            <input type="hidden" name="treatmentInputData" id="treatmentInputData">
+                            <input type="hidden" name="attentionInputData" id="attentionInputData">
+                            <input type="hidden" name="responseInputData" id="responseInputData">
+                            <input type="hidden" name="easyInputData" id="easyInputData">
+                            <input type="hidden" name="needInputData" id="needInputData">
+                            <input type="hidden" name="satisfiedInputData" id="satisfiedInputData">
+                            <button type="submit" class="icon-list-item">
+                                <span>@icon('download')</span>
+                                <span>Download</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
                 @endif
@@ -734,64 +1036,56 @@
                                     <form method="POST" action="{{url('/testing_phase')}}" enctype="multipart/form-data">
                                         @csrf
                                         <li>Rate your experience using the website/Do you feel that the website is user friendly?</li>
-                                        
-                                            <div style="width: 600px;" id="draw-charts"></div>
-                                        
+
+                                        <div style="width: 600px;" id="draw-charts"></div>
+
                                         <li>What was your purpose of visiting the website?</li>
-                                        
-                                            <div style="width: 600px;" id="draw-purpose"></div>
-                                       
+
+                                        <div style="width: 600px;" id="draw-purpose"></div>
+
                                         <li>Was the information/ content helpful to your search?</li>
-                                        
-                                            <div style="width: 600px;" id="draw-helpful"></div>
-                                        
+
+                                        <div style="width: 600px;" id="draw-helpful"></div>
+
                                         <li>On a scale of 1-10 how helpful was the content on the website in answering your questions?</li>
-                                        
+
                                         <div style="width: 600px;" id="draw-how-helpful"></div>
-                                       
+
                                         <li>Were you sufficiently able to achieve your purpose for visiting the website?</li>
-                                         
-                                            <div style="width: 600px;" id="draw-purpose-achieved"></div>
-                                       
+
+                                        <div style="width: 600px;" id="draw-purpose-achieved"></div>
+
                                         <li>What was your biggest challenge in navigating the website?</li>
-                                        
-                                            <?php $i = 0; ?>
-                                            @foreach($website as $web)
-                                            <?php $i++; ?>
-                                            <ul>
-                                                <!-- only show if not null -->
-                                                @if($web->biggest_challenge != null)
-                                                <li>{{$web->biggest_challenge}}</li>
-                                                @endif
-                                            </ul>
 
-                                            @endforeach
-                                       
+                                        <?php $i = 0; ?>
+                                        @foreach($website as $web)
+                                        <?php $i++; ?>
+                                        <ul>
+                                            <!-- only show if not null -->
+                                            @if($web->biggest_challenge != null)
+                                            <li>{{$web->biggest_challenge}}</li>
+                                            @endif
+                                        </ul>
+
+                                        @endforeach
+
                                         <li>How can we improve your experience on the website?</li>
-                                        
-                                            <?php $i = 0; ?>
-                                            @foreach($website as $web)
-                                            <?php $i++;
-                                            ?>
 
-                                            <ul>
-                                                <!-- only show if it is not null -->
-                                                @if($web->improve_experience != null)
+                                        <?php $i = 0; ?>
+                                        @foreach($website as $web)
+                                        <?php $i++;
+                                        ?>
 
-                                                <li>{{$web->improve_experience}}</li>
-                                                @endif
-                                            </ul>
+                                        <ul>
+                                            <!-- only show if it is not null -->
+                                            @if($web->improve_experience != null)
 
-                                            @endforeach
-                                        
-                                        <div class="inline" style="float:right;margin-top:10px;">
-                                            <input type="hidden" name="chartData" id="chartInputData">
-                                            <input type="hidden" name="purposeInputData" id="purposeInputData">
-                                            <input type="hidden" name="helpfulInputData" id="helpfulInputData">
-                                            <input type="hidden" name="howHelpfulInputData" id="howHelpfulInputData">
-                                            <input type="hidden" name="purposeAchievedInputData" id="purposeAchievedInputData">
-                                            <button type="submit" style="background-color: #D820C5;border-radius:10px;color:white" value="Submit">Download</button>
-                                        </div>
+                                            <li>{{$web->improve_experience}}</li>
+                                            @endif
+                                        </ul>
+
+                                        @endforeach
+ 
                                     </form>
 
                                     <!-- End of Display form -->
@@ -865,44 +1159,38 @@
                                         @if(userCan('users-manage'))
                                         <!-- Start of Centers -->
                                         <li>During your visit, did you feel that you were treated with courtesy and respect?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
-                                            <canvas id="treatement" height="150" width="600"></canvas>
-                                        </div>
+
+                                        <div style="width: 600px;" id="draw-treatement"></div>
+
                                         <li>Do you feel that the staff listened carefully and paid attention to your needs?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
-                                            <canvas id="attention" height="150" width="600"></canvas>
-                                        </div>
+                                        <div style="width: 600px;" id="draw-attention"></div>
+
 
                                         <li> How long did you wait to receive the service?/ Do you feel that the response time was adequate?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
-                                            <canvas id="response_time" height="150" width="600"></canvas>
-                                        </div>
-                                        <li>Were the staff able to explain things to you in a way that was easy for you to understand?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
-                                            <canvas id="easy_understand" height="150" width="600"></canvas>
-                                        </div>
-                                        <li> To what extent do the facilities/infrastructure of the cancer centre accommodate your needs?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
-                                            <canvas id="need_accommodation" height="150" width="600"></canvas>
-                                        </div>
-                                        <li> Are you satisfied with the service you received?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
-                                            <canvas id="satisfied" height="150" width="600"></canvas>
-                                        </div>
-                                        <li>How can the cancer centre improve service delivery?</li>
-                                        <div name style="background-color: #FBF4F4;margin:5px;">
-                                            <?php $i = 0; ?>
-                                            @foreach($centers as $web)
-                                            <?php $i++; ?>
-                                            <ul>
-                                                <!-- only show if not null -->
-                                                @if($web->improvement != null)
-                                                <li>{{$web->improvement}}</li>
-                                                @endif
-                                            </ul>
+                                        <div style="width: 600px;" id="draw-response"></div>
 
-                                            @endforeach
-                                        </div>
+                                        <li>Were the staff able to explain things to you in a way that was easy for you to understand?</li>
+                                        <div style="width: 600px;" id="draw-easy-understand"></div>
+
+                                        <li> To what extent do the facilities/infrastructure of the cancer centre accommodate your needs?</li>
+                                        <div style="width: 600px;" id="draw-need-accommodation"></div>
+
+                                        <li> Are you satisfied with the service you received?</li>
+                                        <div style="width: 600px;" id="draw-satisfied"></div>
+
+                                        <li>How can the cancer centre improve service delivery?</li>
+                                        <?php $i = 0; ?>
+                                        @foreach($centers as $web)
+                                        <?php $i++; ?>
+                                        <ul>
+                                            <!-- only show if not null -->
+                                            @if($web->improvement != null)
+                                            <li>{{$web->improvement}}</li>
+                                            @endif
+                                        </ul>
+
+                                        @endforeach
+
 
                                         <!-- End of Centers -->
 
