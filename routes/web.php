@@ -78,7 +78,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/nci/basic/cancer/ceneter/', [BookController::class, 'nci_basic_c_ceneter']);
     Route::get('/nci/mlevel/cancer/ceneter', [BookController::class, 'nci_mlevel_c_ceneter']);
     Route::get('/nci/comprehensive/cancer/ceneter/', [BookController::class, 'nci_comprehensive_c_ceneter']);
-
+    Route::get('/nci/pagination/fetch_data', [BookController::class, 'fetch_data']);
     Route::get('/nci/approved/cancer/ceneter/', [BookController::class, 'nci_comprehensive_c_ceneter']);
     Route::get('/nci/customer/satisfaction/ratings', [BookController::class, 'nci_customer_ratings']);
     Route::get('/nci/cancer/ceneter/forms', [BookController::class, 'nci_cancer_forms']);

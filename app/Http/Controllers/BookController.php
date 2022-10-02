@@ -391,9 +391,10 @@ class BookController extends Controller
     {
         return view('types_of_cancer/nci_mlevel_cancer_center');
     }
-    public function nci_comprehensive_c_ceneter()
+    public function nci_comprehensive_c_ceneter(Request $request)
     {
-        $centers = ApprovedCancerCenter_models::groupBy('County')->get();
+       
+        $centers = ApprovedCancerCenter_models::groupBy('County')->paginate(5);;
         $per = array();
         //foreach ($centers  as $cen){
 
