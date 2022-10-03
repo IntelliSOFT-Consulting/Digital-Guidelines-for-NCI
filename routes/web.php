@@ -74,7 +74,15 @@ Route::middleware('auth')->group(function () {
     // Books
     
     
-    // nci custom routes
+    // nci custom routes 
+    //Route::get('/nci/basic/cancer/ceneter/', [BookController::class, 'nci_basic_c_ceneter']);
+   // Route::get('/nci/mlevel/cancer/ceneter', [BookController::class, 'nci_mlevel_c_ceneter']);
+    //Route::get('/nci/comprehensive/cancer/ceneter/', [BookController::class, 'nci_comprehensive_c_ceneter']);
+    //Route::get('/nci/pagination/fetch_data', [BookController::class, 'fetch_data']);
+    //Route::get('/nci/approved/cancer/ceneter/', [BookController::class, 'nci_comprehensive_c_ceneter']);
+    //Route::get('/nci/customer/satisfaction/ratings', [BookController::class, 'nci_customer_ratings']);
+    //Route::get('/nci/cancer/ceneter/forms', [BookController::class, 'nci_cancer_forms']);
+//end 
     Route::get('/nci/basic/cancer/center/', [BookController::class, 'nci_basic_c_Center']);
     Route::get('/nci/mlevel/cancer/center', [BookController::class, 'nci_mlevel_c_Center']);
     Route::get('/nci/comprehensive/cancer/center/', [BookController::class, 'nci_comprehensive_c_Center']);
@@ -82,6 +90,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/nci/approved/cancer/center/', [BookController::class, 'nci_comprehensive_c_Center']);
     Route::get('/nci/customer/satisfaction/ratings/{id}', [BookController::class, 'nci_customer_ratings']);
     Route::get('/nci/cancer/center/forms', [BookController::class, 'nci_cancer_forms']);
+
     Route::get('/nci/{slug}', [BookController::class, 'nci_operation_consideration_req']);
     Route::get('/nci/books/chemoteraphy/operational/considerations', [BookController::class, 'nci_chemotherapy']);
     Route::get('/nci/books/chemoteraphy/considerations', [BookController::class, 'chemoteraphy_considerations']);

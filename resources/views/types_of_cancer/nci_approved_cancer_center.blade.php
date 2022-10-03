@@ -115,132 +115,106 @@
     </div>
     @endif
 
-    <?php
+    <?php 
 
     use Illuminate\Support\Facades\DB;
 
-    $i = 0 ?>
+    //$i = 0 ?>
+    <div class="col-sm-7 form-group">
+    <!-- <div class="input-group">
+        <input class="form-control" id="search"
+               placeholder="Search..."
+               type="text">
+    </div> -->
+</div>
     <!-- <div class="row mission" style="margin-top:40px;"> -->
-    <table class="display table-responsive" style="width:100%">
+    <table id="example" class="display table-responsive" style="width:100%">
       <thead>
-        <tr>
-          <th style="width:40px">#No</th>
+        
+          <th style="width:70px">#No</th>
           <th style="width:100px">County</th>
           <th>Facility</th>
-
           <th>Physical Address</th>
           <th>Treatment Modalities</th>
-          <th>Designation</th>
+          <th >Designation</th>
+          <th >Action</th>
         </tr>
       </thead>
-      <tbody>
-        @foreach ($centers as $center)
-        <?php $i++; ?>
+      <!-- $data = DB::table('percounty_centers_models')->where('county_id', $center->County)->get(); -->
+      @foreach($centers as $index => $center)
+      <?php $data = DB::table('percounty_centers_models')->where('county_id', $center->County)->get(); ?>
         <tr>
-          <td>{{$i}}</td>
-          <td>{{$center->County}}</td>
-          <td>
-            <?php
-            $data = DB::table('percounty_centers_models')->where('county_id', $center->County)->get();
-            if (count($data) > 0) {
-
-              $work = 1;
-              foreach ($data as $woekers) {
-                if (isset($woekers->ext_link)) {
-                  # code...
-                  $url = $woekers->ext_link;
-                  //$url='#';
-                } else {
-                  $url = '#';
-                }
-                echo '<a  href="' . $url . '"  target="_blank">' . $work++ . ' .' . $woekers->Facility . '</a><hr>';
-              }
-            } else {
-              echo 'Not yet assigned to any worker';
-            }
-            ?>
-          </td>
-
-          <!-- Added Columns -->
-          <td>
-            <?php
-            $data = DB::table('percounty_centers_models')->where('county_id', $center->County)->get();
-            if (count($data) > 0) {
-
-              $work = 1;
-              foreach ($data as $woekers) {
-                if (isset($woekers->ext_link)) {
-                  # code...
-                  $url = $woekers->ext_link;
-                  //$url='#';
-                } else {
-                  $url = '#';
-                }
-                echo '' . $work++ . ' .' . $woekers->Physical_Address . '<hr>';
-              }
-            } else {
-              echo 'Not yet assigned to any worker';
-            }
-            ?>
-          </td>
-          <td>
-            <?php
-            $data = DB::table('percounty_centers_models')->where('county_id', $center->County)->get();
-            if (count($data) > 0) {
-
-              $work = 1;
-              foreach ($data as $woekers) {
-                if (isset($woekers->ext_link)) {
-                  # code...
-                  $url = $woekers->ext_link;
-                  //$url='#';
-                } else {
-                  $url = '#';
-                }
-                echo '' . $work++ . ' .' . $woekers->Cancer_Treatment_Modalities . '<hr>';
-              }
-            } else {
-              echo 'Not yet assigned to any worker';
-            }
-            ?>
-          </td>
-
-          <td>
-            <?php
-            if (count($data) > 0) {
-
-              $work = 1;
-              foreach ($data as $woekers) {
-                if (isset($woekers->ext_link)) {
-                  $extlink = $woekers->ext_link;
-                } else {
-                  $extlink = '';
-                }
-                if (user()->can("book-create-all")) {
-                  echo '' . $woekers->Designation . '<i style="font-size:12px" class=" fa fa-edit"data-ext_link="' . $extlink . '" data-modalities="' . $woekers->Cancer_Treatment_Modalities . '"data-physical="' . $woekers->Physical_Address . '"data-facility="' . $woekers->Facility . '"data-ci="' . $center->id . '"data-county="' . $center->County . '" data-id="' . $woekers->id . '"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>' . '<hr>';
-                } else {
-                  echo '' . $woekers->Designation . '<hr>';
-                }
-              }
-            } else {
-              echo 'Not yet assigned to any worker';
-            }
-            ?>
-          </td>
-
-          <!-- End of Added Columns -->
+            <td rowspan="{{count($data)}}">
+               {{ $index+1 }}
+            </td>
+            <td rowspan="{{count($data)}}">
+               {{ $center->County }}
+            </td>
+            <td> 
+              <?php  
+              if(isset($data[0]->ext_link)){
+              $url = $data[0]->ext_link;
+              }else
+              $url = "#";
+              ?>
+            <a href="{{ $url }}" target="_blank">{{$data[0]->Facility }}</a>
+            </td>
+            <td> {{$data[0]->Physical_Address }} </td>
+            <td> {{$data[0]->Cancer_Treatment_Modalities }} </td>
+            <td> 
+              {{$data[0]->Designation }} 
+            </td>
+            <td> 
+            <?php  
+            
+              if(isset($data[0]->ext_link)){
+              $url = $data[0]->ext_link;
+              }else
+              $url = "#";
+              ?>
+            <i style="font-size:12px" class=" fa fa-edit btn btn-succes"data-ext_link="{{$url}}" data-modalities="{{$data[0]->Cancer_Treatment_Modalities }}"data-physical="{{$data[0]->Physical_Address }}"data-facility="{{$data[0]->Facility }}"data-ci="{{$center->id}}"data-county="{{$center->County}}" data-id="{{$data[0]->id }}"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>
+            </td>
+        
+        <?php for ($i=1; $i <count($data) ; $i++) { ?>
+          <tr>
+          <td> 
+              <?php  
+              if(isset($data[$i]->ext_link)){
+              $url = $data[$i]->ext_link;
+              }else
+              $url = "#";
+              ?>
+            <a href="{{ $url }}" target="_blank">{{$data[$i]->Facility }}</a>
+            </td>
+            <td> {{$data[$i]->Physical_Address }} </td>
+            <td> {{$data[$i]->Cancer_Treatment_Modalities }} </td>
+            <td> 
+              {{$data[$i]->Designation }} 2
+            </td>
+            <td> 
+            <?php  
+              if(isset($data[$i]->ext_link)){
+              $url = $data[$i]->ext_link;
+              }else
+              $url = "#";
+              ?>
+            <i style="font-size:16px" class=" fa fa-edit btn btn-succes"data-ext_link="{{$url}}" data-modalities="{{$data[$i]->Cancer_Treatment_Modalities }}"data-physical="{{$data[$i]->Physical_Address }}"data-facility="{{$data[$i]->Facility }}"data-ci="{{$center->id}}"data-county="{{$center->County}}" data-id="{{$data[$i]->id }}"data-toggle="modal" data-target="#center" onclick="showmod()" data-whatever="@mdo"></i>
+            </td>
         </tr>
-
-        @endforeach
-      </tbody>
+      <?php  } ?>
+      </tr>
+    @endforeach
     </table>
-
+    <div class="pull-right">{!! str_replace('/?','?',$centers->render()) !!}</div>
+    <div class="pull-left"><i class="col-sm-12">
+        Total: {{count($centers)}} records
+    </i></div>
     <!-- </div> -->
 
     <!-- footer end -->
 
   </main>
-
+ 
 </div>
 @include('common/nci_footer')
 
@@ -252,10 +226,20 @@
 <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    $(document).ready(function() {
-      $('#example').DataTable({});
-    });
+  $(document).ready(function() { 
+    $('#search').on('input', function() {
+      var searchval=$(this).val();
+      alert(searchval);
+      $.ajax({
+      //url:"nci/approved/cancer/ceneter/",
+      data:{"page":searchval},
+      type: "GET",
+      success:function(data)
+      {
+        console.log(data);
+      }
+  })
+    }) 
     $('#adc').on('click', function() {
       var county = '<label for="county" class="col-form-label">County:</label><input type="text" style="width: 100%;background-color: #FBF4F4;" class="form-control" id="county" name="newcounty">';
       if ($('#add_to_me').css('display') != 'none') {
@@ -302,6 +286,6 @@
 
 
 
-    })
+    }) 
   });
 </script>
