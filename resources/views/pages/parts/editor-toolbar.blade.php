@@ -83,6 +83,7 @@
             </div>
 
             <button type="submit" id="save-button" class="float-left text-primary text-button text-pos-hover hide-under-m">@icon('save')<span>{{ trans('entities.pages_save') }}</span></button>
+ 
         </div>
     </div>
 </div>

@@ -139,6 +139,7 @@ class PageRepo
             'owned_by'   => user()->id,
             'updated_by' => user()->id,
             'draft'      => true,
+           'icon'       => 'fa-file', //added column
         ]);
 
         if ($parent instanceof Chapter) {
@@ -157,7 +158,7 @@ class PageRepo
     /**
      * Publish a draft page to make it a live, non-draft page.
      */
-    public function publishDraft(Page $draft, array $input): Page
+    public function publishDraft(Page $draft,$page, array $input): Page
     {
         //return $draft;
         $this->updateTemplateStatusAndContentFromInput($draft, $input);
@@ -165,8 +166,9 @@ class PageRepo
 
         $draft->draft = false;
         $draft->revision_count = 1;
+        $draft->icon=$page['icon'];
         $draft->priority = $this->getNewPriority($draft);
-        $draft->refreshSlug();
+        $draft->refreshSlug(); 
         $draft->save();
 
         $this->savePageRevision($draft, trans('entities.pages_initial_revision'));
@@ -181,21 +183,20 @@ class PageRepo
     /**
      * Update a page in the system.
      */
-    public function update(Page $page, array $input): Page
+    public function update(Page $page,$pages, array $input): Page
     {
         // Hold the old details to compare later
         $oldHtml = $page->html;
         $oldName = $page->name;
         $oldMarkdown = $page->markdown;
+        $oldIcon = $pages['icon']; //added column
 
         $this->updateTemplateStatusAndContentFromInput($page, $input);
-        $this->baseRepo->update($page, $input);
+        $this->baseRepo->update($page, $input); 
+        $page->revision_count++; 
+        $page->icon = $oldIcon; //added column
+        $page->save(); 
 
-        // Update with new details
-        $page->revision_count++;
-        $page->save();
-
-        // Remove all update drafts for this user & page.
         $this->getUserDraftQuery($page)->delete();
 
         // Save a revision after updating

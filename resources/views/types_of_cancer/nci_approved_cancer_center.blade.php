@@ -115,7 +115,7 @@
     </div>
     @endif
 
-    <?php
+    <?php 
 
     use Illuminate\Support\Facades\DB;
 
@@ -214,7 +214,7 @@
     <!-- footer end -->
 
   </main>
-
+ 
 </div>
 @include('common/nci_footer')
 
@@ -226,7 +226,7 @@
 <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 
 <script type="text/javascript">
-  $(document).ready(function() {
+  $(document).ready(function() { 
     $('#search').on('input', function() {
       var searchval=$(this).val();
       alert(searchval);
@@ -239,7 +239,7 @@
         console.log(data);
       }
   })
-    })
+    }) 
     $('#adc').on('click', function() {
       var county = '<label for="county" class="col-form-label">County:</label><input type="text" style="width: 100%;background-color: #FBF4F4;" class="form-control" id="county" name="newcounty">';
       if ($('#add_to_me').css('display') != 'none') {
@@ -286,7 +286,6 @@
 
 
 
-    })
-    
+    }) 
   });
 </script>

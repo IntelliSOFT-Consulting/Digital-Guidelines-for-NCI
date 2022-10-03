@@ -16,7 +16,7 @@
            <div class="col-md-4">
            <div class="card" >
        <div class="card-body">
-     <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
+     <!-- <a href="{{ url('/nci/mlevel/cancer/center') }}"> -->
      <!-- <a href="" class="" data-entity-type="book" data-entity-id=""> -->
        <img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york">
          <h4 class="card-title management">
@@ -31,7 +31,7 @@
       <!-- <div class="col-md-4">
       <div class="card" >
   <div class="card-body"> -->
-<!-- <a href="{{ url('/nci/comprehensive/cancer/ceneter/') }}"> -->
+<!-- <a href="{{ url('/nci/comprehensive/cancer/center/') }}"> -->
   <!-- <img class="images" src="{{ asset('/uploads/mlcc.png') }}" alt="New york">
     <h4 class="card-title management">Comprehensive Cancer Center
 </h4> -->

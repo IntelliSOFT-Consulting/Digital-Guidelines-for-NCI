@@ -281,7 +281,7 @@ in Kenya
       <div class="card" >
   <div class="card-body">
   <img class="images" src="{{ asset('/uploads/download.png') }}" alt="New york">
-  <h4 class="card-title management">Patient Details Forms
+  <h4 class="card-title management">Patient Oncology Assessment Form
 </h4>
   </div>
 </div>

@@ -72,7 +72,9 @@ form{
     margin-left: 20px;
 }
 </style>
-    <div class="container small" style="max-width: 100%;">
+</head>
+<div style="margin:5px">
+          <div class="container small" style="max-width: 100%;">
     <main class="content-wrap card" style="min-height: auto;">
     @include('common/nci_search')
 
@@ -80,7 +82,8 @@ form{
         </main>
 
         <main class="content-wrap card" style="min-height: auto;">
-        <form method = "POST" action = "{{url('/apply/to/cancer/ceneter')}}" accept-charset="utf-8" enctype="multipart/form-data">
+        <form method = "POST" action = "{{url('/apply/to/cancer/center')}}" accept-charset="utf-8" enctype="multipart/form-data">
+
                         @csrf
 <table>
 <table style="width:90%; margin-left:5%;margin-bottom:-9px" >

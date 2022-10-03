@@ -2,9 +2,14 @@
 
 namespace BookStack\Http\Controllers;
 
+
+use Barryvdh\DomPDF\Facade as PDF;
+use Dompdf\Dompdf;
 use BookStack\Actions\ActivityQueries;
 use BookStack\Actions\ActivityType;
 use BookStack\Actions\View;
+use BookStack\Auth\User;
+use BookStack\CenterRating;
 use BookStack\Entities\Models\PageContent_model;
 use BookStack\Entities\Tools\NextPreviousContentLocator;
 use BookStack\Entities\Tools\PageContent;
@@ -25,10 +30,12 @@ use BookStack\Entities\Tools\ShelfContext;
 use BookStack\Exceptions\ImageUploadException;
 use BookStack\Exceptions\NotFoundException;
 use BookStack\Facades\Activity;
+use BookStack\WebsiteRating;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Throwable;
 use Illuminate\Support\Facades\DB;
+// use mikehaertl\wkhtmlto\Pdf;
 
 class BookController extends Controller
 {
@@ -363,7 +370,7 @@ class BookController extends Controller
         return redirect($shelf->getUrl());
     }
     // nci changes
-    public function nci_basic_c_ceneter()
+    public function nci_basic_c_Center()
     {
         $view = setting()->getForCurrentUser('books_view_type');
         $sort = setting()->getForCurrentUser('books_sort', 'name');
@@ -387,11 +394,12 @@ class BookController extends Controller
         ]));
         return view('types_of_cancer/nci_basic_cancer_center');
     }
-    public function nci_mlevel_c_ceneter()
+    public function nci_mlevel_c_Center()
     {
         return view('types_of_cancer/nci_mlevel_cancer_center');
-    }
+    } 
     public function nci_comprehensive_c_ceneter(Request $request)
+ 
     {
        
         $centers = ApprovedCancerCenter_models::groupBy('County')->paginate(5);;
@@ -408,6 +416,9 @@ class BookController extends Controller
         $country = $request->country;
         $facility = $request->facility;
         $newcounty = $request->newcounty;
+        $modalities = $request->modalities;
+        $physical = $request->physical;
+
         $exist = $capproved->where('County', $country)->get();
         //dd($request->all());
         //if (isset($exist)) {
@@ -417,6 +428,8 @@ class BookController extends Controller
                 PercountyCenters_model::create([
                     'Facility' => $perc,
                     'county_id' => $country,
+                    'Cancer_Treatment_Modalities' => $modalities,
+                    'Physical_Address' => $physical,
                     'Designation' => $request->designation
                 ]);
             $message = 'county center added successfully';
@@ -431,6 +444,8 @@ class BookController extends Controller
                 PercountyCenters_model::create([
                     'Facility' => $newperc,
                     'county_id' => $newcounty,
+                    'Cancer_Treatment_Modalities' => $modalities,
+                    'Physical_Address' => $physical,
                     'Designation' => $request->designation
                 ]);
             }
@@ -465,16 +480,131 @@ class BookController extends Controller
             $percountie = $percounty->where('id', $facility_id);
             //dd($percountie);
             if ($percountie) {
-                PercountyCenters_model::where('id', $facility_id)->update(['ext_link' => $exurlink,'Physical_Address' => $addres,'Cancer_Treatment_Modalities' => $modality, 'Facility' => $facility]);
+                PercountyCenters_model::where('id', $facility_id)->update(['ext_link' => $exurlink, 'Physical_Address' => $addres, 'Cancer_Treatment_Modalities' => $modality, 'Facility' => $facility]);
                 //dd($percountie);
             }
         }
         return redirect()->back()->with('message', 'Cancer center updated succesful');
     }
-    public function nci_customer_ratings()
+    public function nci_customer_ratings($id)
     {
-        return view('types_of_cancer/nci_customer_satisfaction_ratings');
+        //load all cancer ratings
+        $data['centers'] = CenterRating::getAllRatings();
+
+        $onetofive = ['1', '2', '3', '4', '5'];
+        $onetoten = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+        $purpose = ['Educational', 'Medical', 'Setting up a cancer centre', 'General knowledge'];
+        $yesno = ['Yes', 'No'];
+        //display from very easy to difficult
+        $user_friendly = ['Very Easy', 'Easy', 'Moderate', 'Difficult', 'Very Difficult'];
+
+
+        $experience = [];
+        $purposedata = [];
+        $helpfuldata = [];
+        $how_helpfuldata = [];
+        $treatement = [];
+        $purpose_achieveddata = [];
+        $attention = [];
+        $response_time = [];
+        $easy_understand = [];
+        $need_accommodation = [];
+        $satisfied = [];
+        foreach ($onetofive as $key => $value) {
+            $experience[] = WebsiteRating::where('experience', '=', $value)->count();
+            $response_time[] = CenterRating::where('response_time', '=', $value)->count();
+            $need_accommodation[] = CenterRating::where('need_accommodation', '=', $value)->count();
+            $satisfied[] = CenterRating::where('satisfied', '=', $value)->count();
+        }
+        foreach ($purpose as $key => $value) {
+            $purposedata[] = WebsiteRating::where('purpose', '=', $value)->count();
+        }
+        foreach ($yesno as $key => $value) {
+            $helpfuldata[] = WebsiteRating::where('helpful', '=', $value)->count();
+            $purpose_achieveddata[] = WebsiteRating::where('purpose_achieved', '=', $value)->count();
+            $treatement[] = CenterRating::where('treatement', '=', $value)->count();
+            $attention[] = CenterRating::where('attention', '=', $value)->count();
+            $easy_understand[] = CenterRating::where('easy_understand', '=', $value)->count();
+        }
+        foreach ($onetoten as $value) {
+            $how_helpfuldata[] = WebsiteRating::where('how_helpful', '=', $value)->count();
+        }
+
+
+
+
+        //load all website rating
+        $data['website'] = WebsiteRating::getAllRatings();
+        $data['onetofive'] = json_encode($onetofive, JSON_NUMERIC_CHECK);
+        $data['onetoten'] = json_encode($onetoten, JSON_NUMERIC_CHECK);
+        $data['experience'] = json_encode($experience, JSON_NUMERIC_CHECK);
+        $data['purpose'] = json_encode($purpose, JSON_NUMERIC_CHECK);
+        $data['purposedata'] = json_encode($purposedata, JSON_NUMERIC_CHECK);
+        $data['yesno'] = json_encode($yesno, JSON_NUMERIC_CHECK);
+        $data['helpfuldata'] = json_encode($helpfuldata, JSON_NUMERIC_CHECK);
+        $data['how_helpfuldata'] = json_encode($how_helpfuldata, JSON_NUMERIC_CHECK);
+        $data['purpose_achieveddata'] = json_encode($purpose_achieveddata, JSON_NUMERIC_CHECK);
+        // centers
+        $data['treatement'] = json_encode($treatement, JSON_NUMERIC_CHECK);
+        $data['attention'] = json_encode($attention, JSON_NUMERIC_CHECK);
+        $data['response_time'] = json_encode($response_time, JSON_NUMERIC_CHECK);
+        $data['easy_understand'] = json_encode($easy_understand, JSON_NUMERIC_CHECK);
+        $data['need_accommodation'] = json_encode($need_accommodation, JSON_NUMERIC_CHECK);
+        $data['satisfied'] = json_encode($satisfied, JSON_NUMERIC_CHECK);
+        $data['user_friendly'] = json_encode($user_friendly, JSON_NUMERIC_CHECK);
+
+
+
+        $filename = 'nci_customer_ratings' . date('Y-m-d H:m');
+
+        $pdf = PDF::loadView('exports/website_ratings', $data);  
+        $pdf->setOptions([
+            'dpi' => 150,
+            'orientation' => 'landscape',
+            'defaultFont' => 'sans-serif',
+            'javascript-delay' => 13500,
+            'enable-javascript' => true,
+            'no-stop-slow-scripts'=> true,
+            'enable-smart-shrinking'=> true
+        ]);
+
+        if ($id == 'pdf') {
+            // return $pdf->download($filename . '.pdf'); 
+             
+            return view('exports/website_ratings', compact('chart'));
+        } else {
+
+            // return view('types_of_cancer/nci_customer_satisfaction_ratings', $data);
+            return view('types_of_cancer/ratings', $data);
+        }
     }
+
+
+// Test download pdf
+    public function print_chart_demo(Request $request)
+    {
+        $data['website'] = WebsiteRating::getAllRatings();
+        $data['centers'] = CenterRating::getAllRatings();
+        $data['friendly'] = $request->chartData;
+        $data['purpose'] = $request->purposeInputData;
+        $data['helpful'] = $request->helpfulInputData;
+        $data['purpose_achieved'] = $request->purposeAchievedInputData;
+        $data['how_helpful'] = $request->howHelpfulInputData;
+        // CENTERS
+        $data['treatment'] = $request->treatmentInputData;
+        $data['attention'] = $request->attentionInputData;
+        $data['response'] = $request->responseInputData;
+        $data['easy'] = $request->easyInputData;
+        $data['need'] = $request->needInputData;
+        $data['satisfied'] = $request->satisfiedInputData;
+ 
+        //passing data to temp view blade file 
+    	$pdf = PDF::loadView('exports/test',$data);
+        //generating pdf
+    	return $pdf->download('customer-ratings.pdf');
+    }
+
+
     public function nci_cancer_forms()
     {
         return view('types_of_cancer/cancer_center_patients_form');
@@ -508,18 +638,16 @@ class BookController extends Controller
     public function add_user_ratings(Request $request)
     {
 
-        $ratings = new Ratings_model();
-        $ratings->additional_comments = $request->comment;
-        $ratings->experience_rating = $request->difficult;
-        $ratings->empathetic_rating = $request->empathetic;
-        $ratings->doctor_attends_rating = $request->long;
-        $ratings->satisfied_doctor_rating = $request->satisfied;
-        $ratings->user_id = auth()->user()->id;
-        $rates = $ratings->save();
-        if ($rates) {
-            # code...
-            return redirect('/nci/customer/satisfaction/ratings')->with('message', 'Thanks for your feedback and your coment!');
-        }
+        $ratings = CenterRating::createRating($request);
+        # code...
+        return redirect('/nci/customer/satisfaction/ratings/page')->with('message', 'Thanks for your feedback and your comment!');
+    }
+    public function add_user_web_ratings(Request $request)
+    {
+        //website ratings
+        $ratings = WebsiteRating::createRating($request);
+        return redirect('/nci/customer/satisfaction/ratings/page')
+            ->with('message', 'Thanks for your feedback and your comment!')->with('submitted', 'done');
     }
     public function dataAjax(Request $request)
     {

@@ -5,9 +5,9 @@
  */
 return [
     //APPROVED CANCER CENTERS
-    'approved_cancer_ceneter' => 'Approved Cancer Centers',
+    'approved_cancer_Center' => 'Approved Cancer Centers',
     // CANCER CENTER REQUIREMENTS
-    'cancer_ceneter_requirements' => 'Cancer Center Requirements',
+    'cancer_center_requirements' => 'Cancer Center Requirements',
     // CUSTOMER SATISFACTION RATINGS
     'customer_satisfaction_ratings' => 'Customer Satisfaction Ratings',
     // DOWNLOADS

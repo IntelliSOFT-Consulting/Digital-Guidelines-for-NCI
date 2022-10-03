@@ -65,7 +65,7 @@
            <div class="col-md-4">
            <div class="card" >
        <div class="card-body">
-     <!-- <a href="{{ url('/nci/mlevel/cancer/ceneter') }}"> -->
+     <!-- <a href="{{ url('/nci/mlevel/cancer/center') }}"> -->
      <a href="{{ $book->getUrl() }}" class="" data-entity-type="book" data-entity-id="{{$book->id}}">
        <!-- <img class="images" src="{{ asset('/uploads/ccc.png') }}" alt="New york"> -->
        <div class="bg-{{ $book->getType() }} featured-image-container-wrap">

@@ -1,4 +1,3 @@
-
 {!! csrf_field() !!}
 
 <div class="form-group title-input">
@@ -16,12 +15,12 @@
     </button>
     <div class="collapse-content" collapsible-content>
         <p class="small">{{ $model->c_image }}</p>
-<!-- (isset($model) && $model->c_image) ?url('/public/chapter/Image/'.$model->c_image') : url('/book_default_cover.png') -->
+        <!-- (isset($model) && $model->c_image) ?url('/public/chapter/Image/'.$model->c_image') : url('/book_default_cover.png') -->
         @include('form.image-picker', [
-            'defaultImage' => (isset($model) && $model->c_image) ? url('public/chapter/Image/'.$model->c_image) : url('public/chapter/Image/'.$model->c_image) ,
-            'currentImage' => (isset($model) && $model->cover) ? $model->c_image() : url('public/chapter/Image/'.$model->c_image) ,
-            'name' => 'c_image',
-            'imageClass' => 'cover'
+        'defaultImage' => (isset($model) && $model->c_image) ? url('public/chapter/Image/'.$model->c_image) : url('public/chapter/Image/'.$model->c_image) ,
+        'currentImage' => (isset($model) && $model->cover) ? $model->c_image() : url('public/chapter/Image/'.$model->c_image) ,
+        'name' => 'c_image',
+        'imageClass' => 'cover'
         ])
     </div>
 </div>

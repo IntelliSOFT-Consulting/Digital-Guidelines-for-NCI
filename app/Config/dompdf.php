@@ -222,7 +222,7 @@ return [
          *
          * @var bool
          */
-        'enable_javascript' => false,
+        'enable_javascript' => true,
 
         /**
          * Enable remote file access.
