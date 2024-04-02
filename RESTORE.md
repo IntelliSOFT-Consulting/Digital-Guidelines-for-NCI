@@ -1,4 +1,4 @@
-### UWADI KE
+### Digital-Guidelines-for-NCI
 
 The project intended to design and develop comprehensive, interactive and user-friendly digital materials for guidelines for establishment of cancer centres and incorporate cancer awareness materials.
 ### Installation
